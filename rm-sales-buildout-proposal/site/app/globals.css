@@ -77,15 +77,15 @@
   --color-tint-blue: #EFF6FF;
   --color-tint-red: #FEF2F2;
 
-  /* Text colors */
-  --color-text-heading: #0F172A;
-  --color-text-body: #475569;
-  --color-text-muted: #64748B;
-  --color-text-inverse: #FFFFFF;
-  --color-text-inverse-secondary: #E2E8F0;
+  /* Text colors - FLAT NAMES for Tailwind v4 */
+  --color-heading: #0F172A;
+  --color-body: #475569;
+  --color-muted: #64748B;
+  --color-inverse: #FFFFFF;
+  --color-inverse-muted: #94A3B8;
 
-  /* Border colors */
-  --color-border-light: #E2E8F0;
+  /* Border colors - FLAT NAMES */
+  --color-border: #E2E8F0;
   --color-border-subtle: #F1F5F9;
   --color-border-dark: #334155;
 

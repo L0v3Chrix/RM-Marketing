@@ -81,25 +81,33 @@ export const REVENUE_BREAKDOWN = {
   total: { label: "Total", amount: 43074, count: 54 },
 } as const;
 
-// Calculator Default Values
+// Calculator Default Values - Based on GRANULAR-METRICS-SPEC.md
 export const CALCULATOR_DEFAULTS = {
   adSpend: 500,
   costPerLead: 6.3,
-  bookingRate: 19.3,
+  // Granular funnel rates
+  callAnswerRate: 30, // 30% of leads answer
+  callToBookingRate: 40, // 40% of answered calls book
+  bookingRate: 19.5, // Combined for display (30% × 65% ≈ 19.5%)
   showRate: 59,
   closeRate: 30,
+  upsellRate: 20,
   avgSaleValue: 2000,
+  upsellValue: 500,
   downsellValue: 197,
   downsellRate: 20,
   targetRevenue: 100000,
 } as const;
 
-// Calculator Presets
+// Calculator Presets - Including granular metrics
 export const CALCULATOR_PRESETS = [
   {
     name: "Current",
     values: {
       adSpend: 500,
+      callAnswerRate: 30,
+      callToBookingRate: 40,
+      showRate: 59,
       closeRate: 30,
       avgSaleValue: 2000,
     },
@@ -108,6 +116,9 @@ export const CALCULATOR_PRESETS = [
     name: "Phase 1 Target",
     values: {
       adSpend: 3000,
+      callAnswerRate: 35,
+      callToBookingRate: 45,
+      showRate: 70,
       closeRate: 35,
       avgSaleValue: 2500,
     },
@@ -116,6 +127,9 @@ export const CALCULATOR_PRESETS = [
     name: "Scale Mode",
     values: {
       adSpend: 6000,
+      callAnswerRate: 40,
+      callToBookingRate: 50,
+      showRate: 75,
       closeRate: 35,
       avgSaleValue: 3000,
     },
@@ -124,6 +138,9 @@ export const CALCULATOR_PRESETS = [
     name: "Aggressive",
     values: {
       adSpend: 10000,
+      callAnswerRate: 45,
+      callToBookingRate: 55,
+      showRate: 80,
       closeRate: 40,
       avgSaleValue: 3500,
     },
@@ -165,12 +182,14 @@ export const TIMELINE_PHASES = [
     phase: 1,
     name: "Pressure Test",
     duration: "Days 1-30",
-    investment: "$8,000",
+    investment: "Progressive",
+    investmentDetails: "$4K + $4K @ $20K + 33% over",
     highlights: [
       "Chrix + Sara selling full time",
       "Database reactivation campaign",
       "Work existing leads",
       "Target: $36K closed revenue",
+      "Pay for performance, not promises",
     ],
   },
   {
@@ -202,9 +221,9 @@ export const TIMELINE_PHASES = [
 // FAQ Questions
 export const FAQ_ITEMS = [
   {
-    question: "What if we don't hit the $36K quota in Phase 1?",
+    question: "What if we don't hit the $20K milestone in Phase 1?",
     answer:
-      "The second $4K payment is only due if we hit quota. If we don't hit $36K, you've invested $4K to prove the model doesn't work—that's still valuable information. But here's the thing: we wouldn't take this engagement if we didn't believe in the numbers.",
+      "The milestone payment ($4K) and performance bonus only kick in when we deliver. If we don't close $20K, you've invested $4K for 30 days of dedicated sales work—that's still valuable. But here's the thing: we wouldn't take this engagement if we didn't believe in the numbers.",
     category: "Risk",
   },
   {
