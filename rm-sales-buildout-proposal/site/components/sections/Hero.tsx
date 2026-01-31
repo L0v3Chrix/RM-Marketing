@@ -1,9 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { Container, Section } from "@/components/layout";
 import { Button } from "@/components/ui";
 import { FadeInOnScroll } from "@/components/animations";
-import { IndustryBenchmarks } from "@/components/data-viz";
 import { ArrowRight } from "lucide-react";
 
 export function Hero() {
@@ -11,17 +11,28 @@ export function Hero() {
     <Section background="white" padding="hero" id="hero">
       <Container size="wide">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-          {/* Left: Media Block - Hidden on mobile, shown first on desktop */}
+          {/* Left: Media Block - Sales Funnel Visualization */}
           <FadeInOnScroll className="order-2 lg:order-1">
-            <IndustryBenchmarks
-              title="Your Current Performance"
-              benchmarks={[
-                { label: "Lead-to-Appointment", yourValue: 19.3, industryMin: 3, industryMax: 5, format: "percent", higherIsBetter: true },
-                { label: "Cost Per Lead", yourValue: 6.30, industryMin: 50, industryMax: 85, format: "currency", higherIsBetter: false },
-                { label: "LTV:CAC Ratio", yourValue: 15.8, industryMin: 3, industryMax: 3, format: "ratio", higherIsBetter: true },
-                { label: "Show Rate", yourValue: 59, industryMin: 60, industryMax: 75, format: "percent", higherIsBetter: true },
-              ]}
-            />
+            <div className="relative">
+              <Image
+                src="/images/graphics/funnel-waterfall.png"
+                alt="GHL Mastery Sales Funnel - 238 Leads to $36K Revenue"
+                width={800}
+                height={600}
+                className="w-full h-auto rounded-2xl shadow-2xl"
+                priority
+              />
+              {/* Secondary benchmark image overlay */}
+              <div className="absolute -bottom-4 -right-4 w-2/3 hidden lg:block">
+                <Image
+                  src="/images/graphics/industry-benchmarks.png"
+                  alt="Your Performance vs Industry Benchmarks"
+                  width={500}
+                  height={300}
+                  className="w-full h-auto rounded-xl shadow-xl border-4 border-white"
+                />
+              </div>
+            </div>
           </FadeInOnScroll>
 
           {/* Right: Content - Shown first on mobile */}

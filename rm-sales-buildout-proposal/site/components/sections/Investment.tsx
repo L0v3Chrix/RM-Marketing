@@ -1,9 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { Container, Section } from "@/components/layout";
 import { Card } from "@/components/ui";
 import { FadeInOnScroll, CountUp } from "@/components/animations";
-import { ProgressivePayment } from "@/components/data-viz";
 import { DollarSign, TrendingUp, Clock, CheckCircle } from "lucide-react";
 
 const phase1Includes = [
@@ -61,13 +61,16 @@ export function Investment() {
           {/* Phase 1 - Progressive Performance */}
           <FadeInOnScroll delay={0.1}>
             <div className="h-full flex flex-col">
-              <ProgressivePayment
-                deposit={4000}
-                milestone={4000}
-                milestoneThreshold={20000}
-                bonusPercent={33}
-                targetRevenue={36000}
-              />
+              {/* Progressive Payment Visual */}
+              <div className="mb-4">
+                <Image
+                  src="/images/graphics/progressive-payment.png"
+                  alt="Phase 1 Progressive Payment: $4K → $4K → 33%"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto rounded-2xl shadow-xl"
+                />
+              </div>
               
               {/* What You Get - Additional Details */}
               <Card variant="highlight" padding="default" className="mt-4 flex-1">

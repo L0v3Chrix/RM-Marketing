@@ -1,9 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { Container, Section } from "@/components/layout";
 import { Card } from "@/components/ui";
 import { FadeInOnScroll, StaggerChildren, StaggerItem, CountUp } from "@/components/animations";
-import { RevenueGapChart } from "@/components/data-viz";
 import { Database, Target } from "lucide-react";
 
 const revenueProjection = {
@@ -49,12 +49,25 @@ export function Opportunity() {
 
         {/* Revenue Gap Visualization */}
         <FadeInOnScroll delay={0.1}>
-          <div className="max-w-3xl mx-auto mb-12 sm:mb-16">
-            <RevenueGapChart
-              currentRevenue={revenueProjection.current}
-              targetRevenue={revenueProjection.target}
-              label="Monthly Revenue"
-            />
+          <div className="max-w-4xl mx-auto mb-12 sm:mb-16">
+            <div className="grid md:grid-cols-2 gap-6 items-center">
+              {/* Revenue Gap Chart */}
+              <Image
+                src="/images/graphics/revenue-gap.png"
+                alt="Revenue Gap: $36K Current to $100K Target"
+                width={600}
+                height={400}
+                className="w-full h-auto rounded-2xl shadow-xl"
+              />
+              {/* ROI Comparison */}
+              <Image
+                src="/images/graphics/roi-comparison.png"
+                alt="Investment vs Return ROI Comparison"
+                width={600}
+                height={400}
+                className="w-full h-auto rounded-2xl shadow-xl"
+              />
+            </div>
           </div>
         </FadeInOnScroll>
 
@@ -66,6 +79,17 @@ export function Opportunity() {
               <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-heading">
                 The Database Opportunity
               </h3>
+            </div>
+
+            {/* Revenue Per Show Metric Card */}
+            <div className="max-w-md mx-auto mb-8">
+              <Image
+                src="/images/graphics/revenue-per-show.png"
+                alt="$628 Revenue Per Show"
+                width={400}
+                height={250}
+                className="w-full h-auto rounded-2xl shadow-xl"
+              />
             </div>
 
             <div className="text-center mb-6 sm:mb-8">

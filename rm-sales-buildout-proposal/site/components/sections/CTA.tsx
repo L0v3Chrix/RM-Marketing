@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Container, Section } from "@/components/layout";
 import { Button, Card } from "@/components/ui";
 import { FadeInOnScroll } from "@/components/animations";
@@ -90,18 +91,45 @@ export function CTA() {
           </FadeInOnScroll>
         </div>
 
-        {/* Trust Footer */}
+        {/* Intent Gauge */}
         <FadeInOnScroll delay={0.2}>
-          <div className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-border text-center">
-            <p className="text-muted text-xs sm:text-sm">
-              Prepared by <span className="text-body font-medium">Chrix & Sarah</span> |{" "}
-              <span className="text-green font-medium">Raize The Vibe</span>
-            </p>
-            <p className="text-muted text-xs sm:text-sm mt-2">
-              For <span className="text-body font-medium">Adam McInnes & Brendan</span> |{" "}
-              GHL Mastery
-            </p>
-            <p className="text-muted text-xs sm:text-sm mt-2">February 2026</p>
+          <div className="mt-12 sm:mt-16 max-w-md mx-auto">
+            <Image
+              src="/images/graphics/intent-gauge.png"
+              alt="Intent Score Gauge - Where Are You?"
+              width={400}
+              height={300}
+              className="w-full h-auto rounded-2xl shadow-xl"
+            />
+          </div>
+        </FadeInOnScroll>
+
+        {/* Trust Footer with Adam's Photo */}
+        <FadeInOnScroll delay={0.3}>
+          <div className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-border">
+            <div className="flex flex-col items-center gap-4">
+              {/* Adam's Photo */}
+              <div className="w-16 h-16 rounded-full overflow-hidden shadow-lg border-2 border-green/30">
+                <Image
+                  src="/images/team/adam-mcinnes.jpg"
+                  alt="Adam McInnes - GHL Mastery"
+                  width={64}
+                  height={64}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="text-center">
+                <p className="text-muted text-xs sm:text-sm">
+                  Prepared by <span className="text-body font-medium">Chrix & Sarah</span> |{" "}
+                  <span className="text-green font-medium">Raize The Vibe</span>
+                </p>
+                <p className="text-muted text-xs sm:text-sm mt-2">
+                  For <span className="text-body font-medium">Adam McInnes & Brendan</span> |{" "}
+                  GHL Mastery
+                </p>
+                <p className="text-muted text-xs sm:text-sm mt-2">February 2026</p>
+              </div>
+            </div>
           </div>
         </FadeInOnScroll>
       </Container>

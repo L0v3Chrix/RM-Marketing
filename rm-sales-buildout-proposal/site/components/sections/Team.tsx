@@ -5,13 +5,7 @@ import { Container, Section } from "@/components/layout";
 import { Card } from "@/components/ui";
 import { FadeInOnScroll, StaggerChildren, StaggerItem } from "@/components/animations";
 import { TEAM_MEMBERS } from "@/lib/constants";
-import { User, CheckCircle } from "lucide-react";
-
-// Team member images - use placeholders until real photos are added
-const TEAM_IMAGES: Record<string, string | null> = {
-  "Chrix": "/images/team/chrix.jpg",
-  "Sarah": "/images/team/sarah.jpg",
-};
+import { CheckCircle } from "lucide-react";
 
 export function Team() {
   return (
@@ -32,28 +26,47 @@ export function Team() {
           </div>
         </FadeInOnScroll>
 
+        {/* Team Structure Visual */}
+        <FadeInOnScroll delay={0.1}>
+          <div className="max-w-3xl mx-auto mb-12 sm:mb-16">
+            <Image
+              src="/images/graphics/team-structure.png"
+              alt="Team Structure: Chrix + Sarah Organization"
+              width={800}
+              height={500}
+              className="w-full h-auto rounded-2xl shadow-2xl"
+            />
+          </div>
+        </FadeInOnScroll>
+
+        {/* Featured Team Photo */}
+        <FadeInOnScroll delay={0.15}>
+          <div className="max-w-md mx-auto mb-12">
+            <Image
+              src="/images/team/chrix-and-sarah.jpg"
+              alt="Chrix and Sarah - Your Sales Team"
+              width={500}
+              height={400}
+              className="w-full h-auto rounded-2xl shadow-xl border-4 border-white"
+            />
+            <p className="text-center text-muted text-sm mt-4">Chrix & Sarah — Your dedicated sales operators</p>
+          </div>
+        </FadeInOnScroll>
+
         {/* Team Cards */}
         <StaggerChildren className="grid sm:grid-cols-2 gap-4 sm:gap-8 max-w-4xl mx-auto">
           {TEAM_MEMBERS.map((member, index) => (
             <StaggerItem key={index}>
               <Card variant="default" padding="large" className="h-full">
-                {/* Avatar */}
+                {/* Avatar - Use actual photos */}
                 <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-green/10 flex items-center justify-center overflow-hidden relative">
-                    {TEAM_IMAGES[member.name] ? (
-                      <Image
-                        src={TEAM_IMAGES[member.name]!}
-                        alt={member.name}
-                        fill
-                        className="object-cover"
-                        onError={(e) => {
-                          // Hide image on error, fallback icon will show
-                          e.currentTarget.style.display = 'none';
-                        }}
-                      />
-                    ) : null}
-                    {/* Fallback icon - always rendered but hidden when image loads */}
-                    <User className="w-8 h-8 sm:w-10 sm:h-10 text-green absolute" />
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden relative shadow-lg border-2 border-green/30">
+                    <Image
+                      src={member.name === "Chrix" ? "/images/team/chrix.jpg" : "/images/team/chrix-and-sarah.jpg"}
+                      alt={member.name}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                   <div>
                     <h3 className="text-xl sm:text-2xl font-bold text-heading">{member.name}</h3>

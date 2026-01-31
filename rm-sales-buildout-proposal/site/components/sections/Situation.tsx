@@ -1,9 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { Container, Section } from "@/components/layout";
 import { Card } from "@/components/ui";
 import { FadeInOnScroll, StaggerChildren, StaggerItem } from "@/components/animations";
-import { IndustryBenchmarks } from "@/components/data-viz";
 import { AlertCircle, Users, Database, TrendingDown, CreditCard } from "lucide-react";
 
 const constraints = [
@@ -61,15 +61,25 @@ export function Situation() {
         </FadeInOnScroll>
 
         <FadeInOnScroll delay={0.2}>
-          <div className="max-w-2xl mx-auto mb-12 sm:mb-16">
-            <IndustryBenchmarks
-              title="Your Performance vs. Industry"
-              benchmarks={[
-                { label: "Lead-to-Appointment", yourValue: 19.3, industryMin: 3, industryMax: 5, format: "percent", higherIsBetter: true },
-                { label: "Cost Per Lead", yourValue: 6.30, industryMin: 50, industryMax: 85, format: "currency", higherIsBetter: false },
-                { label: "LTV:CAC Ratio", yourValue: 15.8, industryMin: 3, industryMax: 3, format: "ratio", higherIsBetter: true },
-              ]}
-            />
+          <div className="max-w-4xl mx-auto mb-12 sm:mb-16">
+            <div className="grid md:grid-cols-2 gap-6 items-center">
+              {/* Before/After Comparison */}
+              <Image
+                src="/images/graphics/before-after.png"
+                alt="NOW vs WITH SALES TEAM comparison"
+                width={600}
+                height={450}
+                className="w-full h-auto rounded-2xl shadow-xl"
+              />
+              {/* Industry Benchmarks */}
+              <Image
+                src="/images/graphics/industry-benchmarks.png"
+                alt="Your Performance vs Industry Benchmarks"
+                width={600}
+                height={400}
+                className="w-full h-auto rounded-2xl shadow-xl"
+              />
+            </div>
           </div>
         </FadeInOnScroll>
 

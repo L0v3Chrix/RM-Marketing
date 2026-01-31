@@ -1,9 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { Container, Section } from "@/components/layout";
 import { Card } from "@/components/ui";
 import { FadeInOnScroll } from "@/components/animations";
-import { PhaseTimeline } from "@/components/data-viz";
 import { ChevronRight, Clock, Users } from "lucide-react";
 
 const milestones = [
@@ -36,10 +36,18 @@ export function Process() {
           </div>
         </FadeInOnScroll>
 
-        {/* Phase Timeline Component */}
+        {/* Phase Timeline Visual */}
         <FadeInOnScroll delay={0.1}>
           <div className="mb-12 sm:mb-16">
-            <PhaseTimeline currentPhase={1} />
+            <div className="max-w-4xl mx-auto">
+              <Image
+                src="/images/graphics/phase-timeline.png"
+                alt="3-Phase Process: Proof → Build → Scale"
+                width={1000}
+                height={400}
+                className="w-full h-auto rounded-2xl shadow-2xl"
+              />
+            </div>
           </div>
         </FadeInOnScroll>
 
