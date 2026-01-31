@@ -1,0 +1,10 @@
+export { Hero } from "./Hero";
+export { Situation } from "./Situation";
+export { Opportunity } from "./Opportunity";
+export { Solution } from "./Solution";
+export { Process } from "./Process";
+export { Team } from "./Team";
+export { Investment } from "./Investment";
+export { Calculator } from "./Calculator";
+export { FAQ } from "./FAQ";
+export { CTA } from "./CTA";
