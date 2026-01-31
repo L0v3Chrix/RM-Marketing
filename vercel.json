@@ -1,6 +1,15 @@
 {
-  "buildCommand": "cd rm-sales-buildout-proposal/site && pnpm install && pnpm build",
-  "outputDirectory": "rm-sales-buildout-proposal/site/.next",
-  "installCommand": "cd rm-sales-buildout-proposal/site && pnpm install",
-  "framework": "nextjs"
+  "version": 2,
+  "builds": [
+    {
+      "src": "rm-sales-buildout-proposal/site/package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "rm-sales-buildout-proposal/site/$1"
+    }
+  ]
 }
