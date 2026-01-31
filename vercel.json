@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd rm-sales-buildout-proposal/site && pnpm install && pnpm build",
+  "outputDirectory": "rm-sales-buildout-proposal/site/.next",
+  "installCommand": "cd rm-sales-buildout-proposal/site && pnpm install",
+  "framework": "nextjs"
+}
