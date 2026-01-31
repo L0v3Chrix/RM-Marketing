@@ -24,7 +24,7 @@ const defaultPhases: Phase[] = [
     duration: "Days 1-30",
     description: "Prove the model works",
     milestones: [
-      "Chrix + Sara selling full-time",
+      "Chrix + Sarah selling full-time",
       "Database reactivation",
       "Target: $36K closed",
     ],

@@ -13,7 +13,7 @@ const variantClasses = {
   // Default - Clean white card
   default: cn(
     "bg-white",
-    "border border-border-light",
+    "border border-border",
     "shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05),0_2px_4px_-2px_rgba(0,0,0,0.05)]",
     "rounded-2xl"
   ),

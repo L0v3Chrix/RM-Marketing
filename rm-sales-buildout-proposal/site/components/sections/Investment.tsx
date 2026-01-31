@@ -3,10 +3,11 @@
 import { Container, Section } from "@/components/layout";
 import { Card } from "@/components/ui";
 import { FadeInOnScroll, CountUp } from "@/components/animations";
-import { DollarSign, TrendingUp, Clock, CheckCircle, ArrowRight } from "lucide-react";
+import { ProgressivePayment } from "@/components/data-viz";
+import { DollarSign, TrendingUp, Clock, CheckCircle } from "lucide-react";
 
 const phase1Includes = [
-  "Chrix + Sara working leads full-time for 30 days",
+  "Chrix + Sarah working leads full-time for 30 days",
   "Database reactivation campaign",
   "No-show recovery sequences",
   "Failed payment dunning implementation",
@@ -59,87 +60,39 @@ export function Investment() {
         <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {/* Phase 1 - Progressive Performance */}
           <FadeInOnScroll delay={0.1}>
-            <Card variant="highlight" padding="large" className="h-full">
-              <div className="text-center mb-6">
-                <p className="text-green text-sm font-medium uppercase tracking-wider mb-2">
-                  Phase 1: Progressive Performance
-                </p>
-                <p className="text-muted text-sm mb-4">30 Days | Chrix + Sara Selling</p>
-              </div>
+            <div className="h-full flex flex-col">
+              <ProgressivePayment
+                deposit={4000}
+                milestone={4000}
+                milestoneThreshold={20000}
+                bonusPercent={33}
+                targetRevenue={36000}
+              />
+              
+              {/* What You Get - Additional Details */}
+              <Card variant="highlight" padding="default" className="mt-4 flex-1">
+                <h4 className="text-sm font-medium text-body uppercase mb-4">What You Get</h4>
+                <ul className="space-y-2">
+                  {phase1Includes.map((item, index) => (
+                    <li key={index} className="flex items-start gap-2 text-body text-sm">
+                      <CheckCircle className="w-4 h-4 text-green flex-shrink-0 mt-0.5" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
 
-              {/* Progressive Payment Visual */}
-              <div className="bg-white rounded-xl p-4 mb-6">
-                <div className="flex items-center justify-between gap-2 text-center">
-                  <div className="flex-1">
-                    <div className="w-10 h-10 rounded-full bg-green/10 flex items-center justify-center mx-auto mb-2">
-                      <span className="text-green font-bold text-sm">1</span>
-                    </div>
-                    <p className="text-lg sm:text-xl font-bold text-green">$4K</p>
-                    <p className="text-xs text-muted">Deposit</p>
-                  </div>
-                  <ArrowRight className="w-4 h-4 text-muted flex-shrink-0" />
-                  <div className="flex-1">
-                    <div className="w-10 h-10 rounded-full bg-green/10 flex items-center justify-center mx-auto mb-2">
-                      <span className="text-green font-bold text-sm">2</span>
-                    </div>
-                    <p className="text-lg sm:text-xl font-bold text-green">$4K</p>
-                    <p className="text-xs text-muted">@ $20K Closed</p>
-                  </div>
-                  <ArrowRight className="w-4 h-4 text-muted flex-shrink-0" />
-                  <div className="flex-1">
-                    <div className="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center mx-auto mb-2">
-                      <span className="text-gold font-bold text-sm">3</span>
-                    </div>
-                    <p className="text-lg sm:text-xl font-bold text-gold">33%</p>
-                    <p className="text-xs text-muted">Over $20K</p>
-                  </div>
+                {/* Decision Gate */}
+                <div className="mt-6 pt-4 border-t border-green/30 text-center">
+                  <p className="text-xs text-muted mb-1">After Phase 1</p>
+                  <p className="text-sm font-medium text-heading">
+                    Mutual Opt-In Decision
+                  </p>
+                  <p className="text-xs text-muted">
+                    You decide if you want to continue. We decide if we can help.
+                  </p>
                 </div>
-              </div>
-
-              {/* Example Calculation */}
-              <div className="bg-navy rounded-xl p-4 mb-6">
-                <p className="text-inverse-muted text-xs mb-2">Example @ $36K Target:</p>
-                <div className="space-y-1 text-sm">
-                  <div className="flex justify-between text-inverse-muted">
-                    <span>Deposit</span>
-                    <span>$4,000</span>
-                  </div>
-                  <div className="flex justify-between text-inverse-muted">
-                    <span>Milestone @ $20K</span>
-                    <span>$4,000</span>
-                  </div>
-                  <div className="flex justify-between text-inverse-muted">
-                    <span>33% of $16K</span>
-                    <span>${performanceBonus.toLocaleString()}</span>
-                  </div>
-                  <div className="flex justify-between text-inverse font-bold pt-2 border-t border-white/10">
-                    <span>Total</span>
-                    <span className="text-green">${phase1Total.toLocaleString()}</span>
-                  </div>
-                </div>
-              </div>
-
-              <h4 className="text-sm font-medium text-body uppercase mb-4">What You Get</h4>
-              <ul className="space-y-2">
-                {phase1Includes.map((item, index) => (
-                  <li key={index} className="flex items-start gap-2 text-body text-sm">
-                    <CheckCircle className="w-4 h-4 text-green flex-shrink-0 mt-0.5" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-
-              {/* Decision Gate */}
-              <div className="mt-6 pt-4 border-t border-green/30 text-center">
-                <p className="text-xs text-muted mb-1">After Phase 1</p>
-                <p className="text-sm font-medium text-heading">
-                  Mutual Opt-In Decision
-                </p>
-                <p className="text-xs text-muted">
-                  You decide if you want to continue. We decide if we can help.
-                </p>
-              </div>
-            </Card>
+              </Card>
+            </div>
           </FadeInOnScroll>
 
           {/* Phase 2 */}

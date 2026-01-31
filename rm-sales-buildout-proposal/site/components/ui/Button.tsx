@@ -33,9 +33,9 @@ const variantClasses = {
   // Ghost - Subtle for light backgrounds
   ghost: cn(
     "bg-transparent",
-    "border border-border-light",
-    "text-text-body",
-    "hover:border-text-muted hover:bg-light",
+    "border border-border",
+    "text-body",
+    "hover:border-muted hover:bg-light",
     "rounded-lg"
   ),
   // Inverse - For navy sections

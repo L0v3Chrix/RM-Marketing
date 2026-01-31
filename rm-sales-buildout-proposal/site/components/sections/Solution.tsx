@@ -65,14 +65,14 @@ export function Solution() {
       <Container>
         {/* Section Header */}
         <FadeInOnScroll>
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 sm:mb-16">
             <p className="text-green text-sm font-medium tracking-wider uppercase mb-4">
               The Solution
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
               What We Build For You
             </h2>
-            <p className="text-text-inverse-secondary text-lg max-w-2xl mx-auto">
+            <p className="text-inverse-muted text-base sm:text-lg max-w-2xl mx-auto">
               You don&apos;t need advice. You need execution. You don&apos;t need a sales person.
               You need a sales <strong className="text-green">department</strong>.
             </p>
@@ -81,13 +81,13 @@ export function Solution() {
 
         {/* Big Picture Callout */}
         <FadeInOnScroll delay={0.1}>
-          <Card variant="inverse" padding="large" className="text-center mb-16 max-w-4xl mx-auto border-blue/30">
-            <Zap className="w-10 h-10 text-blue mx-auto mb-4" />
-            <p className="text-xl md:text-2xl text-white font-semibold mb-4">
+          <Card variant="inverse" padding="large" className="text-center mb-12 sm:mb-16 max-w-4xl mx-auto border-blue/30">
+            <Zap className="w-8 h-8 sm:w-10 sm:h-10 text-blue mx-auto mb-4" />
+            <p className="text-lg sm:text-xl md:text-2xl text-white font-semibold mb-4">
               We will build your sales infrastructure — the people, the processes, and the technology
               — so you can scale to $100K/month and beyond.
             </p>
-            <p className="text-text-inverse-muted">
+            <p className="text-inverse-muted text-sm sm:text-base">
               We build it. We install it. We train your team. We hand you the keys.
             </p>
           </Card>
@@ -95,29 +95,29 @@ export function Solution() {
 
         {/* Three Pillars */}
         <FadeInOnScroll delay={0.1}>
-          <h3 className="text-xl md:text-2xl font-semibold text-white mb-8 text-center">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-6 sm:mb-8 text-center">
             What &quot;Sales Infrastructure&quot; Actually Means
           </h3>
         </FadeInOnScroll>
 
-        <StaggerChildren className="grid md:grid-cols-3 gap-6 mb-16">
+        <StaggerChildren className="grid sm:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16">
           {SOLUTION_PILLARS.map((pillar, index) => {
             const Icon = iconMap[pillar.icon];
             return (
               <StaggerItem key={index}>
                 <Card variant="inverse" padding="large" className="h-full">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="p-3 rounded-lg bg-green/20">
-                      <Icon className="w-6 h-6 text-green" />
+                    <div className="p-2 sm:p-3 rounded-lg bg-green/20">
+                      <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-green" />
                     </div>
                     <div>
-                      <h4 className="text-xl font-bold text-white">{pillar.title}</h4>
-                      <p className="text-text-inverse-muted text-sm">{pillar.subtitle}</p>
+                      <h4 className="text-lg sm:text-xl font-bold text-white">{pillar.title}</h4>
+                      <p className="text-inverse-muted text-xs sm:text-sm">{pillar.subtitle}</p>
                     </div>
                   </div>
                   <ul className="space-y-2">
                     {pillar.items.map((item, itemIndex) => (
-                      <li key={itemIndex} className="flex items-start gap-2 text-text-inverse-secondary">
+                      <li key={itemIndex} className="flex items-start gap-2 text-inverse-muted text-sm">
                         <span className="text-green mt-1">•</span>
                         {item}
                       </li>
@@ -131,22 +131,22 @@ export function Solution() {
 
         {/* Deliverables Stack */}
         <FadeInOnScroll delay={0.1}>
-          <div className="mb-16">
-            <h3 className="text-xl md:text-2xl font-semibold text-white mb-8 text-center">
+          <div className="mb-12 sm:mb-16">
+            <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-6 sm:mb-8 text-center">
               The Deliverables Stack
             </h3>
             <Card variant="inverse" padding="large" className="max-w-3xl mx-auto">
-              <div className="grid sm:grid-cols-2 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-2 gap-2">
                 {deliverables.map((deliverable, index) => (
                   <div
                     key={index}
-                    className="px-4 py-3 bg-navy rounded-lg border border-border-dark text-text-inverse-secondary text-center font-medium text-sm"
+                    className="px-3 sm:px-4 py-2 sm:py-3 bg-navy rounded-lg border border-border-dark text-inverse-muted text-center font-medium text-xs sm:text-sm"
                   >
                     {deliverable}
                   </div>
                 ))}
               </div>
-              <p className="text-center mt-6 text-green font-semibold">
+              <p className="text-center mt-6 text-green font-semibold text-sm sm:text-base">
                 18 deliverables. 90 days. One functioning sales department.
               </p>
             </Card>
@@ -154,18 +154,18 @@ export function Solution() {
         </FadeInOnScroll>
 
         {/* Success Criteria & Not Included */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid sm:grid-cols-2 gap-4 sm:gap-8">
           {/* Success Criteria */}
           <FadeInOnScroll delay={0.1}>
             <Card variant="inverse" padding="large" className="h-full border-green/30">
-              <h4 className="text-lg font-semibold text-white mb-6 text-center">
+              <h4 className="text-base sm:text-lg font-semibold text-white mb-4 sm:mb-6 text-center">
                 What Success Looks Like
               </h4>
-              <ul className="space-y-3">
+              <ul className="space-y-2 sm:space-y-3">
                 {successCriteria.map((item, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-green flex-shrink-0 mt-0.5" />
-                    <span className="text-text-inverse-secondary">{item}</span>
+                  <li key={index} className="flex items-start gap-2 sm:gap-3">
+                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green flex-shrink-0 mt-0.5" />
+                    <span className="text-inverse-muted text-sm">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -175,16 +175,16 @@ export function Solution() {
           {/* Not Included */}
           <FadeInOnScroll delay={0.2}>
             <Card variant="inverse" padding="large" className="h-full">
-              <h4 className="text-lg font-semibold text-white mb-6 text-center">
+              <h4 className="text-base sm:text-lg font-semibold text-white mb-4 sm:mb-6 text-center">
                 What This Is NOT
               </h4>
-              <ul className="space-y-4">
+              <ul className="space-y-3 sm:space-y-4">
                 {notIncluded.map((item, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <XCircle className="w-5 h-5 text-red flex-shrink-0 mt-0.5" />
+                  <li key={index} className="flex items-start gap-2 sm:gap-3">
+                    <XCircle className="w-4 h-4 sm:w-5 sm:h-5 text-red flex-shrink-0 mt-0.5" />
                     <div>
-                      <span className="text-white font-medium">{item.item}</span>
-                      <span className="text-text-inverse-muted"> — {item.detail}</span>
+                      <span className="text-white font-medium text-sm">{item.item}</span>
+                      <span className="text-inverse-muted text-sm"> — {item.detail}</span>
                     </div>
                   </li>
                 ))}

@@ -3,7 +3,8 @@
 import { Container, Section } from "@/components/layout";
 import { Card } from "@/components/ui";
 import { FadeInOnScroll, StaggerChildren, StaggerItem, CountUp } from "@/components/animations";
-import { TrendingUp, Database, DollarSign, Target } from "lucide-react";
+import { RevenueGapChart } from "@/components/data-viz";
+import { Database, Target } from "lucide-react";
 
 const revenueProjection = {
   current: 36000,
@@ -32,14 +33,14 @@ export function Opportunity() {
       <Container>
         {/* Section Header */}
         <FadeInOnScroll>
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 sm:mb-16">
             <p className="text-green text-sm font-medium tracking-wider uppercase mb-4">
               The Opportunity
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-heading mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-heading mb-4 sm:mb-6">
               What&apos;s Actually Possible
             </h2>
-            <p className="text-text-body text-lg max-w-2xl mx-auto">
+            <p className="text-body text-base sm:text-lg max-w-2xl mx-auto">
               Instead of looking at what&apos;s broken, let&apos;s look at what&apos;s working — and what
               happens when you actually build the systems to capitalize on it.
             </p>
@@ -48,73 +49,42 @@ export function Opportunity() {
 
         {/* Revenue Gap Visualization */}
         <FadeInOnScroll delay={0.1}>
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
-            {/* Current vs Target Cards */}
-            <Card variant="default" padding="large">
-              <div className="text-center">
-                <p className="text-text-muted text-sm uppercase tracking-wider mb-2">Current State</p>
-                <div className="text-4xl md:text-5xl font-bold text-text-muted mb-2">
-                  $<CountUp end={revenueProjection.current} duration={1.5} /><span className="text-2xl">/mo</span>
-                </div>
-                <p className="text-text-muted">Monthly Revenue</p>
-              </div>
-            </Card>
-
-            <Card variant="highlight" padding="large">
-              <div className="text-center">
-                <p className="text-green text-sm uppercase tracking-wider mb-2">Target State</p>
-                <div className="text-4xl md:text-5xl font-bold text-green mb-2">
-                  $<CountUp end={revenueProjection.target} duration={1.5} /><span className="text-2xl">/mo</span>
-                </div>
-                <p className="text-text-body">Monthly Revenue</p>
-              </div>
-            </Card>
+          <div className="max-w-3xl mx-auto mb-12 sm:mb-16">
+            <RevenueGapChart
+              currentRevenue={revenueProjection.current}
+              targetRevenue={revenueProjection.target}
+              label="Monthly Revenue"
+            />
           </div>
-        </FadeInOnScroll>
-
-        {/* The Gap Callout */}
-        <FadeInOnScroll delay={0.2}>
-          <Card variant="opportunity" padding="large" className="text-center mb-16">
-            <DollarSign className="w-12 h-12 text-green mx-auto mb-4" />
-            <div className="text-5xl md:text-6xl lg:text-7xl font-bold text-green mb-4">
-              $<CountUp end={revenueProjection.annualGap} duration={2} /><span className="text-3xl">/year</span>
-            </div>
-            <p className="text-text-body text-xl mb-2">
-              The cost of staying constrained
-            </p>
-            <p className="text-text-muted">
-              ${(revenueProjection.gap).toLocaleString()}/month × 12 months = The opportunity you&apos;re leaving on the table
-            </p>
-          </Card>
         </FadeInOnScroll>
 
         {/* Database Opportunity */}
         <FadeInOnScroll delay={0.1}>
-          <div className="mb-16">
-            <div className="flex items-center justify-center gap-3 mb-8">
-              <Database className="w-8 h-8 text-blue" />
-              <h3 className="text-2xl md:text-3xl font-bold text-text-heading">
+          <div className="mb-12 sm:mb-16">
+            <div className="flex items-center justify-center gap-3 mb-6 sm:mb-8">
+              <Database className="w-6 h-6 sm:w-8 sm:h-8 text-blue" />
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-heading">
                 The Database Opportunity
               </h3>
             </div>
 
-            <div className="text-center mb-8">
-              <div className="text-5xl md:text-6xl font-bold text-green mb-2">
+            <div className="text-center mb-6 sm:mb-8">
+              <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-green mb-2">
                 <CountUp end={10000} duration={1.5} />
               </div>
-              <p className="text-text-body text-lg">contacts sitting idle</p>
-              <p className="text-text-muted">People who already know you. Zero ad spend required.</p>
+              <p className="text-body text-base sm:text-lg">contacts sitting idle</p>
+              <p className="text-muted text-sm sm:text-base">People who already know you. Zero ad spend required.</p>
             </div>
 
-            <StaggerChildren className="grid md:grid-cols-3 gap-6">
+            <StaggerChildren className="grid sm:grid-cols-3 gap-4 sm:gap-6">
               {databaseMath.map((item, index) => (
                 <StaggerItem key={index}>
                   <Card variant="default" padding="default" className="text-center">
-                    <p className="text-text-muted text-sm mb-2">{item.scenario}</p>
-                    <div className="text-2xl md:text-3xl font-bold text-green mb-1">
+                    <p className="text-muted text-sm mb-2">{item.scenario}</p>
+                    <div className="text-xl sm:text-2xl md:text-3xl font-bold text-green mb-1">
                       ${item.revenue.toLocaleString()}
                     </div>
-                    <p className="text-text-muted text-sm">
+                    <p className="text-muted text-sm">
                       {item.customers} customers • {item.type}
                     </p>
                   </Card>
@@ -123,7 +93,7 @@ export function Opportunity() {
             </StaggerChildren>
 
             <FadeInOnScroll delay={0.3}>
-              <p className="text-center text-text-body text-lg mt-8">
+              <p className="text-center text-body text-base sm:text-lg mt-6 sm:mt-8">
                 A single reactivation campaign could generate{" "}
                 <span className="text-green font-semibold">$50,000-150,000</span>.
               </p>
@@ -134,9 +104,9 @@ export function Opportunity() {
         {/* What $100K/Month Looks Like */}
         <FadeInOnScroll>
           <div className="mb-8">
-            <div className="flex items-center justify-center gap-3 mb-8">
-              <Target className="w-8 h-8 text-blue" />
-              <h3 className="text-2xl md:text-3xl font-bold text-text-heading">
+            <div className="flex items-center justify-center gap-3 mb-6 sm:mb-8">
+              <Target className="w-6 h-6 sm:w-8 sm:h-8 text-blue" />
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-heading">
                 What $100K/Month Looks Like
               </h3>
             </div>
@@ -145,35 +115,35 @@ export function Opportunity() {
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
-                    <tr className="border-b border-border-light">
-                      <th className="text-left py-3 px-4 text-text-body font-medium">Product</th>
-                      <th className="text-center py-3 px-4 text-text-body font-medium">Sales</th>
-                      <th className="text-right py-3 px-4 text-text-body font-medium">Revenue</th>
+                    <tr className="border-b border-border">
+                      <th className="text-left py-3 px-2 sm:px-4 text-body font-medium text-sm sm:text-base">Product</th>
+                      <th className="text-center py-3 px-2 sm:px-4 text-body font-medium text-sm sm:text-base">Sales</th>
+                      <th className="text-right py-3 px-2 sm:px-4 text-body font-medium text-sm sm:text-base">Revenue</th>
                     </tr>
                   </thead>
                   <tbody>
                     {productMix.map((item, index) => (
-                      <tr key={index} className="border-b border-border-light/50">
-                        <td className="py-3 px-4 text-text-heading">{item.product}</td>
-                        <td className="py-3 px-4 text-center text-text-muted">
+                      <tr key={index} className="border-b border-border/50">
+                        <td className="py-3 px-2 sm:px-4 text-heading text-sm sm:text-base">{item.product}</td>
+                        <td className="py-3 px-2 sm:px-4 text-center text-muted text-sm sm:text-base">
                           {item.sales ?? "—"}
                         </td>
-                        <td className="py-3 px-4 text-right text-green font-medium">
+                        <td className="py-3 px-2 sm:px-4 text-right text-green font-medium text-sm sm:text-base">
                           ${item.revenue.toLocaleString()}
                         </td>
                       </tr>
                     ))}
                     <tr className="bg-light">
-                      <td className="py-4 px-4 text-text-heading font-bold">TOTAL</td>
-                      <td className="py-4 px-4"></td>
-                      <td className="py-4 px-4 text-right text-green font-bold text-xl">
+                      <td className="py-4 px-2 sm:px-4 text-heading font-bold">TOTAL</td>
+                      <td className="py-4 px-2 sm:px-4"></td>
+                      <td className="py-4 px-2 sm:px-4 text-right text-green font-bold text-lg sm:text-xl">
                         $100,000
                       </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-              <p className="text-text-muted text-sm mt-4 text-center">
+              <p className="text-muted text-xs sm:text-sm mt-4 text-center">
                 This isn&apos;t fantasy. This is math based on your current products and proven conversion
                 rates — just with a real sales system behind them.
               </p>
@@ -183,11 +153,11 @@ export function Opportunity() {
 
         {/* Transition */}
         <FadeInOnScroll delay={0.2}>
-          <div className="text-center mt-16">
-            <p className="text-text-body text-lg mb-4">
+          <div className="text-center mt-12 sm:mt-16">
+            <p className="text-body text-base sm:text-lg mb-4">
               The question isn&apos;t &quot;Is this possible?&quot; The numbers prove it is.
             </p>
-            <p className="text-green font-semibold text-xl">
+            <p className="text-green font-semibold text-lg sm:text-xl">
               The question is: &quot;How do we actually do it?&quot;
             </p>
           </div>

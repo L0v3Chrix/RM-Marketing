@@ -26,12 +26,12 @@ export function AccordionItem({
         "rounded-xl border transition-all duration-200",
         isOpen
           ? "bg-tint-blue border-blue/30 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)]"
-          : "bg-white border-border-light hover:border-border-light/80"
+          : "bg-white border-border hover:border-border/80"
       )}
     >
       <button
         onClick={onToggle}
-        className="w-full px-6 py-5 flex items-center justify-between gap-4 text-left"
+        className="w-full px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between gap-3 sm:gap-4 text-left"
         aria-expanded={isOpen}
       >
         <div className="flex items-center gap-3">
@@ -40,7 +40,7 @@ export function AccordionItem({
               {category}
             </span>
           )}
-          <span className="text-lg font-medium text-text-heading">
+          <span className="text-base sm:text-lg font-medium text-heading">
             {question}
           </span>
         </div>
@@ -60,9 +60,9 @@ export function AccordionItem({
             transition={{ duration: 0.2, ease: "easeOut" as const }}
             className="overflow-hidden"
           >
-            <div className="px-6 pb-5 pt-0">
-              <div className="border-t border-border-light pt-4">
-                <p className="text-text-body leading-relaxed">{answer}</p>
+            <div className="px-4 sm:px-6 pb-5 pt-0">
+              <div className="border-t border-border pt-4">
+                <p className="text-body text-sm sm:text-base leading-relaxed">{answer}</p>
               </div>
             </div>
           </motion.div>
