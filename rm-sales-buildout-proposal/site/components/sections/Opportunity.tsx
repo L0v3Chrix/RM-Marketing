@@ -28,18 +28,18 @@ const productMix = [
 
 export function Opportunity() {
   return (
-    <Section background="navy" id="opportunity">
+    <Section background="white" id="opportunity">
       <Container>
         {/* Section Header */}
         <FadeInOnScroll>
           <div className="text-center mb-16">
-            <p className="text-gold text-sm font-medium tracking-wider uppercase mb-4">
+            <p className="text-green text-sm font-medium tracking-wider uppercase mb-4">
               The Opportunity
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-heading mb-6">
               What&apos;s Actually Possible
             </h2>
-            <p className="text-text-secondary text-lg max-w-2xl mx-auto">
+            <p className="text-text-body text-lg max-w-2xl mx-auto">
               Instead of looking at what&apos;s broken, let&apos;s look at what&apos;s working — and what
               happens when you actually build the systems to capitalize on it.
             </p>
@@ -56,17 +56,17 @@ export function Opportunity() {
                 <div className="text-4xl md:text-5xl font-bold text-text-muted mb-2">
                   $<CountUp end={revenueProjection.current} duration={1.5} /><span className="text-2xl">/mo</span>
                 </div>
-                <p className="text-text-tertiary">Monthly Revenue</p>
+                <p className="text-text-muted">Monthly Revenue</p>
               </div>
             </Card>
 
             <Card variant="highlight" padding="large">
               <div className="text-center">
-                <p className="text-accent-green text-sm uppercase tracking-wider mb-2">Target State</p>
-                <div className="text-4xl md:text-5xl font-bold text-accent-green mb-2">
+                <p className="text-green text-sm uppercase tracking-wider mb-2">Target State</p>
+                <div className="text-4xl md:text-5xl font-bold text-green mb-2">
                   $<CountUp end={revenueProjection.target} duration={1.5} /><span className="text-2xl">/mo</span>
                 </div>
-                <p className="text-text-secondary">Monthly Revenue</p>
+                <p className="text-text-body">Monthly Revenue</p>
               </div>
             </Card>
           </div>
@@ -75,11 +75,11 @@ export function Opportunity() {
         {/* The Gap Callout */}
         <FadeInOnScroll delay={0.2}>
           <Card variant="opportunity" padding="large" className="text-center mb-16">
-            <DollarSign className="w-12 h-12 text-gold mx-auto mb-4" />
-            <div className="text-5xl md:text-6xl lg:text-7xl font-bold text-gold mb-4">
+            <DollarSign className="w-12 h-12 text-green mx-auto mb-4" />
+            <div className="text-5xl md:text-6xl lg:text-7xl font-bold text-green mb-4">
               $<CountUp end={revenueProjection.annualGap} duration={2} /><span className="text-3xl">/year</span>
             </div>
-            <p className="text-text-secondary text-xl mb-2">
+            <p className="text-text-body text-xl mb-2">
               The cost of staying constrained
             </p>
             <p className="text-text-muted">
@@ -92,17 +92,17 @@ export function Opportunity() {
         <FadeInOnScroll delay={0.1}>
           <div className="mb-16">
             <div className="flex items-center justify-center gap-3 mb-8">
-              <Database className="w-8 h-8 text-gold" />
-              <h3 className="text-2xl md:text-3xl font-bold text-text-primary">
+              <Database className="w-8 h-8 text-blue" />
+              <h3 className="text-2xl md:text-3xl font-bold text-text-heading">
                 The Database Opportunity
               </h3>
             </div>
 
             <div className="text-center mb-8">
-              <div className="text-5xl md:text-6xl font-bold text-gold mb-2">
+              <div className="text-5xl md:text-6xl font-bold text-green mb-2">
                 <CountUp end={10000} duration={1.5} />
               </div>
-              <p className="text-text-secondary text-lg">contacts sitting idle</p>
+              <p className="text-text-body text-lg">contacts sitting idle</p>
               <p className="text-text-muted">People who already know you. Zero ad spend required.</p>
             </div>
 
@@ -111,10 +111,10 @@ export function Opportunity() {
                 <StaggerItem key={index}>
                   <Card variant="default" padding="default" className="text-center">
                     <p className="text-text-muted text-sm mb-2">{item.scenario}</p>
-                    <div className="text-2xl md:text-3xl font-bold text-accent-green mb-1">
+                    <div className="text-2xl md:text-3xl font-bold text-green mb-1">
                       ${item.revenue.toLocaleString()}
                     </div>
-                    <p className="text-text-tertiary text-sm">
+                    <p className="text-text-muted text-sm">
                       {item.customers} customers • {item.type}
                     </p>
                   </Card>
@@ -123,9 +123,9 @@ export function Opportunity() {
             </StaggerChildren>
 
             <FadeInOnScroll delay={0.3}>
-              <p className="text-center text-text-secondary text-lg mt-8">
+              <p className="text-center text-text-body text-lg mt-8">
                 A single reactivation campaign could generate{" "}
-                <span className="text-gold font-semibold">$50,000-150,000</span>.
+                <span className="text-green font-semibold">$50,000-150,000</span>.
               </p>
             </FadeInOnScroll>
           </div>
@@ -135,8 +135,8 @@ export function Opportunity() {
         <FadeInOnScroll>
           <div className="mb-8">
             <div className="flex items-center justify-center gap-3 mb-8">
-              <Target className="w-8 h-8 text-gold" />
-              <h3 className="text-2xl md:text-3xl font-bold text-text-primary">
+              <Target className="w-8 h-8 text-blue" />
+              <h3 className="text-2xl md:text-3xl font-bold text-text-heading">
                 What $100K/Month Looks Like
               </h3>
             </div>
@@ -145,28 +145,28 @@ export function Opportunity() {
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
-                    <tr className="border-b border-border-subtle">
-                      <th className="text-left py-3 px-4 text-text-secondary font-medium">Product</th>
-                      <th className="text-center py-3 px-4 text-text-secondary font-medium">Sales</th>
-                      <th className="text-right py-3 px-4 text-text-secondary font-medium">Revenue</th>
+                    <tr className="border-b border-border-light">
+                      <th className="text-left py-3 px-4 text-text-body font-medium">Product</th>
+                      <th className="text-center py-3 px-4 text-text-body font-medium">Sales</th>
+                      <th className="text-right py-3 px-4 text-text-body font-medium">Revenue</th>
                     </tr>
                   </thead>
                   <tbody>
                     {productMix.map((item, index) => (
-                      <tr key={index} className="border-b border-border-subtle/50">
-                        <td className="py-3 px-4 text-text-primary">{item.product}</td>
+                      <tr key={index} className="border-b border-border-light/50">
+                        <td className="py-3 px-4 text-text-heading">{item.product}</td>
                         <td className="py-3 px-4 text-center text-text-muted">
                           {item.sales ?? "—"}
                         </td>
-                        <td className="py-3 px-4 text-right text-accent-green font-medium">
+                        <td className="py-3 px-4 text-right text-green font-medium">
                           ${item.revenue.toLocaleString()}
                         </td>
                       </tr>
                     ))}
-                    <tr className="bg-navy-light">
-                      <td className="py-4 px-4 text-text-primary font-bold">TOTAL</td>
+                    <tr className="bg-light">
+                      <td className="py-4 px-4 text-text-heading font-bold">TOTAL</td>
                       <td className="py-4 px-4"></td>
-                      <td className="py-4 px-4 text-right text-gold font-bold text-xl">
+                      <td className="py-4 px-4 text-right text-green font-bold text-xl">
                         $100,000
                       </td>
                     </tr>
@@ -184,10 +184,10 @@ export function Opportunity() {
         {/* Transition */}
         <FadeInOnScroll delay={0.2}>
           <div className="text-center mt-16">
-            <p className="text-text-secondary text-lg mb-4">
+            <p className="text-text-body text-lg mb-4">
               The question isn&apos;t &quot;Is this possible?&quot; The numbers prove it is.
             </p>
-            <p className="text-gold font-semibold text-xl">
+            <p className="text-green font-semibold text-xl">
               The question is: &quot;How do we actually do it?&quot;
             </p>
           </div>

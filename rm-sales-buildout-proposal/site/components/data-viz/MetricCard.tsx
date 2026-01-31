@@ -14,6 +14,7 @@ interface MetricCardProps {
     label: string;
   };
   color?: "gold" | "green" | "blue";
+  theme?: "light" | "dark";
   animate?: boolean;
   decimals?: number;
   className?: string;
@@ -21,8 +22,8 @@ interface MetricCardProps {
 
 const colorClasses = {
   gold: "text-gold",
-  green: "text-accent-green",
-  blue: "text-accent-blue",
+  green: "text-green",
+  blue: "text-blue",
 };
 
 export function MetricCard({
@@ -31,11 +32,14 @@ export function MetricCard({
   prefix = "",
   suffix = "",
   comparison,
-  color = "gold",
+  color = "green",
+  theme = "light",
   animate = true,
   decimals = 0,
   className,
 }: MetricCardProps) {
+  const isLight = theme === "light";
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -43,7 +47,10 @@ export function MetricCard({
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={cn(
-        "bg-navy-card border border-border-subtle rounded-xl p-6 md:p-8 text-center",
+        "rounded-2xl p-6 md:p-8 text-center",
+        isLight
+          ? "bg-white border border-border-light shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)]"
+          : "bg-navy-card border border-border-dark",
         className
       )}
     >
@@ -67,13 +74,21 @@ export function MetricCard({
           </>
         )}
       </div>
-      <div className="text-text-secondary text-sm md:text-base font-medium mb-3">
+      <div className={cn(
+        "text-sm md:text-base font-medium mb-3",
+        isLight ? "text-text-body" : "text-text-inverse-secondary"
+      )}>
         {label}
       </div>
       {comparison && (
-        <div className="text-text-muted text-xs md:text-sm italic">
-          <span className="text-text-tertiary">{comparison.label}:</span>{" "}
-          <span className="text-text-muted">{comparison.value}</span>
+        <div className={cn(
+          "text-xs md:text-sm italic",
+          isLight ? "text-text-muted" : "text-text-inverse-muted"
+        )}>
+          <span className={isLight ? "text-text-muted" : "text-text-inverse-muted"}>
+            {comparison.label}:
+          </span>{" "}
+          <span>{comparison.value}</span>
         </div>
       )}
     </motion.div>

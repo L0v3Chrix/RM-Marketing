@@ -1,57 +1,106 @@
 @import "tailwindcss";
 
-/* GHL Mastery Brand Colors */
+/* Premium Sales Page Theme - Light Mode with Navy Feature Bands */
 :root {
-  /* Backgrounds */
-  --bg-primary: #0A1628;
-  --bg-secondary: #0F172A;
-  --bg-card: #1E293B;
+  /* Page Backgrounds */
+  --bg-white: #FFFFFF;
+  --bg-light: #F8FAFC;
+  --bg-light-blue: #EFF6FF;
 
-  /* Accents */
+  /* Navy Feature Bands */
+  --bg-navy: #0F172A;
+  --bg-navy-deep: #0A1628;
+  --bg-navy-card: #1E293B;
+
+  /* Card Surfaces */
+  --card-bg: #FFFFFF;
+  --card-border: #E2E8F0;
+  --card-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05);
+  --card-shadow-hover: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.05);
+
+  /* Text Colors (Light Backgrounds) */
+  --text-heading: #0F172A;
+  --text-body: #475569;
+  --text-muted: #64748B;
+
+  /* Text Colors (Dark Backgrounds) */
+  --text-inverse: #FFFFFF;
+  --text-inverse-secondary: #E2E8F0;
+  --text-inverse-muted: #94A3B8;
+
+  /* Primary CTA - Green */
+  --cta-primary: #22C55E;
+  --cta-primary-hover: #16A34A;
+  --cta-primary-shadow: 0 4px 14px -3px rgba(34, 197, 94, 0.4);
+
+  /* Secondary Actions */
+  --cta-secondary: #0F172A;
+  --cta-secondary-hover: #1E293B;
+
+  /* Accent Colors */
   --accent-gold: #D4A574;
-  --accent-gold-bright: #FBBF24;
-  --accent-blue: #3B82F6;
   --accent-green: #22C55E;
+  --accent-blue: #3B82F6;
   --accent-red: #EF4444;
   --accent-orange: #F97316;
 
-  /* Text */
-  --text-primary: #FFFFFF;
-  --text-secondary: #E2E8F0;
-  --text-muted: #94A3B8;
-  --text-tertiary: #64748B;
-
   /* Borders */
-  --border-subtle: #334155;
+  --border-light: #E2E8F0;
+  --border-subtle: #F1F5F9;
+  --border-dark: #334155;
+
+  /* Semantic Tints */
+  --tint-green: #F0FDF4;
+  --tint-blue: #EFF6FF;
+  --tint-red: #FEF2F2;
 }
 
 @theme inline {
   /* Background colors */
-  --color-navy: #0A1628;
-  --color-navy-light: #0F172A;
+  --color-white: #FFFFFF;
+  --color-light: #F8FAFC;
+  --color-light-blue: #EFF6FF;
+  --color-navy: #0F172A;
+  --color-navy-deep: #0A1628;
   --color-navy-card: #1E293B;
 
   /* Accent colors */
   --color-gold: #D4A574;
-  --color-gold-bright: #FBBF24;
-  --color-accent-blue: #3B82F6;
-  --color-accent-green: #22C55E;
-  --color-accent-red: #EF4444;
-  --color-accent-orange: #F97316;
+  --color-green: #22C55E;
+  --color-green-dark: #16A34A;
+  --color-blue: #3B82F6;
+  --color-red: #EF4444;
+  --color-orange: #F97316;
+
+  /* Tint colors */
+  --color-tint-green: #F0FDF4;
+  --color-tint-blue: #EFF6FF;
+  --color-tint-red: #FEF2F2;
 
   /* Text colors */
-  --color-text-primary: #FFFFFF;
-  --color-text-secondary: #E2E8F0;
-  --color-text-muted: #94A3B8;
-  --color-text-tertiary: #64748B;
+  --color-text-heading: #0F172A;
+  --color-text-body: #475569;
+  --color-text-muted: #64748B;
+  --color-text-inverse: #FFFFFF;
+  --color-text-inverse-secondary: #E2E8F0;
 
   /* Border colors */
-  --color-border-subtle: #334155;
+  --color-border-light: #E2E8F0;
+  --color-border-subtle: #F1F5F9;
+  --color-border-dark: #334155;
 
   /* Font family */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
-  /* Font sizes */
+  /* Font sizes - Type Scale */
+  --text-h1: clamp(2rem, 5vw, 3.5rem);
+  --text-h2: clamp(1.5rem, 4vw, 2.25rem);
+  --text-h3: clamp(1.25rem, 3vw, 1.5rem);
+  --text-body-lg: 1.125rem;
+  --text-body: 1rem;
+  --text-sm: 0.875rem;
+
+  /* Metric display */
   --text-metric: 4rem;
   --text-metric-sm: 2.75rem;
 }
@@ -61,11 +110,18 @@ html {
 }
 
 body {
-  background: var(--bg-primary);
-  color: var(--text-primary);
+  background: var(--bg-white);
+  color: var(--text-body);
   font-family: var(--font-sans);
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography defaults */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-heading);
+  line-height: 1.2;
 }
 
 /* Reduced motion preference */
@@ -80,17 +136,17 @@ body {
   }
 }
 
-/* Custom scrollbar for dark theme */
+/* Light theme scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-secondary);
+  background: var(--bg-light);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border-subtle);
+  background: var(--border-light);
   border-radius: 4px;
 }
 
@@ -100,6 +156,56 @@ body {
 
 /* Selection styling */
 ::selection {
-  background: rgba(212, 165, 116, 0.3);
-  color: var(--text-primary);
+  background: rgba(34, 197, 94, 0.2);
+  color: var(--text-heading);
+}
+
+/* Focus ring utility for accessibility */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-green focus:ring-offset-2 focus:ring-offset-white;
+}
+
+/* Navy section context - overrides for dark backgrounds */
+.navy-section {
+  color: var(--text-inverse);
+}
+
+.navy-section h1,
+.navy-section h2,
+.navy-section h3,
+.navy-section h4,
+.navy-section h5,
+.navy-section h6 {
+  color: var(--text-inverse);
+}
+
+/* Slider styling for calculator */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background: var(--border-light);
+  height: 8px;
+  border-radius: 4px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--cta-primary);
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  margin-top: -6px;
+  box-shadow: 0 2px 6px rgba(34, 197, 94, 0.3);
+}
+
+/* Dark section slider variant */
+.navy-section input[type="range"]::-webkit-slider-runnable-track {
+  background: var(--border-dark);
 }

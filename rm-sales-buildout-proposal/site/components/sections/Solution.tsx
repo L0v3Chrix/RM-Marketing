@@ -61,33 +61,33 @@ const notIncluded = [
 
 export function Solution() {
   return (
-    <Section background="midnight" id="solution">
+    <Section background="navy-gradient" id="solution">
       <Container>
         {/* Section Header */}
         <FadeInOnScroll>
           <div className="text-center mb-16">
-            <p className="text-gold text-sm font-medium tracking-wider uppercase mb-4">
+            <p className="text-green text-sm font-medium tracking-wider uppercase mb-4">
               The Solution
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               What We Build For You
             </h2>
-            <p className="text-text-secondary text-lg max-w-2xl mx-auto">
+            <p className="text-text-inverse-secondary text-lg max-w-2xl mx-auto">
               You don&apos;t need advice. You need execution. You don&apos;t need a sales person.
-              You need a sales <strong className="text-gold">department</strong>.
+              You need a sales <strong className="text-green">department</strong>.
             </p>
           </div>
         </FadeInOnScroll>
 
         {/* Big Picture Callout */}
         <FadeInOnScroll delay={0.1}>
-          <Card variant="opportunity" padding="large" className="text-center mb-16 max-w-4xl mx-auto">
-            <Zap className="w-10 h-10 text-accent-blue mx-auto mb-4" />
-            <p className="text-xl md:text-2xl text-text-primary font-semibold mb-4">
+          <Card variant="inverse" padding="large" className="text-center mb-16 max-w-4xl mx-auto border-blue/30">
+            <Zap className="w-10 h-10 text-blue mx-auto mb-4" />
+            <p className="text-xl md:text-2xl text-white font-semibold mb-4">
               We will build your sales infrastructure — the people, the processes, and the technology
               — so you can scale to $100K/month and beyond.
             </p>
-            <p className="text-text-muted">
+            <p className="text-text-inverse-muted">
               We build it. We install it. We train your team. We hand you the keys.
             </p>
           </Card>
@@ -95,7 +95,7 @@ export function Solution() {
 
         {/* Three Pillars */}
         <FadeInOnScroll delay={0.1}>
-          <h3 className="text-xl md:text-2xl font-semibold text-text-primary mb-8 text-center">
+          <h3 className="text-xl md:text-2xl font-semibold text-white mb-8 text-center">
             What &quot;Sales Infrastructure&quot; Actually Means
           </h3>
         </FadeInOnScroll>
@@ -105,20 +105,20 @@ export function Solution() {
             const Icon = iconMap[pillar.icon];
             return (
               <StaggerItem key={index}>
-                <Card variant="default" padding="large" className="h-full">
+                <Card variant="inverse" padding="large" className="h-full">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="p-3 rounded-lg bg-gold/10">
-                      <Icon className="w-6 h-6 text-gold" />
+                    <div className="p-3 rounded-lg bg-green/20">
+                      <Icon className="w-6 h-6 text-green" />
                     </div>
                     <div>
-                      <h4 className="text-xl font-bold text-text-primary">{pillar.title}</h4>
-                      <p className="text-text-muted text-sm">{pillar.subtitle}</p>
+                      <h4 className="text-xl font-bold text-white">{pillar.title}</h4>
+                      <p className="text-text-inverse-muted text-sm">{pillar.subtitle}</p>
                     </div>
                   </div>
                   <ul className="space-y-2">
                     {pillar.items.map((item, itemIndex) => (
-                      <li key={itemIndex} className="flex items-start gap-2 text-text-secondary">
-                        <span className="text-gold mt-1">•</span>
+                      <li key={itemIndex} className="flex items-start gap-2 text-text-inverse-secondary">
+                        <span className="text-green mt-1">•</span>
                         {item}
                       </li>
                     ))}
@@ -132,21 +132,21 @@ export function Solution() {
         {/* Deliverables Stack */}
         <FadeInOnScroll delay={0.1}>
           <div className="mb-16">
-            <h3 className="text-xl md:text-2xl font-semibold text-text-primary mb-8 text-center">
+            <h3 className="text-xl md:text-2xl font-semibold text-white mb-8 text-center">
               The Deliverables Stack
             </h3>
-            <Card variant="default" padding="large" className="max-w-3xl mx-auto">
-              <div className="space-y-2">
+            <Card variant="inverse" padding="large" className="max-w-3xl mx-auto">
+              <div className="grid sm:grid-cols-2 gap-2">
                 {deliverables.map((deliverable, index) => (
                   <div
                     key={index}
-                    className="px-4 py-3 bg-navy rounded-lg border border-border-subtle text-text-secondary text-center font-medium"
+                    className="px-4 py-3 bg-navy rounded-lg border border-border-dark text-text-inverse-secondary text-center font-medium text-sm"
                   >
                     {deliverable}
                   </div>
                 ))}
               </div>
-              <p className="text-center mt-6 text-gold font-semibold">
+              <p className="text-center mt-6 text-green font-semibold">
                 18 deliverables. 90 days. One functioning sales department.
               </p>
             </Card>
@@ -157,15 +157,15 @@ export function Solution() {
         <div className="grid md:grid-cols-2 gap-8">
           {/* Success Criteria */}
           <FadeInOnScroll delay={0.1}>
-            <Card variant="highlight" padding="large" className="h-full">
-              <h4 className="text-lg font-semibold text-text-primary mb-6 text-center">
+            <Card variant="inverse" padding="large" className="h-full border-green/30">
+              <h4 className="text-lg font-semibold text-white mb-6 text-center">
                 What Success Looks Like
               </h4>
               <ul className="space-y-3">
                 {successCriteria.map((item, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-accent-green flex-shrink-0 mt-0.5" />
-                    <span className="text-text-secondary">{item}</span>
+                    <CheckCircle className="w-5 h-5 text-green flex-shrink-0 mt-0.5" />
+                    <span className="text-text-inverse-secondary">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -174,17 +174,17 @@ export function Solution() {
 
           {/* Not Included */}
           <FadeInOnScroll delay={0.2}>
-            <Card variant="default" padding="large" className="h-full">
-              <h4 className="text-lg font-semibold text-text-primary mb-6 text-center">
+            <Card variant="inverse" padding="large" className="h-full">
+              <h4 className="text-lg font-semibold text-white mb-6 text-center">
                 What This Is NOT
               </h4>
               <ul className="space-y-4">
                 {notIncluded.map((item, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <XCircle className="w-5 h-5 text-accent-red flex-shrink-0 mt-0.5" />
+                    <XCircle className="w-5 h-5 text-red flex-shrink-0 mt-0.5" />
                     <div>
-                      <span className="text-text-primary font-medium">{item.item}</span>
-                      <span className="text-text-muted"> — {item.detail}</span>
+                      <span className="text-white font-medium">{item.item}</span>
+                      <span className="text-text-inverse-muted"> — {item.detail}</span>
                     </div>
                   </li>
                 ))}

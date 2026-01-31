@@ -4,39 +4,50 @@ import { cn } from "@/lib/utils";
 
 interface CardProps {
   children: React.ReactNode;
-  variant?: "default" | "highlight" | "problem" | "opportunity";
+  variant?: "default" | "highlight" | "problem" | "opportunity" | "inverse";
   className?: string;
   padding?: "default" | "large" | "compact";
 }
 
 const variantClasses = {
+  // Default - Clean white card
   default: cn(
-    "bg-navy-card",
-    "border border-border-subtle",
-    "rounded-xl"
+    "bg-white",
+    "border border-border-light",
+    "shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05),0_2px_4px_-2px_rgba(0,0,0,0.05)]",
+    "rounded-2xl"
   ),
+  // Highlight - Success/positive (light green tint)
   highlight: cn(
-    "bg-gradient-to-br from-accent-green/10 to-accent-green/5",
-    "border border-accent-green/30",
-    "rounded-xl"
+    "bg-tint-green",
+    "border border-green/20",
+    "rounded-2xl"
   ),
+  // Problem - Alert/warning (light red tint)
   problem: cn(
-    "bg-gradient-to-br from-accent-red/10 to-accent-red/5",
-    "border-l-4 border-l-accent-red",
-    "border-y border-r border-accent-red/20",
-    "rounded-r-xl"
+    "bg-tint-red",
+    "border-l-4 border-l-red",
+    "border-y border-r border-red/20",
+    "rounded-r-2xl"
   ),
+  // Opportunity - Info/blue (light blue tint)
   opportunity: cn(
-    "bg-gradient-to-br from-accent-blue/10 to-accent-blue/5",
-    "border border-accent-blue/30",
-    "rounded-xl"
+    "bg-tint-blue",
+    "border border-blue/20",
+    "rounded-2xl"
+  ),
+  // Inverse - For navy sections
+  inverse: cn(
+    "bg-navy-card",
+    "border border-border-dark",
+    "rounded-2xl"
   ),
 };
 
 const paddingClasses = {
-  compact: "p-4",
-  default: "p-6",
-  large: "p-8",
+  compact: "p-5",
+  default: "p-6 md:p-7",
+  large: "p-8 md:p-10",
 };
 
 export function Card({

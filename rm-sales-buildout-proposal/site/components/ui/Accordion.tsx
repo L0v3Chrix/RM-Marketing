@@ -23,10 +23,10 @@ export function AccordionItem({
   return (
     <div
       className={cn(
-        "rounded-lg border transition-colors duration-200",
+        "rounded-xl border transition-all duration-200",
         isOpen
-          ? "bg-navy-light border-accent-blue"
-          : "bg-navy-card border-border-subtle"
+          ? "bg-tint-blue border-blue/30 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)]"
+          : "bg-white border-border-light hover:border-border-light/80"
       )}
     >
       <button
@@ -36,17 +36,17 @@ export function AccordionItem({
       >
         <div className="flex items-center gap-3">
           {category && (
-            <span className="text-xs font-medium px-2 py-1 rounded bg-accent-blue/20 text-accent-blue">
+            <span className="text-xs font-medium px-2 py-1 rounded-full bg-blue/10 text-blue">
               {category}
             </span>
           )}
-          <span className="text-lg font-medium text-text-primary">
+          <span className="text-lg font-medium text-text-heading">
             {question}
           </span>
         </div>
         <ChevronDown
           className={cn(
-            "w-5 h-5 text-gold transition-transform duration-200 flex-shrink-0",
+            "w-5 h-5 text-green transition-transform duration-200 flex-shrink-0",
             isOpen && "rotate-180"
           )}
         />
@@ -57,12 +57,12 @@ export function AccordionItem({
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.2, ease: "easeOut" as const }}
             className="overflow-hidden"
           >
             <div className="px-6 pb-5 pt-0">
-              <div className="border-t border-border-subtle pt-4">
-                <p className="text-text-secondary leading-relaxed">{answer}</p>
+              <div className="border-t border-border-light pt-4">
+                <p className="text-text-body leading-relaxed">{answer}</p>
               </div>
             </div>
           </motion.div>

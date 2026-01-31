@@ -64,18 +64,18 @@ const constraints = [
 
 export function Situation() {
   return (
-    <Section background="midnight" id="situation">
+    <Section background="light" id="situation">
       <Container>
         {/* Section Header */}
         <FadeInOnScroll>
           <div className="text-center mb-16">
-            <p className="text-gold text-sm font-medium tracking-wider uppercase mb-4">
+            <p className="text-green text-sm font-medium tracking-wider uppercase mb-4">
               Where You Are Today
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-heading mb-6">
               You&apos;re Not Broken. You&apos;re Bottlenecked.
             </h2>
-            <p className="text-text-secondary text-lg max-w-2xl mx-auto">
+            <p className="text-text-body text-lg max-w-2xl mx-auto">
               Let&apos;s look at what you&apos;ve built — and what&apos;s limiting it. GHL Mastery is a
               proven business. The constraint isn&apos;t your offer. It&apos;s capacity.
             </p>
@@ -84,7 +84,7 @@ export function Situation() {
 
         {/* Proof Points - What's Working */}
         <FadeInOnScroll delay={0.1}>
-          <h3 className="text-xl md:text-2xl font-semibold text-text-primary mb-8 text-center">
+          <h3 className="text-xl md:text-2xl font-semibold text-text-heading mb-8 text-center">
             The Numbers That Prove You&apos;re Not Broken
           </h3>
         </FadeInOnScroll>
@@ -94,17 +94,17 @@ export function Situation() {
             <StaggerItem key={index}>
               <Card variant="highlight" padding="large" className="h-full">
                 <div className="flex items-start gap-3 mb-4">
-                  <point.icon className="w-6 h-6 text-accent-green flex-shrink-0 mt-1" />
+                  <point.icon className="w-6 h-6 text-green flex-shrink-0 mt-1" />
                   <div>
-                    <div className="text-3xl md:text-4xl font-bold text-accent-green mb-1">
+                    <div className="text-3xl md:text-4xl font-bold text-green mb-1">
                       {point.metric}
                     </div>
-                    <div className="text-text-secondary font-medium">{point.label}</div>
+                    <div className="text-text-heading font-medium">{point.label}</div>
                     <div className="text-text-muted text-sm italic">{point.context}</div>
                   </div>
                 </div>
-                <p className="text-text-secondary mb-3">{point.description}</p>
-                <p className="text-text-primary font-semibold">{point.highlight}</p>
+                <p className="text-text-body mb-3">{point.description}</p>
+                <p className="text-text-heading font-semibold">{point.highlight}</p>
               </Card>
             </StaggerItem>
           ))}
@@ -112,7 +112,7 @@ export function Situation() {
 
         {/* Constraints - Where Opportunity Leaks */}
         <FadeInOnScroll delay={0.1}>
-          <h3 className="text-xl md:text-2xl font-semibold text-text-primary mb-8 text-center">
+          <h3 className="text-xl md:text-2xl font-semibold text-text-heading mb-8 text-center">
             Where the Opportunity Leaks
           </h3>
         </FadeInOnScroll>
@@ -122,14 +122,14 @@ export function Situation() {
             <StaggerItem key={index}>
               <Card variant="default" padding="default" className="h-full">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-lg bg-accent-blue/10">
-                    <constraint.icon className="w-6 h-6 text-accent-blue" />
+                  <div className="p-3 rounded-lg bg-blue/10">
+                    <constraint.icon className="w-6 h-6 text-blue" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-text-primary mb-2">
+                    <h4 className="text-lg font-semibold text-text-heading mb-2">
                       {constraint.issue}
                     </h4>
-                    <p className="text-text-secondary mb-2">{constraint.description}</p>
+                    <p className="text-text-body mb-2">{constraint.description}</p>
                     <p className="text-text-muted text-sm italic">{constraint.detail}</p>
                   </div>
                 </div>
@@ -141,14 +141,14 @@ export function Situation() {
         {/* The Pattern */}
         <FadeInOnScroll>
           <Card variant="opportunity" padding="large" className="text-center max-w-3xl mx-auto">
-            <AlertCircle className="w-10 h-10 text-accent-blue mx-auto mb-4" />
-            <h3 className="text-xl md:text-2xl font-bold text-text-primary mb-4">
+            <AlertCircle className="w-10 h-10 text-blue mx-auto mb-4" />
+            <h3 className="text-xl md:text-2xl font-bold text-text-heading mb-4">
               Every &quot;problem&quot; traces back to the same root cause
             </h3>
-            <p className="text-text-secondary text-lg mb-4">
+            <p className="text-text-body text-lg mb-4">
               Adam is the sales team. When Adam is busy, sales stops.
             </p>
-            <p className="text-gold font-semibold text-xl">
+            <p className="text-green font-semibold text-xl">
               You&apos;re not broken. You&apos;re bottlenecked.
             </p>
           </Card>
