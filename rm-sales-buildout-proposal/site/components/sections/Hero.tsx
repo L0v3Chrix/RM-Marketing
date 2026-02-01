@@ -119,24 +119,24 @@ export function Hero() {
 
             {/* Metrics Row */}
             <FadeInOnScroll delay={0.5}>
-              <div className="flex items-center gap-8 sm:gap-12 mt-10 pt-8 border-t border-border-subtle justify-center lg:justify-start">
-                <div className="text-center">
-                  <p className="text-2xl sm:text-3xl font-bold text-accent tracking-tight">
+              <div className="flex items-center gap-4 xs:gap-6 sm:gap-12 mt-10 pt-8 border-t border-border-subtle justify-center lg:justify-start">
+                <div className="text-center min-w-0">
+                  <p className="text-xl xs:text-2xl sm:text-3xl font-bold text-accent tracking-tight">
                     <CountUp end={6.30} decimals={2} prefix="$" duration={1.5} />
                   </p>
-                  <p className="text-xs text-text-muted uppercase tracking-wider mt-1">Cost/Lead</p>
+                  <p className="text-[10px] xs:text-xs text-text-muted uppercase tracking-wider mt-1">Cost/Lead</p>
                 </div>
-                <div className="text-center">
-                  <p className="text-2xl sm:text-3xl font-bold text-accent tracking-tight">
+                <div className="text-center min-w-0">
+                  <p className="text-xl xs:text-2xl sm:text-3xl font-bold text-accent tracking-tight">
                     <CountUp end={19.3} decimals={1} suffix="%" duration={1.5} />
                   </p>
-                  <p className="text-xs text-text-muted uppercase tracking-wider mt-1">Book Rate</p>
+                  <p className="text-[10px] xs:text-xs text-text-muted uppercase tracking-wider mt-1">Book Rate</p>
                 </div>
-                <div className="text-center">
-                  <p className="text-2xl sm:text-3xl font-bold text-text-secondary tracking-tight">
+                <div className="text-center min-w-0">
+                  <p className="text-xl xs:text-2xl sm:text-3xl font-bold text-text-secondary tracking-tight">
                     <CountUp end={59} suffix="%" duration={1.5} />
                   </p>
-                  <p className="text-xs text-text-muted uppercase tracking-wider mt-1">Show Rate</p>
+                  <p className="text-[10px] xs:text-xs text-text-muted uppercase tracking-wider mt-1">Show Rate</p>
                 </div>
               </div>
             </FadeInOnScroll>

@@ -165,10 +165,10 @@ export function Investment() {
                 <p className="text-accent text-sm font-medium uppercase tracking-wider mb-2">
                   Phase 2: The Buildout Sprint
                 </p>
-                <div className="text-6xl md:text-7xl font-bold text-text-primary mb-2 tracking-tight">
+                <div className="text-4xl sm:text-5xl md:text-7xl font-bold text-text-primary mb-2 tracking-tight">
                   <span className="text-accent">$</span><CountUp end={36} duration={1.5} /><span className="text-accent">K</span>
                 </div>
-                <p className="text-text-muted">90 Days | Full Team Installation</p>
+                <p className="text-text-muted text-sm sm:text-base">90 Days | Full Team Installation</p>
               </div>
 
               <div className="border-t border-border pt-6 mb-6">
@@ -259,26 +259,26 @@ export function Investment() {
 
         {/* ROI Section */}
         <FadeInOnScroll delay={0.2}>
-          <div className="mb-16">
-            <h3 className="text-xl md:text-2xl font-semibold text-text-primary mb-8 text-center">
+          <div className="mb-12 sm:mb-16">
+            <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-text-primary mb-6 sm:mb-8 text-center">
               Return on Investment
             </h3>
-            <div className="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
-              <Card variant="default" padding="default" className="text-center">
-                <p className="text-text-muted text-xs uppercase tracking-wider mb-2">Year 1 Investment</p>
-                <p className="text-4xl md:text-5xl font-bold text-text-secondary tracking-tight">
+            <div className="grid grid-cols-3 gap-2 sm:gap-6 max-w-3xl mx-auto">
+              <Card variant="default" padding="default" className="text-center p-3 sm:p-4">
+                <p className="text-text-muted text-[10px] sm:text-xs uppercase tracking-wider mb-1 sm:mb-2">Year 1 Investment</p>
+                <p className="text-xl sm:text-3xl md:text-5xl font-bold text-text-secondary tracking-tight">
                   ~<span className="text-accent">$52K</span>
                 </p>
               </Card>
-              <Card variant="default" padding="default" className="text-center">
-                <p className="text-text-muted text-xs uppercase tracking-wider mb-2">Year 1 Revenue Increase</p>
-                <p className="text-4xl md:text-5xl font-bold tracking-tight">
+              <Card variant="default" padding="default" className="text-center p-3 sm:p-4">
+                <p className="text-text-muted text-[10px] sm:text-xs uppercase tracking-wider mb-1 sm:mb-2">Year 1 Revenue Increase</p>
+                <p className="text-lg sm:text-2xl md:text-4xl font-bold tracking-tight">
                   <span className="text-accent">$180</span>-<span className="text-accent">300K</span>
                 </p>
               </Card>
-              <Card variant="default" padding="default" className="text-center">
-                <p className="text-text-muted text-xs uppercase tracking-wider mb-2">Year 1 ROI</p>
-                <p className="text-4xl md:text-5xl font-bold text-accent tracking-tight">3-6x</p>
+              <Card variant="default" padding="default" className="text-center p-3 sm:p-4">
+                <p className="text-text-muted text-[10px] sm:text-xs uppercase tracking-wider mb-1 sm:mb-2">Year 1 ROI</p>
+                <p className="text-2xl sm:text-4xl md:text-5xl font-bold text-accent tracking-tight">3-6x</p>
               </Card>
             </div>
           </div>
@@ -322,16 +322,16 @@ export function Investment() {
         {/* Bottom Line */}
         <FadeInOnScroll delay={0.2}>
           <Card variant="accent" padding="large" className="text-center max-w-2xl mx-auto">
-            <TrendingUp className="w-10 h-10 text-accent mx-auto mb-4" />
-            <h3 className="text-2xl md:text-3xl font-bold text-text-primary mb-4">
-              <span className="text-accent text-4xl md:text-5xl">$4K</span> to get started.
+            <TrendingUp className="w-8 h-8 sm:w-10 sm:h-10 text-accent mx-auto mb-3 sm:mb-4" />
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-text-primary mb-3 sm:mb-4">
+              <span className="text-accent text-3xl sm:text-4xl md:text-5xl">$4K</span> to get started.
             </h3>
-            <p className="text-text-secondary text-lg mb-4">
+            <p className="text-text-secondary text-sm sm:text-lg mb-3 sm:mb-4">
               Progressive payments mean you pay as we prove it works. 
               Low risk to start. Clear milestones to continue.
             </p>
-            <p className="text-accent font-semibold text-lg">
-              If we hit <span className="text-2xl font-bold">$20K</span> in 30 days, 
+            <p className="text-accent font-semibold text-sm sm:text-lg">
+              If we hit <span className="text-xl sm:text-2xl font-bold">$20K</span> in 30 days, 
               you know the system is working.
             </p>
           </Card>

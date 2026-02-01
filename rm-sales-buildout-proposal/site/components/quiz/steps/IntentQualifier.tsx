@@ -74,14 +74,14 @@ export function IntentQualifier({ answers, updateAnswer }: IntentQualifierProps)
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => updateAnswer(q.key, option.value)}
-                className={`p-3 rounded-xl border-2 text-center transition-all ${
+                className={`p-3 sm:p-4 rounded-xl border-2 text-center transition-all min-h-[64px] ${
                   answers[q.key] === option.value
                     ? 'border-accent bg-accent/10'
                     : 'border-border bg-card hover:border-border-subtle'
                 }`}
               >
-                <span className="text-lg mb-1 block">{option.icon}</span>
-                <p className={`text-xs font-medium ${
+                <span className="text-base sm:text-lg mb-1 block">{option.icon}</span>
+                <p className={`text-[10px] sm:text-xs font-medium leading-tight ${
                   answers[q.key] === option.value ? 'text-accent' : 'text-text-secondary'
                 }`}>
                   {option.label}

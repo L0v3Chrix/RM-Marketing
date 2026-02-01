@@ -67,7 +67,7 @@ export function EducationalQuestion({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="grid grid-cols-2 gap-3"
+            className="grid grid-cols-2 gap-2 sm:gap-3"
           >
             {question.options.map((option, index) => (
               <motion.button
@@ -79,14 +79,14 @@ export function EducationalQuestion({
                 whileTap={{ scale: 0.98 }}
                 onClick={() => handleSelect(option.value)}
                 className={`
-                  p-4 sm:p-5 rounded-xl border-2 text-center transition-all
+                  p-3 sm:p-5 rounded-xl border-2 text-center transition-all min-h-[56px] flex items-center justify-center
                   ${selectedAnswer === option.value
                     ? 'border-accent bg-card shadow-lg'
                     : 'border-border bg-card hover:border-border-subtle hover:shadow-sm'
                   }
                 `}
               >
-                <span className={`text-lg sm:text-xl font-bold ${
+                <span className={`text-base sm:text-xl font-bold ${
                   selectedAnswer === option.value ? 'text-accent' : 'text-text-primary'
                 }`}>
                   {option.label}
@@ -113,7 +113,7 @@ export function EducationalQuestion({
             onClick={handleReveal}
             disabled={!selectedAnswer}
             className={`
-              w-full py-4 rounded-xl font-semibold text-lg transition-all
+              w-full py-4 min-h-[56px] rounded-xl font-semibold text-base sm:text-lg transition-all
               ${selectedAnswer
                 ? 'bg-accent text-base hover:bg-accent-hover shadow-lg'
                 : 'bg-border text-text-muted cursor-not-allowed'
@@ -130,7 +130,7 @@ export function EducationalQuestion({
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={handleContinue}
-            className="w-full py-4 rounded-xl font-semibold text-lg bg-accent text-base hover:bg-accent-hover shadow-lg transition-all"
+            className="w-full py-4 min-h-[56px] rounded-xl font-semibold text-base sm:text-lg bg-accent text-base hover:bg-accent-hover shadow-lg transition-all"
           >
             Got it, continue →
           </motion.button>

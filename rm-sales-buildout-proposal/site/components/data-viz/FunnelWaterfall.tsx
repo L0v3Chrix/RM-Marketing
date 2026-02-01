@@ -31,28 +31,28 @@ export function FunnelWaterfall() {
         </h3>
 
         {/* Funnel Stages */}
-        <StaggerChildren className="space-y-2 md:space-y-3">
+        <StaggerChildren className="space-y-1.5 md:space-y-3">
           {funnelStages.map((stage, index) => (
             <StaggerItem key={index}>
-              <div className="flex items-center gap-2 md:gap-3">
+              <div className="flex items-center gap-1.5 md:gap-3">
                 {/* Label */}
-                <div className="w-24 md:w-32 flex-shrink-0">
-                  <span className="text-text-muted text-xs md:text-sm uppercase tracking-wide">
+                <div className="w-20 md:w-32 flex-shrink-0">
+                  <span className="text-text-muted text-[10px] md:text-sm uppercase tracking-wide">
                     {stage.label}:
                   </span>
-                  <span className="text-accent font-semibold text-xs md:text-sm ml-1">
+                  <span className="text-accent font-semibold text-[10px] md:text-sm ml-1">
                     {stage.displayValue}
                   </span>
                 </div>
                 
                 {/* Bar */}
                 <div className="flex-1 relative">
-                  <div className="h-6 md:h-8 bg-elevated rounded overflow-hidden">
+                  <div className="h-5 md:h-8 bg-elevated rounded overflow-hidden">
                     <div 
                       className="h-full bg-gradient-to-r from-accent/60 to-accent rounded transition-all duration-700 flex items-center justify-end pr-2"
                       style={{ width: `${Math.max(stage.percent, 3)}%` }}
                     >
-                      <span className="text-base text-xs font-medium hidden md:inline">
+                      <span className="text-base text-[10px] md:text-xs font-medium hidden md:inline">
                         {stage.displayValue}
                       </span>
                     </div>
@@ -61,8 +61,8 @@ export function FunnelWaterfall() {
                 
                 {/* Drop indicator */}
                 {stage.drop && (
-                  <div className="w-14 md:w-16 flex-shrink-0 text-right">
-                    <span className="text-error text-xs font-medium">
+                  <div className="w-12 md:w-16 flex-shrink-0 text-right">
+                    <span className="text-error text-[10px] md:text-xs font-medium">
                       {stage.drop}
                     </span>
                   </div>
