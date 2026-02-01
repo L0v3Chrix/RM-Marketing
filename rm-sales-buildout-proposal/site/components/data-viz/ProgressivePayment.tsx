@@ -18,11 +18,11 @@ const paymentSteps = [
     icon: Activity,
     amount: "$4K",
     label: "at 30 Days",
-    sublabel: "Activity-based",
+    sublabel: "320 hours delivered",
     color: "from-accent to-accent/80",
     borderColor: "border-accent/50",
     textColor: "text-accent",
-    description: "Phones ringing. Leads worked. Doing the work.",
+    description: "2 people × 40 hrs/week × 4 weeks of work.",
   },
   {
     icon: TrendingUp,
@@ -41,7 +41,7 @@ export function ProgressivePayment() {
     <FadeInOnScroll>
       <div className="bg-card rounded-2xl p-4 md:p-6 border border-border-subtle">
         <h3 className="text-text-primary font-bold text-base md:text-lg text-center mb-2">
-          Phase 1: Prove It Works
+          Phase 1: The Pressure Test
         </h3>
         <p className="text-text-muted text-sm text-center mb-6">
           Progressive payments tied to real progress

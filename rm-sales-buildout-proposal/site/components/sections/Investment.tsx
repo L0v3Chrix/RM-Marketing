@@ -15,15 +15,15 @@ const phase1Requirements = [
   },
   {
     icon: Calendar,
-    label: "Appointment Volume",
-    value: "20/week",
-    detail: "Minimum appointments booked",
+    label: "Work Hours",
+    value: "320 hrs",
+    detail: "2 people × 40 hrs × 4 weeks",
   },
   {
     icon: Target,
-    label: "30-Day Quota",
-    value: "$20K",
-    detail: "Based on $2K January baseline",
+    label: "Activity Milestone",
+    value: "Work Delivered",
+    detail: "Not revenue quota — effort-based",
   },
 ];
 
@@ -114,7 +114,7 @@ export function Investment() {
               <Card variant="default" padding="default" className="mb-4 border-accent/30">
                 <h4 className="text-sm font-medium text-text-primary uppercase mb-4 flex items-center gap-2">
                   <Target className="w-4 h-4 text-accent" />
-                  Requirements to Earn Phase 1
+                  The Pressure Test
                 </h4>
                 <div className="space-y-3">
                   {phase1Requirements.map((req, index) => (
@@ -227,32 +227,119 @@ export function Investment() {
           </Card>
         </FadeInOnScroll>
 
-        {/* $20K Quota Justification */}
+        {/* Activity-Based Payment Justification */}
         <FadeInOnScroll delay={0.2}>
           <Card variant="elevated" padding="large" className="max-w-3xl mx-auto mb-16 border-accent/20">
             <div className="flex items-center gap-3 mb-6">
               <TrendingUp className="w-8 h-8 text-accent" />
               <h3 className="text-xl font-semibold text-text-primary">
-                Why $20K in 30 Days is Reasonable
+                Why 30-Day Payment is Activity-Based
               </h3>
             </div>
             <p className="text-text-secondary mb-6">
-              In January, with no dedicated sales effort, GHL Mastery did{" "}
-              <span className="text-accent font-semibold">$2K</span> in revenue. 
-              That&apos;s the baseline with Adam handling everything else.
+              The first $4K unlocks the engagement. The second $4K is earned through{" "}
+              <span className="text-accent font-semibold">320 hours of real work</span> — 
+              not tied to revenue that may take time to close.
             </p>
+            <div className="grid sm:grid-cols-2 gap-4 mb-6">
+              <div className="bg-card rounded-lg p-4 border border-border-subtle">
+                <p className="text-accent font-semibold text-lg mb-2">2 People</p>
+                <p className="text-text-secondary text-sm">Full-time dedicated team</p>
+              </div>
+              <div className="bg-card rounded-lg p-4 border border-border-subtle">
+                <p className="text-accent font-semibold text-lg mb-2">40 Hours/Week</p>
+                <p className="text-text-secondary text-sm">Each, for 4 weeks</p>
+              </div>
+            </div>
+            <div className="bg-accent/10 rounded-lg p-4">
+              <p className="text-text-primary font-semibold mb-2">What Those 320 Hours Cover:</p>
+              <ul className="text-text-secondary text-sm space-y-1">
+                <li>• Database reactivation — working 10,000+ dormant contacts</li>
+                <li>• Cold calling — dialing through existing leads</li>
+                <li>• Warm lead follow-up — speed-to-lead improvement</li>
+                <li>• Preparing Phase 2 — documentation, scripts, systems</li>
+              </ul>
+            </div>
+          </Card>
+        </FadeInOnScroll>
+
+        {/* Appointment Math Breakdown */}
+        <FadeInOnScroll delay={0.2}>
+          <Card variant="elevated" padding="large" className="max-w-3xl mx-auto mb-16 border-success/20">
+            <div className="flex items-center gap-3 mb-6">
+              <Target className="w-8 h-8 text-success" />
+              <h3 className="text-xl font-semibold text-text-primary">
+                Where 22 Appointments/Week Comes From
+              </h3>
+            </div>
             <p className="text-text-secondary mb-6">
-              Add dedicated sales capacity + database reactivation + no-show recovery + 
-              failed payment dunning, and <span className="text-accent font-semibold">10x</span> that 
-              number becomes the reasonable floor.
+              The math gets much better when you factor in the database — 
+              these are <span className="text-success font-semibold">free appointments</span> from 
+              leads you&apos;ve already paid for.
             </p>
-            <div className="bg-accent/10 rounded-lg p-4 text-center">
-              <p className="text-text-primary font-semibold">
-                $2K baseline → $20K target = 10x improvement
+            <div className="space-y-4 mb-6">
+              <div className="flex items-center justify-between p-4 bg-success/10 rounded-lg border border-success/30">
+                <div>
+                  <p className="text-text-primary font-semibold">Database Reactivation</p>
+                  <p className="text-text-muted text-sm">10,000+ untouched leads = free appointments</p>
+                </div>
+                <p className="text-success font-bold text-xl">10-12/wk</p>
+              </div>
+              <div className="flex items-center justify-between p-4 bg-accent/10 rounded-lg border border-accent/30">
+                <div>
+                  <p className="text-text-primary font-semibold">Warm Lead Follow-Up</p>
+                  <p className="text-text-muted text-sm">Speed-to-lead improvement on inbound</p>
+                </div>
+                <p className="text-accent font-bold text-xl">5-7/wk</p>
+              </div>
+              <div className="flex items-center justify-between p-4 bg-info/10 rounded-lg border border-info/30">
+                <div>
+                  <p className="text-text-primary font-semibold">New Ad Leads</p>
+                  <p className="text-text-muted text-sm">At current $1,500/mo ad spend</p>
+                </div>
+                <p className="text-info font-bold text-xl">5-7/wk</p>
+              </div>
+            </div>
+            <div className="bg-success/20 rounded-lg p-4 text-center border border-success/30">
+              <p className="text-text-primary font-bold text-lg mb-1">
+                Total: ~22 appointments/week
               </p>
-              <p className="text-sm text-text-secondary mt-1">
-                Not by doing more of the same — by doing it at all.
+              <p className="text-success font-semibold">= 88 appointments/month</p>
+              <p className="text-text-muted text-sm mt-2">
+                vs. ~15/month from ads alone
               </p>
+            </div>
+          </Card>
+        </FadeInOnScroll>
+
+        {/* The Honest Truth About Ads */}
+        <FadeInOnScroll delay={0.2}>
+          <Card variant="default" padding="large" className="max-w-3xl mx-auto mb-16 border-warning/30">
+            <div className="flex items-start gap-4">
+              <AlertCircle className="w-6 h-6 text-warning flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-xl font-semibold text-text-primary mb-3">
+                  The Honest Truth: Ads Alone Won&apos;t Hit the Target
+                </h3>
+                <p className="text-text-secondary mb-4">
+                  At $1,500/month in ad spend, you&apos;re generating about{" "}
+                  <span className="text-warning font-semibold">15 appointments/month</span>. 
+                  That&apos;s the math.
+                </p>
+                <p className="text-text-secondary mb-4">
+                  To hit 88 appointments/month from ads alone, you&apos;d need to 
+                  6x your ad spend to ~$9,000/month. That&apos;s not the play.
+                </p>
+                <div className="bg-warning/10 rounded-lg p-4">
+                  <p className="text-text-primary font-semibold">
+                    The database is the key.
+                  </p>
+                  <p className="text-text-secondary text-sm mt-1">
+                    10,000+ contacts you&apos;ve already paid for, sitting untouched. 
+                    That&apos;s where the 70+ extra appointments/month come from — at zero additional ad cost.
+                  </p>
+                </div>
+              </div>
             </div>
           </Card>
         </FadeInOnScroll>
@@ -327,12 +414,12 @@ export function Investment() {
               <span className="text-accent text-3xl sm:text-4xl md:text-5xl">$4K</span> to get started.
             </h3>
             <p className="text-text-secondary text-sm sm:text-lg mb-3 sm:mb-4">
-              Progressive payments mean you pay as we prove it works. 
+              Progressive payments tied to work delivered, not revenue promises.
               Low risk to start. Clear milestones to continue.
             </p>
             <p className="text-accent font-semibold text-sm sm:text-lg">
-              If we hit <span className="text-xl sm:text-2xl font-bold">$20K</span> in 30 days, 
-              you know the system is working.
+              320 hours of focused work in 30 days — 
+              <span className="text-xl sm:text-2xl font-bold"> that&apos;s</span> how we earn the second payment.
             </p>
           </Card>
         </FadeInOnScroll>

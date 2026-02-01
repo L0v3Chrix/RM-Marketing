@@ -1,5 +1,5 @@
-/* Modern Dark Theme - Inspired by Born This Way Foundation */
-/* Clean, elegant, premium - NO template blues, NO golds */
+/* Clean Light Theme - Inspired by Born This Way Foundation */
+/* Professional, warm, welcoming - whites and creams with elegant accents */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
@@ -7,44 +7,44 @@
 
 /* ============================================
    ROOT DESIGN TOKENS
-   Minimal, intentional color palette
+   Light, clean, professional palette
 ============================================ */
 :root {
-  /* Core Backgrounds - Deep, rich blacks */
-  --bg-base: #0a0a0a;
-  --bg-elevated: #111111;
-  --bg-card: #161616;
-  --bg-card-hover: #1a1a1a;
-  --bg-subtle: #1e1e1e;
+  /* Core Backgrounds - Clean whites and warm creams */
+  --bg-base: #ffffff;
+  --bg-elevated: #fafafa;
+  --bg-card: #f5f5f5;
+  --bg-card-hover: #f0f0f0;
+  --bg-subtle: #ebebeb;
   
-  /* Text Hierarchy */
-  --text-primary: #ffffff;
-  --text-secondary: #a1a1a1;
-  --text-muted: #666666;
-  --text-subtle: #444444;
+  /* Text Hierarchy - Dark for readability */
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a4a4a;
+  --text-muted: #737373;
+  --text-subtle: #9a9a9a;
   
-  /* Accent - Clean teal (not gold, not blue) */
-  --accent: #14b8a6;
-  --accent-hover: #0d9488;
-  --accent-muted: rgba(20, 184, 166, 0.15);
-  --accent-subtle: rgba(20, 184, 166, 0.08);
+  /* Accent - Warm teal (works great on light) */
+  --accent: #0d9488;
+  --accent-hover: #0f766e;
+  --accent-muted: rgba(13, 148, 136, 0.12);
+  --accent-subtle: rgba(13, 148, 136, 0.06);
   
   /* Functional Colors */
-  --success: #22c55e;
-  --warning: #f59e0b;
-  --error: #ef4444;
-  --info: #3b82f6;
+  --success: #059669;
+  --warning: #d97706;
+  --error: #dc2626;
+  --info: #2563eb;
   
-  /* Borders */
-  --border-subtle: #1f1f1f;
-  --border-default: #2a2a2a;
-  --border-strong: #3a3a3a;
+  /* Borders - Soft grays */
+  --border-subtle: #e5e5e5;
+  --border-default: #d4d4d4;
+  --border-strong: #a3a3a3;
   
-  /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.6);
-  --shadow-glow: 0 0 40px rgba(20, 184, 166, 0.15);
+  /* Shadows - Softer for light theme */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-glow: 0 0 40px rgba(13, 148, 136, 0.15);
 }
 
 /* ============================================
@@ -54,54 +54,54 @@
   /* Custom breakpoints - xs for small phones */
   --breakpoint-xs: 375px;
   
-  /* Backgrounds */
-  --color-base: #0a0a0a;
-  --color-elevated: #111111;
-  --color-card: #161616;
-  --color-card-hover: #1a1a1a;
-  --color-subtle: #1e1e1e;
-  --color-light: #2a2a2a;
+  /* Backgrounds - Light theme */
+  --color-base: #ffffff;
+  --color-elevated: #fafafa;
+  --color-card: #f5f5f5;
+  --color-card-hover: #f0f0f0;
+  --color-subtle: #ebebeb;
+  --color-light: #e5e5e5;
   
-  /* Text */
-  --color-text-primary: #ffffff;
-  --color-text-secondary: #a1a1a1;
-  --color-text-muted: #666666;
+  /* Text - Dark for readability on light */
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #4a4a4a;
+  --color-text-muted: #737373;
   
-  /* Primary Accent - Teal (main brand color) */
-  --color-accent: #14b8a6;
-  --color-accent-hover: #0d9488;
-  --color-accent-muted: rgba(20, 184, 166, 0.15);
-  --color-green: #14b8a6;
-  --color-primary: #14b8a6;
+  /* Primary Accent - Teal (slightly deeper for light bg) */
+  --color-accent: #0d9488;
+  --color-accent-hover: #0f766e;
+  --color-accent-muted: rgba(13, 148, 136, 0.12);
+  --color-green: #0d9488;
+  --color-primary: #0d9488;
   
-  /* Secondary Accent - Warm Rose (elegant highlight) */
-  --color-rose: #c4a484;
-  --color-rose-dark: #9a7b5f;
+  /* Secondary Accent - Warm Rose */
+  --color-rose: #be8b6e;
+  --color-rose-dark: #96674d;
   
-  /* Warning/Highlight - Amber (replacing gold) */
-  --color-gold: #d4a574;
-  --color-gold-dark: #b8956a;
-  --color-amber: #d4a574;
+  /* Highlight - Warm Amber */
+  --color-gold: #b8860b;
+  --color-gold-dark: #996d00;
+  --color-amber: #b8860b;
   
-  /* Info/Data - Slate (replacing blue) */
-  --color-blue: #94a3b8;
-  --color-slate: #94a3b8;
+  /* Info/Data - Slate Blue */
+  --color-blue: #475569;
+  --color-slate: #475569;
   
-  /* Tint backgrounds (subtle colored backgrounds) */
-  --color-tint-blue: rgba(148, 163, 184, 0.1);
-  --color-tint-slate: rgba(148, 163, 184, 0.1);
-  --color-tint-gold: rgba(212, 165, 116, 0.1);
-  --color-tint-amber: rgba(212, 165, 116, 0.1);
-  --color-tint-green: rgba(20, 184, 166, 0.1);
+  /* Tint backgrounds (subtle colored backgrounds on light) */
+  --color-tint-blue: rgba(71, 85, 105, 0.08);
+  --color-tint-slate: rgba(71, 85, 105, 0.08);
+  --color-tint-gold: rgba(184, 134, 11, 0.08);
+  --color-tint-amber: rgba(184, 134, 11, 0.08);
+  --color-tint-green: rgba(13, 148, 136, 0.08);
   
   /* Functional */
-  --color-success: #22c55e;
-  --color-warning: #f59e0b;
-  --color-error: #ef4444;
+  --color-success: #059669;
+  --color-warning: #d97706;
+  --color-error: #dc2626;
   
   /* Borders */
-  --color-border: #2a2a2a;
-  --color-border-subtle: #1f1f1f;
+  --color-border: #d4d4d4;
+  --color-border-subtle: #e5e5e5;
   
   /* Font */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -170,7 +170,7 @@ p {
 }
 
 /* ============================================
-   SCROLLBAR
+   SCROLLBAR - Light Theme
 ============================================ */
 ::-webkit-scrollbar {
   width: 8px;
@@ -178,7 +178,7 @@ p {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-base);
+  background: var(--bg-elevated);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -236,7 +236,7 @@ input[type="range"]::-webkit-slider-thumb {
   width: 28px;
   border-radius: 50%;
   margin-top: -10px;
-  box-shadow: 0 2px 8px rgba(20, 184, 166, 0.3);
+  box-shadow: 0 2px 8px rgba(13, 148, 136, 0.25);
   transition: transform 0.15s ease;
   /* Larger touch target via pseudo-element effect */
   border: 4px solid transparent;
@@ -262,7 +262,7 @@ input[type="range"]::-moz-range-thumb {
   width: 28px;
   border-radius: 50%;
   border: none;
-  box-shadow: 0 2px 8px rgba(20, 184, 166, 0.3);
+  box-shadow: 0 2px 8px rgba(13, 148, 136, 0.25);
 }
 
 input[type="range"]::-moz-range-thumb:hover,
@@ -289,9 +289,9 @@ input[type="range"]::-moz-range-thumb:active {
    UTILITY CLASSES
 ============================================ */
 
-/* Gradient text */
+/* Gradient text - for light theme */
 .gradient-text {
-  background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-muted) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -302,9 +302,9 @@ input[type="range"]::-moz-range-thumb:active {
   box-shadow: var(--shadow-glow);
 }
 
-/* Glass effect for cards */
+/* Glass effect for cards - light theme */
 .glass {
-  background: rgba(22, 22, 22, 0.8);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
@@ -335,7 +335,7 @@ html, body {
 /* Touch-friendly tap highlight */
 @media (pointer: coarse) {
   button, a, [role="button"] {
-    -webkit-tap-highlight-color: rgba(20, 184, 166, 0.1);
+    -webkit-tap-highlight-color: rgba(13, 148, 136, 0.1);
   }
 }
 

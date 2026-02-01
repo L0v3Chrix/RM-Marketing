@@ -6,15 +6,15 @@ import { CheckCircle2, Building2, TrendingUp, Clock } from "lucide-react";
 const phases = [
   {
     number: 1,
-    title: "PROOF",
+    title: "PRESSURE TEST",
     duration: "30 Days",
-    status: "Completed",
-    statusColor: "text-success",
+    status: "Active",
+    statusColor: "text-accent",
     borderColor: "border-accent",
     bgColor: "from-accent/20 to-accent/5",
     icon: CheckCircle2,
     iconColor: "text-accent",
-    description: "Validating core concepts and initial traction. Data-driven proof points established.",
+    description: "320 hours of focused work: database reactivation, cold calling, warm lead follow-up, and Phase 2 prep.",
   },
   {
     number: 2,
