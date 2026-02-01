@@ -18,10 +18,10 @@ export function CurrentState({ answers, updateAnswer }: CurrentStateProps) {
       className="space-y-8"
     >
       <div className="text-center mb-8">
-        <h2 className="text-2xl sm:text-3xl font-bold text-heading mb-2">
+        <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-2">
           Let&apos;s see where you are
         </h2>
-        <p className="text-body text-sm sm:text-base">
+        <p className="text-text-secondary text-sm sm:text-base">
           We&apos;ll use your real numbers to show you what&apos;s possible.
         </p>
       </div>
@@ -29,10 +29,10 @@ export function CurrentState({ answers, updateAnswer }: CurrentStateProps) {
       {/* Current Monthly Revenue */}
       <div className="space-y-3">
         <div className="flex justify-between items-center">
-          <label className="text-sm font-medium text-heading">
+          <label className="text-sm font-medium text-text-primary">
             Current Monthly Revenue
           </label>
-          <span className="text-lg font-bold text-green">
+          <span className="text-lg font-bold text-accent">
             {formatCurrency(answers.currentRevenue)}
           </span>
         </div>
@@ -43,9 +43,9 @@ export function CurrentState({ answers, updateAnswer }: CurrentStateProps) {
           step={1000}
           value={answers.currentRevenue}
           onChange={(e) => updateAnswer('currentRevenue', Number(e.target.value))}
-          className="w-full h-3 bg-light rounded-lg appearance-none cursor-pointer accent-green"
+          className="w-full h-3 bg-elevated rounded-lg appearance-none cursor-pointer accent-accent"
         />
-        <div className="flex justify-between text-xs text-muted">
+        <div className="flex justify-between text-xs text-text-muted">
           <span>$0</span>
           <span>$500K</span>
         </div>
@@ -54,10 +54,10 @@ export function CurrentState({ answers, updateAnswer }: CurrentStateProps) {
       {/* Monthly Ad Spend */}
       <div className="space-y-3">
         <div className="flex justify-between items-center">
-          <label className="text-sm font-medium text-heading">
+          <label className="text-sm font-medium text-text-primary">
             Monthly Ad Spend
           </label>
-          <span className="text-lg font-bold text-slate">
+          <span className="text-lg font-bold text-text-secondary">
             {formatCurrency(answers.adSpend)}
           </span>
         </div>
@@ -68,9 +68,9 @@ export function CurrentState({ answers, updateAnswer }: CurrentStateProps) {
           step={100}
           value={answers.adSpend}
           onChange={(e) => updateAnswer('adSpend', Number(e.target.value))}
-          className="w-full h-3 bg-light rounded-lg appearance-none cursor-pointer accent-slate"
+          className="w-full h-3 bg-elevated rounded-lg appearance-none cursor-pointer accent-text-secondary"
         />
-        <div className="flex justify-between text-xs text-muted">
+        <div className="flex justify-between text-xs text-text-muted">
           <span>$0</span>
           <span>$20K</span>
         </div>
@@ -79,10 +79,10 @@ export function CurrentState({ answers, updateAnswer }: CurrentStateProps) {
       {/* Cost Per Lead */}
       <div className="space-y-3">
         <div className="flex justify-between items-center">
-          <label className="text-sm font-medium text-heading">
+          <label className="text-sm font-medium text-text-primary">
             Cost Per Lead
           </label>
-          <span className="text-lg font-bold text-body">
+          <span className="text-lg font-bold text-text-secondary">
             ${answers.costPerLead.toFixed(2)}
           </span>
         </div>
@@ -93,23 +93,23 @@ export function CurrentState({ answers, updateAnswer }: CurrentStateProps) {
           step={0.5}
           value={answers.costPerLead}
           onChange={(e) => updateAnswer('costPerLead', Number(e.target.value))}
-          className="w-full h-3 bg-light rounded-lg appearance-none cursor-pointer accent-body"
+          className="w-full h-3 bg-elevated rounded-lg appearance-none cursor-pointer accent-text-secondary"
         />
-        <div className="flex justify-between text-xs text-muted">
+        <div className="flex justify-between text-xs text-text-muted">
           <span>$1</span>
           <span>$100</span>
         </div>
-        <p className="text-xs text-muted italic">
+        <p className="text-xs text-text-muted italic">
           Industry average: $50-85 | Your current: ${answers.costPerLead.toFixed(2)}
         </p>
       </div>
 
       {/* Quick Stats */}
-      <div className="bg-tint-slate rounded-xl p-4 mt-6">
-        <p className="text-sm text-body">
+      <div className="bg-card rounded-xl p-4 mt-6">
+        <p className="text-sm text-text-secondary">
           <span className="font-semibold">At your current spend:</span>{" "}
           You&apos;re generating roughly{" "}
-          <span className="font-bold text-green">
+          <span className="font-bold text-accent">
             {Math.round(answers.adSpend / answers.costPerLead)} leads/month
           </span>
         </p>

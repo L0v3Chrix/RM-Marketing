@@ -28,7 +28,7 @@ export function QuizResults({ quizState, onContinue }: QuizResultsProps) {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="min-h-screen bg-light py-8 sm:py-12"
+      className="min-h-screen bg-base py-8 sm:py-12"
     >
       <div className="max-w-4xl mx-auto px-4">
         {/* Header */}
@@ -37,13 +37,13 @@ export function QuizResults({ quizState, onContinue }: QuizResultsProps) {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-8 sm:mb-12"
         >
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-heading mb-3">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-3">
             Your Personalized Growth Analysis
           </h1>
-          <p className="text-body text-sm sm:text-base max-w-2xl mx-auto">
+          <p className="text-text-secondary text-sm sm:text-base max-w-2xl mx-auto">
             Based on your numbers, here&apos;s what it takes to go from{" "}
             <span className="font-semibold">{formatCurrency(answers.currentRevenue)}</span> to{" "}
-            <span className="font-semibold text-green">{formatCurrency(answers.targetRevenue)}</span>/month
+            <span className="font-semibold text-success">{formatCurrency(answers.targetRevenue)}</span>/month
           </p>
         </motion.div>
 
@@ -54,33 +54,33 @@ export function QuizResults({ quizState, onContinue }: QuizResultsProps) {
           transition={{ delay: 0.2 }}
           className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-8"
         >
-          <div className="bg-white rounded-xl p-4 text-center border border-border">
-            <DollarSign className="w-6 h-6 text-green mx-auto mb-2" />
-            <p className="text-xl sm:text-2xl font-bold text-green">
+          <div className="bg-card rounded-xl p-4 text-center border border-border-subtle">
+            <DollarSign className="w-6 h-6 text-success mx-auto mb-2" />
+            <p className="text-xl sm:text-2xl font-bold text-success">
               {formatCurrency(calculatedMetrics.revenuePerShow)}
             </p>
-            <p className="text-xs text-muted">Revenue/Show</p>
+            <p className="text-xs text-text-muted">Revenue/Show</p>
           </div>
-          <div className="bg-white rounded-xl p-4 text-center border border-border">
-            <TrendingUp className="w-6 h-6 text-slate mx-auto mb-2" />
-            <p className="text-xl sm:text-2xl font-bold text-slate">
+          <div className="bg-card rounded-xl p-4 text-center border border-border-subtle">
+            <TrendingUp className="w-6 h-6 text-accent mx-auto mb-2" />
+            <p className="text-xl sm:text-2xl font-bold text-accent">
               {calculatedMetrics.ltvCac.toFixed(1)}x
             </p>
-            <p className="text-xs text-muted">LTV:CAC</p>
+            <p className="text-xs text-text-muted">LTV:CAC</p>
           </div>
-          <div className="bg-white rounded-xl p-4 text-center border border-border">
-            <Target className="w-6 h-6 text-body mx-auto mb-2" />
-            <p className="text-xl sm:text-2xl font-bold text-body">
+          <div className="bg-card rounded-xl p-4 text-center border border-border-subtle">
+            <Target className="w-6 h-6 text-text-secondary mx-auto mb-2" />
+            <p className="text-xl sm:text-2xl font-bold text-text-secondary">
               {formatCurrency(calculatedMetrics.costPerShow)}
             </p>
-            <p className="text-xs text-muted">Cost/Show</p>
+            <p className="text-xs text-text-muted">Cost/Show</p>
           </div>
-          <div className="bg-white rounded-xl p-4 text-center border border-border">
-            <UserPlus className="w-6 h-6 text-body mx-auto mb-2" />
-            <p className="text-xl sm:text-2xl font-bold text-body">
+          <div className="bg-card rounded-xl p-4 text-center border border-border-subtle">
+            <UserPlus className="w-6 h-6 text-text-secondary mx-auto mb-2" />
+            <p className="text-xl sm:text-2xl font-bold text-text-secondary">
               {targetRequirements.closersNeeded}
             </p>
-            <p className="text-xs text-muted">Closers Needed</p>
+            <p className="text-xs text-text-muted">Closers Needed</p>
           </div>
         </motion.div>
 
@@ -90,11 +90,11 @@ export function QuizResults({ quizState, onContinue }: QuizResultsProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25 }}
-            className="bg-tint-amber border border-amber/20 rounded-2xl p-5 sm:p-6 mb-8"
+            className="bg-warning/10 border border-warning/20 rounded-2xl p-5 sm:p-6 mb-8"
           >
             <div className="flex items-center gap-2 mb-4">
-              <Lightbulb className="w-5 h-5 text-amber" />
-              <h3 className="font-semibold text-heading">What You Discovered</h3>
+              <Lightbulb className="w-5 h-5 text-warning" />
+              <h3 className="font-semibold text-text-primary">What You Discovered</h3>
             </div>
             <div className="space-y-3">
               {learnings.map((learning, index) => (
@@ -106,18 +106,18 @@ export function QuizResults({ quizState, onContinue }: QuizResultsProps) {
                   className="flex items-start gap-3"
                 >
                   <div className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center ${
-                    learning.wasCorrect ? 'bg-success/20' : 'bg-primary/20'
+                    learning.wasCorrect ? 'bg-success/20' : 'bg-accent/20'
                   }`}>
                     {learning.wasCorrect ? (
                       <Check className="w-3 h-3 text-success" />
                     ) : (
-                      <TrendingUp className="w-3 h-3 text-primary" />
+                      <TrendingUp className="w-3 h-3 text-accent" />
                     )}
                   </div>
-                  <p className="text-sm text-body leading-relaxed">
-                    <span className="font-medium text-heading">{learning.insight}</span>
+                  <p className="text-sm text-text-secondary leading-relaxed">
+                    <span className="font-medium text-text-primary">{learning.insight}</span>
                     {!learning.wasCorrect && (
-                      <span className="text-muted"> — now you know!</span>
+                      <span className="text-text-muted"> — now you know!</span>
                     )}
                   </p>
                 </motion.div>
@@ -156,21 +156,21 @@ export function QuizResults({ quizState, onContinue }: QuizResultsProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="bg-tint-slate border-l-4 border-slate rounded-r-xl p-5 mb-8"
+          className="bg-card border-l-4 border-accent rounded-r-xl p-5 mb-8"
         >
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
-              <h3 className="text-lg font-semibold text-heading mb-1">
+              <h3 className="text-lg font-semibold text-text-primary mb-1">
                 Your Growth Opportunity
               </h3>
-              <p className="text-sm text-body">
+              <p className="text-sm text-text-secondary">
                 There&apos;s a clear path from here to{" "}
-                <span className="font-bold text-green">+{formatCurrency(gap)}</span> per month.
+                <span className="font-bold text-success">+{formatCurrency(gap)}</span> per month.
               </p>
             </div>
             <div className="text-center sm:text-right">
-              <p className="text-3xl font-bold text-green">{formatCurrency(gap * 12)}</p>
-              <p className="text-xs text-muted">Annual Potential</p>
+              <p className="text-3xl font-bold text-success">{formatCurrency(gap * 12)}</p>
+              <p className="text-xs text-text-muted">Annual Potential</p>
             </div>
           </div>
         </motion.div>
@@ -180,12 +180,12 @@ export function QuizResults({ quizState, onContinue }: QuizResultsProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="bg-navy rounded-2xl p-6 sm:p-8 text-center"
+          className="bg-elevated rounded-2xl p-6 sm:p-8 text-center"
         >
-          <h2 className="text-xl sm:text-2xl font-bold text-inverse mb-3">
+          <h2 className="text-xl sm:text-2xl font-bold text-text-primary mb-3">
             Now You Know the Problem
           </h2>
-          <p className="text-inverse-muted mb-6 max-w-xl mx-auto text-sm sm:text-base">
+          <p className="text-text-secondary mb-6 max-w-xl mx-auto text-sm sm:text-base">
             Speed-to-lead, show rates, and persistent follow-up aren&apos;t just stats—they&apos;re 
             the levers that move you from {formatCurrency(answers.currentRevenue)} to{" "}
             {formatCurrency(answers.targetRevenue)}/month. Let&apos;s show you how we fix them.
@@ -195,13 +195,13 @@ export function QuizResults({ quizState, onContinue }: QuizResultsProps) {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={onContinue}
-            className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-primary-dark transition-colors"
+            className="inline-flex items-center gap-2 bg-accent text-base px-8 py-4 rounded-xl font-semibold text-lg hover:bg-accent-hover transition-colors"
           >
             See How We Solve This
             <ArrowDown className="w-5 h-5" />
           </motion.button>
 
-          <p className="mt-4 text-inverse-muted text-sm">
+          <p className="mt-4 text-text-muted text-sm">
             ↓ Scroll to see the solution built for your numbers
           </p>
         </motion.div>
@@ -217,9 +217,9 @@ export function QuizResults({ quizState, onContinue }: QuizResultsProps) {
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 1.5 }}
           >
-            <ArrowDown className="w-6 h-6 text-muted mx-auto" />
+            <ArrowDown className="w-6 h-6 text-text-muted mx-auto" />
           </motion.div>
-          <p className="text-xs text-muted mt-2">Scroll to see our solution</p>
+          <p className="text-xs text-text-muted mt-2">Scroll to see our solution</p>
         </motion.div>
       </div>
     </motion.div>

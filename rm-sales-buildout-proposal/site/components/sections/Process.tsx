@@ -8,7 +8,7 @@ import { ChevronRight, Clock, Wrench } from "lucide-react";
 
 const milestones = [
   { milestone: "Agreement Signed", timing: "Day 0", payment: "$4,000" },
-  { milestone: "Phase 1 Complete", timing: "Day 30", payment: "$4,000 (if $36K quota hit)" },
+  { milestone: "Phase 1 Complete", timing: "Day 30", payment: "$4,000 (if $20K quota hit)" },
   { milestone: "Phase 2 Month 1", timing: "Day 31", payment: "$12,000" },
   { milestone: "Phase 2 Month 2", timing: "Day 61", payment: "$12,000" },
   { milestone: "Phase 2 Month 3", timing: "Day 91", payment: "$12,000" },
@@ -55,7 +55,7 @@ export function Process() {
             </p>
             <div className="grid sm:grid-cols-2 gap-4 text-left">
               <div className="p-4 bg-accent/10 rounded-lg border border-accent/20">
-                <p className="font-medium text-accent mb-2">If quota hit ($36K)</p>
+                <p className="font-medium text-accent mb-2">If quota hit ($20K)</p>
                 <ul className="text-text-secondary text-sm space-y-1">
                   <li>• Phase 2 is a no-brainer</li>
                   <li>• We&apos;ve proven the model</li>

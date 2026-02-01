@@ -263,7 +263,7 @@ export const TEAM_MEMBERS = [
     ],
   },
   {
-    name: "Sara",
+    name: "Sarah",
     role: "Pipeline & Operations",
     bio: "Pipeline management expert. Keeps leads moving, appointments scheduled, and nothing falling through the cracks.",
     highlights: [

@@ -10,21 +10,21 @@ interface FunnelWaterfallProps {
 
 export function FunnelWaterfall({ metrics, adSpend }: FunnelWaterfallProps) {
   const stages = [
-    { label: 'AD SPEND', value: `$${adSpend.toLocaleString()}`, count: null, color: 'bg-slate' },
-    { label: 'LEADS', value: metrics.leads.toString(), count: metrics.leads, color: 'bg-slate' },
-    { label: 'CALLS', value: metrics.callsMade.toString(), count: metrics.callsMade, color: 'bg-slate' },
-    { label: 'PERSONS', value: metrics.personsReached.toString(), count: metrics.personsReached, color: 'bg-green' },
-    { label: 'APPOINTMENTS', value: metrics.appointmentsBooked.toString(), count: metrics.appointmentsBooked, color: 'bg-green' },
-    { label: 'SHOWS', value: metrics.shows.toString(), count: metrics.shows, color: 'bg-green' },
-    { label: 'SALES', value: metrics.sales.toString(), count: metrics.sales, color: 'bg-amber' },
-    { label: 'UPSELLS', value: metrics.upsells.toString(), count: metrics.upsells, color: 'bg-amber' },
+    { label: 'AD SPEND', value: `$${adSpend.toLocaleString()}`, count: null, color: 'bg-text-secondary' },
+    { label: 'LEADS', value: metrics.leads.toString(), count: metrics.leads, color: 'bg-text-secondary' },
+    { label: 'CALLS', value: metrics.callsMade.toString(), count: metrics.callsMade, color: 'bg-text-secondary' },
+    { label: 'PERSONS', value: metrics.personsReached.toString(), count: metrics.personsReached, color: 'bg-accent' },
+    { label: 'APPOINTMENTS', value: metrics.appointmentsBooked.toString(), count: metrics.appointmentsBooked, color: 'bg-accent' },
+    { label: 'SHOWS', value: metrics.shows.toString(), count: metrics.shows, color: 'bg-accent' },
+    { label: 'SALES', value: metrics.sales.toString(), count: metrics.sales, color: 'bg-success' },
+    { label: 'UPSELLS', value: metrics.upsells.toString(), count: metrics.upsells, color: 'bg-success' },
   ];
 
   const maxCount = Math.max(...stages.filter(s => s.count !== null).map(s => s.count || 0));
 
   return (
-    <div className="bg-navy rounded-2xl p-5 sm:p-6">
-      <h3 className="text-lg font-semibold text-inverse mb-6 text-center">
+    <div className="bg-elevated rounded-2xl p-5 sm:p-6">
+      <h3 className="text-lg font-semibold text-text-primary mb-6 text-center">
         Your Sales Funnel
       </h3>
 
@@ -43,17 +43,17 @@ export function FunnelWaterfall({ metrics, adSpend }: FunnelWaterfallProps) {
               className="flex items-center gap-3"
             >
               <div className="w-24 sm:w-28 text-right">
-                <span className="text-xs text-inverse-muted">{stage.label}</span>
+                <span className="text-xs text-text-muted">{stage.label}</span>
               </div>
               <div className="flex-1 relative h-8">
-                <div className="absolute inset-0 bg-white/5 rounded" />
+                <div className="absolute inset-0 bg-card rounded" />
                 <motion.div
                   className={`absolute inset-y-0 left-0 ${stage.color} rounded flex items-center justify-end px-2`}
                   initial={{ width: 0 }}
                   animate={{ width: `${width}%` }}
                   transition={{ delay: index * 0.1 + 0.3, duration: 0.5, ease: "easeOut" }}
                 >
-                  <span className="text-xs font-bold text-white whitespace-nowrap">
+                  <span className="text-xs font-bold text-base whitespace-nowrap">
                     {stage.value}
                   </span>
                 </motion.div>
@@ -64,22 +64,22 @@ export function FunnelWaterfall({ metrics, adSpend }: FunnelWaterfallProps) {
       </div>
 
       {/* Conversion Arrows */}
-      <div className="mt-6 pt-4 border-t border-white/10 grid grid-cols-3 gap-4 text-center text-xs">
+      <div className="mt-6 pt-4 border-t border-border-subtle grid grid-cols-3 gap-4 text-center text-xs">
         <div>
-          <p className="text-inverse-muted">Answer Rate</p>
-          <p className="text-green font-bold">
+          <p className="text-text-muted">Answer Rate</p>
+          <p className="text-accent font-bold">
             {Math.round((metrics.personsReached / metrics.callsMade) * 100)}%
           </p>
         </div>
         <div>
-          <p className="text-inverse-muted">Show Rate</p>
-          <p className="text-green font-bold">
+          <p className="text-text-muted">Show Rate</p>
+          <p className="text-accent font-bold">
             {Math.round((metrics.shows / metrics.appointmentsBooked) * 100)}%
           </p>
         </div>
         <div>
-          <p className="text-inverse-muted">Close Rate</p>
-          <p className="text-amber font-bold">
+          <p className="text-text-muted">Close Rate</p>
+          <p className="text-success font-bold">
             {Math.round((metrics.sales / metrics.shows) * 100)}%
           </p>
         </div>

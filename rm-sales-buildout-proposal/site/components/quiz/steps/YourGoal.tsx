@@ -28,10 +28,10 @@ export function YourGoal({ answers, updateAnswer }: YourGoalProps) {
       className="space-y-8"
     >
       <div className="text-center mb-8">
-        <h2 className="text-2xl sm:text-3xl font-bold text-heading mb-2">
+        <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-2">
           Where do you want to be?
         </h2>
-        <p className="text-body text-sm sm:text-base">
+        <p className="text-text-secondary text-sm sm:text-base">
           Let&apos;s define your target and timeline.
         </p>
       </div>
@@ -39,10 +39,10 @@ export function YourGoal({ answers, updateAnswer }: YourGoalProps) {
       {/* Target Revenue */}
       <div className="space-y-3">
         <div className="flex justify-between items-center">
-          <label className="text-sm font-medium text-heading">
+          <label className="text-sm font-medium text-text-primary">
             Monthly Revenue Target
           </label>
-          <span className="text-lg font-bold text-green">
+          <span className="text-lg font-bold text-accent">
             {formatCurrency(answers.targetRevenue)}
           </span>
         </div>
@@ -53,55 +53,55 @@ export function YourGoal({ answers, updateAnswer }: YourGoalProps) {
           step={5000}
           value={answers.targetRevenue}
           onChange={(e) => updateAnswer('targetRevenue', Number(e.target.value))}
-          className="w-full h-3 bg-light rounded-lg appearance-none cursor-pointer accent-green"
+          className="w-full h-3 bg-elevated rounded-lg appearance-none cursor-pointer accent-accent"
         />
-        <div className="flex justify-between text-xs text-muted">
+        <div className="flex justify-between text-xs text-text-muted">
           <span>$50K</span>
           <span>$500K</span>
         </div>
       </div>
 
       {/* Gap Visualization */}
-      <div className="bg-tint-slate rounded-xl p-5">
+      <div className="bg-card rounded-xl p-5">
         <div className="flex items-center justify-between mb-4">
           <div className="text-center">
-            <p className="text-xs text-muted mb-1">Current</p>
-            <p className="text-xl font-bold text-body">
+            <p className="text-xs text-text-muted mb-1">Current</p>
+            <p className="text-xl font-bold text-text-secondary">
               {formatCurrency(answers.currentRevenue)}
             </p>
           </div>
           <div className="flex-1 mx-4 relative">
-            <div className="h-2 bg-light rounded-full overflow-hidden">
+            <div className="h-2 bg-elevated rounded-full overflow-hidden">
               <motion.div
-                className="h-full bg-green rounded-full"
+                className="h-full bg-accent rounded-full"
                 initial={{ width: 0 }}
                 animate={{ width: `${Math.min((answers.currentRevenue / answers.targetRevenue) * 100, 100)}%` }}
                 transition={{ duration: 0.5 }}
               />
             </div>
             <div className="absolute -top-6 left-1/2 -translate-x-1/2">
-              <p className="text-xs font-medium text-slate whitespace-nowrap">
+              <p className="text-xs font-medium text-text-secondary whitespace-nowrap">
                 {formatCurrency(gap)} gap
               </p>
             </div>
           </div>
           <div className="text-center">
-            <p className="text-xs text-muted mb-1">Target</p>
-            <p className="text-xl font-bold text-green">
+            <p className="text-xs text-text-muted mb-1">Target</p>
+            <p className="text-xl font-bold text-accent">
               {formatCurrency(answers.targetRevenue)}
             </p>
           </div>
         </div>
-        <p className="text-center text-sm text-body">
+        <p className="text-center text-sm text-text-secondary">
           That&apos;s{" "}
-          <span className="font-bold text-green">{growthMultiple.toFixed(1)}x</span>{" "}
+          <span className="font-bold text-accent">{growthMultiple.toFixed(1)}x</span>{" "}
           growth ({formatCurrency(gap * 12)}/year)
         </p>
       </div>
 
       {/* Timeline Selection */}
       <div className="space-y-3">
-        <label className="text-sm font-medium text-heading">
+        <label className="text-sm font-medium text-text-primary">
           How soon do you want to achieve this?
         </label>
         <div className="grid grid-cols-2 gap-3">
@@ -113,16 +113,16 @@ export function YourGoal({ answers, updateAnswer }: YourGoalProps) {
               onClick={() => updateAnswer('timeline', option.value)}
               className={`p-4 rounded-xl border-2 text-left transition-all ${
                 answers.timeline === option.value
-                  ? 'border-green bg-tint-green'
-                  : 'border-border bg-white hover:border-muted'
+                  ? 'border-accent bg-accent/10'
+                  : 'border-border bg-card hover:border-border-subtle'
               }`}
             >
               <p className={`font-medium text-sm ${
-                answers.timeline === option.value ? 'text-green' : 'text-heading'
+                answers.timeline === option.value ? 'text-accent' : 'text-text-primary'
               }`}>
                 {option.label}
               </p>
-              <p className="text-xs text-muted">{option.description}</p>
+              <p className="text-xs text-text-muted">{option.description}</p>
             </motion.button>
           ))}
         </div>
