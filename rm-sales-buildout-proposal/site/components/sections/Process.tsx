@@ -22,22 +22,22 @@ export function Process() {
       <Container>
         {/* Section Header */}
         <FadeInOnScroll>
-          <div className="text-center mb-12 sm:mb-16">
-            <p className="text-green text-sm font-medium tracking-wider uppercase mb-4">
+          <div className="text-center mb-16">
+            <p className="text-accent text-sm font-medium tracking-wider uppercase mb-4">
               The Process
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-heading mb-4 sm:mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary mb-6">
               How It Works
             </h2>
-            <p className="text-body text-base sm:text-lg max-w-2xl mx-auto">
+            <p className="text-text-secondary text-lg max-w-2xl mx-auto">
               Prove first. Then build. We don&apos;t ask you to invest $44,000 on faith.
               We earn your confidence in 30 days.
             </p>
           </div>
         </FadeInOnScroll>
 
-        {/* Phase Timeline Visual - Mobile-friendly HTML component */}
-        <div className="mb-12 sm:mb-16">
+        {/* Phase Timeline */}
+        <div className="mb-16">
           <div className="max-w-4xl mx-auto">
             <PhaseTimeline />
           </div>
@@ -45,26 +45,26 @@ export function Process() {
 
         {/* Decision Gate */}
         <FadeInOnScroll delay={0.2}>
-          <Card variant="accent" padding="large" className="text-center mb-12 sm:mb-16 max-w-2xl mx-auto">
-            <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-blue/20 mb-4">
-              <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 text-blue" />
+          <Card variant="accent" padding="large" className="text-center mb-16 max-w-2xl mx-auto">
+            <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-accent/20 mb-4">
+              <ChevronRight className="w-7 h-7 text-accent" />
             </div>
-            <h3 className="text-lg sm:text-xl font-bold text-heading mb-4">The Decision Gate</h3>
-            <p className="text-body mb-4">
+            <h3 className="text-xl font-bold text-text-primary mb-4">The Decision Gate</h3>
+            <p className="text-text-secondary mb-6">
               After Phase 1 (30 days), you decide whether to continue.
             </p>
             <div className="grid sm:grid-cols-2 gap-4 text-left">
-              <div className="p-3 sm:p-4 bg-tint-green rounded-lg border border-green/30">
-                <p className="font-medium text-green mb-2 text-sm sm:text-base">If quota hit ($36K)</p>
-                <ul className="text-body text-xs sm:text-sm space-y-1">
+              <div className="p-4 bg-accent/10 rounded-lg border border-accent/20">
+                <p className="font-medium text-accent mb-2">If quota hit ($36K)</p>
+                <ul className="text-text-secondary text-sm space-y-1">
                   <li>• Phase 2 is a no-brainer</li>
                   <li>• We&apos;ve proven the model</li>
                   <li>• Momentum carries forward</li>
                 </ul>
               </div>
-              <div className="p-3 sm:p-4 bg-light rounded-lg border border-border">
-                <p className="font-medium text-muted mb-2 text-sm sm:text-base">If quota missed</p>
-                <ul className="text-body text-xs sm:text-sm space-y-1">
+              <div className="p-4 bg-card rounded-lg border border-border-subtle">
+                <p className="font-medium text-text-muted mb-2">If quota missed</p>
+                <ul className="text-text-secondary text-sm space-y-1">
                   <li>• You&apos;re out $4K, not $44K</li>
                   <li>• We have data on why</li>
                   <li>• You can pivot or pause</li>
@@ -76,26 +76,26 @@ export function Process() {
 
         {/* Milestones Table */}
         <FadeInOnScroll delay={0.2}>
-          <div className="mb-12 sm:mb-16">
-            <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-heading mb-6 sm:mb-8 text-center">
+          <div className="mb-16">
+            <h3 className="text-xl md:text-2xl font-semibold text-text-primary mb-8 text-center">
               Payment Milestones
             </h3>
-            <Card variant="default" padding="default" className="max-w-2xl mx-auto">
+            <Card variant="elevated" padding="default" className="max-w-2xl mx-auto">
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
                     <tr className="border-b border-border">
-                      <th className="text-left py-3 px-2 sm:px-4 text-body font-medium text-sm">Milestone</th>
-                      <th className="text-center py-3 px-2 sm:px-4 text-body font-medium text-sm">Timing</th>
-                      <th className="text-right py-3 px-2 sm:px-4 text-body font-medium text-sm">Payment</th>
+                      <th className="text-left py-3 px-4 text-text-secondary font-medium text-sm">Milestone</th>
+                      <th className="text-center py-3 px-4 text-text-secondary font-medium text-sm">Timing</th>
+                      <th className="text-right py-3 px-4 text-text-secondary font-medium text-sm">Payment</th>
                     </tr>
                   </thead>
                   <tbody>
                     {milestones.map((item, index) => (
-                      <tr key={index} className="border-b border-border/50 last:border-0">
-                        <td className="py-3 px-2 sm:px-4 text-heading text-sm">{item.milestone}</td>
-                        <td className="py-3 px-2 sm:px-4 text-center text-muted text-sm">{item.timing}</td>
-                        <td className="py-3 px-2 sm:px-4 text-right text-green font-medium text-sm">{item.payment}</td>
+                      <tr key={index} className="border-b border-border-subtle last:border-0">
+                        <td className="py-3 px-4 text-text-primary text-sm">{item.milestone}</td>
+                        <td className="py-3 px-4 text-center text-text-muted text-sm">{item.timing}</td>
+                        <td className="py-3 px-4 text-right text-accent font-medium text-sm">{item.payment}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -107,26 +107,26 @@ export function Process() {
 
         {/* Your Involvement */}
         <FadeInOnScroll delay={0.2}>
-          <div className="grid sm:grid-cols-2 gap-4 sm:gap-8">
-            <Card variant="default" padding="large">
+          <div className="grid sm:grid-cols-2 gap-6">
+            <Card variant="default" padding="large" hover>
               <div className="flex items-center gap-3 mb-4">
-                <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-green" />
-                <h4 className="text-base sm:text-lg font-semibold text-heading">Your Time Investment</h4>
+                <Clock className="w-6 h-6 text-accent" />
+                <h4 className="text-lg font-semibold text-text-primary">Your Time Investment</h4>
               </div>
-              <p className="text-2xl sm:text-3xl font-bold text-green mb-4">2-3 hours/week</p>
-              <ul className="space-y-2 text-body text-sm">
+              <p className="text-3xl font-bold text-accent mb-4">2-3 hours/week</p>
+              <ul className="space-y-2 text-text-secondary text-sm">
                 <li>• Weekly status call (30 min)</li>
                 <li>• Approvals and feedback (async)</li>
                 <li>• Final say on hires and major decisions</li>
               </ul>
             </Card>
 
-            <Card variant="default" padding="large">
+            <Card variant="default" padding="large" hover>
               <div className="flex items-center gap-3 mb-4">
-                <Wrench className="w-5 h-5 sm:w-6 sm:h-6 text-blue" />
-                <h4 className="text-base sm:text-lg font-semibold text-heading">What We Handle</h4>
+                <Wrench className="w-6 h-6 text-accent" />
+                <h4 className="text-lg font-semibold text-text-primary">What We Handle</h4>
               </div>
-              <ul className="space-y-2 text-body text-sm">
+              <ul className="space-y-2 text-text-secondary text-sm">
                 <li>• All selling (Phase 1)</li>
                 <li>• Recruitment and vetting</li>
                 <li>• Training development</li>

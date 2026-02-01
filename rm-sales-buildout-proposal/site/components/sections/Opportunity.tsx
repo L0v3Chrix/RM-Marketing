@@ -6,13 +6,6 @@ import { FadeInOnScroll, StaggerChildren, StaggerItem, CountUp } from "@/compone
 import { RevenueGap, ROIComparison, RevenuePerShow } from "@/components/data-viz";
 import { Database, Target } from "lucide-react";
 
-const revenueProjection = {
-  current: 36000,
-  target: 100000,
-  gap: 64000,
-  annualGap: 780000,
-};
-
 const databaseMath = [
   { scenario: "0.5% to coaching", customers: 50, revenue: 25000, type: "MRR" },
   { scenario: "1% to $197 course", customers: 100, revenue: 19700, type: "One-time" },
@@ -33,62 +26,60 @@ export function Opportunity() {
       <Container>
         {/* Section Header */}
         <FadeInOnScroll>
-          <div className="text-center mb-12 sm:mb-16">
-            <p className="text-green text-sm font-medium tracking-wider uppercase mb-4">
+          <div className="text-center mb-16">
+            <p className="text-accent text-sm font-medium tracking-wider uppercase mb-4">
               The Opportunity
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-heading mb-4 sm:mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary mb-6">
               What&apos;s Actually Possible
             </h2>
-            <p className="text-body text-base sm:text-lg max-w-2xl mx-auto">
+            <p className="text-text-secondary text-lg max-w-2xl mx-auto">
               Instead of looking at what&apos;s broken, let&apos;s look at what&apos;s working — and what
               happens when you actually build the systems to capitalize on it.
             </p>
           </div>
         </FadeInOnScroll>
 
-        {/* Revenue Gap Visualization - Mobile-friendly HTML components */}
-        <div className="max-w-4xl mx-auto mb-12 sm:mb-16">
+        {/* Revenue Gap Visualization */}
+        <div className="max-w-4xl mx-auto mb-16">
           <div className="grid md:grid-cols-2 gap-6 items-stretch">
-            {/* Revenue Gap Chart */}
             <RevenueGap />
-            {/* ROI Comparison */}
             <ROIComparison />
           </div>
         </div>
 
         {/* Database Opportunity */}
         <FadeInOnScroll delay={0.1}>
-          <div className="mb-12 sm:mb-16">
-            <div className="flex items-center justify-center gap-3 mb-6 sm:mb-8">
-              <Database className="w-6 h-6 sm:w-8 sm:h-8 text-blue" />
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-heading">
+          <div className="mb-16">
+            <div className="flex items-center justify-center gap-3 mb-8">
+              <Database className="w-7 h-7 text-accent" />
+              <h3 className="text-2xl md:text-3xl font-bold text-text-primary">
                 The Database Opportunity
               </h3>
             </div>
 
-            {/* Revenue Per Show Metric Card - Mobile-friendly HTML */}
+            {/* Revenue Per Show */}
             <div className="max-w-md mx-auto mb-8">
               <RevenuePerShow />
             </div>
 
-            <div className="text-center mb-6 sm:mb-8">
+            <div className="text-center mb-8">
               <div className="text-5xl sm:text-6xl md:text-7xl font-bold mb-2 tracking-tight">
-                <span className="text-green"><CountUp end={10000} duration={1.5} /></span>
+                <span className="text-accent"><CountUp end={10000} duration={1.5} /></span>
               </div>
-              <p className="text-body text-lg sm:text-xl font-medium">contacts sitting idle</p>
-              <p className="text-muted text-sm sm:text-base">People who already know you. Zero ad spend required.</p>
+              <p className="text-text-secondary text-xl font-medium">contacts sitting idle</p>
+              <p className="text-text-muted text-base">People who already know you. Zero ad spend required.</p>
             </div>
 
-            <StaggerChildren className="grid sm:grid-cols-3 gap-4 sm:gap-6">
+            <StaggerChildren className="grid sm:grid-cols-3 gap-6">
               {databaseMath.map((item, index) => (
                 <StaggerItem key={index}>
                   <Card variant="default" padding="default" className="text-center">
-                    <p className="text-muted text-xs uppercase tracking-wider mb-2">{item.scenario}</p>
-                    <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-green mb-1 tracking-tight">
+                    <p className="text-text-muted text-xs uppercase tracking-wider mb-2">{item.scenario}</p>
+                    <div className="text-3xl md:text-4xl font-bold text-accent mb-1 tracking-tight">
                       ${item.revenue >= 100000 ? `${(item.revenue / 1000).toFixed(0)}K` : item.revenue.toLocaleString()}
                     </div>
-                    <p className="text-muted text-sm">
+                    <p className="text-text-muted text-sm">
                       {item.customers} customers • {item.type}
                     </p>
                   </Card>
@@ -97,9 +88,9 @@ export function Opportunity() {
             </StaggerChildren>
 
             <FadeInOnScroll delay={0.3}>
-              <p className="text-center text-body text-base sm:text-lg mt-6 sm:mt-8">
+              <p className="text-center text-text-secondary text-lg mt-8">
                 A single reactivation campaign could generate{" "}
-                <span className="text-green font-bold text-xl sm:text-2xl">$50K-150K</span>.
+                <span className="text-accent font-bold text-2xl">$50K-150K</span>.
               </p>
             </FadeInOnScroll>
           </div>
@@ -108,46 +99,46 @@ export function Opportunity() {
         {/* What $100K/Month Looks Like */}
         <FadeInOnScroll>
           <div className="mb-8">
-            <div className="flex items-center justify-center gap-3 mb-6 sm:mb-8">
-              <Target className="w-6 h-6 sm:w-8 sm:h-8 text-blue" />
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-heading">
+            <div className="flex items-center justify-center gap-3 mb-8">
+              <Target className="w-7 h-7 text-accent" />
+              <h3 className="text-2xl md:text-3xl font-bold text-text-primary">
                 What $100K/Month Looks Like
               </h3>
             </div>
 
-            <Card variant="default" padding="large">
+            <Card variant="elevated" padding="large">
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
                     <tr className="border-b border-border">
-                      <th className="text-left py-3 px-2 sm:px-4 text-body font-medium text-sm sm:text-base">Product</th>
-                      <th className="text-center py-3 px-2 sm:px-4 text-body font-medium text-sm sm:text-base">Sales</th>
-                      <th className="text-right py-3 px-2 sm:px-4 text-body font-medium text-sm sm:text-base">Revenue</th>
+                      <th className="text-left py-3 px-4 text-text-secondary font-medium">Product</th>
+                      <th className="text-center py-3 px-4 text-text-secondary font-medium">Sales</th>
+                      <th className="text-right py-3 px-4 text-text-secondary font-medium">Revenue</th>
                     </tr>
                   </thead>
                   <tbody>
                     {productMix.map((item, index) => (
-                      <tr key={index} className="border-b border-border/50">
-                        <td className="py-3 px-2 sm:px-4 text-heading text-sm sm:text-base">{item.product}</td>
-                        <td className="py-3 px-2 sm:px-4 text-center text-muted text-sm sm:text-base">
+                      <tr key={index} className="border-b border-border-subtle">
+                        <td className="py-3 px-4 text-text-primary">{item.product}</td>
+                        <td className="py-3 px-4 text-center text-text-muted">
                           {item.sales ?? "—"}
                         </td>
-                        <td className="py-3 px-2 sm:px-4 text-right text-green font-medium text-sm sm:text-base">
+                        <td className="py-3 px-4 text-right text-accent font-medium">
                           ${item.revenue.toLocaleString()}
                         </td>
                       </tr>
                     ))}
-                    <tr className="bg-light">
-                      <td className="py-4 px-2 sm:px-4 text-heading font-bold">TOTAL</td>
-                      <td className="py-4 px-2 sm:px-4"></td>
-                      <td className="py-4 px-2 sm:px-4 text-right text-green font-bold text-lg sm:text-xl">
+                    <tr className="bg-elevated">
+                      <td className="py-4 px-4 text-text-primary font-bold">TOTAL</td>
+                      <td className="py-4 px-4"></td>
+                      <td className="py-4 px-4 text-right text-accent font-bold text-xl">
                         $100,000
                       </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-              <p className="text-muted text-xs sm:text-sm mt-4 text-center">
+              <p className="text-text-muted text-sm mt-4 text-center">
                 This isn&apos;t fantasy. This is math based on your current products and proven conversion
                 rates — just with a real sales system behind them.
               </p>
@@ -157,11 +148,11 @@ export function Opportunity() {
 
         {/* Transition */}
         <FadeInOnScroll delay={0.2}>
-          <div className="text-center mt-12 sm:mt-16">
-            <p className="text-body text-base sm:text-lg mb-4">
+          <div className="text-center mt-16">
+            <p className="text-text-secondary text-lg mb-4">
               The question isn&apos;t &quot;Is this possible?&quot; The numbers prove it is.
             </p>
-            <p className="text-green font-semibold text-lg sm:text-xl">
+            <p className="text-accent font-semibold text-xl">
               The question is: &quot;How do we actually do it?&quot;
             </p>
           </div>

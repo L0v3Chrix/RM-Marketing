@@ -44,28 +44,28 @@ export function Solution() {
       <Container>
         {/* Section Header */}
         <FadeInOnScroll>
-          <div className="text-center mb-12 sm:mb-16">
-            <p className="text-green text-sm font-medium tracking-wider uppercase mb-4">
+          <div className="text-center mb-16">
+            <p className="text-accent text-sm font-medium tracking-wider uppercase mb-4">
               What Changes
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary mb-6">
               From Bottleneck to Breakthrough
             </h2>
-            <p className="text-inverse-muted text-base sm:text-lg max-w-2xl mx-auto">
+            <p className="text-text-secondary text-lg max-w-2xl mx-auto">
               You don&apos;t need advice. You don&apos;t need a sales person. 
-              You need a sales <span className="text-green font-semibold">department</span>.
+              You need a sales <span className="text-accent font-semibold">department</span>.
             </p>
           </div>
         </FadeInOnScroll>
 
         {/* Core Promise */}
         <FadeInOnScroll delay={0.1}>
-          <Card variant="glass" padding="large" className="text-center mb-12 sm:mb-16 max-w-3xl mx-auto border-green/30">
-            <p className="text-lg sm:text-xl md:text-2xl text-white font-semibold mb-3">
+          <Card variant="accent" padding="large" className="text-center mb-16 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-text-primary font-semibold mb-3">
               In 90 days, GHL Mastery will have a functioning sales operation 
               that runs without Adam.
             </p>
-            <p className="text-inverse-muted text-sm sm:text-base">
+            <p className="text-text-secondary">
               We build it. We train the team. We hand you the keys.
             </p>
           </Card>
@@ -73,24 +73,24 @@ export function Solution() {
 
         {/* 5 Key Outcomes */}
         <FadeInOnScroll delay={0.2}>
-          <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-6 sm:mb-8 text-center">
+          <h3 className="text-xl md:text-2xl font-semibold text-text-primary mb-8 text-center">
             What You Get
           </h3>
         </FadeInOnScroll>
 
-        <StaggerChildren className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16 max-w-5xl mx-auto">
+        <StaggerChildren className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 max-w-5xl mx-auto">
           {outcomes.map((outcome, index) => (
             <StaggerItem key={index}>
-              <Card variant="glass" padding="default" className="h-full">
+              <Card variant="default" padding="default" hover className="h-full">
                 <div className="flex items-start gap-3">
-                  <div className="p-2 rounded-lg bg-green/20 flex-shrink-0">
-                    <outcome.icon className="w-5 h-5 text-green" />
+                  <div className="p-2 rounded-lg bg-accent/10 flex-shrink-0">
+                    <outcome.icon className="w-5 h-5 text-accent" />
                   </div>
                   <div>
-                    <h4 className="text-base sm:text-lg font-bold text-white mb-1">
+                    <h4 className="text-lg font-semibold text-text-primary mb-1">
                       {outcome.title}
                     </h4>
-                    <p className="text-inverse-muted text-sm">
+                    <p className="text-text-secondary text-sm">
                       {outcome.description}
                     </p>
                   </div>
@@ -103,8 +103,8 @@ export function Solution() {
         {/* Ownership Note */}
         <FadeInOnScroll delay={0.3}>
           <div className="text-center max-w-2xl mx-auto">
-            <p className="text-inverse-muted text-sm sm:text-base">
-              <span className="text-white font-medium">You own everything we build.</span>{" "}
+            <p className="text-text-secondary">
+              <span className="text-text-primary font-medium">You own everything we build.</span>{" "}
               Scripts, systems, documentation — it&apos;s all yours. 
               We&apos;re not creating dependency. We&apos;re building independence.
             </p>
