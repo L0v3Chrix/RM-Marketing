@@ -21,8 +21,8 @@ export function IntentGauge({ score = 65 }: IntentGaugeProps) {
 
   return (
     <FadeInOnScroll>
-      <div className="bg-slate-800/80 rounded-2xl p-4 md:p-6 border border-slate-700">
-        <h3 className="text-white font-bold text-base md:text-lg text-center mb-4 md:mb-6">
+      <div className="bg-card rounded-2xl p-4 md:p-6 border border-border-subtle">
+        <h3 className="text-text-primary font-bold text-base md:text-lg text-center mb-4 md:mb-6">
           Intent Score Gauge
         </h3>
 
@@ -41,16 +41,16 @@ export function IntentGauge({ score = 65 }: IntentGaugeProps) {
                 <stop offset="100%" stopColor="#cbd5e1" />
               </linearGradient>
               <linearGradient id="evaluating" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#06b6d4" />
-                <stop offset="100%" stopColor="#22d3ee" />
+                <stop offset="0%" stopColor="#14b8a6" />
+                <stop offset="100%" stopColor="#2dd4bf" />
               </linearGradient>
               <linearGradient id="ready" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#d4a406" />
+                <stop offset="0%" stopColor="#f59e0b" />
                 <stop offset="100%" stopColor="#fbbf24" />
               </linearGradient>
               <linearGradient id="urgent" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#f59e0b" />
-                <stop offset="100%" stopColor="#fcd34d" />
+                <stop offset="0%" stopColor="#22c55e" />
+                <stop offset="100%" stopColor="#4ade80" />
               </linearGradient>
             </defs>
 
@@ -97,7 +97,7 @@ export function IntentGauge({ score = 65 }: IntentGaugeProps) {
             />
 
             {/* Needle pivot point */}
-            <circle cx="100" cy="105" r="8" fill="#d4a406" />
+            <circle cx="100" cy="105" r="8" fill="#14b8a6" />
             
             {/* Needle */}
             <line
@@ -105,7 +105,7 @@ export function IntentGauge({ score = 65 }: IntentGaugeProps) {
               y1="105"
               x2="100"
               y2="40"
-              stroke="#1e293b"
+              stroke="#0a0a0a"
               strokeWidth="4"
               strokeLinecap="round"
               transform={`rotate(${rotation} 100 105)`}
@@ -116,7 +116,7 @@ export function IntentGauge({ score = 65 }: IntentGaugeProps) {
               y1="105"
               x2="100"
               y2="42"
-              stroke="#d4a406"
+              stroke="#14b8a6"
               strokeWidth="2"
               strokeLinecap="round"
               transform={`rotate(${rotation} 100 105)`}
@@ -126,12 +126,12 @@ export function IntentGauge({ score = 65 }: IntentGaugeProps) {
 
           {/* Score display */}
           <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-center">
-            <div className="text-3xl md:text-4xl font-bold text-amber-400">{score}</div>
+            <div className="text-3xl md:text-4xl font-bold text-accent">{score}</div>
           </div>
         </div>
 
         {/* Labels */}
-        <div className="flex justify-between px-2 md:px-4 mt-2 text-xs text-slate-400">
+        <div className="flex justify-between px-2 md:px-4 mt-2 text-xs text-text-muted">
           <span>0</span>
           <span>Browsing</span>
           <span>Learning</span>
@@ -141,9 +141,9 @@ export function IntentGauge({ score = 65 }: IntentGaugeProps) {
         </div>
 
         {/* Current Status */}
-        <div className="text-center mt-4 pt-4 border-t border-slate-700">
-          <span className="text-slate-400 text-sm">Current Status: </span>
-          <span className="text-amber-400 font-semibold">{getLabel(score)}</span>
+        <div className="text-center mt-4 pt-4 border-t border-border-subtle">
+          <span className="text-text-muted text-sm">Current Status: </span>
+          <span className="text-accent font-semibold">{getLabel(score)}</span>
         </div>
       </div>
     </FadeInOnScroll>

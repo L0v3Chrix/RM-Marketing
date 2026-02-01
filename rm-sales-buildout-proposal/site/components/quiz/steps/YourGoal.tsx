@@ -37,12 +37,12 @@ export function YourGoal({ answers, updateAnswer }: YourGoalProps) {
       </div>
 
       {/* Target Revenue */}
-      <div className="space-y-3">
-        <div className="flex justify-between items-center">
+      <div className="space-y-2">
+        <div className="flex justify-between items-center gap-2">
           <label className="text-sm font-medium text-text-primary">
             Monthly Revenue Target
           </label>
-          <span className="text-lg font-bold text-accent">
+          <span className="text-base sm:text-lg font-bold text-accent whitespace-nowrap">
             {formatCurrency(answers.targetRevenue)}
           </span>
         </div>
@@ -53,7 +53,7 @@ export function YourGoal({ answers, updateAnswer }: YourGoalProps) {
           step={5000}
           value={answers.targetRevenue}
           onChange={(e) => updateAnswer('targetRevenue', Number(e.target.value))}
-          className="w-full h-3 bg-elevated rounded-lg appearance-none cursor-pointer accent-accent"
+          className="w-full"
         />
         <div className="flex justify-between text-xs text-text-muted">
           <span>$50K</span>
@@ -104,14 +104,14 @@ export function YourGoal({ answers, updateAnswer }: YourGoalProps) {
         <label className="text-sm font-medium text-text-primary">
           How soon do you want to achieve this?
         </label>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-2 gap-2 sm:gap-3">
           {timelineOptions.map((option) => (
             <motion.button
               key={option.value}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => updateAnswer('timeline', option.value)}
-              className={`p-4 rounded-xl border-2 text-left transition-all ${
+              className={`p-3 sm:p-4 rounded-xl border-2 text-left transition-all min-h-[60px] ${
                 answers.timeline === option.value
                   ? 'border-accent bg-accent/10'
                   : 'border-border bg-card hover:border-border-subtle'

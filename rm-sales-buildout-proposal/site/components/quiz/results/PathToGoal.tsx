@@ -23,14 +23,14 @@ export function PathToGoal({ currentRevenue, targetRevenue, requirements }: Path
   const annualGap = gap * 12;
 
   return (
-    <div className="bg-card rounded-2xl border border-border-subtle p-5 sm:p-6">
-      <h3 className="text-lg font-semibold text-text-primary mb-6 text-center">
+    <div className="bg-card rounded-2xl border border-border-subtle p-4 sm:p-6">
+      <h3 className="text-base sm:text-lg font-semibold text-text-primary mb-4 sm:mb-6 text-center">
         Path to {formatCurrency(targetRevenue)}/month
       </h3>
 
       {/* Gap Visualization */}
-      <div className="mb-6">
-        <div className="flex justify-between text-sm mb-2">
+      <div className="mb-4 sm:mb-6">
+        <div className="flex justify-between text-xs sm:text-sm mb-2">
           <span className="text-text-secondary">Current</span>
           <span className="text-text-secondary">Target</span>
         </div>
@@ -57,56 +57,56 @@ export function PathToGoal({ currentRevenue, targetRevenue, requirements }: Path
       </div>
 
       {/* Requirements Grid */}
-      <div className="grid grid-cols-2 gap-3 mb-6">
+      <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-4 sm:mb-6">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="bg-elevated rounded-xl p-3 text-center"
+          className="bg-elevated rounded-xl p-2 sm:p-3 text-center"
         >
-          <p className="text-2xl font-bold text-text-secondary">{formatCurrency(requirements.adSpendRequired)}</p>
-          <p className="text-xs text-text-muted">Ad Spend/Month</p>
+          <p className="text-lg sm:text-2xl font-bold text-text-secondary">{formatCurrency(requirements.adSpendRequired)}</p>
+          <p className="text-[10px] sm:text-xs text-text-muted">Ad Spend/Month</p>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="bg-success/10 rounded-xl p-3 text-center"
+          className="bg-success/10 rounded-xl p-2 sm:p-3 text-center"
         >
-          <p className="text-2xl font-bold text-success">{formatNumber(requirements.leadsNeeded)}</p>
-          <p className="text-xs text-text-muted">Leads/Month</p>
+          <p className="text-lg sm:text-2xl font-bold text-success">{formatNumber(requirements.leadsNeeded)}</p>
+          <p className="text-[10px] sm:text-xs text-text-muted">Leads/Month</p>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="bg-elevated rounded-xl p-3 text-center"
+          className="bg-elevated rounded-xl p-2 sm:p-3 text-center"
         >
-          <p className="text-2xl font-bold text-text-secondary">{formatNumber(requirements.showsNeeded)}</p>
-          <p className="text-xs text-text-muted">Shows/Month</p>
+          <p className="text-lg sm:text-2xl font-bold text-text-secondary">{formatNumber(requirements.showsNeeded)}</p>
+          <p className="text-[10px] sm:text-xs text-text-muted">Shows/Month</p>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="bg-elevated rounded-xl p-3 text-center"
+          className="bg-elevated rounded-xl p-2 sm:p-3 text-center"
         >
-          <p className="text-2xl font-bold text-text-secondary">{formatNumber(requirements.salesNeeded)}</p>
-          <p className="text-xs text-text-muted">Sales/Month</p>
+          <p className="text-lg sm:text-2xl font-bold text-text-secondary">{formatNumber(requirements.salesNeeded)}</p>
+          <p className="text-[10px] sm:text-xs text-text-muted">Sales/Month</p>
         </motion.div>
       </div>
 
       {/* Daily Requirements */}
-      <div className="bg-elevated rounded-xl p-4">
-        <p className="text-sm text-text-secondary mb-3">To hit your target:</p>
-        <div className="grid grid-cols-2 gap-4">
+      <div className="bg-elevated rounded-xl p-3 sm:p-4">
+        <p className="text-xs sm:text-sm text-text-secondary mb-2 sm:mb-3">To hit your target:</p>
+        <div className="grid grid-cols-2 gap-3 sm:gap-4">
           <div>
-            <p className="text-xl font-bold text-success">{requirements.callsPerDay}</p>
-            <p className="text-xs text-text-muted">Calls/Day</p>
+            <p className="text-lg sm:text-xl font-bold text-success">{requirements.callsPerDay}</p>
+            <p className="text-[10px] sm:text-xs text-text-muted">Calls/Day</p>
           </div>
           <div>
-            <p className="text-xl font-bold text-success">{requirements.closersNeeded}</p>
-            <p className="text-xs text-text-muted">Closers Needed</p>
+            <p className="text-lg sm:text-xl font-bold text-success">{requirements.closersNeeded}</p>
+            <p className="text-[10px] sm:text-xs text-text-muted">Closers Needed</p>
           </div>
         </div>
       </div>

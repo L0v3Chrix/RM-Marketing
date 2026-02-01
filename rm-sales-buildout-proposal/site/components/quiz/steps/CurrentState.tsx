@@ -27,12 +27,12 @@ export function CurrentState({ answers, updateAnswer }: CurrentStateProps) {
       </div>
 
       {/* Current Monthly Revenue */}
-      <div className="space-y-3">
-        <div className="flex justify-between items-center">
+      <div className="space-y-2">
+        <div className="flex justify-between items-center gap-2">
           <label className="text-sm font-medium text-text-primary">
             Current Monthly Revenue
           </label>
-          <span className="text-lg font-bold text-accent">
+          <span className="text-base sm:text-lg font-bold text-accent whitespace-nowrap">
             {formatCurrency(answers.currentRevenue)}
           </span>
         </div>
@@ -43,7 +43,7 @@ export function CurrentState({ answers, updateAnswer }: CurrentStateProps) {
           step={1000}
           value={answers.currentRevenue}
           onChange={(e) => updateAnswer('currentRevenue', Number(e.target.value))}
-          className="w-full h-3 bg-elevated rounded-lg appearance-none cursor-pointer accent-accent"
+          className="w-full"
         />
         <div className="flex justify-between text-xs text-text-muted">
           <span>$0</span>
@@ -52,12 +52,12 @@ export function CurrentState({ answers, updateAnswer }: CurrentStateProps) {
       </div>
 
       {/* Monthly Ad Spend */}
-      <div className="space-y-3">
-        <div className="flex justify-between items-center">
+      <div className="space-y-2">
+        <div className="flex justify-between items-center gap-2">
           <label className="text-sm font-medium text-text-primary">
             Monthly Ad Spend
           </label>
-          <span className="text-lg font-bold text-text-secondary">
+          <span className="text-base sm:text-lg font-bold text-text-secondary whitespace-nowrap">
             {formatCurrency(answers.adSpend)}
           </span>
         </div>
@@ -68,7 +68,7 @@ export function CurrentState({ answers, updateAnswer }: CurrentStateProps) {
           step={100}
           value={answers.adSpend}
           onChange={(e) => updateAnswer('adSpend', Number(e.target.value))}
-          className="w-full h-3 bg-elevated rounded-lg appearance-none cursor-pointer accent-text-secondary"
+          className="w-full"
         />
         <div className="flex justify-between text-xs text-text-muted">
           <span>$0</span>
@@ -77,12 +77,12 @@ export function CurrentState({ answers, updateAnswer }: CurrentStateProps) {
       </div>
 
       {/* Cost Per Lead */}
-      <div className="space-y-3">
-        <div className="flex justify-between items-center">
+      <div className="space-y-2">
+        <div className="flex justify-between items-center gap-2">
           <label className="text-sm font-medium text-text-primary">
             Cost Per Lead
           </label>
-          <span className="text-lg font-bold text-text-secondary">
+          <span className="text-base sm:text-lg font-bold text-text-secondary whitespace-nowrap">
             ${answers.costPerLead.toFixed(2)}
           </span>
         </div>
@@ -93,7 +93,7 @@ export function CurrentState({ answers, updateAnswer }: CurrentStateProps) {
           step={0.5}
           value={answers.costPerLead}
           onChange={(e) => updateAnswer('costPerLead', Number(e.target.value))}
-          className="w-full h-3 bg-elevated rounded-lg appearance-none cursor-pointer accent-text-secondary"
+          className="w-full"
         />
         <div className="flex justify-between text-xs text-text-muted">
           <span>$1</span>

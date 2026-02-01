@@ -26,9 +26,9 @@ export function QuizProgress({
   return (
     <div className="w-full">
       {/* Progress Bar */}
-      <div className="h-1 bg-light rounded-full overflow-hidden mb-4">
+      <div className="h-1 bg-elevated rounded-full overflow-hidden mb-4">
         <motion.div
-          className="h-full bg-green"
+          className="h-full bg-accent"
           initial={{ width: 0 }}
           animate={{ width: `${(currentStep / totalSteps) * 100}%` }}
           transition={{ duration: 0.3, ease: "easeOut" }}
@@ -56,12 +56,12 @@ export function QuizProgress({
               <div
                 className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium transition-all ${
                   isActive
-                    ? 'bg-green text-white'
+                    ? 'bg-accent text-base'
                     : isCompleted
-                    ? 'bg-green/20 text-green'
+                    ? 'bg-accent/20 text-accent'
                     : isVisited
-                    ? 'bg-light text-body'
-                    : 'bg-light text-muted'
+                    ? 'bg-elevated text-text-secondary'
+                    : 'bg-elevated text-text-muted'
                 }`}
               >
                 {isCompleted ? (
@@ -74,7 +74,7 @@ export function QuizProgress({
               </div>
               <span
                 className={`text-xs mt-1 hidden sm:block ${
-                  isActive ? 'text-green font-medium' : 'text-muted'
+                  isActive ? 'text-accent font-medium' : 'text-text-muted'
                 }`}
               >
                 {stepLabels[i]}
@@ -85,7 +85,7 @@ export function QuizProgress({
       </div>
 
       {/* Mobile Step Label */}
-      <p className="text-center text-sm text-body mt-3 sm:hidden">
+      <p className="text-center text-sm text-text-secondary mt-3 sm:hidden">
         Step {currentStep} of {totalSteps}: {stepLabels[currentStep - 1]}
       </p>
     </div>

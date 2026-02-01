@@ -50,11 +50,11 @@ export function EducationalQuestion({
       {/* Question Header */}
       <div className="text-center mb-8">
         {question.context && (
-          <p className="text-sm text-muted mb-3 italic">
+          <p className="text-sm text-text-muted mb-3 italic">
             {question.context}
           </p>
         )}
-        <h2 className="text-xl sm:text-2xl font-bold text-heading leading-tight">
+        <h2 className="text-xl sm:text-2xl font-bold text-text-primary leading-tight">
           {question.question}
         </h2>
       </div>
@@ -81,13 +81,13 @@ export function EducationalQuestion({
                 className={`
                   p-4 sm:p-5 rounded-xl border-2 text-center transition-all
                   ${selectedAnswer === option.value
-                    ? 'border-primary bg-tint-slate shadow-lg'
-                    : 'border-border bg-white hover:border-muted hover:shadow-sm'
+                    ? 'border-accent bg-card shadow-lg'
+                    : 'border-border bg-card hover:border-border-subtle hover:shadow-sm'
                   }
                 `}
               >
                 <span className={`text-lg sm:text-xl font-bold ${
-                  selectedAnswer === option.value ? 'text-primary' : 'text-heading'
+                  selectedAnswer === option.value ? 'text-accent' : 'text-text-primary'
                 }`}>
                   {option.label}
                 </span>
@@ -115,8 +115,8 @@ export function EducationalQuestion({
             className={`
               w-full py-4 rounded-xl font-semibold text-lg transition-all
               ${selectedAnswer
-                ? 'bg-primary text-white hover:bg-primary-dark shadow-lg'
-                : 'bg-border text-muted cursor-not-allowed'
+                ? 'bg-accent text-base hover:bg-accent-hover shadow-lg'
+                : 'bg-border text-text-muted cursor-not-allowed'
               }
             `}
           >
@@ -130,7 +130,7 @@ export function EducationalQuestion({
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={handleContinue}
-            className="w-full py-4 rounded-xl font-semibold text-lg bg-primary text-white hover:bg-primary-dark shadow-lg transition-all"
+            className="w-full py-4 rounded-xl font-semibold text-lg bg-accent text-base hover:bg-accent-hover shadow-lg transition-all"
           >
             Got it, continue →
           </motion.button>

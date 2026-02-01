@@ -29,10 +29,10 @@ function SliderInput({
   format = (v) => v.toString(),
 }: SliderInputProps) {
   return (
-    <div className="space-y-2">
-      <div className="flex justify-between items-center">
+    <div className="space-y-1">
+      <div className="flex justify-between items-center gap-2">
         <label className="text-xs sm:text-sm text-text-secondary">{label}</label>
-        <span className="text-xs sm:text-sm font-semibold text-accent">{format(value)}</span>
+        <span className="text-xs sm:text-sm font-semibold text-accent whitespace-nowrap">{format(value)}</span>
       </div>
       <input
         type="range"
@@ -41,7 +41,7 @@ function SliderInput({
         step={step}
         value={value}
         onChange={(e) => onChange(parseFloat(e.target.value))}
-        className="w-full h-2 bg-elevated rounded-lg appearance-none cursor-pointer accent-accent"
+        className="w-full"
       />
       <div className="flex justify-between text-xs text-text-muted">
         <span>{format(min)}</span>

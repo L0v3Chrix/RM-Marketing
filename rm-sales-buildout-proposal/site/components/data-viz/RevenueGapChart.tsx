@@ -29,45 +29,45 @@ export function RevenueGapChart({
   };
 
   return (
-    <div className="bg-surface-elevated rounded-2xl p-6 sm:p-8 border border-border">
+    <div className="bg-elevated rounded-2xl p-6 sm:p-8 border border-border-subtle">
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-semibold text-heading">Revenue Gap Analysis</h3>
-        <span className="text-muted text-sm">{label}</span>
+        <h3 className="text-lg font-semibold text-text-primary">Revenue Gap Analysis</h3>
+        <span className="text-text-muted text-sm">{label}</span>
       </div>
 
       {/* Gap Visualization */}
       <div className="relative mb-8">
         {/* Labels above bars */}
         <div className="flex justify-between mb-2 text-sm">
-          <div className="text-muted">Current State</div>
-          <div className="text-muted">Target State</div>
+          <div className="text-text-muted">Current State</div>
+          <div className="text-text-muted">Target State</div>
         </div>
 
         {/* Combined bar */}
-        <div className="h-12 sm:h-16 bg-surface rounded-xl overflow-hidden relative">
+        <div className="h-12 sm:h-16 bg-card rounded-xl overflow-hidden relative">
           {/* Current revenue bar */}
           <motion.div
-            className="absolute left-0 top-0 h-full bg-slate rounded-l-xl flex items-center justify-center"
+            className="absolute left-0 top-0 h-full bg-text-secondary rounded-l-xl flex items-center justify-center"
             initial={{ width: 0 }}
             whileInView={{ width: `${currentPercent}%` }}
             transition={{ duration: 1, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <span className="text-white font-bold text-sm sm:text-base">
+            <span className="text-base font-bold text-sm sm:text-base">
               {formatCurrency(currentRevenue)}
             </span>
           </motion.div>
 
           {/* Gap section */}
           <motion.div
-            className="absolute top-0 h-full bg-red/20 border-2 border-dashed border-red/50 flex items-center justify-center"
+            className="absolute top-0 h-full bg-error/20 border-2 border-dashed border-error/50 flex items-center justify-center"
             style={{ left: `${currentPercent}%`, right: 0 }}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 1 }}
             viewport={{ once: true }}
           >
-            <span className="text-red font-bold text-sm sm:text-base">
+            <span className="text-error font-bold text-sm sm:text-base">
               {formatCurrency(gap)} GAP
             </span>
           </motion.div>
@@ -75,7 +75,7 @@ export function RevenueGapChart({
 
         {/* Target indicator */}
         <div className="flex justify-end mt-2">
-          <div className="flex items-center gap-2 text-green">
+          <div className="flex items-center gap-2 text-success">
             <TrendingUp className="w-4 h-4" />
             <span className="font-bold">{formatCurrency(targetRevenue)}</span>
           </div>
@@ -84,23 +84,23 @@ export function RevenueGapChart({
 
       {/* Annual Potential */}
       <motion.div
-        className="bg-green/10 border border-green/30 rounded-xl p-4 sm:p-6"
+        className="bg-success/10 border border-success/30 rounded-xl p-4 sm:p-6"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.2 }}
         viewport={{ once: true }}
       >
         <div className="flex items-center gap-3 mb-3">
-          <TrendingUp className="w-5 h-5 text-green" />
-          <p className="text-heading font-medium">Annual Growth Potential</p>
+          <TrendingUp className="w-5 h-5 text-success" />
+          <p className="text-text-primary font-medium">Annual Growth Potential</p>
         </div>
         <div className="flex items-baseline gap-2">
-          <span className="text-3xl sm:text-4xl font-bold text-green">
+          <span className="text-3xl sm:text-4xl font-bold text-success">
             +{formatCurrency(annualGap)}
           </span>
-          <span className="text-muted text-sm">/year</span>
+          <span className="text-text-muted text-sm">/year</span>
         </div>
-        <p className="text-muted text-sm mt-2">
+        <p className="text-text-muted text-sm mt-2">
           {formatCurrency(gap)}/month × 12 months = Additional revenue within reach
         </p>
       </motion.div>
@@ -114,10 +114,10 @@ export function RevenueGapChart({
           transition={{ delay: 1.4 }}
           viewport={{ once: true }}
         >
-          <p className="text-xl sm:text-2xl font-bold text-slate">
+          <p className="text-xl sm:text-2xl font-bold text-text-secondary">
             {formatCurrency(currentRevenue)}
           </p>
-          <p className="text-muted text-xs">Current</p>
+          <p className="text-text-muted text-xs">Current</p>
         </motion.div>
         <motion.div
           className="text-center"
@@ -126,10 +126,10 @@ export function RevenueGapChart({
           transition={{ delay: 1.5 }}
           viewport={{ once: true }}
         >
-          <p className="text-xl sm:text-2xl font-bold text-red">
+          <p className="text-xl sm:text-2xl font-bold text-error">
             +{formatCurrency(gap)}
           </p>
-          <p className="text-muted text-xs">Gap</p>
+          <p className="text-text-muted text-xs">Gap</p>
         </motion.div>
         <motion.div
           className="text-center"
@@ -138,10 +138,10 @@ export function RevenueGapChart({
           transition={{ delay: 1.6 }}
           viewport={{ once: true }}
         >
-          <p className="text-xl sm:text-2xl font-bold text-green">
+          <p className="text-xl sm:text-2xl font-bold text-success">
             {formatCurrency(targetRevenue)}
           </p>
-          <p className="text-muted text-xs">Target</p>
+          <p className="text-text-muted text-xs">Target</p>
         </motion.div>
       </div>
     </div>

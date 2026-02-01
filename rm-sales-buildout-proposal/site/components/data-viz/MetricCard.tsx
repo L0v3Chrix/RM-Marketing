@@ -13,7 +13,7 @@ interface MetricCardProps {
     value: string;
     label: string;
   };
-  color?: "gold" | "green" | "blue";
+  color?: "accent" | "success" | "secondary";
   theme?: "light" | "dark";
   animate?: boolean;
   decimals?: number;
@@ -21,9 +21,9 @@ interface MetricCardProps {
 }
 
 const colorClasses = {
-  gold: "text-amber",
-  green: "text-green",
-  blue: "text-slate",
+  accent: "text-accent",
+  success: "text-success",
+  secondary: "text-text-secondary",
 };
 
 export function MetricCard({
@@ -32,13 +32,13 @@ export function MetricCard({
   prefix = "",
   suffix = "",
   comparison,
-  color = "green",
-  theme = "light",
+  color = "success",
+  theme = "dark",
   animate = true,
   decimals = 0,
   className,
 }: MetricCardProps) {
-  const isLight = theme === "light";
+  const isDark = theme === "dark";
 
   return (
     <motion.div
@@ -48,9 +48,9 @@ export function MetricCard({
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={cn(
         "rounded-2xl p-6 md:p-8 text-center",
-        isLight
-          ? "bg-white border border-border-light shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)]"
-          : "bg-navy-card border border-border-dark",
+        isDark
+          ? "bg-card border border-border-subtle"
+          : "bg-elevated border border-border",
         className
       )}
     >
@@ -74,20 +74,12 @@ export function MetricCard({
           </>
         )}
       </div>
-      <div className={cn(
-        "text-sm md:text-base font-medium mb-3",
-        isLight ? "text-text-body" : "text-text-inverse-secondary"
-      )}>
+      <div className="text-sm md:text-base font-medium mb-3 text-text-secondary">
         {label}
       </div>
       {comparison && (
-        <div className={cn(
-          "text-xs md:text-sm italic",
-          isLight ? "text-text-muted" : "text-text-inverse-muted"
-        )}>
-          <span className={isLight ? "text-text-muted" : "text-text-inverse-muted"}>
-            {comparison.label}:
-          </span>{" "}
+        <div className="text-xs md:text-sm italic text-text-muted">
+          <span>{comparison.label}:</span>{" "}
           <span>{comparison.value}</span>
         </div>
       )}

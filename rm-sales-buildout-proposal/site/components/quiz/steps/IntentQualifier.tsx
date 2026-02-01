@@ -48,10 +48,10 @@ export function IntentQualifier({ answers, updateAnswer }: IntentQualifierProps)
       className="space-y-8"
     >
       <div className="text-center mb-8">
-        <h2 className="text-2xl sm:text-3xl font-bold text-heading mb-2">
+        <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-2">
           What&apos;s your situation?
         </h2>
-        <p className="text-body text-sm sm:text-base">
+        <p className="text-text-secondary text-sm sm:text-base">
           This helps us show you the most relevant path forward.
         </p>
       </div>
@@ -64,7 +64,7 @@ export function IntentQualifier({ answers, updateAnswer }: IntentQualifierProps)
           transition={{ delay: questionIndex * 0.15 }}
           className="space-y-3"
         >
-          <label className="text-sm font-medium text-heading">
+          <label className="text-sm font-medium text-text-primary">
             {q.question}
           </label>
           <div className={`grid gap-2 ${q.options.length > 3 ? 'grid-cols-2' : 'grid-cols-3'}`}>
@@ -76,13 +76,13 @@ export function IntentQualifier({ answers, updateAnswer }: IntentQualifierProps)
                 onClick={() => updateAnswer(q.key, option.value)}
                 className={`p-3 rounded-xl border-2 text-center transition-all ${
                   answers[q.key] === option.value
-                    ? 'border-green bg-tint-green'
-                    : 'border-border bg-white hover:border-muted'
+                    ? 'border-accent bg-accent/10'
+                    : 'border-border bg-card hover:border-border-subtle'
                 }`}
               >
                 <span className="text-lg mb-1 block">{option.icon}</span>
                 <p className={`text-xs font-medium ${
-                  answers[q.key] === option.value ? 'text-green' : 'text-body'
+                  answers[q.key] === option.value ? 'text-accent' : 'text-text-secondary'
                 }`}>
                   {option.label}
                 </p>
@@ -97,35 +97,35 @@ export function IntentQualifier({ answers, updateAnswer }: IntentQualifierProps)
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
-        className="bg-navy rounded-xl p-5 mt-6"
+        className="bg-elevated rounded-xl p-5 mt-6"
       >
-        <p className="text-sm text-inverse-muted mb-3">Your situation:</p>
+        <p className="text-sm text-text-secondary mb-3">Your situation:</p>
         <div className="space-y-2 text-sm">
           {answers.runningAds === 'consistently' && (
-            <p className="text-green">✓ Running ads consistently - great foundation</p>
+            <p className="text-success">✓ Running ads consistently - great foundation</p>
           )}
           {answers.runningAds === 'sometimes' && (
-            <p className="text-inverse">~ Running ads sometimes - room to scale</p>
+            <p className="text-text-primary">~ Running ads sometimes - room to scale</p>
           )}
           {answers.runningAds === 'no' && (
-            <p className="text-inverse-muted">✗ Not running ads yet - we can help</p>
+            <p className="text-text-muted">✗ Not running ads yet - we can help</p>
           )}
 
           {answers.salesTeam === 'no_one' && (
-            <p className="text-green">✓ No sales team - perfect fit for our service</p>
+            <p className="text-success">✓ No sales team - perfect fit for our service</p>
           )}
           {answers.salesTeam === 'just_me' && (
-            <p className="text-green">✓ Handling sales alone - we can take that off your plate</p>
+            <p className="text-success">✓ Handling sales alone - we can take that off your plate</p>
           )}
           {answers.salesTeam === 'full_team' && (
-            <p className="text-inverse">~ Full sales team - may need optimization focus</p>
+            <p className="text-text-primary">~ Full sales team - may need optimization focus</p>
           )}
 
           {answers.bottleneck === 'no_time_for_sales' && (
-            <p className="text-green">✓ No time for sales - exactly what we solve</p>
+            <p className="text-success">✓ No time for sales - exactly what we solve</p>
           )}
           {answers.bottleneck === 'leads_dont_convert' && (
-            <p className="text-green">✓ Conversion problem - our specialty</p>
+            <p className="text-success">✓ Conversion problem - our specialty</p>
           )}
         </div>
       </motion.div>

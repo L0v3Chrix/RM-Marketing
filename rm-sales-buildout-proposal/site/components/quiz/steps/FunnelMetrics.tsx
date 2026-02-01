@@ -56,10 +56,10 @@ export function FunnelMetrics({ answers, updateAnswer }: FunnelMetricsProps) {
       className="space-y-6"
     >
       <div className="text-center mb-8">
-        <h2 className="text-2xl sm:text-3xl font-bold text-heading mb-2">
+        <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-2">
           Your Funnel Performance
         </h2>
-        <p className="text-body text-sm sm:text-base">
+        <p className="text-text-secondary text-sm sm:text-base">
           These conversion rates determine your revenue per lead.
         </p>
       </div>
@@ -70,16 +70,16 @@ export function FunnelMetrics({ answers, updateAnswer }: FunnelMetricsProps) {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: index * 0.1 }}
-          className="space-y-2"
+          className="space-y-1"
         >
-          <div className="flex justify-between items-center">
-            <div>
-              <label className="text-sm font-medium text-heading">
+          <div className="flex justify-between items-center gap-2">
+            <div className="min-w-0">
+              <label className="text-sm font-medium text-text-primary">
                 {metric.label}
               </label>
-              <p className="text-xs text-muted">{metric.description}</p>
+              <p className="text-xs text-text-muted truncate">{metric.description}</p>
             </div>
-            <span className="text-lg font-bold text-green">
+            <span className="text-base sm:text-lg font-bold text-accent whitespace-nowrap">
               {formatPercent(answers[metric.key])}
             </span>
           </div>
@@ -90,24 +90,24 @@ export function FunnelMetrics({ answers, updateAnswer }: FunnelMetricsProps) {
             step={0.01}
             value={answers[metric.key]}
             onChange={(e) => updateAnswer(metric.key, Number(e.target.value))}
-            className="w-full h-3 bg-light rounded-lg appearance-none cursor-pointer accent-green"
+            className="w-full"
           />
-          <p className="text-xs text-muted text-right">
+          <p className="text-xs text-text-muted text-right">
             Industry: {metric.industry}
           </p>
         </motion.div>
       ))}
 
       {/* Funnel Preview */}
-      <div className="bg-navy rounded-xl p-4 mt-6">
-        <p className="text-sm text-inverse-muted mb-3 text-center font-medium">
+      <div className="bg-elevated rounded-xl p-4 mt-6">
+        <p className="text-sm text-text-secondary mb-3 text-center font-medium">
           Your Lead-to-Appointment Rate
         </p>
         <div className="flex items-center justify-center gap-2">
-          <span className="text-3xl font-bold text-green">
+          <span className="text-3xl font-bold text-accent">
             {formatPercent(answers.callAnswerRate * answers.callToBookingRate)}
           </span>
-          <span className="text-inverse-muted text-sm">
+          <span className="text-text-muted text-sm">
             (Industry: 3-5%)
           </span>
         </div>
