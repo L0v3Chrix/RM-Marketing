@@ -11,11 +11,11 @@ export function FAQ() {
       <Container size="narrow">
         {/* Section Header */}
         <FadeInOnScroll>
-          <div className="text-center mb-8 sm:mb-12">
-            <p className="text-green text-sm font-medium tracking-wider uppercase mb-3">
+          <div className="text-center mb-12">
+            <p className="text-accent text-sm font-medium tracking-wider uppercase mb-3">
               Quick Answers
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-heading">
+            <h2 className="text-3xl sm:text-4xl font-bold text-text-primary">
               Common Questions
             </h2>
           </div>

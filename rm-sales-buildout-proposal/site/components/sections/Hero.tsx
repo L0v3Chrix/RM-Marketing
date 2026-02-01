@@ -1,19 +1,82 @@
 "use client";
 
+import { useState } from "react";
 import { Container, Section } from "@/components/layout";
 import { Button } from "@/components/ui";
 import { FadeInOnScroll, CountUp } from "@/components/animations";
 import { FunnelWaterfall } from "@/components/data-viz";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
+
+// YouTube Video Embed Component with elegant styling
+function YouTubeEmbed({ videoId }: { videoId: string }) {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+
+  return (
+    <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg border border-border-default group">
+      {!isPlaying ? (
+        <>
+          {/* Thumbnail with gradient overlay */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${thumbnailUrl})` }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-base/80 via-base/30 to-transparent" />
+          
+          {/* Play button overlay */}
+          <button
+            onClick={() => setIsPlaying(true)}
+            className="absolute inset-0 flex items-center justify-center cursor-pointer group/play"
+            aria-label="Play video"
+          >
+            <div className="relative">
+              {/* Animated ring */}
+              <div className="absolute inset-0 w-20 h-20 rounded-full bg-accent/30 animate-ping" />
+              {/* Button */}
+              <div className="relative w-20 h-20 rounded-full bg-accent flex items-center justify-center shadow-xl transition-transform duration-300 group-hover/play:scale-110">
+                <Play className="w-8 h-8 text-base ml-1" fill="currentColor" />
+              </div>
+            </div>
+          </button>
+
+          {/* Label */}
+          <div className="absolute bottom-4 left-4 right-4">
+            <p className="text-text-primary text-sm font-medium opacity-90">
+              🎬 Watch: Adam on HighLevel Mastery
+            </p>
+          </div>
+        </>
+      ) : (
+        <iframe
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
+          title="GHL Mastery Introduction"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          className="absolute inset-0 w-full h-full"
+        />
+      )}
+    </div>
+  );
+}
 
 export function Hero() {
   return (
     <Section background="base" padding="hero" id="hero">
       <Container size="wide">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Left: Funnel Visualization */}
-          <div className="order-2 lg:order-1">
-            <FunnelWaterfall />
+          {/* Left: Video + Funnel Visualization */}
+          <div className="order-2 lg:order-1 space-y-8">
+            {/* Hero Video */}
+            <FadeInOnScroll delay={0.1}>
+              <YouTubeEmbed videoId="Nzsu71lZjUU" />
+            </FadeInOnScroll>
+            
+            {/* Funnel Visualization - smaller below video on desktop */}
+            <FadeInOnScroll delay={0.2}>
+              <div className="hidden lg:block">
+                <FunnelWaterfall />
+              </div>
+            </FadeInOnScroll>
           </div>
 
           {/* Right: Content */}
@@ -47,7 +110,7 @@ export function Hero() {
             {/* CTA Button */}
             <FadeInOnScroll delay={0.4}>
               <div className="flex justify-center lg:justify-start">
-                <Button href="#plan" size="large">
+                <Button href="#calculator" size="large">
                   See How We Fix That
                   <ArrowRight className="w-5 h-5" />
                 </Button>
@@ -80,8 +143,15 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Meta-Point */}
+        {/* Mobile: Show funnel below content */}
         <FadeInOnScroll delay={0.6}>
+          <div className="lg:hidden mt-12">
+            <FunnelWaterfall />
+          </div>
+        </FadeInOnScroll>
+
+        {/* Meta-Point */}
+        <FadeInOnScroll delay={0.7}>
           <div className="text-center mt-16 pt-8 border-t border-border-subtle max-w-2xl mx-auto">
             <p className="text-text-muted italic text-sm">
               This proposal is worth{" "}
