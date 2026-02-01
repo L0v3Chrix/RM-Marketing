@@ -5,6 +5,7 @@ import { OwnersQuiz } from "@/components/quiz";
 import { ChapterGate, ChapterProgress } from "@/components/ui";
 import {
   Hero,
+  WhyStory,
   Situation,
   Opportunity,
   Solution,
@@ -79,6 +80,7 @@ export default function Home() {
           {/* Chapter 1: Interactive Calculator */}
           <div id="chapter-1">
             <Hero />
+            <WhyStory />
             <Calculator />
           </div>
 

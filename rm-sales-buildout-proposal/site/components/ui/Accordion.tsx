@@ -25,28 +25,28 @@ export function AccordionItem({
       className={cn(
         "rounded-xl border transition-all duration-200",
         isOpen
-          ? "bg-tint-blue border-blue/30 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)]"
-          : "bg-white border-border hover:border-border/80"
+          ? "bg-card border-accent/30"
+          : "bg-elevated border-border-subtle hover:border-border"
       )}
     >
       <button
         onClick={onToggle}
-        className="w-full px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between gap-3 sm:gap-4 text-left"
+        className="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between gap-3 sm:gap-4 text-left"
         aria-expanded={isOpen}
       >
         <div className="flex items-center gap-3">
           {category && (
-            <span className="text-xs font-medium px-2 py-1 rounded-full bg-blue/10 text-blue">
+            <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-accent/10 text-accent">
               {category}
             </span>
           )}
-          <span className="text-base sm:text-lg font-medium text-heading">
+          <span className="text-base sm:text-lg font-medium text-text-primary">
             {question}
           </span>
         </div>
         <ChevronDown
           className={cn(
-            "w-5 h-5 text-primary transition-transform duration-200 flex-shrink-0",
+            "w-5 h-5 text-accent transition-transform duration-200 flex-shrink-0",
             isOpen && "rotate-180"
           )}
         />
@@ -60,9 +60,9 @@ export function AccordionItem({
             transition={{ duration: 0.2, ease: "easeOut" as const }}
             className="overflow-hidden"
           >
-            <div className="px-4 sm:px-6 pb-5 pt-0">
-              <div className="border-t border-border pt-4">
-                <p className="text-body text-sm sm:text-base leading-relaxed">{answer}</p>
+            <div className="px-5 sm:px-6 pb-5 pt-0">
+              <div className="border-t border-border-subtle pt-4">
+                <p className="text-text-secondary text-sm sm:text-base leading-relaxed">{answer}</p>
               </div>
             </div>
           </motion.div>

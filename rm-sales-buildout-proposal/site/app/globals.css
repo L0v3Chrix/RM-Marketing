@@ -1,182 +1,220 @@
-/* Google Fonts - Plus Jakarta Sans for display, Inter for body */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+/* Modern Dark Theme - Inspired by Born This Way Foundation */
+/* Clean, elegant, premium - NO template blues, NO golds */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @import "tailwindcss";
 
-/* GHL Mastery Sales Page Theme - Professional Blue & Gold */
+/* ============================================
+   ROOT DESIGN TOKENS
+   Minimal, intentional color palette
+============================================ */
 :root {
-  /* Page Backgrounds */
-  --bg-white: #FFFFFF;
-  --bg-light: #F8FAFC;
-  --bg-light-blue: #EFF6FF;
-
-  /* Navy Feature Bands */
-  --bg-navy: #0F172A;
-  --bg-navy-deep: #0A1628;
-  --bg-navy-card: #1E293B;
-
-  /* Card Surfaces */
-  --card-bg: #FFFFFF;
-  --card-border: #E2E8F0;
-  --card-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05);
-  --card-shadow-hover: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.05);
-
-  /* Text Colors (Light Backgrounds) */
-  --text-heading: #0F172A;
-  --text-body: #475569;
-  --text-muted: #64748B;
-
-  /* Text Colors (Dark Backgrounds) */
-  --text-inverse: #FFFFFF;
-  --text-inverse-secondary: #E2E8F0;
-  --text-inverse-muted: #94A3B8;
-
-  /* Primary CTA - Professional Blue (GHL-inspired) */
-  --cta-primary: #2563EB;
-  --cta-primary-hover: #1D4ED8;
-  --cta-primary-shadow: 0 4px 14px -3px rgba(37, 99, 235, 0.4);
-
-  /* Secondary Actions */
-  --cta-secondary: #0F172A;
-  --cta-secondary-hover: #1E293B;
-
-  /* Brand Colors */
-  --brand-primary: #2563EB;
-  --brand-primary-dark: #1D4ED8;
-  --brand-accent: #F59E0B;
-  --brand-accent-dark: #D97706;
-
-  /* Accent Colors */
-  --accent-gold: #F59E0B;
-  --accent-gold-dark: #D97706;
-  --accent-success: #10B981;
-  --accent-blue: #2563EB;
-  --accent-red: #EF4444;
-  --accent-orange: #F97316;
-
+  /* Core Backgrounds - Deep, rich blacks */
+  --bg-base: #0a0a0a;
+  --bg-elevated: #111111;
+  --bg-card: #161616;
+  --bg-card-hover: #1a1a1a;
+  --bg-subtle: #1e1e1e;
+  
+  /* Text Hierarchy */
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1a1;
+  --text-muted: #666666;
+  --text-subtle: #444444;
+  
+  /* Accent - Clean teal (not gold, not blue) */
+  --accent: #14b8a6;
+  --accent-hover: #0d9488;
+  --accent-muted: rgba(20, 184, 166, 0.15);
+  --accent-subtle: rgba(20, 184, 166, 0.08);
+  
+  /* Functional Colors */
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: #3b82f6;
+  
   /* Borders */
-  --border-light: #E2E8F0;
-  --border-subtle: #F1F5F9;
-  --border-dark: #334155;
-
-  /* Semantic Tints */
-  --tint-primary: #EFF6FF;
-  --tint-gold: #FFFBEB;
-  --tint-success: #ECFDF5;
-  --tint-red: #FEF2F2;
+  --border-subtle: #1f1f1f;
+  --border-default: #2a2a2a;
+  --border-strong: #3a3a3a;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 40px rgba(20, 184, 166, 0.15);
 }
 
+/* ============================================
+   TAILWIND THEME LAYER
+============================================ */
 @theme inline {
-  /* Background colors */
-  --color-white: #FFFFFF;
-  --color-light: #F8FAFC;
-  --color-light-blue: #EFF6FF;
-  --color-navy: #0F172A;
-  --color-navy-deep: #0A1628;
-  --color-navy-card: #1E293B;
-
-  /* Brand colors - Primary Blue (GHL-inspired) */
-  --color-primary: #2563EB;
-  --color-primary-dark: #1D4ED8;
+  /* Backgrounds */
+  --color-base: #0a0a0a;
+  --color-elevated: #111111;
+  --color-card: #161616;
+  --color-card-hover: #1a1a1a;
+  --color-subtle: #1e1e1e;
   
-  /* Brand colors - Accent Gold (confidence/premium) */
-  --color-gold: #F59E0B;
-  --color-gold-dark: #D97706;
-
-  /* Legacy green alias → now points to primary blue */
-  --color-green: #2563EB;
-  --color-green-dark: #1D4ED8;
+  /* Text */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a1a1a1;
+  --color-text-muted: #666666;
   
-  /* Actual success green (for checkmarks, positive states only) */
-  --color-success: #10B981;
-  --color-success-dark: #059669;
+  /* Accent */
+  --color-accent: #14b8a6;
+  --color-accent-hover: #0d9488;
+  --color-accent-muted: rgba(20, 184, 166, 0.15);
   
-  --color-blue: #2563EB;
-  --color-red: #EF4444;
-  --color-orange: #F97316;
-
-  /* Tint colors */
-  --color-tint-green: #EFF6FF;
-  --color-tint-blue: #EFF6FF;
-  --color-tint-gold: #FFFBEB;
-  --color-tint-red: #FEF2F2;
-  --color-tint-success: #ECFDF5;
-
-  /* Text colors - FLAT NAMES for Tailwind v4 */
-  --color-heading: #0F172A;
-  --color-body: #475569;
-  --color-muted: #64748B;
-  --color-inverse: #FFFFFF;
-  --color-inverse-muted: #94A3B8;
-
-  /* Border colors - FLAT NAMES */
-  --color-border: #E2E8F0;
-  --color-border-subtle: #F1F5F9;
-  --color-border-dark: #334155;
-
-  /* Font families */
-  --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  /* Functional */
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  
+  /* Borders */
+  --color-border: #2a2a2a;
+  --color-border-subtle: #1f1f1f;
+  
+  /* Font */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-
-  /* Font sizes - Type Scale */
-  --text-h1: clamp(2.25rem, 5vw, 3.75rem);
-  --text-h2: clamp(1.75rem, 4vw, 2.5rem);
-  --text-h3: clamp(1.25rem, 3vw, 1.75rem);
+  
+  /* Type Scale */
+  --text-display: clamp(2.5rem, 6vw, 4rem);
+  --text-h1: clamp(2rem, 5vw, 3rem);
+  --text-h2: clamp(1.5rem, 4vw, 2.25rem);
+  --text-h3: clamp(1.25rem, 3vw, 1.5rem);
   --text-body-lg: 1.125rem;
   --text-body: 1rem;
   --text-sm: 0.875rem;
-
-  /* Metric display - larger for impact */
-  --text-metric: 4.5rem;
-  --text-metric-sm: 3rem;
+  --text-xs: 0.75rem;
 }
 
+/* ============================================
+   BASE STYLES
+============================================ */
 html {
   scroll-behavior: smooth;
+  /* Account for fixed header when scrolling to anchors */
+  scroll-padding-top: 72px; /* h-14 (56px) + breathing room */
+}
+
+/* Chapter sections - ensure proper scroll offset for sticky header */
+[id^="chapter-"] {
+  scroll-margin-top: 72px; /* Match scroll-padding for scrollIntoView */
+}
+
+/* All sections with IDs need scroll offset for anchor links */
+#hero, #calculator, #situation, #opportunity, #solution, 
+#process, #team, #investment, #faq, #cta, #why {
+  scroll-margin-top: 72px;
 }
 
 body {
-  background: var(--bg-white);
-  color: var(--text-body);
+  background: var(--bg-base);
+  color: var(--text-secondary);
   font-family: var(--font-sans);
+  font-weight: 400;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Typography defaults - Plus Jakarta Sans for headings */
+/* Typography */
 h1, h2, h3, h4, h5, h6 {
-  color: var(--text-heading);
-  font-family: var(--font-display);
-  font-weight: 700;
-  line-height: 1.15;
+  color: var(--text-primary);
+  font-weight: 600;
+  line-height: 1.2;
   letter-spacing: -0.02em;
 }
 
 h1 {
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.03em;
 }
 
-/* Metric numbers - distinctive styling */
-.metric-number {
-  font-family: var(--font-display);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: var(--brand-primary);
+p {
+  color: var(--text-secondary);
 }
 
-/* Gold accent for premium highlights */
-.gold-accent {
-  color: var(--accent-gold);
+/* Accent text utility */
+.text-accent {
+  color: var(--accent);
 }
 
-/* Primary brand color text */
-.brand-text {
-  color: var(--brand-primary);
+/* ============================================
+   SCROLLBAR
+============================================ */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
-/* Reduced motion preference */
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-default);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-strong);
+}
+
+/* ============================================
+   SELECTION
+============================================ */
+::selection {
+  background: var(--accent-muted);
+  color: var(--text-primary);
+}
+
+/* ============================================
+   FOCUS STYLES
+============================================ */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-base;
+}
+
+/* ============================================
+   RANGE SLIDER (Calculator)
+============================================ */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background: var(--border-default);
+  height: 6px;
+  border-radius: 3px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--accent);
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  margin-top: -6px;
+  box-shadow: 0 2px 8px rgba(20, 184, 166, 0.3);
+  transition: transform 0.15s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+/* ============================================
+   MOTION PREFERENCES
+============================================ */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -188,76 +226,26 @@ h1 {
   }
 }
 
-/* Light theme scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+/* ============================================
+   UTILITY CLASSES
+============================================ */
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--bg-light);
+/* Subtle glow effect for accent elements */
+.glow {
+  box-shadow: var(--shadow-glow);
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--border-light);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--text-muted);
-}
-
-/* Selection styling - brand blue */
-::selection {
-  background: rgba(37, 99, 235, 0.2);
-  color: var(--text-heading);
-}
-
-/* Focus ring utility for accessibility */
-.focus-ring {
-  @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-white;
-}
-
-/* Navy section context - overrides for dark backgrounds */
-.navy-section {
-  color: var(--text-inverse);
-}
-
-.navy-section h1,
-.navy-section h2,
-.navy-section h3,
-.navy-section h4,
-.navy-section h5,
-.navy-section h6 {
-  color: var(--text-inverse);
-}
-
-/* Slider styling for calculator */
-input[type="range"] {
-  -webkit-appearance: none;
-  appearance: none;
-  background: transparent;
-  cursor: pointer;
-  width: 100%;
-}
-
-input[type="range"]::-webkit-slider-runnable-track {
-  background: var(--border-light);
-  height: 8px;
-  border-radius: 4px;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  background: var(--cta-primary);
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  margin-top: -6px;
-  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
-}
-
-/* Dark section slider variant */
-.navy-section input[type="range"]::-webkit-slider-runnable-track {
-  background: var(--border-dark);
+/* Glass effect for cards */
+.glass {
+  background: rgba(22, 22, 22, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }

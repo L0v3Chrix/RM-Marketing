@@ -29,7 +29,7 @@ const productMix = [
 
 export function Opportunity() {
   return (
-    <Section background="white" id="opportunity">
+    <Section background="base" id="opportunity">
       <Container>
         {/* Section Header */}
         <FadeInOnScroll>

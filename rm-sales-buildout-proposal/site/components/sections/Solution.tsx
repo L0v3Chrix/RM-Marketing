@@ -40,7 +40,7 @@ const outcomes = [
 
 export function Solution() {
   return (
-    <Section background="navy-gradient" id="solution">
+    <Section background="gradient" id="solution">
       <Container>
         {/* Section Header */}
         <FadeInOnScroll>
@@ -60,7 +60,7 @@ export function Solution() {
 
         {/* Core Promise */}
         <FadeInOnScroll delay={0.1}>
-          <Card variant="inverse" padding="large" className="text-center mb-12 sm:mb-16 max-w-3xl mx-auto border-green/30">
+          <Card variant="glass" padding="large" className="text-center mb-12 sm:mb-16 max-w-3xl mx-auto border-green/30">
             <p className="text-lg sm:text-xl md:text-2xl text-white font-semibold mb-3">
               In 90 days, GHL Mastery will have a functioning sales operation 
               that runs without Adam.
@@ -81,7 +81,7 @@ export function Solution() {
         <StaggerChildren className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16 max-w-5xl mx-auto">
           {outcomes.map((outcome, index) => (
             <StaggerItem key={index}>
-              <Card variant="inverse" padding="default" className="h-full">
+              <Card variant="glass" padding="default" className="h-full">
                 <div className="flex items-start gap-3">
                   <div className="p-2 rounded-lg bg-green/20 flex-shrink-0">
                     <outcome.icon className="w-5 h-5 text-green" />

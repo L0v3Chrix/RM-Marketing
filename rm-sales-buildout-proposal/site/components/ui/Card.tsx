@@ -4,49 +4,45 @@ import { cn } from "@/lib/utils";
 
 interface CardProps {
   children: React.ReactNode;
-  variant?: "default" | "highlight" | "problem" | "opportunity" | "inverse";
+  variant?: "default" | "elevated" | "accent" | "glass";
   className?: string;
-  padding?: "default" | "large" | "compact";
+  padding?: "default" | "large" | "compact" | "none";
+  hover?: boolean;
 }
 
 const variantClasses = {
-  // Default - Clean white card
+  // Default - Subtle card on dark bg
   default: cn(
-    "bg-white",
+    "bg-card",
+    "border border-border-subtle",
+    "rounded-xl"
+  ),
+  // Elevated - Slightly more prominent
+  elevated: cn(
+    "bg-elevated",
     "border border-border",
-    "shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05),0_2px_4px_-2px_rgba(0,0,0,0.05)]",
-    "rounded-2xl"
+    "shadow-md",
+    "rounded-xl"
   ),
-  // Highlight - Primary emphasis (light blue tint)
-  highlight: cn(
-    "bg-tint-blue",
-    "border border-primary/20",
-    "rounded-2xl"
+  // Accent - Teal accent border
+  accent: cn(
+    "bg-card",
+    "border border-accent/30",
+    "rounded-xl"
   ),
-  // Problem - Alert/warning (light red tint)
-  problem: cn(
-    "bg-tint-red",
-    "border-l-4 border-l-red",
-    "border-y border-r border-red/20",
-    "rounded-r-2xl"
-  ),
-  // Opportunity - Info/blue (light blue tint)
-  opportunity: cn(
-    "bg-tint-blue",
-    "border border-blue/20",
-    "rounded-2xl"
-  ),
-  // Inverse - For navy sections
-  inverse: cn(
-    "bg-navy-card",
-    "border border-border-dark",
-    "rounded-2xl"
+  // Glass - Frosted glass effect
+  glass: cn(
+    "bg-card/80",
+    "backdrop-blur-lg",
+    "border border-border-subtle",
+    "rounded-xl"
   ),
 };
 
 const paddingClasses = {
-  compact: "p-5",
-  default: "p-6 md:p-7",
+  none: "",
+  compact: "p-4",
+  default: "p-6",
   large: "p-8 md:p-10",
 };
 
@@ -54,11 +50,17 @@ export function Card({
   children,
   variant = "default",
   padding = "default",
+  hover = false,
   className,
 }: CardProps) {
   return (
     <div
-      className={cn(variantClasses[variant], paddingClasses[padding], className)}
+      className={cn(
+        variantClasses[variant],
+        paddingClasses[padding],
+        hover && "transition-all duration-200 hover:border-accent/50 hover:shadow-lg",
+        className
+      )}
     >
       {children}
     </div>

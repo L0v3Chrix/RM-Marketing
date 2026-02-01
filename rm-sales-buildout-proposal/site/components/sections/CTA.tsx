@@ -15,7 +15,7 @@ const guarantees = [
 
 export function CTA() {
   return (
-    <Section background="white" padding="large" id="cta">
+    <Section background="base" padding="large" id="cta">
       <Container>
         {/* Journey Recap */}
         <FadeInOnScroll>
@@ -35,7 +35,7 @@ export function CTA() {
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-start">
           {/* Guarantee Panel */}
           <FadeInOnScroll>
-            <Card variant="opportunity" padding="large" className="h-full">
+            <Card variant="accent" padding="large" className="h-full">
               <div className="flex items-center gap-3 mb-4 sm:mb-6">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-blue/20 flex items-center justify-center">
                   <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-blue" />
@@ -87,7 +87,7 @@ export function CTA() {
                   Schedule a Call
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
-                <Button
+                <Button 
                   href="mailto:chrix@raisethevibe.com"
                   variant="secondary"
                   size="large"

@@ -150,12 +150,15 @@ export const CALCULATOR_PRESETS = [
 // Investment Structure
 export const INVESTMENT = {
   phase1: {
-    name: "The Pressure Test",
-    duration: "30 days",
-    total: 8000,
-    deposit: 4000,
-    completion: 4000,
-    quota: 36000,
+    name: "Prove It Works",
+    duration: "60 days",
+    total: 16000,
+    upfront: 4000,
+    day30: 4000,
+    day60: 8000,
+    quota: 20000,
+    adSpend: 1500,
+    appointmentsPerWeek: 20,
   },
   phase2: {
     name: "The Buildout",
@@ -166,13 +169,13 @@ export const INVESTMENT = {
   },
   ongoing: {
     name: "Ongoing Support",
-    duration: "7 months",
-    range: "2000-3000",
+    duration: "As needed",
+    range: "TBD",
   },
   total: {
-    main: 44000,
-    yearEstimate: "58000-65000",
-    roi: "4-6x",
+    main: 52000,
+    yearEstimate: "52000-55000",
+    roi: "3-6x",
   },
 } as const;
 
@@ -180,22 +183,22 @@ export const INVESTMENT = {
 export const TIMELINE_PHASES = [
   {
     phase: 1,
-    name: "Pressure Test",
-    duration: "Days 1-30",
-    investment: "Progressive",
-    investmentDetails: "$4K + $4K @ $20K + 33% over",
+    name: "Prove It Works",
+    duration: "Days 1-60",
+    investment: "$16,000",
+    investmentDetails: "$4K upfront + $4K @ 30 days + $8K @ 60 days",
     highlights: [
-      "Chrix + Sara selling full time",
+      "Chrix working leads full time",
       "Database reactivation campaign",
-      "Work existing leads",
-      "Target: $36K closed revenue",
-      "Pay for performance, not promises",
+      "No-show recovery sequences",
+      "Failed payment dunning",
+      "Target: $20K in 30 days",
     ],
   },
   {
     phase: 2,
     name: "Buildout Sprint",
-    duration: "Days 31-120",
+    duration: "Days 61-150",
     investment: "$36,000",
     highlights: [
       "Hire setters + closers",
@@ -207,7 +210,7 @@ export const TIMELINE_PHASES = [
   {
     phase: 3,
     name: "Ongoing Support",
-    duration: "Months 5-11",
+    duration: "As needed",
     investment: "TBD",
     highlights: [
       "Monthly strategy calls",

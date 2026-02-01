@@ -10,7 +10,7 @@ import { CheckCircle } from "lucide-react";
 
 export function Team() {
   return (
-    <Section background="light" id="team">
+    <Section background="elevated" id="team">
       <Container>
         {/* Section Header */}
         <FadeInOnScroll>
@@ -87,7 +87,7 @@ export function Team() {
         {/* Philosophy Quote */}
         <FadeInOnScroll delay={0.3}>
           <div className="mt-12 sm:mt-16 max-w-3xl mx-auto">
-            <Card variant="opportunity" padding="large" className="text-center">
+            <Card variant="accent" padding="large" className="text-center">
               <blockquote className="text-lg sm:text-xl md:text-2xl text-heading italic mb-4">
                 &quot;Sales isn&apos;t magic. It&apos;s math. Once you know your numbers, you know exactly what
                 levers to pull.&quot;

@@ -30,16 +30,15 @@ export function ChapterProgress({
       transition={{ duration: 0.4, ease: "easeOut" }}
       className={cn(
         "fixed top-0 left-0 right-0 z-50",
-        "bg-white/95 backdrop-blur-sm",
-        "border-b border-border",
-        "shadow-sm",
+        "bg-base/95 backdrop-blur-md",
+        "border-b border-border-subtle",
         className
       )}
     >
-      {/* Progress bar - visual indicator */}
-      <div className="h-1 bg-light">
+      {/* Progress bar */}
+      <div className="h-0.5 bg-elevated">
         <motion.div
-          className="h-full bg-primary"
+          className="h-full bg-accent"
           initial={{ width: 0 }}
           animate={{ width: `${progressPercentage}%` }}
           transition={{ duration: 0.5, ease: "easeOut" }}
@@ -47,11 +46,11 @@ export function ChapterProgress({
       </div>
 
       {/* Chapter info */}
-      <div className="max-w-5xl mx-auto px-4 py-3">
+      <div className="max-w-4xl mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Current chapter label */}
           <div className="flex items-center gap-3">
-            <span className="text-sm font-semibold text-primary">
+            <span className="text-sm font-semibold text-accent">
               {currentChapter}/{chapters.length}
             </span>
             <AnimatePresence mode="wait">
@@ -61,7 +60,7 @@ export function ChapterProgress({
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.2 }}
-                className="text-sm font-medium text-heading hidden sm:inline"
+                className="text-sm font-medium text-text-primary hidden sm:inline"
               >
                 {currentChapterData?.title}
               </motion.span>
@@ -71,7 +70,7 @@ export function ChapterProgress({
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.2 }}
-                className="text-sm font-medium text-heading sm:hidden"
+                className="text-sm font-medium text-text-primary sm:hidden"
               >
                 {currentChapterData?.shortTitle || currentChapterData?.title}
               </motion.span>
@@ -87,23 +86,23 @@ export function ChapterProgress({
               >
                 <div
                   className={cn(
-                    "w-2.5 h-2.5 rounded-full transition-all duration-300",
-                    chapter.number < currentChapter && "bg-primary",
-                    chapter.number === currentChapter && "bg-primary ring-2 ring-primary/30 ring-offset-2",
+                    "w-2 h-2 rounded-full transition-all duration-300",
+                    chapter.number < currentChapter && "bg-accent",
+                    chapter.number === currentChapter && "bg-accent ring-2 ring-accent/30 ring-offset-2 ring-offset-base",
                     chapter.number > currentChapter && "bg-border"
                   )}
                 />
                 {/* Tooltip */}
-                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-navy text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-elevated text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-border-subtle">
                   {chapter.title}
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Prepared for badge - mobile hidden */}
-          <div className="hidden lg:block text-xs text-muted">
-            <span className="text-heading font-medium">GHL Mastery</span> Proposal
+          {/* Prepared for badge */}
+          <div className="hidden lg:block text-xs text-text-muted">
+            <span className="text-text-secondary font-medium">GHL Mastery</span> Proposal
           </div>
         </div>
       </div>

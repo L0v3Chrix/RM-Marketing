@@ -9,10 +9,10 @@ interface ContainerProps {
 }
 
 const sizeClasses = {
-  narrow: "max-w-3xl", // 768px - FAQ, text-heavy content
-  default: "max-w-5xl", // 1024px - most sections
-  wide: "max-w-[1200px]", // 1200px - hero, features
-  full: "max-w-none", // no max width
+  narrow: "max-w-2xl",
+  default: "max-w-4xl",
+  wide: "max-w-6xl",
+  full: "max-w-none",
 };
 
 export function Container({
@@ -23,7 +23,7 @@ export function Container({
   return (
     <div
       className={cn(
-        "mx-auto w-full px-6 md:px-8 lg:px-12",
+        "mx-auto w-full px-6 md:px-8",
         sizeClasses[size],
         className
       )}

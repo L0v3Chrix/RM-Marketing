@@ -55,7 +55,7 @@ export function Calculator() {
   const { inputs, outputs, updateInput, setPreset } = useCalculator();
 
   return (
-    <Section background="navy-gradient" id="calculator">
+    <Section background="gradient" id="calculator">
       <Container>
         {/* Section Header */}
         <FadeInOnScroll>
@@ -76,9 +76,9 @@ export function Calculator() {
         <FadeInOnScroll delay={0.1}>
           <div className="flex flex-wrap justify-center gap-2 mb-6 sm:mb-8">
             {CALCULATOR_PRESETS.map((preset, index) => (
-              <Button
+              <Button 
                 key={index}
-                variant="inverse"
+                variant="ghost"
                 size="small"
                 onClick={() => setPreset(preset.values)}
                 className="bg-white/10 border-white/20 text-white hover:bg-white/20 text-xs sm:text-sm"
@@ -93,7 +93,7 @@ export function Calculator() {
         <div className="grid lg:grid-cols-2 gap-4 sm:gap-8">
           {/* Inputs Panel */}
           <FadeInOnScroll delay={0.1}>
-            <Card variant="inverse" padding="large">
+            <Card variant="glass" padding="large">
               <div className="flex items-center gap-3 mb-4 sm:mb-6">
                 <CalcIcon className="w-5 h-5 sm:w-6 sm:h-6 text-green" />
                 <h3 className="text-base sm:text-lg font-semibold text-white">Inputs</h3>
@@ -177,7 +177,7 @@ export function Calculator() {
           <FadeInOnScroll delay={0.2}>
             <div className="space-y-4 sm:space-y-6">
               {/* Current Performance */}
-              <Card variant="inverse" padding="large">
+              <Card variant="glass" padding="large">
                 <div className="flex items-center gap-3 mb-4 sm:mb-6">
                   <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-blue" />
                   <h3 className="text-base sm:text-lg font-semibold text-white">Current Performance</h3>
@@ -222,7 +222,7 @@ export function Calculator() {
               </Card>
 
               {/* Path to Target */}
-              <Card variant="inverse" padding="large" className="border-blue/30">
+              <Card variant="glass" padding="large" className="border-blue/30">
                 <div className="flex items-center gap-3 mb-4 sm:mb-6">
                   <DollarSign className="w-5 h-5 sm:w-6 sm:h-6 text-green" />
                   <h3 className="text-base sm:text-lg font-semibold text-white">

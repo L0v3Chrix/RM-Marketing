@@ -7,7 +7,7 @@ import { FAQ_ITEMS } from "@/lib/constants";
 
 export function FAQ() {
   return (
-    <Section background="light" id="faq">
+    <Section background="elevated" id="faq">
       <Container size="narrow">
         {/* Section Header */}
         <FadeInOnScroll>

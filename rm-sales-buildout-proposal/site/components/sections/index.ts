@@ -1,4 +1,5 @@
 export { Hero } from "./Hero";
+export { WhyStory } from "./WhyStory";
 export { Situation } from "./Situation";
 export { Opportunity } from "./Opportunity";
 export { Solution } from "./Solution";

@@ -18,7 +18,7 @@ const milestones = [
 
 export function Process() {
   return (
-    <Section background="white" id="process">
+    <Section background="base" id="process">
       <Container>
         {/* Section Header */}
         <FadeInOnScroll>
@@ -45,7 +45,7 @@ export function Process() {
 
         {/* Decision Gate */}
         <FadeInOnScroll delay={0.2}>
-          <Card variant="opportunity" padding="large" className="text-center mb-12 sm:mb-16 max-w-2xl mx-auto">
+          <Card variant="accent" padding="large" className="text-center mb-12 sm:mb-16 max-w-2xl mx-auto">
             <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-blue/20 mb-4">
               <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 text-blue" />
             </div>
