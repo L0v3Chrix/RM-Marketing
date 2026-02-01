@@ -52,35 +52,35 @@ export function QuizResults({ quizState, onContinue }: QuizResultsProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-8"
+          className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 mb-8"
         >
-          <div className="bg-card rounded-xl p-4 text-center border border-border-subtle">
-            <DollarSign className="w-6 h-6 text-success mx-auto mb-2" />
-            <p className="text-xl sm:text-2xl font-bold text-success">
+          <div className="bg-card rounded-xl p-3 sm:p-4 text-center border border-border-subtle">
+            <DollarSign className="w-5 h-5 sm:w-6 sm:h-6 text-success mx-auto mb-1 sm:mb-2" />
+            <p className="text-lg sm:text-2xl font-bold text-success">
               {formatCurrency(calculatedMetrics.revenuePerShow)}
             </p>
-            <p className="text-xs text-text-muted">Revenue/Show</p>
+            <p className="text-[10px] sm:text-xs text-text-muted">Revenue/Show</p>
           </div>
-          <div className="bg-card rounded-xl p-4 text-center border border-border-subtle">
-            <TrendingUp className="w-6 h-6 text-accent mx-auto mb-2" />
-            <p className="text-xl sm:text-2xl font-bold text-accent">
+          <div className="bg-card rounded-xl p-3 sm:p-4 text-center border border-border-subtle">
+            <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-accent mx-auto mb-1 sm:mb-2" />
+            <p className="text-lg sm:text-2xl font-bold text-accent">
               {calculatedMetrics.ltvCac.toFixed(1)}x
             </p>
-            <p className="text-xs text-text-muted">LTV:CAC</p>
+            <p className="text-[10px] sm:text-xs text-text-muted">LTV:CAC</p>
           </div>
-          <div className="bg-card rounded-xl p-4 text-center border border-border-subtle">
-            <Target className="w-6 h-6 text-text-secondary mx-auto mb-2" />
-            <p className="text-xl sm:text-2xl font-bold text-text-secondary">
+          <div className="bg-card rounded-xl p-3 sm:p-4 text-center border border-border-subtle">
+            <Target className="w-5 h-5 sm:w-6 sm:h-6 text-text-secondary mx-auto mb-1 sm:mb-2" />
+            <p className="text-lg sm:text-2xl font-bold text-text-secondary">
               {formatCurrency(calculatedMetrics.costPerShow)}
             </p>
-            <p className="text-xs text-text-muted">Cost/Show</p>
+            <p className="text-[10px] sm:text-xs text-text-muted">Cost/Show</p>
           </div>
-          <div className="bg-card rounded-xl p-4 text-center border border-border-subtle">
-            <UserPlus className="w-6 h-6 text-text-secondary mx-auto mb-2" />
-            <p className="text-xl sm:text-2xl font-bold text-text-secondary">
+          <div className="bg-card rounded-xl p-3 sm:p-4 text-center border border-border-subtle">
+            <UserPlus className="w-5 h-5 sm:w-6 sm:h-6 text-text-secondary mx-auto mb-1 sm:mb-2" />
+            <p className="text-lg sm:text-2xl font-bold text-text-secondary">
               {targetRequirements.closersNeeded}
             </p>
-            <p className="text-xs text-text-muted">Closers Needed</p>
+            <p className="text-[10px] sm:text-xs text-text-muted">Closers Needed</p>
           </div>
         </motion.div>
 
@@ -195,7 +195,7 @@ export function QuizResults({ quizState, onContinue }: QuizResultsProps) {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={onContinue}
-            className="inline-flex items-center gap-2 bg-accent text-base px-8 py-4 rounded-xl font-semibold text-lg hover:bg-accent-hover transition-colors"
+            className="inline-flex items-center gap-2 bg-accent text-base px-6 sm:px-8 py-4 min-h-[56px] rounded-xl font-semibold text-base sm:text-lg hover:bg-accent-hover transition-colors"
           >
             See How We Solve This
             <ArrowDown className="w-5 h-5" />

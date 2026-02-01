@@ -263,22 +263,22 @@ export function Investment() {
             <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-text-primary mb-6 sm:mb-8 text-center">
               Return on Investment
             </h3>
-            <div className="grid grid-cols-3 gap-2 sm:gap-6 max-w-3xl mx-auto">
-              <Card variant="default" padding="default" className="text-center p-3 sm:p-4">
-                <p className="text-text-muted text-[10px] sm:text-xs uppercase tracking-wider mb-1 sm:mb-2">Year 1 Investment</p>
-                <p className="text-xl sm:text-3xl md:text-5xl font-bold text-text-secondary tracking-tight">
+            <div className="grid grid-cols-1 xs:grid-cols-3 gap-3 sm:gap-6 max-w-3xl mx-auto">
+              <Card variant="default" padding="default" className="text-center p-4 sm:p-4">
+                <p className="text-text-muted text-xs uppercase tracking-wider mb-2">Year 1 Investment</p>
+                <p className="text-2xl sm:text-3xl md:text-5xl font-bold text-text-secondary tracking-tight">
                   ~<span className="text-accent">$52K</span>
                 </p>
               </Card>
-              <Card variant="default" padding="default" className="text-center p-3 sm:p-4">
-                <p className="text-text-muted text-[10px] sm:text-xs uppercase tracking-wider mb-1 sm:mb-2">Year 1 Revenue Increase</p>
-                <p className="text-lg sm:text-2xl md:text-4xl font-bold tracking-tight">
+              <Card variant="default" padding="default" className="text-center p-4 sm:p-4">
+                <p className="text-text-muted text-xs uppercase tracking-wider mb-2">Year 1 Revenue Increase</p>
+                <p className="text-xl sm:text-2xl md:text-4xl font-bold tracking-tight">
                   <span className="text-accent">$180</span>-<span className="text-accent">300K</span>
                 </p>
               </Card>
-              <Card variant="default" padding="default" className="text-center p-3 sm:p-4">
-                <p className="text-text-muted text-[10px] sm:text-xs uppercase tracking-wider mb-1 sm:mb-2">Year 1 ROI</p>
-                <p className="text-2xl sm:text-4xl md:text-5xl font-bold text-accent tracking-tight">3-6x</p>
+              <Card variant="default" padding="default" className="text-center p-4 sm:p-4">
+                <p className="text-text-muted text-xs uppercase tracking-wider mb-2">Year 1 ROI</p>
+                <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-accent tracking-tight">3-6x</p>
               </Card>
             </div>
           </div>

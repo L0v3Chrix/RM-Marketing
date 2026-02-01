@@ -106,39 +106,39 @@ export function RevenueGapChart({
       </motion.div>
 
       {/* Breakdown */}
-      <div className="grid grid-cols-3 gap-4 mt-6">
+      <div className="grid grid-cols-3 gap-2 sm:gap-4 mt-6">
         <motion.div
-          className="text-center"
+          className="text-center min-w-0"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 1.4 }}
           viewport={{ once: true }}
         >
-          <p className="text-xl sm:text-2xl font-bold text-text-secondary">
+          <p className="text-lg sm:text-2xl font-bold text-text-secondary truncate">
             {formatCurrency(currentRevenue)}
           </p>
           <p className="text-text-muted text-xs">Current</p>
         </motion.div>
         <motion.div
-          className="text-center"
+          className="text-center min-w-0"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
           viewport={{ once: true }}
         >
-          <p className="text-xl sm:text-2xl font-bold text-error">
+          <p className="text-lg sm:text-2xl font-bold text-error truncate">
             +{formatCurrency(gap)}
           </p>
           <p className="text-text-muted text-xs">Gap</p>
         </motion.div>
         <motion.div
-          className="text-center"
+          className="text-center min-w-0"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 1.6 }}
           viewport={{ once: true }}
         >
-          <p className="text-xl sm:text-2xl font-bold text-success">
+          <p className="text-lg sm:text-2xl font-bold text-success truncate">
             {formatCurrency(targetRevenue)}
           </p>
           <p className="text-text-muted text-xs">Target</p>

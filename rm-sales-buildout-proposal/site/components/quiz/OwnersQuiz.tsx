@@ -82,7 +82,7 @@ export function OwnersQuiz({ onComplete }: OwnersQuizProps) {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => setShowIntro(false)}
-            className="inline-flex items-center gap-2 bg-accent text-base px-8 py-4 rounded-lg font-semibold text-lg hover:bg-accent-hover transition-colors"
+            className="inline-flex items-center gap-2 bg-accent text-base px-6 sm:px-8 py-4 min-h-[56px] rounded-lg font-semibold text-base sm:text-lg hover:bg-accent-hover transition-colors"
           >
             Let&apos;s See My Numbers
             <ArrowRight className="w-5 h-5" />
@@ -221,14 +221,14 @@ export function OwnersQuiz({ onComplete }: OwnersQuizProps) {
       {/* Navigation Footer */}
       {!isEducationalStep && (
         <div className="sticky bottom-0 bg-base/95 backdrop-blur-md border-t border-border-subtle px-4 py-4 sm:py-6">
-          <div className="max-w-lg mx-auto flex items-center justify-between gap-4">
+          <div className="max-w-lg mx-auto flex items-center justify-between gap-3">
             {/* Back Button */}
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={prevStep}
               disabled={currentStep === 1}
-              className={`flex items-center gap-2 px-4 py-3 rounded-lg font-medium transition-all ${
+              className={`flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-3 min-h-[48px] rounded-lg font-medium transition-all ${
                 currentStep === 1
                   ? 'text-text-muted cursor-not-allowed'
                   : 'text-text-secondary hover:bg-elevated'
@@ -248,16 +248,16 @@ export function OwnersQuiz({ onComplete }: OwnersQuizProps) {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={nextStep}
-              className="flex items-center gap-2 bg-accent text-base px-6 sm:px-8 py-3 rounded-lg font-medium hover:bg-accent-hover transition-colors"
+              className="flex items-center gap-1 sm:gap-2 bg-accent text-base px-4 sm:px-8 py-3 min-h-[48px] rounded-lg font-medium hover:bg-accent-hover transition-colors"
             >
               {currentStep === totalSteps ? (
                 <>
-                  <span>See My Results</span>
+                  <span className="text-sm sm:text-base">See Results</span>
                 </>
               ) : (
                 <>
                   <span className="hidden sm:inline">Continue</span>
-                  <span className="sm:hidden">Next</span>
+                  <span className="sm:hidden text-sm">Next</span>
                   <ChevronRight className="w-5 h-5" />
                 </>
               )}
