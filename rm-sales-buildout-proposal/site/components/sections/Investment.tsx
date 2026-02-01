@@ -73,7 +73,7 @@ export function Investment() {
 
         {/* Why Upfront Payment */}
         <FadeInOnScroll delay={0.1}>
-          <Card variant="elevated" padding="large" className="max-w-3xl mx-auto mb-12">
+          <Card variant="elevated" padding="large" className="max-w-3xl mx-auto mb-6">
             <div className="flex items-start gap-4">
               <AlertCircle className="w-6 h-6 text-warning flex-shrink-0 mt-1" />
               <div>
@@ -97,6 +97,93 @@ export function Investment() {
                   to start producing consistently. I can&apos;t work that hard on hope and prayer.
                 </p>
               </div>
+            </div>
+          </Card>
+        </FadeInOnScroll>
+
+        {/* The Real Commission Math */}
+        <FadeInOnScroll delay={0.15}>
+          <Card variant="elevated" padding="large" className="max-w-3xl mx-auto mb-12 border-error/30">
+            <div className="flex items-center gap-3 mb-6">
+              <DollarSign className="w-8 h-8 text-error" />
+              <h3 className="text-xl font-semibold text-text-primary">
+                The Real Commission Math
+              </h3>
+            </div>
+            
+            <p className="text-text-secondary mb-6">
+              Let&apos;s look at Adam&apos;s actual numbers from the last 90 days:
+            </p>
+
+            {/* Revenue Breakdown */}
+            <div className="bg-card rounded-lg p-4 border border-border-subtle mb-6">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-text-secondary">Total New Customer Revenue</span>
+                <span className="text-text-primary font-bold text-xl">$43,000</span>
+              </div>
+              <div className="border-t border-border pt-3 space-y-2">
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-text-muted">From 22 appointment shows (4 VIP $5K sales)</span>
+                  <span className="text-accent font-semibold">$20,500</span>
+                </div>
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-text-muted">From nurture/self-serve/database</span>
+                  <span className="text-text-secondary">$22,500</span>
+                </div>
+              </div>
+            </div>
+
+            <p className="text-text-secondary mb-4">
+              Commission would only apply to the{" "}
+              <span className="text-accent font-semibold">appointment-driven revenue</span> — 
+              the $20,500 from shows we actually worked. Here&apos;s what that looks like 
+              for 2 people over 90 days:
+            </p>
+
+            {/* Commission Breakdown Table */}
+            <div className="space-y-3 mb-6">
+              <div className="flex items-center justify-between p-3 bg-error/10 rounded-lg border border-error/30">
+                <div>
+                  <span className="text-text-primary font-semibold">10% Commission</span>
+                  <p className="text-text-muted text-xs">$2,050 over 90 days</p>
+                </div>
+                <div className="text-right">
+                  <p className="text-error font-bold">$683/month</p>
+                  <p className="text-error text-sm font-semibold">= $2.13/hr per person</p>
+                </div>
+              </div>
+              <div className="flex items-center justify-between p-3 bg-error/10 rounded-lg border border-error/30">
+                <div>
+                  <span className="text-text-primary font-semibold">15% Commission</span>
+                  <p className="text-text-muted text-xs">$3,075 over 90 days</p>
+                </div>
+                <div className="text-right">
+                  <p className="text-error font-bold">$1,025/month</p>
+                  <p className="text-error text-sm font-semibold">= $3.20/hr per person</p>
+                </div>
+              </div>
+              <div className="flex items-center justify-between p-3 bg-error/10 rounded-lg border border-error/30">
+                <div>
+                  <span className="text-text-primary font-semibold">20% Commission</span>
+                  <p className="text-text-muted text-xs">$4,100 over 90 days</p>
+                </div>
+                <div className="text-right">
+                  <p className="text-error font-bold">$1,367/month</p>
+                  <p className="text-error text-sm font-semibold">= $4.27/hr per person</p>
+                </div>
+              </div>
+            </div>
+
+            {/* The Point */}
+            <div className="bg-error/20 rounded-lg p-4 border border-error/30">
+              <p className="text-text-primary font-bold mb-2">
+                All below minimum wage for skilled sales work.
+              </p>
+              <p className="text-text-secondary text-sm">
+                Federal minimum wage is $7.25/hr. The $4K upfront isn&apos;t premium pricing — 
+                it&apos;s <span className="text-accent font-semibold">fair compensation</span> for 
+                320 hours of committed work. That&apos;s $12.50/hour per person.
+              </p>
             </div>
           </Card>
         </FadeInOnScroll>
