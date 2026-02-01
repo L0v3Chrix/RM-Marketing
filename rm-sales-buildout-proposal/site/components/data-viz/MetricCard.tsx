@@ -21,9 +21,9 @@ interface MetricCardProps {
 }
 
 const colorClasses = {
-  gold: "text-gold",
+  gold: "text-amber",
   green: "text-green",
-  blue: "text-blue",
+  blue: "text-slate",
 };
 
 export function MetricCard({

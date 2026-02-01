@@ -36,7 +36,7 @@ export function PathToGoal({ currentRevenue, targetRevenue, requirements }: Path
         </div>
         <div className="relative h-4 bg-light rounded-full overflow-hidden">
           <motion.div
-            className="absolute inset-y-0 left-0 bg-blue rounded-full"
+            className="absolute inset-y-0 left-0 bg-slate rounded-full"
             initial={{ width: 0 }}
             animate={{ width: `${(currentRevenue / targetRevenue) * 100}%` }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -62,9 +62,9 @@ export function PathToGoal({ currentRevenue, targetRevenue, requirements }: Path
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="bg-tint-blue rounded-xl p-3 text-center"
+          className="bg-tint-slate rounded-xl p-3 text-center"
         >
-          <p className="text-2xl font-bold text-blue">{formatCurrency(requirements.adSpendRequired)}</p>
+          <p className="text-2xl font-bold text-slate">{formatCurrency(requirements.adSpendRequired)}</p>
           <p className="text-xs text-muted">Ad Spend/Month</p>
         </motion.div>
         <motion.div

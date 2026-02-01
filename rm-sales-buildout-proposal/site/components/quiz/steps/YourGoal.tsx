@@ -62,7 +62,7 @@ export function YourGoal({ answers, updateAnswer }: YourGoalProps) {
       </div>
 
       {/* Gap Visualization */}
-      <div className="bg-tint-blue rounded-xl p-5">
+      <div className="bg-tint-slate rounded-xl p-5">
         <div className="flex items-center justify-between mb-4">
           <div className="text-center">
             <p className="text-xs text-muted mb-1">Current</p>
@@ -80,7 +80,7 @@ export function YourGoal({ answers, updateAnswer }: YourGoalProps) {
               />
             </div>
             <div className="absolute -top-6 left-1/2 -translate-x-1/2">
-              <p className="text-xs font-medium text-blue whitespace-nowrap">
+              <p className="text-xs font-medium text-slate whitespace-nowrap">
                 {formatCurrency(gap)} gap
               </p>
             </div>

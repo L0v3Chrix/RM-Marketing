@@ -37,8 +37,8 @@ export function IntentGauge({ score = 65 }: IntentGaugeProps) {
                 <stop offset="100%" stopColor="#94a3b8" />
               </linearGradient>
               <linearGradient id="learning" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#3b82f6" />
-                <stop offset="100%" stopColor="#60a5fa" />
+                <stop offset="0%" stopColor="#94a3b8" />
+                <stop offset="100%" stopColor="#cbd5e1" />
               </linearGradient>
               <linearGradient id="evaluating" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stopColor="#06b6d4" />

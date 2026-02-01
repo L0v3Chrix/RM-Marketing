@@ -10,14 +10,14 @@ interface FunnelWaterfallProps {
 
 export function FunnelWaterfall({ metrics, adSpend }: FunnelWaterfallProps) {
   const stages = [
-    { label: 'AD SPEND', value: `$${adSpend.toLocaleString()}`, count: null, color: 'bg-blue' },
-    { label: 'LEADS', value: metrics.leads.toString(), count: metrics.leads, color: 'bg-blue' },
-    { label: 'CALLS', value: metrics.callsMade.toString(), count: metrics.callsMade, color: 'bg-blue' },
+    { label: 'AD SPEND', value: `$${adSpend.toLocaleString()}`, count: null, color: 'bg-slate' },
+    { label: 'LEADS', value: metrics.leads.toString(), count: metrics.leads, color: 'bg-slate' },
+    { label: 'CALLS', value: metrics.callsMade.toString(), count: metrics.callsMade, color: 'bg-slate' },
     { label: 'PERSONS', value: metrics.personsReached.toString(), count: metrics.personsReached, color: 'bg-green' },
     { label: 'APPOINTMENTS', value: metrics.appointmentsBooked.toString(), count: metrics.appointmentsBooked, color: 'bg-green' },
     { label: 'SHOWS', value: metrics.shows.toString(), count: metrics.shows, color: 'bg-green' },
-    { label: 'SALES', value: metrics.sales.toString(), count: metrics.sales, color: 'bg-gold' },
-    { label: 'UPSELLS', value: metrics.upsells.toString(), count: metrics.upsells, color: 'bg-gold' },
+    { label: 'SALES', value: metrics.sales.toString(), count: metrics.sales, color: 'bg-amber' },
+    { label: 'UPSELLS', value: metrics.upsells.toString(), count: metrics.upsells, color: 'bg-amber' },
   ];
 
   const maxCount = Math.max(...stages.filter(s => s.count !== null).map(s => s.count || 0));
@@ -79,7 +79,7 @@ export function FunnelWaterfall({ metrics, adSpend }: FunnelWaterfallProps) {
         </div>
         <div>
           <p className="text-inverse-muted">Close Rate</p>
-          <p className="text-gold font-bold">
+          <p className="text-amber font-bold">
             {Math.round((metrics.sales / metrics.shows) * 100)}%
           </p>
         </div>

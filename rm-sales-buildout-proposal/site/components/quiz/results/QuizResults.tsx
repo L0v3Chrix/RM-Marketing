@@ -62,8 +62,8 @@ export function QuizResults({ quizState, onContinue }: QuizResultsProps) {
             <p className="text-xs text-muted">Revenue/Show</p>
           </div>
           <div className="bg-white rounded-xl p-4 text-center border border-border">
-            <TrendingUp className="w-6 h-6 text-blue mx-auto mb-2" />
-            <p className="text-xl sm:text-2xl font-bold text-blue">
+            <TrendingUp className="w-6 h-6 text-slate mx-auto mb-2" />
+            <p className="text-xl sm:text-2xl font-bold text-slate">
               {calculatedMetrics.ltvCac.toFixed(1)}x
             </p>
             <p className="text-xs text-muted">LTV:CAC</p>
@@ -90,10 +90,10 @@ export function QuizResults({ quizState, onContinue }: QuizResultsProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25 }}
-            className="bg-tint-gold border border-gold/20 rounded-2xl p-5 sm:p-6 mb-8"
+            className="bg-tint-amber border border-amber/20 rounded-2xl p-5 sm:p-6 mb-8"
           >
             <div className="flex items-center gap-2 mb-4">
-              <Lightbulb className="w-5 h-5 text-gold" />
+              <Lightbulb className="w-5 h-5 text-amber" />
               <h3 className="font-semibold text-heading">What You Discovered</h3>
             </div>
             <div className="space-y-3">
@@ -156,7 +156,7 @@ export function QuizResults({ quizState, onContinue }: QuizResultsProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="bg-tint-blue border-l-4 border-blue rounded-r-xl p-5 mb-8"
+          className="bg-tint-slate border-l-4 border-slate rounded-r-xl p-5 mb-8"
         >
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>

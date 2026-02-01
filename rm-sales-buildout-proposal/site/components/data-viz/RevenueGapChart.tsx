@@ -47,7 +47,7 @@ export function RevenueGapChart({
         <div className="h-12 sm:h-16 bg-surface rounded-xl overflow-hidden relative">
           {/* Current revenue bar */}
           <motion.div
-            className="absolute left-0 top-0 h-full bg-blue rounded-l-xl flex items-center justify-center"
+            className="absolute left-0 top-0 h-full bg-slate rounded-l-xl flex items-center justify-center"
             initial={{ width: 0 }}
             whileInView={{ width: `${currentPercent}%` }}
             transition={{ duration: 1, ease: "easeOut" }}
@@ -114,7 +114,7 @@ export function RevenueGapChart({
           transition={{ delay: 1.4 }}
           viewport={{ once: true }}
         >
-          <p className="text-xl sm:text-2xl font-bold text-blue">
+          <p className="text-xl sm:text-2xl font-bold text-slate">
             {formatCurrency(currentRevenue)}
           </p>
           <p className="text-muted text-xs">Current</p>

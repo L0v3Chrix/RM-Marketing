@@ -81,7 +81,7 @@ export function EducationalQuestion({
                 className={`
                   p-4 sm:p-5 rounded-xl border-2 text-center transition-all
                   ${selectedAnswer === option.value
-                    ? 'border-primary bg-tint-blue shadow-lg'
+                    ? 'border-primary bg-tint-slate shadow-lg'
                     : 'border-border bg-white hover:border-muted hover:shadow-sm'
                   }
                 `}

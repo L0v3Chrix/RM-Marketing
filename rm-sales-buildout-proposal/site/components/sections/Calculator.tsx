@@ -31,8 +31,8 @@ function SliderInput({
   return (
     <div className="space-y-2">
       <div className="flex justify-between items-center">
-        <label className="text-xs sm:text-sm text-inverse-muted">{label}</label>
-        <span className="text-xs sm:text-sm font-semibold text-green">{format(value)}</span>
+        <label className="text-xs sm:text-sm text-text-secondary">{label}</label>
+        <span className="text-xs sm:text-sm font-semibold text-accent">{format(value)}</span>
       </div>
       <input
         type="range"
@@ -41,9 +41,9 @@ function SliderInput({
         step={step}
         value={value}
         onChange={(e) => onChange(parseFloat(e.target.value))}
-        className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-green"
+        className="w-full h-2 bg-elevated rounded-lg appearance-none cursor-pointer accent-accent"
       />
-      <div className="flex justify-between text-xs text-inverse-muted">
+      <div className="flex justify-between text-xs text-text-muted">
         <span>{format(min)}</span>
         <span>{format(max)}</span>
       </div>
@@ -60,13 +60,13 @@ export function Calculator() {
         {/* Section Header */}
         <FadeInOnScroll>
           <div className="text-center mb-12 sm:mb-16">
-            <p className="text-green text-sm font-medium tracking-wider uppercase mb-4">
+            <p className="text-accent text-sm font-medium tracking-wider uppercase mb-4">
               Interactive Calculator
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 sm:mb-6">
               See Your Numbers
             </h2>
-            <p className="text-inverse-muted text-base sm:text-lg max-w-2xl mx-auto">
+            <p className="text-text-secondary text-base sm:text-lg max-w-2xl mx-auto">
               Adjust the inputs to see how the math changes. Pre-filled with your actual data.
             </p>
           </div>
@@ -81,7 +81,7 @@ export function Calculator() {
                 variant="ghost"
                 size="small"
                 onClick={() => setPreset(preset.values)}
-                className="bg-white/10 border-white/20 text-white hover:bg-white/20 text-xs sm:text-sm"
+                className="bg-elevated border-border text-text-primary hover:bg-card-hover text-xs sm:text-sm"
               >
                 {preset.name}
               </Button>
@@ -95,8 +95,8 @@ export function Calculator() {
           <FadeInOnScroll delay={0.1}>
             <Card variant="glass" padding="large">
               <div className="flex items-center gap-3 mb-4 sm:mb-6">
-                <CalcIcon className="w-5 h-5 sm:w-6 sm:h-6 text-green" />
-                <h3 className="text-base sm:text-lg font-semibold text-white">Inputs</h3>
+                <CalcIcon className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
+                <h3 className="text-base sm:text-lg font-semibold text-text-primary">Inputs</h3>
               </div>
 
               <div className="space-y-4 sm:space-y-6">
@@ -179,90 +179,90 @@ export function Calculator() {
               {/* Current Performance */}
               <Card variant="glass" padding="large">
                 <div className="flex items-center gap-3 mb-4 sm:mb-6">
-                  <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-blue" />
-                  <h3 className="text-base sm:text-lg font-semibold text-white">Current Performance</h3>
+                  <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
+                  <h3 className="text-base sm:text-lg font-semibold text-text-primary">Current Performance</h3>
                 </div>
 
                 <div className="grid grid-cols-2 gap-2 sm:gap-4">
-                  <div className="text-center p-2 sm:p-3 bg-white/5 rounded-lg">
-                    <p className="text-inverse-muted text-xs sm:text-sm">Leads/Month</p>
-                    <p className="text-lg sm:text-xl font-bold text-white">{outputs.leadsPerMonth}</p>
+                  <div className="text-center p-2 sm:p-3 bg-elevated rounded-lg">
+                    <p className="text-text-muted text-xs sm:text-sm">Leads/Month</p>
+                    <p className="text-lg sm:text-xl font-bold text-text-primary">{outputs.leadsPerMonth}</p>
                   </div>
-                  <div className="text-center p-2 sm:p-3 bg-white/5 rounded-lg">
-                    <p className="text-inverse-muted text-xs sm:text-sm">Appointments</p>
-                    <p className="text-lg sm:text-xl font-bold text-white">{outputs.appointmentsPerMonth}</p>
+                  <div className="text-center p-2 sm:p-3 bg-elevated rounded-lg">
+                    <p className="text-text-muted text-xs sm:text-sm">Appointments</p>
+                    <p className="text-lg sm:text-xl font-bold text-text-primary">{outputs.appointmentsPerMonth}</p>
                   </div>
-                  <div className="text-center p-2 sm:p-3 bg-white/5 rounded-lg">
-                    <p className="text-inverse-muted text-xs sm:text-sm">Shows</p>
-                    <p className="text-lg sm:text-xl font-bold text-white">{outputs.showsPerMonth}</p>
+                  <div className="text-center p-2 sm:p-3 bg-elevated rounded-lg">
+                    <p className="text-text-muted text-xs sm:text-sm">Shows</p>
+                    <p className="text-lg sm:text-xl font-bold text-text-primary">{outputs.showsPerMonth}</p>
                   </div>
-                  <div className="text-center p-2 sm:p-3 bg-white/5 rounded-lg">
-                    <p className="text-inverse-muted text-xs sm:text-sm">Sales</p>
-                    <p className="text-lg sm:text-xl font-bold text-white">{outputs.salesPerMonth}</p>
+                  <div className="text-center p-2 sm:p-3 bg-elevated rounded-lg">
+                    <p className="text-text-muted text-xs sm:text-sm">Sales</p>
+                    <p className="text-lg sm:text-xl font-bold text-text-primary">{outputs.salesPerMonth}</p>
                   </div>
                 </div>
 
-                <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-green/20 rounded-lg border border-green/30 text-center">
-                  <p className="text-inverse-muted text-xs sm:text-sm mb-1">Monthly Revenue</p>
-                  <p className="text-2xl sm:text-3xl font-bold text-green">
+                <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-success/20 rounded-lg border border-success/30 text-center">
+                  <p className="text-text-secondary text-xs sm:text-sm mb-1">Monthly Revenue</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-success">
                     {formatCurrency(outputs.revenuePerMonth)}
                   </p>
                 </div>
 
                 {/* Revenue Per Show - KEY METRIC */}
-                <div className="mt-3 sm:mt-4 p-3 sm:p-4 bg-green/10 rounded-lg border border-green/30 text-center">
-                  <p className="text-inverse-muted text-xs sm:text-sm mb-1">Revenue Per Show</p>
-                  <p className="text-2xl sm:text-3xl font-bold text-green">
+                <div className="mt-3 sm:mt-4 p-3 sm:p-4 bg-accent/10 rounded-lg border border-accent/30 text-center">
+                  <p className="text-text-secondary text-xs sm:text-sm mb-1">Revenue Per Show</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-accent">
                     {formatCurrency(outputs.revenuePerShow)}
                   </p>
-                  <p className="text-inverse-muted text-xs mt-1">
+                  <p className="text-text-muted text-xs mt-1">
                     Every show = expected revenue
                   </p>
                 </div>
               </Card>
 
               {/* Path to Target */}
-              <Card variant="glass" padding="large" className="border-blue/30">
+              <Card variant="glass" padding="large" className="border-accent/30">
                 <div className="flex items-center gap-3 mb-4 sm:mb-6">
-                  <DollarSign className="w-5 h-5 sm:w-6 sm:h-6 text-green" />
-                  <h3 className="text-base sm:text-lg font-semibold text-white">
+                  <DollarSign className="w-5 h-5 sm:w-6 sm:h-6 text-success" />
+                  <h3 className="text-base sm:text-lg font-semibold text-text-primary">
                     Path to {formatCurrency(inputs.targetRevenue)}/mo
                   </h3>
                 </div>
 
                 <div className="space-y-2 sm:space-y-3">
-                  <div className="flex justify-between items-center py-2 border-b border-white/10">
-                    <span className="text-inverse-muted text-sm">Sales Needed</span>
-                    <span className="font-semibold text-white text-sm">{outputs.salesNeeded}/mo</span>
+                  <div className="flex justify-between items-center py-2 border-b border-border-subtle">
+                    <span className="text-text-secondary text-sm">Sales Needed</span>
+                    <span className="font-semibold text-text-primary text-sm">{outputs.salesNeeded}/mo</span>
                   </div>
-                  <div className="flex justify-between items-center py-2 border-b border-white/10">
-                    <span className="text-inverse-muted text-sm">Shows Needed</span>
-                    <span className="font-semibold text-white text-sm">{outputs.showsNeeded}/mo</span>
+                  <div className="flex justify-between items-center py-2 border-b border-border-subtle">
+                    <span className="text-text-secondary text-sm">Shows Needed</span>
+                    <span className="font-semibold text-text-primary text-sm">{outputs.showsNeeded}/mo</span>
                   </div>
-                  <div className="flex justify-between items-center py-2 border-b border-white/10">
-                    <span className="text-inverse-muted text-sm">Appointments Needed</span>
-                    <span className="font-semibold text-white text-sm">{outputs.appointmentsNeeded}/mo</span>
+                  <div className="flex justify-between items-center py-2 border-b border-border-subtle">
+                    <span className="text-text-secondary text-sm">Appointments Needed</span>
+                    <span className="font-semibold text-text-primary text-sm">{outputs.appointmentsNeeded}/mo</span>
                   </div>
-                  <div className="flex justify-between items-center py-2 border-b border-white/10">
-                    <span className="text-inverse-muted text-sm">Leads Needed</span>
-                    <span className="font-semibold text-white text-sm">{outputs.leadsNeeded}/mo</span>
+                  <div className="flex justify-between items-center py-2 border-b border-border-subtle">
+                    <span className="text-text-secondary text-sm">Leads Needed</span>
+                    <span className="font-semibold text-text-primary text-sm">{outputs.leadsNeeded}/mo</span>
                   </div>
-                  <div className="flex justify-between items-center py-2 border-b border-white/10">
-                    <span className="text-inverse-muted text-sm">Calls Per Day</span>
-                    <span className="font-semibold text-white text-sm">{outputs.callsPerDay}</span>
+                  <div className="flex justify-between items-center py-2 border-b border-border-subtle">
+                    <span className="text-text-secondary text-sm">Calls Per Day</span>
+                    <span className="font-semibold text-text-primary text-sm">{outputs.callsPerDay}</span>
                   </div>
                   <div className="flex justify-between items-center py-2">
-                    <span className="text-inverse-muted text-sm flex items-center gap-2">
+                    <span className="text-text-secondary text-sm flex items-center gap-2">
                       <UserCheck className="w-4 h-4" />
                       Closers Needed
                     </span>
-                    <span className="font-semibold text-green text-sm">{outputs.closersNeeded}</span>
+                    <span className="font-semibold text-accent text-sm">{outputs.closersNeeded}</span>
                   </div>
                 </div>
 
-                <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-green/20 rounded-lg border border-green/30 text-center">
-                  <p className="text-inverse-muted text-xs sm:text-sm mb-1">Required Ad Spend</p>
-                  <p className="text-2xl sm:text-3xl font-bold text-green">
+                <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-success/20 rounded-lg border border-success/30 text-center">
+                  <p className="text-text-secondary text-xs sm:text-sm mb-1">Required Ad Spend</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-success">
                     {formatCurrency(outputs.adSpendRequired)}/mo
                   </p>
                 </div>
@@ -274,8 +274,8 @@ export function Calculator() {
         {/* Key Insight */}
         <FadeInOnScroll delay={0.3}>
           <div className="mt-8 sm:mt-12 text-center max-w-2xl mx-auto">
-            <p className="text-inverse-muted text-sm sm:text-base">
-              The constraint isn&apos;t the funnel — it&apos;s <span className="text-green font-semibold">capacity</span>.
+            <p className="text-text-secondary text-sm sm:text-base">
+              The constraint isn&apos;t the funnel — it&apos;s <span className="text-accent font-semibold">capacity</span>.
               The math works. You just need people to work the phones.
             </p>
           </div>

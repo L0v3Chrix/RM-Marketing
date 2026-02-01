@@ -57,7 +57,7 @@ export function CurrentState({ answers, updateAnswer }: CurrentStateProps) {
           <label className="text-sm font-medium text-heading">
             Monthly Ad Spend
           </label>
-          <span className="text-lg font-bold text-blue">
+          <span className="text-lg font-bold text-slate">
             {formatCurrency(answers.adSpend)}
           </span>
         </div>
@@ -68,7 +68,7 @@ export function CurrentState({ answers, updateAnswer }: CurrentStateProps) {
           step={100}
           value={answers.adSpend}
           onChange={(e) => updateAnswer('adSpend', Number(e.target.value))}
-          className="w-full h-3 bg-light rounded-lg appearance-none cursor-pointer accent-blue"
+          className="w-full h-3 bg-light rounded-lg appearance-none cursor-pointer accent-slate"
         />
         <div className="flex justify-between text-xs text-muted">
           <span>$0</span>
@@ -105,7 +105,7 @@ export function CurrentState({ answers, updateAnswer }: CurrentStateProps) {
       </div>
 
       {/* Quick Stats */}
-      <div className="bg-tint-blue rounded-xl p-4 mt-6">
+      <div className="bg-tint-slate rounded-xl p-4 mt-6">
         <p className="text-sm text-body">
           <span className="font-semibold">At your current spend:</span>{" "}
           You&apos;re generating roughly{" "}

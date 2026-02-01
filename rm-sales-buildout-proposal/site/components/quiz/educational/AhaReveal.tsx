@@ -34,7 +34,7 @@ export function AhaReveal({ question, userGuess, userData }: AhaRevealProps) {
           inline-flex items-center gap-2 px-4 py-2 rounded-full font-semibold text-sm
           ${isCorrect 
             ? 'bg-tint-success text-success' 
-            : 'bg-tint-gold text-gold-dark'
+            : 'bg-tint-amber text-amber-dark'
           }
         `}>
           {isCorrect ? (
@@ -77,7 +77,7 @@ export function AhaReveal({ question, userGuess, userData }: AhaRevealProps) {
             <p className="text-xs text-inverse-muted mb-1 uppercase tracking-wide">
               Reality
             </p>
-            <div className="text-2xl sm:text-3xl font-bold text-gold">
+            <div className="text-2xl sm:text-3xl font-bold text-amber">
               {correctOption?.label}
             </div>
           </div>
@@ -91,8 +91,8 @@ export function AhaReveal({ question, userGuess, userData }: AhaRevealProps) {
           className="pt-4 border-t border-border-dark"
         >
           <div className="flex items-start gap-3">
-            <div className="flex-shrink-0 w-8 h-8 bg-gold/20 rounded-full flex items-center justify-center">
-              <Lightbulb className="w-4 h-4 text-gold" />
+            <div className="flex-shrink-0 w-8 h-8 bg-amber/20 rounded-full flex items-center justify-center">
+              <Lightbulb className="w-4 h-4 text-amber" />
             </div>
             <div>
               <p className="text-inverse font-semibold text-sm sm:text-base mb-1">
@@ -116,7 +116,7 @@ export function AhaReveal({ question, userGuess, userData }: AhaRevealProps) {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
-        className="bg-tint-blue border border-primary/20 rounded-xl p-4"
+        className="bg-tint-slate border border-primary/20 rounded-xl p-4"
       >
         <div className="flex items-start gap-3">
           <div className="flex-shrink-0 w-2 h-2 mt-2 bg-primary rounded-full" />
