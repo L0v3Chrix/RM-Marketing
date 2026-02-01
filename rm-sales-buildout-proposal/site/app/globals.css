@@ -57,16 +57,37 @@
   --color-card: #161616;
   --color-card-hover: #1a1a1a;
   --color-subtle: #1e1e1e;
+  --color-light: #2a2a2a;
   
   /* Text */
   --color-text-primary: #ffffff;
   --color-text-secondary: #a1a1a1;
   --color-text-muted: #666666;
   
-  /* Accent */
+  /* Primary Accent - Teal (main brand color) */
   --color-accent: #14b8a6;
   --color-accent-hover: #0d9488;
   --color-accent-muted: rgba(20, 184, 166, 0.15);
+  --color-green: #14b8a6;
+  --color-primary: #14b8a6;
+  
+  /* Secondary Accent - Warm Rose (elegant highlight) */
+  --color-rose: #c4a484;
+  --color-rose-dark: #9a7b5f;
+  
+  /* Warning/Highlight - Amber (replacing gold) */
+  --color-gold: #d4a574;
+  --color-gold-dark: #b8956a;
+  --color-amber: #d4a574;
+  
+  /* Info/Data - Slate (replacing blue) */
+  --color-blue: #94a3b8;
+  --color-slate: #94a3b8;
+  
+  /* Tint backgrounds (subtle colored backgrounds) */
+  --color-tint-blue: rgba(148, 163, 184, 0.1);
+  --color-tint-gold: rgba(212, 165, 116, 0.1);
+  --color-tint-green: rgba(20, 184, 166, 0.1);
   
   /* Functional */
   --color-success: #22c55e;

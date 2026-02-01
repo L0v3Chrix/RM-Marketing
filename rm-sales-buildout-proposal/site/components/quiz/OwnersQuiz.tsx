@@ -23,58 +23,55 @@ export function OwnersQuiz({ onComplete }: OwnersQuizProps) {
     updateAnswer, 
     nextStep, 
     prevStep, 
-    goToStep, 
-    visitedSteps,
     totalSteps,
     getCurrentStepConfig,
     getCurrentEducationalQuestion,
     recordEducationalAnswer,
   } = quizState;
 
-  // Track if current educational question has been answered (to show/hide nav buttons)
   const [educationalAnswered, setEducationalAnswered] = useState(false);
 
   // Show intro screen first
   if (showIntro) {
     return (
-      <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4 py-12">
+      <div className="min-h-screen bg-base flex flex-col items-center justify-center px-4 py-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="max-w-lg mx-auto text-center"
         >
           {/* Icon */}
-          <div className="w-16 h-16 rounded-full bg-tint-blue flex items-center justify-center mx-auto mb-6">
-            <BarChart3 className="w-8 h-8 text-primary" />
+          <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6">
+            <BarChart3 className="w-8 h-8 text-accent" />
           </div>
 
           {/* Headline */}
-          <h1 className="text-2xl sm:text-3xl font-bold text-heading mb-4">
+          <h1 className="text-2xl sm:text-3xl font-bold text-text-primary mb-4">
             See Exactly Where Your Revenue Leaks
           </h1>
 
           {/* Description */}
-          <p className="text-body text-base sm:text-lg mb-3 leading-relaxed">
+          <p className="text-text-secondary text-lg mb-3 leading-relaxed">
             This interactive tool analyzes your real numbers to show you the gap between where you are and where you could be.
           </p>
-          <p className="text-muted text-sm mb-8">
+          <p className="text-text-muted text-sm mb-8">
             Takes about 3 minutes. You&apos;ll learn a few surprising stats along the way.
           </p>
 
           {/* What you'll get */}
-          <div className="bg-light rounded-xl p-5 mb-8 text-left">
-            <p className="text-sm font-medium text-heading mb-3">What you&apos;ll discover:</p>
-            <ul className="space-y-2 text-sm text-body">
+          <div className="bg-elevated rounded-xl p-5 mb-8 text-left border border-border-subtle">
+            <p className="text-sm font-medium text-text-primary mb-3">What you&apos;ll discover:</p>
+            <ul className="space-y-2 text-sm text-text-secondary">
               <li className="flex items-start gap-2">
-                <span className="text-green">→</span>
+                <span className="text-accent">→</span>
                 Your current revenue per show and cost per lead
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-green">→</span>
+                <span className="text-accent">→</span>
                 The exact levers that move the needle
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-green">→</span>
+                <span className="text-accent">→</span>
                 What it takes to hit your revenue target
               </li>
             </ul>
@@ -85,13 +82,13 @@ export function OwnersQuiz({ onComplete }: OwnersQuizProps) {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => setShowIntro(false)}
-            className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-primary-dark transition-colors"
+            className="inline-flex items-center gap-2 bg-accent text-base px-8 py-4 rounded-lg font-semibold text-lg hover:bg-accent-hover transition-colors"
           >
             Let&apos;s See My Numbers
             <ArrowRight className="w-5 h-5" />
           </motion.button>
 
-          <p className="text-xs text-muted mt-4">
+          <p className="text-xs text-text-muted mt-4">
             Prepared for Adam & Brendan | GHL Mastery
           </p>
         </motion.div>
@@ -116,7 +113,6 @@ export function OwnersQuiz({ onComplete }: OwnersQuizProps) {
   const handleEducationalComplete = (questionId: string, userGuess: string, wasCorrect: boolean) => {
     recordEducationalAnswer(questionId, userGuess, wasCorrect);
     setEducationalAnswered(true);
-    // Auto-advance after a short delay
     setTimeout(() => {
       nextStep();
       setEducationalAnswered(false);
@@ -165,42 +161,41 @@ export function OwnersQuiz({ onComplete }: OwnersQuizProps) {
     }
   };
 
-  // Calculate progress for display
   const progressPercent = Math.round((currentStep / totalSteps) * 100);
 
   return (
-    <div className="min-h-screen bg-white flex flex-col">
+    <div className="min-h-screen bg-base flex flex-col">
       {/* Header with Progress */}
-      <div className="sticky top-0 z-10 bg-white border-b border-border px-4 py-4 sm:py-6">
+      <div className="sticky top-0 z-10 bg-base/95 backdrop-blur-md border-b border-border-subtle px-4 py-4 sm:py-6">
         <div className="max-w-2xl mx-auto">
           {/* Step Type Indicator */}
           <div className="flex items-center justify-center gap-2 mb-3">
             {isEducationalStep ? (
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-tint-gold rounded-full">
-                <Lightbulb className="w-4 h-4 text-gold" />
-                <span className="text-xs font-medium text-gold-dark">Quick Question</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-warning/10 rounded-full border border-warning/20">
+                <Lightbulb className="w-4 h-4 text-warning" />
+                <span className="text-xs font-medium text-warning">Quick Question</span>
               </div>
             ) : (
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-tint-blue rounded-full">
-                <Calculator className="w-4 h-4 text-primary" />
-                <span className="text-xs font-medium text-primary">Your Numbers</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-accent/10 rounded-full border border-accent/20">
+                <Calculator className="w-4 h-4 text-accent" />
+                <span className="text-xs font-medium text-accent">Your Numbers</span>
               </div>
             )}
           </div>
           
           {/* Progress Bar */}
           <div className="relative">
-            <div className="h-2 bg-light rounded-full overflow-hidden">
+            <div className="h-1.5 bg-elevated rounded-full overflow-hidden">
               <motion.div
-                className="h-full bg-primary rounded-full"
+                className="h-full bg-accent rounded-full"
                 initial={{ width: 0 }}
                 animate={{ width: `${progressPercent}%` }}
                 transition={{ duration: 0.3 }}
               />
             </div>
             <div className="flex justify-between mt-2">
-              <span className="text-xs text-muted">Step {currentStep} of {totalSteps}</span>
-              <span className="text-xs text-muted">{progressPercent}% complete</span>
+              <span className="text-xs text-text-muted">Step {currentStep} of {totalSteps}</span>
+              <span className="text-xs text-text-muted">{progressPercent}% complete</span>
             </div>
           </div>
         </div>
@@ -223,9 +218,9 @@ export function OwnersQuiz({ onComplete }: OwnersQuizProps) {
         </div>
       </div>
 
-      {/* Navigation Footer - only show for data steps */}
+      {/* Navigation Footer */}
       {!isEducationalStep && (
-        <div className="sticky bottom-0 bg-white border-t border-border px-4 py-4 sm:py-6">
+        <div className="sticky bottom-0 bg-base/95 backdrop-blur-md border-t border-border-subtle px-4 py-4 sm:py-6">
           <div className="max-w-lg mx-auto flex items-center justify-between gap-4">
             {/* Back Button */}
             <motion.button
@@ -233,10 +228,10 @@ export function OwnersQuiz({ onComplete }: OwnersQuizProps) {
               whileTap={{ scale: 0.98 }}
               onClick={prevStep}
               disabled={currentStep === 1}
-              className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-all ${
+              className={`flex items-center gap-2 px-4 py-3 rounded-lg font-medium transition-all ${
                 currentStep === 1
-                  ? 'text-muted cursor-not-allowed'
-                  : 'text-body hover:bg-light'
+                  ? 'text-text-muted cursor-not-allowed'
+                  : 'text-text-secondary hover:bg-elevated'
               }`}
             >
               <ChevronLeft className="w-5 h-5" />
@@ -244,7 +239,7 @@ export function OwnersQuiz({ onComplete }: OwnersQuizProps) {
             </motion.button>
 
             {/* Step Counter (Mobile) */}
-            <span className="text-sm text-muted sm:hidden">
+            <span className="text-sm text-text-muted sm:hidden">
               {currentStep} / {totalSteps}
             </span>
 
@@ -253,7 +248,7 @@ export function OwnersQuiz({ onComplete }: OwnersQuizProps) {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={nextStep}
-              className="flex items-center gap-2 bg-primary text-white px-6 sm:px-8 py-3 rounded-xl font-medium hover:bg-primary-dark transition-colors"
+              className="flex items-center gap-2 bg-accent text-base px-6 sm:px-8 py-3 rounded-lg font-medium hover:bg-accent-hover transition-colors"
             >
               {currentStep === totalSteps ? (
                 <>

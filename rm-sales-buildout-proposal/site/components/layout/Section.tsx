@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 interface SectionProps {
   children: React.ReactNode;
   id?: string;
-  background?: "base" | "elevated" | "card" | "gradient" | "white" | "navy-gradient";
+  background?: "base" | "elevated" | "card" | "gradient" | "subtle";
   padding?: "default" | "large" | "hero";
   className?: string;
 }
@@ -15,8 +15,7 @@ const backgroundClasses = {
   elevated: "bg-elevated",
   card: "bg-card",
   gradient: "bg-gradient-to-b from-base via-elevated to-base",
-  white: "bg-white",
-  "navy-gradient": "bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900",
+  subtle: "bg-subtle",
 };
 
 const paddingClasses = {
