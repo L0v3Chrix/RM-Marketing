@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { Container, Section } from "@/components/layout";
 import { Button } from "@/components/ui";
-import { FadeInOnScroll } from "@/components/animations";
+import { FadeInOnScroll, CountUp } from "@/components/animations";
+import { FunnelWaterfall } from "@/components/data-viz";
 import { ArrowRight } from "lucide-react";
 
 export function Hero() {
@@ -11,37 +11,18 @@ export function Hero() {
     <Section background="white" padding="hero" id="hero">
       <Container size="wide">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-          {/* Left: Media Block - Sales Funnel Visualization */}
-          <FadeInOnScroll className="order-2 lg:order-1">
-            <div className="relative">
-              <Image
-                src="/images/graphics/funnel-waterfall.png"
-                alt="GHL Mastery Sales Funnel - 238 Leads to $36K Revenue"
-                width={800}
-                height={600}
-                className="w-full h-auto rounded-2xl shadow-2xl"
-                priority
-              />
-              {/* Secondary benchmark image overlay */}
-              <div className="absolute -bottom-4 -right-4 w-2/3 hidden lg:block">
-                <Image
-                  src="/images/graphics/industry-benchmarks.png"
-                  alt="Your Performance vs Industry Benchmarks"
-                  width={500}
-                  height={300}
-                  className="w-full h-auto rounded-xl shadow-xl border-4 border-white"
-                />
-              </div>
-            </div>
-          </FadeInOnScroll>
+          {/* Left: Media Block - Sales Funnel Visualization (Mobile-friendly HTML) */}
+          <div className="order-2 lg:order-1">
+            <FunnelWaterfall />
+          </div>
 
           {/* Right: Content - Shown first on mobile */}
           <div className="text-center lg:text-left order-1 lg:order-2">
             {/* Trust Badge */}
             <FadeInOnScroll delay={0.1}>
-              <p className="text-muted text-sm mb-4 sm:mb-6">
-                Prepared for <span className="text-heading font-medium">Adam McInnes & Brendan</span>{" "}
-                <span className="text-muted">| GHL Mastery</span>
+              <p className="text-green text-sm font-medium mb-4 sm:mb-6">
+                Prepared for <span className="text-heading">Adam & Brendan</span>{" "}
+                <span className="text-green">| GHL Mastery</span>
               </p>
             </FadeInOnScroll>
 
@@ -55,12 +36,11 @@ export function Hero() {
               </h2>
             </FadeInOnScroll>
 
-            {/* Subheadline */}
+            {/* Subheadline - Tightened */}
             <FadeInOnScroll delay={0.3}>
               <p className="text-base sm:text-lg text-body leading-relaxed mb-6 sm:mb-8 max-w-lg mx-auto lg:mx-0">
-                A custom proposal to build your sales infrastructure — the team, the
-                systems, the processes — so you can finally capture the revenue
-                you&apos;re leaving on the table.
+                Your marketing is dialed. Your offer converts. The only thing missing? 
+                A sales team that can handle the volume.
               </p>
             </FadeInOnScroll>
 
@@ -68,30 +48,32 @@ export function Hero() {
             <FadeInOnScroll delay={0.4}>
               <div className="flex justify-center lg:justify-start">
                 <Button href="#plan" size="large">
-                  See the Full Plan
+                  See How We Fix That
                   <ArrowRight className="w-5 h-5" />
                 </Button>
               </div>
             </FadeInOnScroll>
 
-            {/* Trust Row - Inline Metrics */}
+            {/* Trust Row - Simplified to 3 key metrics */}
             <FadeInOnScroll delay={0.5}>
-              <div className="grid grid-cols-2 sm:flex sm:items-center gap-4 sm:gap-8 mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-border justify-center lg:justify-start">
+              <div className="flex items-center gap-6 sm:gap-10 mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-border justify-center lg:justify-start">
                 <div className="text-center">
-                  <p className="text-xl sm:text-2xl font-bold text-green">19.3%</p>
-                  <p className="text-xs text-muted">Booking Rate</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-green tracking-tight">
+                    <CountUp end={6.30} decimals={2} prefix="$" duration={1.5} />
+                  </p>
+                  <p className="text-xs text-muted uppercase tracking-wider">Cost/Lead</p>
                 </div>
                 <div className="text-center">
-                  <p className="text-xl sm:text-2xl font-bold text-green">15.8x</p>
-                  <p className="text-xs text-muted">LTV:CAC</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-green tracking-tight">
+                    <CountUp end={19.3} decimals={1} suffix="%" duration={1.5} />
+                  </p>
+                  <p className="text-xs text-muted uppercase tracking-wider">Book Rate</p>
                 </div>
                 <div className="text-center">
-                  <p className="text-xl sm:text-2xl font-bold text-green">$6.30</p>
-                  <p className="text-xs text-muted">Cost/Lead</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-xl sm:text-2xl font-bold text-green">22</p>
-                  <p className="text-xs text-muted">Shows in 90d</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-gold tracking-tight">
+                    <CountUp end={59} suffix="%" duration={1.5} />
+                  </p>
+                  <p className="text-xs text-muted uppercase tracking-wider">Show Rate</p>
                 </div>
               </div>
             </FadeInOnScroll>

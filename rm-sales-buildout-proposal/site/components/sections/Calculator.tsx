@@ -6,7 +6,7 @@ import { FadeInOnScroll } from "@/components/animations";
 import { useCalculator } from "@/hooks/useCalculator";
 import { CALCULATOR_PRESETS } from "@/lib/constants";
 import { formatCurrency, formatPercent } from "@/lib/utils";
-import { Calculator as CalcIcon, TrendingUp, DollarSign, Users } from "lucide-react";
+import { Calculator as CalcIcon, TrendingUp, DollarSign, UserCheck } from "lucide-react";
 
 interface SliderInputProps {
   label: string;
@@ -253,7 +253,7 @@ export function Calculator() {
                   </div>
                   <div className="flex justify-between items-center py-2">
                     <span className="text-inverse-muted text-sm flex items-center gap-2">
-                      <Users className="w-4 h-4" />
+                      <UserCheck className="w-4 h-4" />
                       Closers Needed
                     </span>
                     <span className="font-semibold text-green text-sm">{outputs.closersNeeded}</span>

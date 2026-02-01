@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Container, Section } from "@/components/layout";
 import { Button, Card } from "@/components/ui";
 import { FadeInOnScroll } from "@/components/animations";
-import { Calendar, Mail, ArrowRight, Shield, CheckCircle } from "lucide-react";
+import { Calendar, Mail, ArrowRight, Shield, CheckCircle, Sparkles } from "lucide-react";
 
 const guarantees = [
   "30-day pressure test before major commitment",
@@ -17,6 +17,21 @@ export function CTA() {
   return (
     <Section background="white" padding="large" id="cta">
       <Container>
+        {/* Journey Recap */}
+        <FadeInOnScroll>
+          <div className="text-center mb-10 sm:mb-14">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-tint-green border border-green/20 mb-6">
+              <Sparkles className="w-4 h-4 text-green" />
+              <span className="text-sm font-medium text-green">You Made It</span>
+            </div>
+            <p className="text-body text-base sm:text-lg max-w-2xl mx-auto">
+              You&apos;ve seen the numbers. You understand the problem. You know the solution.
+              <br className="hidden sm:block" />
+              <span className="text-heading font-medium">The only question left is: when do you want to start?</span>
+            </p>
+          </div>
+        </FadeInOnScroll>
+
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-start">
           {/* Guarantee Panel */}
           <FadeInOnScroll>
@@ -35,7 +50,7 @@ export function CTA() {
               <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
                 {guarantees.map((guarantee, index) => (
                   <li key={index} className="flex items-start gap-2 sm:gap-3 text-body text-sm sm:text-base">
-                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-success flex-shrink-0 mt-0.5" />
                     {guarantee}
                   </li>
                 ))}
@@ -56,13 +71,13 @@ export function CTA() {
             <div className="text-center lg:text-left">
               {/* Main Headline */}
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-heading mb-4 sm:mb-6">
-                Ready to Prove It Works?
+                Let&apos;s Prove It Works
               </h2>
 
               {/* Subhead */}
               <p className="text-lg sm:text-xl md:text-2xl text-body mb-6 sm:mb-8">
-                <span className="text-green font-semibold">$4K</span> to find out.{" "}
-                <span className="text-green font-semibold">30 days</span> to show results.
+                <span className="text-green font-bold text-2xl sm:text-3xl">$4K</span> to start.{" "}
+                <span className="text-green font-bold text-2xl sm:text-3xl">30 days</span> to show results.
               </p>
 
               {/* CTA Buttons */}
@@ -84,25 +99,12 @@ export function CTA() {
               </div>
 
               {/* Closing Statement */}
-              <p className="text-body font-medium text-base sm:text-lg">
-                But you should work with us.
+              <p className="text-muted text-sm sm:text-base">
+                No pressure. Just a conversation about what&apos;s possible.
               </p>
             </div>
           </FadeInOnScroll>
         </div>
-
-        {/* Intent Gauge */}
-        <FadeInOnScroll delay={0.2}>
-          <div className="mt-12 sm:mt-16 max-w-md mx-auto">
-            <Image
-              src="/images/graphics/intent-gauge.png"
-              alt="Intent Score Gauge - Where Are You?"
-              width={400}
-              height={300}
-              className="w-full h-auto rounded-2xl shadow-xl"
-            />
-          </div>
-        </FadeInOnScroll>
 
         {/* Trust Footer with Adam's Photo */}
         <FadeInOnScroll delay={0.3}>

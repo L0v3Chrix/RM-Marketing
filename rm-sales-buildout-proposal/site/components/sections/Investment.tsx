@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { Container, Section } from "@/components/layout";
 import { Card } from "@/components/ui";
 import { FadeInOnScroll, CountUp } from "@/components/animations";
+import { ProgressivePayment } from "@/components/data-viz";
 import { DollarSign, TrendingUp, Clock, CheckCircle } from "lucide-react";
 
 const phase1Includes = [
@@ -61,15 +61,9 @@ export function Investment() {
           {/* Phase 1 - Progressive Performance */}
           <FadeInOnScroll delay={0.1}>
             <div className="h-full flex flex-col">
-              {/* Progressive Payment Visual */}
+              {/* Progressive Payment Visual - Mobile-friendly HTML */}
               <div className="mb-4">
-                <Image
-                  src="/images/graphics/progressive-payment.png"
-                  alt="Phase 1 Progressive Payment: $4K → $4K → 33%"
-                  width={600}
-                  height={400}
-                  className="w-full h-auto rounded-2xl shadow-xl"
-                />
+                <ProgressivePayment />
               </div>
               
               {/* What You Get - Additional Details */}
@@ -78,7 +72,7 @@ export function Investment() {
                 <ul className="space-y-2">
                   {phase1Includes.map((item, index) => (
                     <li key={index} className="flex items-start gap-2 text-body text-sm">
-                      <CheckCircle className="w-4 h-4 text-green flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="w-4 h-4 text-success flex-shrink-0 mt-0.5" />
                       {item}
                     </li>
                   ))}
@@ -105,8 +99,8 @@ export function Investment() {
                 <p className="text-blue text-sm font-medium uppercase tracking-wider mb-2">
                   Phase 2: The Buildout Sprint
                 </p>
-                <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-heading mb-2">
-                  $<CountUp end={36000} duration={1.5} />
+                <div className="text-5xl sm:text-6xl md:text-7xl font-bold text-heading mb-2 tracking-tight">
+                  <span className="text-green">$</span><CountUp end={36} duration={1.5} /><span className="text-green">K</span>
                 </div>
                 <p className="text-muted">90 Days | Full Team Installation</p>
               </div>
@@ -171,52 +165,56 @@ export function Investment() {
             </h3>
             <div className="grid sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto">
               <Card variant="default" padding="default" className="text-center">
-                <p className="text-muted text-sm mb-2">Year 1 Investment</p>
-                <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-body">~$50K</p>
+                <p className="text-muted text-xs uppercase tracking-wider mb-2">Year 1 Investment</p>
+                <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-body tracking-tight">
+                  ~<span className="text-blue">$50K</span>
+                </p>
               </Card>
               <Card variant="default" padding="default" className="text-center">
-                <p className="text-muted text-sm mb-2">Year 1 Revenue Increase</p>
-                <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-green">$230-380K</p>
+                <p className="text-muted text-xs uppercase tracking-wider mb-2">Year 1 Revenue Increase</p>
+                <p className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
+                  <span className="text-green">$230</span>-<span className="text-green">380K</span>
+                </p>
               </Card>
               <Card variant="default" padding="default" className="text-center">
-                <p className="text-muted text-sm mb-2">Year 1 ROI</p>
-                <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-green">5-8x</p>
+                <p className="text-muted text-xs uppercase tracking-wider mb-2">Year 1 ROI</p>
+                <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-green tracking-tight">5-8x</p>
               </Card>
             </div>
           </div>
         </FadeInOnScroll>
 
-        {/* Opportunity Cost */}
+        {/* Timeline Context */}
         <FadeInOnScroll delay={0.2}>
-          <Card variant="problem" padding="large" className="max-w-3xl mx-auto mb-12 sm:mb-16">
+          <Card variant="default" padding="large" className="max-w-3xl mx-auto mb-12 sm:mb-16 border border-border">
             <div className="flex items-center gap-3 mb-4 sm:mb-6">
-              <Clock className="w-6 h-6 sm:w-8 sm:h-8 text-red" />
+              <Clock className="w-6 h-6 sm:w-8 sm:h-8 text-blue" />
               <h3 className="text-lg sm:text-xl font-semibold text-heading">
-                The Cost of Waiting
+                What This Unlocks
               </h3>
             </div>
             <p className="text-body mb-4 sm:mb-6 text-sm sm:text-base">
-              Every month without a dedicated sales team is revenue you&apos;ll never get back:
+              With a dedicated sales system in place, here&apos;s what the math looks like:
             </p>
             <div className="grid grid-cols-3 gap-2 sm:gap-4 text-center mb-4 sm:mb-6">
               <div>
                 <p className="text-muted text-xs sm:text-sm mb-1">Conservative</p>
                 <p className="text-lg sm:text-xl font-bold text-body">$15K/mo</p>
-                <p className="text-red text-xs sm:text-sm">$180K/year</p>
+                <p className="text-green text-xs sm:text-sm">+$180K/year</p>
               </div>
               <div>
                 <p className="text-muted text-xs sm:text-sm mb-1">Moderate</p>
                 <p className="text-lg sm:text-xl font-bold text-body">$25K/mo</p>
-                <p className="text-red text-xs sm:text-sm">$300K/year</p>
+                <p className="text-green text-xs sm:text-sm">+$300K/year</p>
               </div>
               <div>
                 <p className="text-muted text-xs sm:text-sm mb-1">Aggressive</p>
                 <p className="text-lg sm:text-xl font-bold text-body">$40K/mo</p>
-                <p className="text-red text-xs sm:text-sm">$480K/year</p>
+                <p className="text-green text-xs sm:text-sm">+$480K/year</p>
               </div>
             </div>
-            <p className="text-center text-red font-semibold text-sm sm:text-base">
-              If you wait 6 months, that&apos;s $90,000-240,000 you&apos;ll never get back.
+            <p className="text-center text-body font-medium text-sm sm:text-base">
+              The sooner your sales system is running, the sooner you start capturing this growth.
             </p>
           </Card>
         </FadeInOnScroll>
@@ -226,13 +224,13 @@ export function Investment() {
           <Card variant="highlight" padding="large" className="text-center max-w-2xl mx-auto">
             <TrendingUp className="w-8 h-8 sm:w-10 sm:h-10 text-green mx-auto mb-4" />
             <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-heading mb-4">
-              $4,000 to find out if this works.
+              <span className="text-green text-3xl sm:text-4xl md:text-5xl">$4K</span> to find out if this works.
             </h3>
             <p className="text-body text-base sm:text-lg mb-4">
               Performance-based pricing means we only win when you win. Low risk for you. High reward if it works.
             </p>
-            <p className="text-green font-medium italic">
-              If we hit $20K, you know it&apos;s working. Continue and scale.
+            <p className="text-green font-semibold text-lg">
+              If we hit <span className="text-2xl font-bold">$20K</span>, you know it&apos;s working. Continue and scale.
             </p>
           </Card>
         </FadeInOnScroll>

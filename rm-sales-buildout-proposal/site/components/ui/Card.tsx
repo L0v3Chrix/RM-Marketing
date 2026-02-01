@@ -17,10 +17,10 @@ const variantClasses = {
     "shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05),0_2px_4px_-2px_rgba(0,0,0,0.05)]",
     "rounded-2xl"
   ),
-  // Highlight - Success/positive (light green tint)
+  // Highlight - Primary emphasis (light blue tint)
   highlight: cn(
-    "bg-tint-green",
-    "border border-green/20",
+    "bg-tint-blue",
+    "border border-primary/20",
     "rounded-2xl"
   ),
   // Problem - Alert/warning (light red tint)

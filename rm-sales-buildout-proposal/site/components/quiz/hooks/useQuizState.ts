@@ -3,6 +3,14 @@
 import { useState, useEffect, useCallback } from 'react';
 import { FunnelMetrics, DEFAULT_METRICS, calculateFunnel, calculateTargetRequirements } from '../utils/calculations';
 import { IntentSignals, IntentScore, calculateIntentScore, getIntentExperience } from '../utils/intentScoring';
+import { getEducationalQuestionsForFlow } from '../educational';
+
+// Educational answer tracking
+export interface EducationalAnswer {
+  questionId: string;
+  userGuess: string;
+  wasCorrect: boolean;
+}
 
 export interface QuizAnswers {
   // Step 1: Current State
@@ -26,7 +34,7 @@ export interface QuizAnswers {
   targetRevenue: number;
   timeline: 'immediately' | 'this_month' | 'this_quarter' | 'just_exploring';
 
-  // Step 5: Intent Qualifier
+  // Step 5: Intent Qualifier (repurposed for situation context, less about urgency scoring)
   runningAds: 'consistently' | 'sometimes' | 'no';
   salesTeam: 'full_team' | 'just_me' | 'no_one';
   bottleneck: 'not_enough_leads' | 'leads_dont_convert' | 'no_time_for_sales' | 'dont_know';
@@ -35,12 +43,38 @@ export interface QuizAnswers {
 export interface QuizState {
   currentStep: number;
   answers: QuizAnswers;
+  educationalAnswers: EducationalAnswer[];
   isComplete: boolean;
   startTime: number | null;
   sliderAdjustments: number;
   stepRevisits: number;
   visitedSteps: Set<number>;
 }
+
+// Step types for the new educational flow
+export type StepType = 'data' | 'educational';
+
+export interface StepConfig {
+  type: StepType;
+  id: string;
+  dataStep?: number; // For data steps, which data step (1-5)
+  educationalIndex?: number; // For educational steps, which question
+}
+
+// New step flow: Data → Educational → Data → Educational → Data → Results
+// Interspersing educational questions between data collection
+export const STEP_FLOW: StepConfig[] = [
+  { type: 'data', id: 'current-state', dataStep: 1 },
+  { type: 'data', id: 'funnel-metrics', dataStep: 2 },
+  { type: 'educational', id: 'edu-speed-to-lead', educationalIndex: 0 },
+  { type: 'data', id: 'offer-economics', dataStep: 3 },
+  { type: 'educational', id: 'edu-show-rate', educationalIndex: 1 },
+  { type: 'data', id: 'your-goal', dataStep: 4 },
+  { type: 'educational', id: 'edu-follow-up', educationalIndex: 2 },
+  { type: 'data', id: 'situation', dataStep: 5 },
+];
+
+export const TOTAL_STEPS = STEP_FLOW.length;
 
 const STORAGE_KEY = 'ghl-mastery-quiz';
 
@@ -76,6 +110,7 @@ export function useQuizState() {
   const [state, setState] = useState<QuizState>({
     currentStep: 1,
     answers: defaultAnswers,
+    educationalAnswers: [],
     isComplete: false,
     startTime: null,
     sliderAdjustments: 0,
@@ -84,6 +119,9 @@ export function useQuizState() {
   });
 
   const [resultsViewTime, setResultsViewTime] = useState<number | null>(null);
+
+  // Get educational questions for the flow
+  const educationalQuestions = getEducationalQuestionsForFlow();
 
   // Load from localStorage on mount
   useEffect(() => {
@@ -95,6 +133,7 @@ export function useQuizState() {
           setState(prev => ({
             ...prev,
             answers: { ...defaultAnswers, ...parsed.answers },
+            educationalAnswers: parsed.educationalAnswers || [],
             isComplete: parsed.isComplete || false,
             visitedSteps: new Set(parsed.visitedSteps || [1]),
           }));
@@ -112,11 +151,12 @@ export function useQuizState() {
     if (typeof window !== 'undefined') {
       localStorage.setItem(STORAGE_KEY, JSON.stringify({
         answers: state.answers,
+        educationalAnswers: state.educationalAnswers,
         isComplete: state.isComplete,
         visitedSteps: Array.from(state.visitedSteps),
       }));
     }
-  }, [state.answers, state.isComplete, state.visitedSteps]);
+  }, [state.answers, state.educationalAnswers, state.isComplete, state.visitedSteps]);
 
   // Start results timer when complete
   useEffect(() => {
@@ -153,7 +193,7 @@ export function useQuizState() {
 
   const nextStep = useCallback(() => {
     setState(prev => {
-      if (prev.currentStep >= 5) {
+      if (prev.currentStep >= TOTAL_STEPS) {
         return { ...prev, isComplete: true };
       }
       const newStep = prev.currentStep + 1;
@@ -178,6 +218,54 @@ export function useQuizState() {
     });
   }, []);
 
+  // Record an educational answer
+  const recordEducationalAnswer = useCallback((
+    questionId: string,
+    userGuess: string,
+    wasCorrect: boolean
+  ) => {
+    setState(prev => {
+      // Check if already answered
+      const existing = prev.educationalAnswers.find(a => a.questionId === questionId);
+      if (existing) {
+        return prev; // Don't re-record
+      }
+      return {
+        ...prev,
+        educationalAnswers: [
+          ...prev.educationalAnswers,
+          { questionId, userGuess, wasCorrect }
+        ],
+      };
+    });
+  }, []);
+
+  // Get current step config
+  const getCurrentStepConfig = useCallback(() => {
+    return STEP_FLOW[state.currentStep - 1] || null;
+  }, [state.currentStep]);
+
+  // Get educational question for current step (if it's an educational step)
+  const getCurrentEducationalQuestion = useCallback(() => {
+    const config = getCurrentStepConfig();
+    if (config?.type === 'educational' && config.educationalIndex !== undefined) {
+      return educationalQuestions[config.educationalIndex] || null;
+    }
+    return null;
+  }, [getCurrentStepConfig, educationalQuestions]);
+
+  // Get learnings summary for results page
+  const getLearningsSummary = useCallback(() => {
+    return state.educationalAnswers.map(answer => {
+      const question = educationalQuestions.find(q => q.id === answer.questionId);
+      return {
+        ...answer,
+        question: question?.question || '',
+        insight: question?.insight.statistic || '',
+      };
+    });
+  }, [state.educationalAnswers, educationalQuestions]);
+
   const completeQuiz = useCallback(() => {
     setState(prev => ({ ...prev, isComplete: true }));
   }, []);
@@ -186,6 +274,7 @@ export function useQuizState() {
     setState({
       currentStep: 1,
       answers: defaultAnswers,
+      educationalAnswers: [],
       isComplete: false,
       startTime: Date.now(),
       sliderAdjustments: 0,
@@ -273,11 +362,18 @@ export function useQuizState() {
     prevStep,
     completeQuiz,
     resetQuiz,
+    recordEducationalAnswer,
+    getCurrentStepConfig,
+    getCurrentEducationalQuestion,
+    getLearningsSummary,
     funnelMetrics,
     calculatedMetrics,
     targetRequirements,
     intentScore,
     intentExperience,
+    educationalQuestions,
+    totalSteps: TOTAL_STEPS,
+    stepFlow: STEP_FLOW,
   };
 }
 

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Container, Section } from "@/components/layout";
 import { Card } from "@/components/ui";
 import { FadeInOnScroll, StaggerChildren, StaggerItem } from "@/components/animations";
+import { TeamStructure } from "@/components/data-viz";
 import { TEAM_MEMBERS } from "@/lib/constants";
 import { CheckCircle } from "lucide-react";
 
@@ -26,18 +27,10 @@ export function Team() {
           </div>
         </FadeInOnScroll>
 
-        {/* Team Structure Visual */}
-        <FadeInOnScroll delay={0.1}>
-          <div className="max-w-3xl mx-auto mb-12 sm:mb-16">
-            <Image
-              src="/images/graphics/team-structure.png"
-              alt="Team Structure: Chrix + Sarah Organization"
-              width={800}
-              height={500}
-              className="w-full h-auto rounded-2xl shadow-2xl"
-            />
-          </div>
-        </FadeInOnScroll>
+        {/* Team Structure Visual - Mobile-friendly HTML component */}
+        <div className="max-w-3xl mx-auto mb-12 sm:mb-16">
+          <TeamStructure />
+        </div>
 
         {/* Featured Team Photo */}
         <FadeInOnScroll delay={0.15}>
@@ -81,7 +74,7 @@ export function Team() {
                 <ul className="space-y-2">
                   {member.highlights.map((highlight, hIndex) => (
                     <li key={hIndex} className="flex items-center gap-2 text-body text-xs sm:text-sm">
-                      <CheckCircle className="w-4 h-4 text-green flex-shrink-0" />
+                      <CheckCircle className="w-4 h-4 text-success flex-shrink-0" />
                       {highlight}
                     </li>
                   ))}

@@ -1,6 +1,9 @@
+/* Google Fonts - Plus Jakarta Sans for display, Inter for body */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
 @import "tailwindcss";
 
-/* Premium Sales Page Theme - Light Mode with Navy Feature Bands */
+/* GHL Mastery Sales Page Theme - Professional Blue & Gold */
 :root {
   /* Page Backgrounds */
   --bg-white: #FFFFFF;
@@ -28,19 +31,26 @@
   --text-inverse-secondary: #E2E8F0;
   --text-inverse-muted: #94A3B8;
 
-  /* Primary CTA - Green */
-  --cta-primary: #22C55E;
-  --cta-primary-hover: #16A34A;
-  --cta-primary-shadow: 0 4px 14px -3px rgba(34, 197, 94, 0.4);
+  /* Primary CTA - Professional Blue (GHL-inspired) */
+  --cta-primary: #2563EB;
+  --cta-primary-hover: #1D4ED8;
+  --cta-primary-shadow: 0 4px 14px -3px rgba(37, 99, 235, 0.4);
 
   /* Secondary Actions */
   --cta-secondary: #0F172A;
   --cta-secondary-hover: #1E293B;
 
+  /* Brand Colors */
+  --brand-primary: #2563EB;
+  --brand-primary-dark: #1D4ED8;
+  --brand-accent: #F59E0B;
+  --brand-accent-dark: #D97706;
+
   /* Accent Colors */
-  --accent-gold: #D4A574;
-  --accent-green: #22C55E;
-  --accent-blue: #3B82F6;
+  --accent-gold: #F59E0B;
+  --accent-gold-dark: #D97706;
+  --accent-success: #10B981;
+  --accent-blue: #2563EB;
   --accent-red: #EF4444;
   --accent-orange: #F97316;
 
@@ -50,8 +60,9 @@
   --border-dark: #334155;
 
   /* Semantic Tints */
-  --tint-green: #F0FDF4;
-  --tint-blue: #EFF6FF;
+  --tint-primary: #EFF6FF;
+  --tint-gold: #FFFBEB;
+  --tint-success: #ECFDF5;
   --tint-red: #FEF2F2;
 }
 
@@ -64,18 +75,32 @@
   --color-navy-deep: #0A1628;
   --color-navy-card: #1E293B;
 
-  /* Accent colors */
-  --color-gold: #D4A574;
-  --color-green: #22C55E;
-  --color-green-dark: #16A34A;
-  --color-blue: #3B82F6;
+  /* Brand colors - Primary Blue (GHL-inspired) */
+  --color-primary: #2563EB;
+  --color-primary-dark: #1D4ED8;
+  
+  /* Brand colors - Accent Gold (confidence/premium) */
+  --color-gold: #F59E0B;
+  --color-gold-dark: #D97706;
+
+  /* Legacy green alias → now points to primary blue */
+  --color-green: #2563EB;
+  --color-green-dark: #1D4ED8;
+  
+  /* Actual success green (for checkmarks, positive states only) */
+  --color-success: #10B981;
+  --color-success-dark: #059669;
+  
+  --color-blue: #2563EB;
   --color-red: #EF4444;
   --color-orange: #F97316;
 
   /* Tint colors */
-  --color-tint-green: #F0FDF4;
+  --color-tint-green: #EFF6FF;
   --color-tint-blue: #EFF6FF;
+  --color-tint-gold: #FFFBEB;
   --color-tint-red: #FEF2F2;
+  --color-tint-success: #ECFDF5;
 
   /* Text colors - FLAT NAMES for Tailwind v4 */
   --color-heading: #0F172A;
@@ -89,20 +114,21 @@
   --color-border-subtle: #F1F5F9;
   --color-border-dark: #334155;
 
-  /* Font family */
+  /* Font families */
+  --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Font sizes - Type Scale */
-  --text-h1: clamp(2rem, 5vw, 3.5rem);
-  --text-h2: clamp(1.5rem, 4vw, 2.25rem);
-  --text-h3: clamp(1.25rem, 3vw, 1.5rem);
+  --text-h1: clamp(2.25rem, 5vw, 3.75rem);
+  --text-h2: clamp(1.75rem, 4vw, 2.5rem);
+  --text-h3: clamp(1.25rem, 3vw, 1.75rem);
   --text-body-lg: 1.125rem;
   --text-body: 1rem;
   --text-sm: 0.875rem;
 
-  /* Metric display */
-  --text-metric: 4rem;
-  --text-metric-sm: 2.75rem;
+  /* Metric display - larger for impact */
+  --text-metric: 4.5rem;
+  --text-metric-sm: 3rem;
 }
 
 html {
@@ -118,10 +144,36 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Typography defaults */
+/* Typography defaults - Plus Jakarta Sans for headings */
 h1, h2, h3, h4, h5, h6 {
   color: var(--text-heading);
-  line-height: 1.2;
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+/* Metric numbers - distinctive styling */
+.metric-number {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--brand-primary);
+}
+
+/* Gold accent for premium highlights */
+.gold-accent {
+  color: var(--accent-gold);
+}
+
+/* Primary brand color text */
+.brand-text {
+  color: var(--brand-primary);
 }
 
 /* Reduced motion preference */
@@ -154,15 +206,15 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--text-muted);
 }
 
-/* Selection styling */
+/* Selection styling - brand blue */
 ::selection {
-  background: rgba(34, 197, 94, 0.2);
+  background: rgba(37, 99, 235, 0.2);
   color: var(--text-heading);
 }
 
 /* Focus ring utility for accessibility */
 .focus-ring {
-  @apply focus:outline-none focus:ring-2 focus:ring-green focus:ring-offset-2 focus:ring-offset-white;
+  @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-white;
 }
 
 /* Navy section context - overrides for dark backgrounds */
@@ -202,7 +254,7 @@ input[type="range"]::-webkit-slider-thumb {
   width: 20px;
   border-radius: 50%;
   margin-top: -6px;
-  box-shadow: 0 2px 6px rgba(34, 197, 94, 0.3);
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
 }
 
 /* Dark section slider variant */

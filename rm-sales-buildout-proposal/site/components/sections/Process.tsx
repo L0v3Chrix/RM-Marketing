@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { Container, Section } from "@/components/layout";
 import { Card } from "@/components/ui";
 import { FadeInOnScroll } from "@/components/animations";
-import { ChevronRight, Clock, Users } from "lucide-react";
+import { PhaseTimeline } from "@/components/data-viz";
+import { ChevronRight, Clock, Wrench } from "lucide-react";
 
 const milestones = [
   { milestone: "Agreement Signed", timing: "Day 0", payment: "$4,000" },
@@ -36,20 +36,12 @@ export function Process() {
           </div>
         </FadeInOnScroll>
 
-        {/* Phase Timeline Visual */}
-        <FadeInOnScroll delay={0.1}>
-          <div className="mb-12 sm:mb-16">
-            <div className="max-w-4xl mx-auto">
-              <Image
-                src="/images/graphics/phase-timeline.png"
-                alt="3-Phase Process: Proof → Build → Scale"
-                width={1000}
-                height={400}
-                className="w-full h-auto rounded-2xl shadow-2xl"
-              />
-            </div>
+        {/* Phase Timeline Visual - Mobile-friendly HTML component */}
+        <div className="mb-12 sm:mb-16">
+          <div className="max-w-4xl mx-auto">
+            <PhaseTimeline />
           </div>
-        </FadeInOnScroll>
+        </div>
 
         {/* Decision Gate */}
         <FadeInOnScroll delay={0.2}>
@@ -131,7 +123,7 @@ export function Process() {
 
             <Card variant="default" padding="large">
               <div className="flex items-center gap-3 mb-4">
-                <Users className="w-5 h-5 sm:w-6 sm:h-6 text-blue" />
+                <Wrench className="w-5 h-5 sm:w-6 sm:h-6 text-blue" />
                 <h4 className="text-base sm:text-lg font-semibold text-heading">What We Handle</h4>
               </div>
               <ul className="space-y-2 text-body text-sm">

@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { Container, Section } from "@/components/layout";
 import { Card } from "@/components/ui";
 import { FadeInOnScroll, StaggerChildren, StaggerItem, CountUp } from "@/components/animations";
+import { RevenueGap, ROIComparison, RevenuePerShow } from "@/components/data-viz";
 import { Database, Target } from "lucide-react";
 
 const revenueProjection = {
@@ -47,29 +47,15 @@ export function Opportunity() {
           </div>
         </FadeInOnScroll>
 
-        {/* Revenue Gap Visualization */}
-        <FadeInOnScroll delay={0.1}>
-          <div className="max-w-4xl mx-auto mb-12 sm:mb-16">
-            <div className="grid md:grid-cols-2 gap-6 items-center">
-              {/* Revenue Gap Chart */}
-              <Image
-                src="/images/graphics/revenue-gap.png"
-                alt="Revenue Gap: $36K Current to $100K Target"
-                width={600}
-                height={400}
-                className="w-full h-auto rounded-2xl shadow-xl"
-              />
-              {/* ROI Comparison */}
-              <Image
-                src="/images/graphics/roi-comparison.png"
-                alt="Investment vs Return ROI Comparison"
-                width={600}
-                height={400}
-                className="w-full h-auto rounded-2xl shadow-xl"
-              />
-            </div>
+        {/* Revenue Gap Visualization - Mobile-friendly HTML components */}
+        <div className="max-w-4xl mx-auto mb-12 sm:mb-16">
+          <div className="grid md:grid-cols-2 gap-6 items-stretch">
+            {/* Revenue Gap Chart */}
+            <RevenueGap />
+            {/* ROI Comparison */}
+            <ROIComparison />
           </div>
-        </FadeInOnScroll>
+        </div>
 
         {/* Database Opportunity */}
         <FadeInOnScroll delay={0.1}>
@@ -81,22 +67,16 @@ export function Opportunity() {
               </h3>
             </div>
 
-            {/* Revenue Per Show Metric Card */}
+            {/* Revenue Per Show Metric Card - Mobile-friendly HTML */}
             <div className="max-w-md mx-auto mb-8">
-              <Image
-                src="/images/graphics/revenue-per-show.png"
-                alt="$628 Revenue Per Show"
-                width={400}
-                height={250}
-                className="w-full h-auto rounded-2xl shadow-xl"
-              />
+              <RevenuePerShow />
             </div>
 
             <div className="text-center mb-6 sm:mb-8">
-              <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-green mb-2">
-                <CountUp end={10000} duration={1.5} />
+              <div className="text-5xl sm:text-6xl md:text-7xl font-bold mb-2 tracking-tight">
+                <span className="text-green"><CountUp end={10000} duration={1.5} /></span>
               </div>
-              <p className="text-body text-base sm:text-lg">contacts sitting idle</p>
+              <p className="text-body text-lg sm:text-xl font-medium">contacts sitting idle</p>
               <p className="text-muted text-sm sm:text-base">People who already know you. Zero ad spend required.</p>
             </div>
 
@@ -104,9 +84,9 @@ export function Opportunity() {
               {databaseMath.map((item, index) => (
                 <StaggerItem key={index}>
                   <Card variant="default" padding="default" className="text-center">
-                    <p className="text-muted text-sm mb-2">{item.scenario}</p>
-                    <div className="text-xl sm:text-2xl md:text-3xl font-bold text-green mb-1">
-                      ${item.revenue.toLocaleString()}
+                    <p className="text-muted text-xs uppercase tracking-wider mb-2">{item.scenario}</p>
+                    <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-green mb-1 tracking-tight">
+                      ${item.revenue >= 100000 ? `${(item.revenue / 1000).toFixed(0)}K` : item.revenue.toLocaleString()}
                     </div>
                     <p className="text-muted text-sm">
                       {item.customers} customers • {item.type}
@@ -119,7 +99,7 @@ export function Opportunity() {
             <FadeInOnScroll delay={0.3}>
               <p className="text-center text-body text-base sm:text-lg mt-6 sm:mt-8">
                 A single reactivation campaign could generate{" "}
-                <span className="text-green font-semibold">$50,000-150,000</span>.
+                <span className="text-green font-bold text-xl sm:text-2xl">$50K-150K</span>.
               </p>
             </FadeInOnScroll>
           </div>

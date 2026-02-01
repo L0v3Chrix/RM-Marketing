@@ -11,13 +11,13 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variantClasses = {
-  // Primary - Green pill CTA
+  // Primary - Professional Blue pill CTA
   primary: cn(
-    "bg-green",
+    "bg-primary",
     "text-white font-semibold",
-    "shadow-[0_4px_14px_-3px_rgba(34,197,94,0.4)]",
-    "hover:bg-green-dark",
-    "hover:shadow-[0_6px_20px_-3px_rgba(34,197,94,0.5)]",
+    "shadow-[0_4px_14px_-3px_rgba(37,99,235,0.4)]",
+    "hover:bg-primary-dark",
+    "hover:shadow-[0_6px_20px_-3px_rgba(37,99,235,0.5)]",
     "hover:-translate-y-0.5",
     "active:translate-y-0",
     "rounded-full"
@@ -40,11 +40,11 @@ const variantClasses = {
   ),
   // Inverse - For navy sections
   inverse: cn(
-    "bg-green",
+    "bg-primary",
     "text-white font-semibold",
-    "shadow-[0_4px_14px_-3px_rgba(34,197,94,0.4)]",
-    "hover:bg-green-dark",
-    "hover:shadow-[0_6px_20px_-3px_rgba(34,197,94,0.5)]",
+    "shadow-[0_4px_14px_-3px_rgba(37,99,235,0.4)]",
+    "hover:bg-primary-dark",
+    "hover:shadow-[0_6px_20px_-3px_rgba(37,99,235,0.5)]",
     "hover:-translate-y-0.5",
     "active:translate-y-0",
     "rounded-full"
@@ -73,7 +73,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const classes = cn(
       "inline-flex items-center justify-center gap-2",
       "transition-all duration-200 ease-out",
-      "focus:outline-none focus:ring-2 focus:ring-green focus:ring-offset-2 focus:ring-offset-white",
+      "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-white",
       "disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none",
       variantClasses[variant],
       sizeClasses[size],

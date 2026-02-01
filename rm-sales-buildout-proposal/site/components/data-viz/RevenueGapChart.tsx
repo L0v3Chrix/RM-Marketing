@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { TrendingUp, AlertTriangle } from "lucide-react";
+import { TrendingUp } from "lucide-react";
 
 interface RevenueGapChartProps {
   currentRevenue?: number;
@@ -82,26 +82,26 @@ export function RevenueGapChart({
         </div>
       </div>
 
-      {/* Annual Impact */}
+      {/* Annual Potential */}
       <motion.div
-        className="bg-red/10 border border-red/30 rounded-xl p-4 sm:p-6"
+        className="bg-green/10 border border-green/30 rounded-xl p-4 sm:p-6"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.2 }}
         viewport={{ once: true }}
       >
         <div className="flex items-center gap-3 mb-3">
-          <AlertTriangle className="w-5 h-5 text-red" />
-          <p className="text-heading font-medium">Annual Opportunity Cost</p>
+          <TrendingUp className="w-5 h-5 text-green" />
+          <p className="text-heading font-medium">Annual Growth Potential</p>
         </div>
         <div className="flex items-baseline gap-2">
-          <span className="text-3xl sm:text-4xl font-bold text-red">
-            {formatCurrency(annualGap)}
+          <span className="text-3xl sm:text-4xl font-bold text-green">
+            +{formatCurrency(annualGap)}
           </span>
           <span className="text-muted text-sm">/year</span>
         </div>
         <p className="text-muted text-sm mt-2">
-          {formatCurrency(gap)}/month × 12 months = Revenue left on the table
+          {formatCurrency(gap)}/month × 12 months = Additional revenue within reach
         </p>
       </motion.div>
 

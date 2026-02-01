@@ -5,7 +5,7 @@ import { QuizStateReturn } from "../hooks/useQuizState";
 import { FunnelWaterfall } from "./FunnelWaterfall";
 import { PathToGoal } from "./PathToGoal";
 import { formatCurrency } from "../utils/calculations";
-import { ArrowDown, TrendingUp, DollarSign, Target, Users } from "lucide-react";
+import { ArrowDown, TrendingUp, DollarSign, Target, UserPlus, Lightbulb, Check, X } from "lucide-react";
 
 interface QuizResultsProps {
   quizState: QuizStateReturn;
@@ -17,11 +17,12 @@ export function QuizResults({ quizState, onContinue }: QuizResultsProps) {
     answers,
     calculatedMetrics,
     targetRequirements,
-    intentScore,
     intentExperience,
+    getLearningsSummary,
   } = quizState;
 
   const gap = answers.targetRevenue - answers.currentRevenue;
+  const learnings = getLearningsSummary();
 
   return (
     <motion.div
@@ -75,13 +76,55 @@ export function QuizResults({ quizState, onContinue }: QuizResultsProps) {
             <p className="text-xs text-muted">Cost/Show</p>
           </div>
           <div className="bg-white rounded-xl p-4 text-center border border-border">
-            <Users className="w-6 h-6 text-body mx-auto mb-2" />
+            <UserPlus className="w-6 h-6 text-body mx-auto mb-2" />
             <p className="text-xl sm:text-2xl font-bold text-body">
               {targetRequirements.closersNeeded}
             </p>
             <p className="text-xs text-muted">Closers Needed</p>
           </div>
         </motion.div>
+
+        {/* What You Learned - Educational Recap */}
+        {learnings.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25 }}
+            className="bg-tint-gold border border-gold/20 rounded-2xl p-5 sm:p-6 mb-8"
+          >
+            <div className="flex items-center gap-2 mb-4">
+              <Lightbulb className="w-5 h-5 text-gold" />
+              <h3 className="font-semibold text-heading">What You Discovered</h3>
+            </div>
+            <div className="space-y-3">
+              {learnings.map((learning, index) => (
+                <motion.div
+                  key={learning.questionId}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.3 + index * 0.1 }}
+                  className="flex items-start gap-3"
+                >
+                  <div className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center ${
+                    learning.wasCorrect ? 'bg-success/20' : 'bg-primary/20'
+                  }`}>
+                    {learning.wasCorrect ? (
+                      <Check className="w-3 h-3 text-success" />
+                    ) : (
+                      <TrendingUp className="w-3 h-3 text-primary" />
+                    )}
+                  </div>
+                  <p className="text-sm text-body leading-relaxed">
+                    <span className="font-medium text-heading">{learning.insight}</span>
+                    {!learning.wasCorrect && (
+                      <span className="text-muted"> — now you know!</span>
+                    )}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        )}
 
         {/* Main Content Grid */}
         <div className="grid md:grid-cols-2 gap-6 mb-8">
@@ -113,26 +156,26 @@ export function QuizResults({ quizState, onContinue }: QuizResultsProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="bg-tint-red border-l-4 border-red rounded-r-xl p-5 mb-8"
+          className="bg-tint-blue border-l-4 border-blue rounded-r-xl p-5 mb-8"
         >
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
               <h3 className="text-lg font-semibold text-heading mb-1">
-                The Gap You Need to Close
+                Your Growth Opportunity
               </h3>
               <p className="text-sm text-body">
-                Every month without a system to close this gap is{" "}
-                <span className="font-bold text-red">{formatCurrency(gap)}</span> you&apos;ll never get back.
+                There&apos;s a clear path from here to{" "}
+                <span className="font-bold text-green">+{formatCurrency(gap)}</span> per month.
               </p>
             </div>
             <div className="text-center sm:text-right">
-              <p className="text-3xl font-bold text-red">{formatCurrency(gap * 12)}</p>
-              <p className="text-xs text-muted">Annual Opportunity Cost</p>
+              <p className="text-3xl font-bold text-green">{formatCurrency(gap * 12)}</p>
+              <p className="text-xs text-muted">Annual Potential</p>
             </div>
           </div>
         </motion.div>
 
-        {/* Intent-Based CTA */}
+        {/* Solution-Focused CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -140,33 +183,26 @@ export function QuizResults({ quizState, onContinue }: QuizResultsProps) {
           className="bg-navy rounded-2xl p-6 sm:p-8 text-center"
         >
           <h2 className="text-xl sm:text-2xl font-bold text-inverse mb-3">
-            Ready to Close This Gap?
+            Now You Know the Problem
           </h2>
           <p className="text-inverse-muted mb-6 max-w-xl mx-auto text-sm sm:text-base">
-            We have a proven system to help businesses like yours go from{" "}
-            {formatCurrency(answers.currentRevenue)} to {formatCurrency(answers.targetRevenue)}/month.
-            See exactly how it works below.
+            Speed-to-lead, show rates, and persistent follow-up aren&apos;t just stats—they&apos;re 
+            the levers that move you from {formatCurrency(answers.currentRevenue)} to{" "}
+            {formatCurrency(answers.targetRevenue)}/month. Let&apos;s show you how we fix them.
           </p>
 
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={onContinue}
-            className="inline-flex items-center gap-2 bg-green text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-green/90 transition-colors"
+            className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-primary-dark transition-colors"
           >
-            {intentExperience.cta}
+            See How We Solve This
             <ArrowDown className="w-5 h-5" />
           </motion.button>
 
-          {intentExperience.showPhone && (
-            <p className="mt-4 text-inverse-muted">
-              Or call now: <a href="tel:+15551234567" className="text-green font-semibold">(555) 123-4567</a>
-            </p>
-          )}
-
-          {/* Intent Score Badge (subtle) */}
-          <p className="mt-6 text-xs text-inverse-muted opacity-50">
-            Based on your profile: {intentScore.classification.replace('_', ' ')}
+          <p className="mt-4 text-inverse-muted text-sm">
+            ↓ Scroll to see the solution built for your numbers
           </p>
         </motion.div>
 

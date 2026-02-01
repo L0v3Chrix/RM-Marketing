@@ -1,172 +1,151 @@
 "use client";
 
-import { motion } from "framer-motion";
-
-type IntentLevel = "BROWSING" | "LEARNING" | "EVALUATING" | "READY_TO_BUY" | "URGENT";
+import { FadeInOnScroll } from "@/components/animations";
 
 interface IntentGaugeProps {
-  score: number;
-  classification: IntentLevel;
-  showLabels?: boolean;
+  score?: number; // 0-100, defaults to 65
 }
 
-const intentColors: Record<IntentLevel, string> = {
-  BROWSING: "#94A3B8",
-  LEARNING: "#3B82F6",
-  EVALUATING: "#D4A574",
-  READY_TO_BUY: "#22C55E",
-  URGENT: "#EF4444",
-};
-
-const intentLabels: Record<IntentLevel, string> = {
-  BROWSING: "Just Looking",
-  LEARNING: "Gathering Info",
-  EVALUATING: "Comparing Options",
-  READY_TO_BUY: "Ready to Buy",
-  URGENT: "Urgent Need",
-};
-
-export function IntentGauge({
-  score,
-  classification,
-  showLabels = true,
-}: IntentGaugeProps) {
-  // Calculate rotation: -90deg (left) to 90deg (right) for 0-100
+export function IntentGauge({ score = 65 }: IntentGaugeProps) {
+  // Calculate needle rotation (0 = -90deg, 100 = 90deg)
   const rotation = -90 + (score / 100) * 180;
-  const color = intentColors[classification];
+  
+  // Determine which segment the score falls in
+  const getLabel = (s: number) => {
+    if (s < 16) return "Browsing";
+    if (s < 31) return "Learning";
+    if (s < 50) return "Evaluating";
+    if (s < 76) return "Ready to Buy";
+    return "Urgent";
+  };
 
   return (
-    <div className="flex flex-col items-center">
-      {/* Gauge Container */}
-      <div className="relative w-48 h-24 sm:w-64 sm:h-32">
-        {/* Background Arc */}
-        <svg
-          viewBox="0 0 200 100"
-          className="w-full h-full"
-          style={{ overflow: "visible" }}
-        >
-          {/* Gray background arc */}
-          <path
-            d="M 10 100 A 90 90 0 0 1 190 100"
-            fill="none"
-            stroke="#1E293B"
-            strokeWidth="16"
-            strokeLinecap="round"
-          />
+    <FadeInOnScroll>
+      <div className="bg-slate-800/80 rounded-2xl p-4 md:p-6 border border-slate-700">
+        <h3 className="text-white font-bold text-base md:text-lg text-center mb-4 md:mb-6">
+          Intent Score Gauge
+        </h3>
 
-          {/* Colored segments */}
-          {/* BROWSING: 0-15 */}
-          <path
-            d="M 10 100 A 90 90 0 0 1 25.5 53.5"
-            fill="none"
-            stroke={intentColors.BROWSING}
-            strokeWidth="16"
-            strokeLinecap="round"
-            opacity="0.3"
-          />
-          {/* LEARNING: 16-30 */}
-          <path
-            d="M 25.5 53.5 A 90 90 0 0 1 55 22"
-            fill="none"
-            stroke={intentColors.LEARNING}
-            strokeWidth="16"
-            opacity="0.3"
-          />
-          {/* EVALUATING: 31-50 */}
-          <path
-            d="M 55 22 A 90 90 0 0 1 100 10"
-            fill="none"
-            stroke={intentColors.EVALUATING}
-            strokeWidth="16"
-            opacity="0.3"
-          />
-          {/* READY_TO_BUY: 51-75 */}
-          <path
-            d="M 100 10 A 90 90 0 0 1 160 35"
-            fill="none"
-            stroke={intentColors.READY_TO_BUY}
-            strokeWidth="16"
-            opacity="0.3"
-          />
-          {/* URGENT: 76-100 */}
-          <path
-            d="M 160 35 A 90 90 0 0 1 190 100"
-            fill="none"
-            stroke={intentColors.URGENT}
-            strokeWidth="16"
-            strokeLinecap="round"
-            opacity="0.3"
-          />
+        {/* Gauge Container */}
+        <div className="relative w-full max-w-[280px] md:max-w-[320px] mx-auto aspect-[2/1.2]">
+          {/* SVG Gauge */}
+          <svg viewBox="0 0 200 120" className="w-full h-auto">
+            {/* Background arc segments */}
+            <defs>
+              <linearGradient id="browsing" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#64748b" />
+                <stop offset="100%" stopColor="#94a3b8" />
+              </linearGradient>
+              <linearGradient id="learning" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#3b82f6" />
+                <stop offset="100%" stopColor="#60a5fa" />
+              </linearGradient>
+              <linearGradient id="evaluating" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#06b6d4" />
+                <stop offset="100%" stopColor="#22d3ee" />
+              </linearGradient>
+              <linearGradient id="ready" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#d4a406" />
+                <stop offset="100%" stopColor="#fbbf24" />
+              </linearGradient>
+              <linearGradient id="urgent" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#f59e0b" />
+                <stop offset="100%" stopColor="#fcd34d" />
+              </linearGradient>
+            </defs>
 
-          {/* Active arc up to current score */}
-          <motion.path
-            d="M 10 100 A 90 90 0 0 1 190 100"
-            fill="none"
-            stroke={color}
-            strokeWidth="16"
-            strokeLinecap="round"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: score / 100 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
-          />
-        </svg>
+            {/* Arc segments - drawn as paths */}
+            {/* Browsing: 0-16 */}
+            <path
+              d="M 30 100 A 70 70 0 0 1 44 55"
+              fill="none"
+              stroke="url(#browsing)"
+              strokeWidth="18"
+              strokeLinecap="round"
+            />
+            {/* Learning: 16-31 */}
+            <path
+              d="M 48 48 A 70 70 0 0 1 80 32"
+              fill="none"
+              stroke="url(#learning)"
+              strokeWidth="18"
+              strokeLinecap="round"
+            />
+            {/* Evaluating: 31-50 */}
+            <path
+              d="M 85 30 A 70 70 0 0 1 120 30"
+              fill="none"
+              stroke="url(#evaluating)"
+              strokeWidth="18"
+              strokeLinecap="round"
+            />
+            {/* Ready to Buy: 50-76 */}
+            <path
+              d="M 125 32 A 70 70 0 0 1 158 52"
+              fill="none"
+              stroke="url(#ready)"
+              strokeWidth="18"
+              strokeLinecap="round"
+            />
+            {/* Urgent: 76-100 */}
+            <path
+              d="M 162 58 A 70 70 0 0 1 170 100"
+              fill="none"
+              stroke="url(#urgent)"
+              strokeWidth="18"
+              strokeLinecap="round"
+            />
 
-        {/* Needle */}
-        <motion.div
-          className="absolute bottom-0 left-1/2 origin-bottom"
-          style={{ width: 4, height: 70, marginLeft: -2 }}
-          initial={{ rotate: -90 }}
-          animate={{ rotate: rotation }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-        >
-          <div
-            className="w-full h-full rounded-full"
-            style={{ background: `linear-gradient(to top, ${color}, transparent)` }}
-          />
-          <div
-            className="absolute bottom-0 left-1/2 w-4 h-4 -ml-2 rounded-full"
-            style={{ backgroundColor: color }}
-          />
-        </motion.div>
+            {/* Needle pivot point */}
+            <circle cx="100" cy="105" r="8" fill="#d4a406" />
+            
+            {/* Needle */}
+            <line
+              x1="100"
+              y1="105"
+              x2="100"
+              y2="40"
+              stroke="#1e293b"
+              strokeWidth="4"
+              strokeLinecap="round"
+              transform={`rotate(${rotation} 100 105)`}
+              className="transition-transform duration-1000"
+            />
+            <line
+              x1="100"
+              y1="105"
+              x2="100"
+              y2="42"
+              stroke="#d4a406"
+              strokeWidth="2"
+              strokeLinecap="round"
+              transform={`rotate(${rotation} 100 105)`}
+              className="transition-transform duration-1000"
+            />
+          </svg>
 
-        {/* Center score display */}
-        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-2 text-center">
-          <motion.div
-            className="text-3xl sm:text-4xl font-bold"
-            style={{ color }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
-          >
-            {score}
-          </motion.div>
-          <p className="text-muted text-xs">Intent Score</p>
+          {/* Score display */}
+          <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-center">
+            <div className="text-3xl md:text-4xl font-bold text-amber-400">{score}</div>
+          </div>
         </div>
-      </div>
 
-      {/* Classification Label */}
-      <motion.div
-        className="mt-6 px-4 py-2 rounded-full"
-        style={{ backgroundColor: `${color}20`, border: `2px solid ${color}` }}
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.2 }}
-      >
-        <span className="font-semibold text-sm" style={{ color }}>
-          {intentLabels[classification]}
-        </span>
-      </motion.div>
-
-      {/* Labels */}
-      {showLabels && (
-        <div className="flex justify-between w-full max-w-xs mt-4 text-xs text-muted">
+        {/* Labels */}
+        <div className="flex justify-between px-2 md:px-4 mt-2 text-xs text-slate-400">
+          <span>0</span>
           <span>Browsing</span>
           <span>Learning</span>
           <span>Evaluating</span>
           <span>Ready</span>
-          <span>Urgent</span>
+          <span>100</span>
         </div>
-      )}
-    </div>
+
+        {/* Current Status */}
+        <div className="text-center mt-4 pt-4 border-t border-slate-700">
+          <span className="text-slate-400 text-sm">Current Status: </span>
+          <span className="text-amber-400 font-semibold">{getLabel(score)}</span>
+        </div>
+      </div>
+    </FadeInOnScroll>
   );
 }

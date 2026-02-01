@@ -218,43 +218,31 @@ export const TIMELINE_PHASES = [
   },
 ] as const;
 
-// FAQ Questions
+// FAQ Questions - Reduced to 4 essential
 export const FAQ_ITEMS = [
   {
-    question: "What if we don't hit the $20K milestone in Phase 1?",
+    question: "What if Phase 1 doesn't hit the target?",
     answer:
-      "The milestone payment ($4K) and performance bonus only kick in when we deliver. If we don't close $20K, you've invested $4K for 30 days of dedicated sales work—that's still valuable. But here's the thing: we wouldn't take this engagement if we didn't believe in the numbers.",
+      "Performance payments only kick in when we deliver. We wouldn't take this if we didn't believe in the numbers.",
     category: "Risk",
   },
   {
-    question: "Who owns the systems you build?",
+    question: "How much of Adam's time does this take?",
     answer:
-      "You do. 100%. All scripts, sequences, SOPs, and documentation are yours to keep. We're not building dependency—we're building independence.",
-    category: "Ownership",
-  },
-  {
-    question: "How much of Adam's time does this require?",
-    answer:
-      "2-3 hours per week during the engagement. One 30-minute weekly call, plus occasional Slack questions. The whole point is to free Adam up, not add to his plate.",
+      "2-3 hours per week. One 30-minute call plus occasional Slack questions. The whole point is to free him up.",
     category: "Time",
   },
   {
-    question: "What happens after the 90-day buildout?",
+    question: "What happens after Day 90?",
     answer:
-      "You'll have a functioning sales team, complete systems, and documented processes. The ongoing support phase (months 5-11) provides coaching and optimization, but the team should be independently operational by Day 120.",
+      "You'll have a functioning team, complete systems, and documented processes. Ongoing support is optional — the team should run independently.",
     category: "After",
   },
   {
-    question: "What's included vs. not included?",
+    question: "Who owns what you build?",
     answer:
-      "Included: All sales infrastructure (people, processes, systems), hands-on selling during Phase 1, hiring support, training, and documentation. Not included: Running your ads, building new products, or being your permanent sales team.",
-    category: "Scope",
-  },
-  {
-    question: "Why should we trust you with our sales?",
-    answer:
-      "20 years of sales experience, hands-on approach (we're selling for you in Phase 1, not just advising), and skin in the game (Phase 1 quota must be hit for full payment). We also know GHL inside and out.",
-    category: "Trust",
+      "You do. 100%. Scripts, systems, documentation — all yours. We build independence, not dependency.",
+    category: "Ownership",
   },
 ] as const;
 
@@ -300,7 +288,7 @@ export const SOLUTION_PILLARS = [
   {
     title: "Build",
     subtitle: "Systems & Process",
-    icon: "Cog",
+    icon: "Wrench",
     items: [
       "Hiring system for team",
       "Sales scripts & training",
@@ -311,7 +299,7 @@ export const SOLUTION_PILLARS = [
   {
     title: "Install",
     subtitle: "Permanent Team",
-    icon: "Users",
+    icon: "UsersRound",
     items: [
       "Trained sales team (2-4)",
       "Manager structure",
