@@ -82,8 +82,11 @@ export const REVENUE_BREAKDOWN = {
 } as const;
 
 // Calculator Default Values - Based on GRANULAR-METRICS-SPEC.md
+// Default ad spend: $1,500/mo (current spend)
+// At $1,500/mo ads alone: ~15 appointments/month
+// With database + ads: 88 appointments/month (22/week)
 export const CALCULATOR_DEFAULTS = {
-  adSpend: 500,
+  adSpend: 1500,
   costPerLead: 6.3,
   // Granular funnel rates
   callAnswerRate: 30, // 30% of leads answer
@@ -102,9 +105,9 @@ export const CALCULATOR_DEFAULTS = {
 // Calculator Presets - Including granular metrics
 export const CALCULATOR_PRESETS = [
   {
-    name: "Current",
+    name: "Ads Only ($1.5K)",
     values: {
-      adSpend: 500,
+      adSpend: 1500,
       callAnswerRate: 30,
       callToBookingRate: 40,
       showRate: 59,
@@ -113,9 +116,9 @@ export const CALCULATOR_PRESETS = [
     },
   },
   {
-    name: "Phase 1 Target",
+    name: "Pressure Test",
     values: {
-      adSpend: 3000,
+      adSpend: 1500,
       callAnswerRate: 35,
       callToBookingRate: 45,
       showRate: 70,
@@ -126,7 +129,7 @@ export const CALCULATOR_PRESETS = [
   {
     name: "Scale Mode",
     values: {
-      adSpend: 6000,
+      adSpend: 3000,
       callAnswerRate: 40,
       callToBookingRate: 50,
       showRate: 75,
@@ -135,9 +138,9 @@ export const CALCULATOR_PRESETS = [
     },
   },
   {
-    name: "Aggressive",
+    name: "Full Scale",
     values: {
-      adSpend: 10000,
+      adSpend: 6000,
       callAnswerRate: 45,
       callToBookingRate: 55,
       showRate: 80,
@@ -150,15 +153,15 @@ export const CALCULATOR_PRESETS = [
 // Investment Structure
 export const INVESTMENT = {
   phase1: {
-    name: "Prove It Works",
+    name: "The Pressure Test",
     duration: "60 days",
     total: 16000,
     upfront: 4000,
     day30: 4000,
     day60: 8000,
-    quota: 20000,
+    workHours: 320, // 2 people × 40 hrs × 4 weeks
     adSpend: 1500,
-    appointmentsPerWeek: 20,
+    appointmentsPerWeek: 22, // 10-12 database + 5-7 warm + 5-7 ads
   },
   phase2: {
     name: "The Buildout",
@@ -183,16 +186,16 @@ export const INVESTMENT = {
 export const TIMELINE_PHASES = [
   {
     phase: 1,
-    name: "Prove It Works",
+    name: "The Pressure Test",
     duration: "Days 1-60",
     investment: "$16,000",
-    investmentDetails: "$4K upfront + $4K @ 30 days + $8K @ 60 days",
+    investmentDetails: "$4K upfront + $4K @ 30 days (320 hrs) + $8K @ 60 days",
     highlights: [
-      "Chrix working leads full time",
-      "Database reactivation campaign",
-      "No-show recovery sequences",
-      "Failed payment dunning",
-      "Target: $20K in 30 days",
+      "2 people working 40 hrs/week for 4 weeks",
+      "Database reactivation (10-12 appts/week)",
+      "Warm lead follow-up (5-7 appts/week)",
+      "New ad leads (5-7 appts/week)",
+      "Target: 22 appointments/week",
     ],
   },
   {
@@ -224,9 +227,9 @@ export const TIMELINE_PHASES = [
 // FAQ Questions - Reduced to 4 essential
 export const FAQ_ITEMS = [
   {
-    question: "What if Phase 1 doesn't hit the target?",
+    question: "What if the Pressure Test doesn't produce results?",
     answer:
-      "Performance payments only kick in when we deliver. We wouldn't take this if we didn't believe in the numbers.",
+      "The 30-day payment is tied to work delivered (320 hours), not revenue promises. After the full 60 days, if momentum isn't building, you're out $8K — not $52K. We have data on what worked and what didn't, and you can pivot or pause.",
     category: "Risk",
   },
   {

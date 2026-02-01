@@ -271,14 +271,53 @@ export function Calculator() {
           </FadeInOnScroll>
         </div>
 
-        {/* Key Insight */}
+        {/* Database Multiplier */}
         <FadeInOnScroll delay={0.3}>
-          <div className="mt-8 sm:mt-12 text-center max-w-2xl mx-auto">
-            <p className="text-text-secondary text-sm sm:text-base">
-              The constraint isn&apos;t the funnel — it&apos;s <span className="text-accent font-semibold">capacity</span>.
-              The math works. You just need people to work the phones.
+          <Card variant="elevated" padding="large" className="mt-8 sm:mt-12 max-w-3xl mx-auto border-success/30">
+            <h3 className="text-lg sm:text-xl font-bold text-text-primary mb-4 text-center">
+              The Database Multiplier
+            </h3>
+            <p className="text-text-secondary text-sm sm:text-base text-center mb-6">
+              At $1,500/month ad spend, ads alone generate about <span className="text-warning font-semibold">15 appointments/month</span>.
+              But that&apos;s not the whole story.
             </p>
-          </div>
+            
+            <div className="grid sm:grid-cols-2 gap-4 mb-6">
+              <div className="bg-warning/10 rounded-lg p-4 border border-warning/30 text-center">
+                <p className="text-text-muted text-xs uppercase mb-2">Ads Alone</p>
+                <p className="text-3xl font-bold text-warning">~15</p>
+                <p className="text-text-secondary text-sm">appointments/month</p>
+              </div>
+              <div className="bg-success/10 rounded-lg p-4 border border-success/30 text-center">
+                <p className="text-text-muted text-xs uppercase mb-2">Database + Ads</p>
+                <p className="text-3xl font-bold text-success">88</p>
+                <p className="text-text-secondary text-sm">appointments/month (22/week)</p>
+              </div>
+            </div>
+
+            <div className="bg-card rounded-lg p-4 border border-border-subtle">
+              <p className="text-text-primary font-semibold text-sm mb-2">Where the Extra 73 Come From:</p>
+              <div className="grid grid-cols-3 gap-2 text-center">
+                <div>
+                  <p className="text-accent font-bold">10-12/wk</p>
+                  <p className="text-text-muted text-xs">Database reactivation</p>
+                </div>
+                <div>
+                  <p className="text-accent font-bold">5-7/wk</p>
+                  <p className="text-text-muted text-xs">Warm lead follow-up</p>
+                </div>
+                <div>
+                  <p className="text-accent font-bold">5-7/wk</p>
+                  <p className="text-text-muted text-xs">New ad leads</p>
+                </div>
+              </div>
+            </div>
+
+            <p className="text-text-secondary text-xs sm:text-sm text-center mt-4">
+              The constraint isn&apos;t the funnel — it&apos;s <span className="text-accent font-semibold">capacity</span>.
+              The database is the key. You just need people to work it.
+            </p>
+          </Card>
         </FadeInOnScroll>
       </Container>
     </Section>

@@ -8,7 +8,7 @@ import { ChevronRight, Clock, Wrench } from "lucide-react";
 
 const milestones = [
   { milestone: "Agreement Signed", timing: "Day 0", payment: "$4,000" },
-  { milestone: "Phase 1 Complete", timing: "Day 30", payment: "$4,000 (if $20K quota hit)" },
+  { milestone: "Pressure Test Complete", timing: "Day 30", payment: "$4,000 (320 hrs delivered)" },
   { milestone: "Phase 2 Month 1", timing: "Day 31", payment: "$12,000" },
   { milestone: "Phase 2 Month 2", timing: "Day 61", payment: "$12,000" },
   { milestone: "Phase 2 Month 3", timing: "Day 91", payment: "$12,000" },
@@ -51,21 +51,21 @@ export function Process() {
             </div>
             <h3 className="text-xl font-bold text-text-primary mb-4">The Decision Gate</h3>
             <p className="text-text-secondary mb-6">
-              After Phase 1 (30 days), you decide whether to continue.
+              After the Pressure Test (30 days), you decide whether to continue.
             </p>
             <div className="grid sm:grid-cols-2 gap-4 text-left">
               <div className="p-4 bg-accent/10 rounded-lg border border-accent/20">
-                <p className="font-medium text-accent mb-2">If quota hit ($20K)</p>
+                <p className="font-medium text-accent mb-2">If momentum is building</p>
                 <ul className="text-text-secondary text-sm space-y-1">
+                  <li>• Appointments flowing</li>
+                  <li>• Database responding</li>
                   <li>• Phase 2 is a no-brainer</li>
-                  <li>• We&apos;ve proven the model</li>
-                  <li>• Momentum carries forward</li>
                 </ul>
               </div>
               <div className="p-4 bg-card rounded-lg border border-border-subtle">
-                <p className="font-medium text-text-muted mb-2">If quota missed</p>
+                <p className="font-medium text-text-muted mb-2">If it&apos;s not working</p>
                 <ul className="text-text-secondary text-sm space-y-1">
-                  <li>• You&apos;re out $4K, not $44K</li>
+                  <li>• You&apos;re out $8K, not $52K</li>
                   <li>• We have data on why</li>
                   <li>• You can pivot or pause</li>
                 </ul>
