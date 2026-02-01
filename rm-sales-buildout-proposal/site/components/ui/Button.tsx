@@ -4,17 +4,28 @@ import { cn } from "@/lib/utils";
 import { forwardRef } from "react";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "ghost" | "outline";
+  variant?: "primary" | "secondary" | "ghost" | "outline" | "coral";
   size?: "default" | "large" | "small";
   fullWidth?: boolean;
   href?: string;
 }
 
 const variantClasses = {
-  // Primary - Accent teal, clean and bold
+  // Primary - Teal CTA, clean and bold
   primary: cn(
+    "bg-cta",
+    "text-white font-semibold",
+    "shadow-md",
+    "hover:bg-cta-hover",
+    "hover:shadow-lg",
+    "hover:-translate-y-0.5",
+    "active:translate-y-0",
+    "rounded-lg"
+  ),
+  // Coral - Warm coral accent
+  coral: cn(
     "bg-accent",
-    "text-base font-semibold",
+    "text-white font-semibold",
     "shadow-md",
     "hover:bg-accent-hover",
     "hover:shadow-lg",
@@ -42,7 +53,7 @@ const variantClasses = {
     "bg-transparent",
     "border border-border",
     "text-text-primary font-medium",
-    "hover:bg-card hover:border-accent/50",
+    "hover:bg-card hover:border-cta/50",
     "rounded-lg"
   ),
 };
@@ -69,7 +80,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const classes = cn(
       "inline-flex items-center justify-center gap-2",
       "transition-all duration-200 ease-out",
-      "focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-base",
+      "focus:outline-none focus:ring-2 focus:ring-cta focus:ring-offset-2 focus:ring-offset-base",
       "disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none",
       variantClasses[variant],
       sizeClasses[size],

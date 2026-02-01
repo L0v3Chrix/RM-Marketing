@@ -1,5 +1,5 @@
-/* Clean Light Theme - Inspired by Born This Way Foundation */
-/* Professional, warm, welcoming - whites and creams with elegant accents */
+/* Born This Way Foundation Inspired Theme */
+/* Professional, warm, trust-building - whites and creams with coral accents */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
@@ -7,27 +7,36 @@
 
 /* ============================================
    ROOT DESIGN TOKENS
-   Light, clean, professional palette
+   Born This Way Foundation aesthetic
 ============================================ */
 :root {
   /* Core Backgrounds - Clean whites and warm creams */
   --bg-base: #ffffff;
-  --bg-elevated: #fafafa;
-  --bg-card: #f5f5f5;
-  --bg-card-hover: #f0f0f0;
-  --bg-subtle: #ebebeb;
+  --bg-elevated: #FAFAF8;
+  --bg-card: #f7f7f5;
+  --bg-card-hover: #f0f0ed;
+  --bg-subtle: #f2f1ef;
+  --bg-cream: #FAF8F5;
+  --bg-warm: #FDF9F6;
   
-  /* Text Hierarchy - Dark for readability */
-  --text-primary: #1a1a1a;
-  --text-secondary: #4a4a4a;
-  --text-muted: #737373;
-  --text-subtle: #9a9a9a;
+  /* Text Hierarchy - Near black for readability */
+  --text-primary: #1A1A1A;
+  --text-secondary: #3d3d3d;
+  --text-muted: #6b6b6b;
+  --text-subtle: #8a8a8a;
+  --text-light: #ffffff;
   
-  /* Accent - Warm teal (works great on light) */
-  --accent: #0d9488;
-  --accent-hover: #0f766e;
-  --accent-muted: rgba(13, 148, 136, 0.12);
-  --accent-subtle: rgba(13, 148, 136, 0.06);
+  /* Primary Accent - Warm Coral/Salmon (like Born This Way) */
+  --accent: #E8A87C;
+  --accent-hover: #e09660;
+  --accent-dark: #c98a64;
+  --accent-muted: rgba(232, 168, 124, 0.15);
+  --accent-subtle: rgba(232, 168, 124, 0.08);
+  
+  /* Secondary Accent - Teal for CTAs */
+  --cta: #0D9488;
+  --cta-hover: #0f766e;
+  --cta-muted: rgba(13, 148, 136, 0.12);
   
   /* Functional Colors */
   --success: #059669;
@@ -35,16 +44,18 @@
   --error: #dc2626;
   --info: #2563eb;
   
-  /* Borders - Soft grays */
-  --border-subtle: #e5e5e5;
-  --border-default: #d4d4d4;
-  --border-strong: #a3a3a3;
+  /* Borders - Soft warm grays */
+  --border-subtle: #eae8e4;
+  --border-default: #ddd9d3;
+  --border-strong: #c5c0b8;
   
-  /* Shadows - Softer for light theme */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
-  --shadow-glow: 0 0 40px rgba(13, 148, 136, 0.15);
+  /* Shadows - Soft and warm */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --shadow-soft: 0 2px 20px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.04);
+  --shadow-glow: 0 0 40px rgba(232, 168, 124, 0.2);
 }
 
 /* ============================================
@@ -54,25 +65,35 @@
   /* Custom breakpoints - xs for small phones */
   --breakpoint-xs: 375px;
   
-  /* Backgrounds - Light theme */
+  /* Backgrounds - Light theme with warm tones */
   --color-base: #ffffff;
-  --color-elevated: #fafafa;
-  --color-card: #f5f5f5;
-  --color-card-hover: #f0f0f0;
-  --color-subtle: #ebebeb;
-  --color-light: #e5e5e5;
+  --color-elevated: #FAFAF8;
+  --color-card: #f7f7f5;
+  --color-card-hover: #f0f0ed;
+  --color-subtle: #f2f1ef;
+  --color-light: #eae8e4;
+  --color-cream: #FAF8F5;
+  --color-warm: #FDF9F6;
   
   /* Text - Dark for readability on light */
-  --color-text-primary: #1a1a1a;
-  --color-text-secondary: #4a4a4a;
-  --color-text-muted: #737373;
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #3d3d3d;
+  --color-text-muted: #6b6b6b;
+  --color-text-light: #ffffff;
   
-  /* Primary Accent - Teal (slightly deeper for light bg) */
-  --color-accent: #0d9488;
-  --color-accent-hover: #0f766e;
-  --color-accent-muted: rgba(13, 148, 136, 0.12);
-  --color-green: #0d9488;
-  --color-primary: #0d9488;
+  /* Primary Accent - Warm Coral */
+  --color-accent: #E8A87C;
+  --color-accent-hover: #e09660;
+  --color-accent-muted: rgba(232, 168, 124, 0.15);
+  --color-coral: #E8A87C;
+  --color-salmon: #E8A87C;
+  
+  /* CTA Accent - Teal */
+  --color-cta: #0D9488;
+  --color-cta-hover: #0f766e;
+  --color-green: #0D9488;
+  --color-primary: #0D9488;
+  --color-teal: #0D9488;
   
   /* Secondary Accent - Warm Rose */
   --color-rose: #be8b6e;
@@ -87,12 +108,10 @@
   --color-blue: #475569;
   --color-slate: #475569;
   
-  /* Tint backgrounds (subtle colored backgrounds on light) */
-  --color-tint-blue: rgba(71, 85, 105, 0.08);
-  --color-tint-slate: rgba(71, 85, 105, 0.08);
-  --color-tint-gold: rgba(184, 134, 11, 0.08);
-  --color-tint-amber: rgba(184, 134, 11, 0.08);
-  --color-tint-green: rgba(13, 148, 136, 0.08);
+  /* Tint backgrounds */
+  --color-tint-coral: rgba(232, 168, 124, 0.08);
+  --color-tint-teal: rgba(13, 148, 136, 0.08);
+  --color-tint-cream: rgba(250, 248, 245, 0.5);
   
   /* Functional */
   --color-success: #059669;
@@ -100,8 +119,8 @@
   --color-error: #dc2626;
   
   /* Borders */
-  --color-border: #d4d4d4;
-  --color-border-subtle: #e5e5e5;
+  --color-border: #ddd9d3;
+  --color-border-subtle: #eae8e4;
   
   /* Font */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -122,13 +141,12 @@
 ============================================ */
 html {
   scroll-behavior: smooth;
-  /* Account for fixed header when scrolling to anchors */
-  scroll-padding-top: 72px; /* h-14 (56px) + breathing room */
+  scroll-padding-top: 72px;
 }
 
 /* Chapter sections - ensure proper scroll offset for sticky header */
 [id^="chapter-"] {
-  scroll-margin-top: 72px; /* Match scroll-padding for scrollIntoView */
+  scroll-margin-top: 72px;
 }
 
 /* All sections with IDs need scroll offset for anchor links */
@@ -169,6 +187,10 @@ p {
   color: var(--accent);
 }
 
+.text-cta {
+  color: var(--cta);
+}
+
 /* ============================================
    SCROLLBAR - Light Theme
 ============================================ */
@@ -202,12 +224,11 @@ p {
    FOCUS STYLES
 ============================================ */
 .focus-ring {
-  @apply focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-base;
+  @apply focus:outline-none focus:ring-2 focus:ring-cta focus:ring-offset-2 focus:ring-offset-base;
 }
 
 /* ============================================
    RANGE SLIDER (Calculator)
-   Touch-friendly: 44px minimum touch target
 ============================================ */
 input[type="range"] {
   -webkit-appearance: none;
@@ -215,7 +236,6 @@ input[type="range"] {
   background: transparent;
   cursor: pointer;
   width: 100%;
-  /* Ensure enough height for touch targets */
   min-height: 44px;
   padding: 16px 0;
   margin: 0;
@@ -230,15 +250,13 @@ input[type="range"]::-webkit-slider-runnable-track {
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  background: var(--accent);
-  /* 28px visual, but with padding the touch area is 44px+ */
+  background: var(--cta);
   height: 28px;
   width: 28px;
   border-radius: 50%;
   margin-top: -10px;
   box-shadow: 0 2px 8px rgba(13, 148, 136, 0.25);
   transition: transform 0.15s ease;
-  /* Larger touch target via pseudo-element effect */
   border: 4px solid transparent;
   background-clip: padding-box;
 }
@@ -246,7 +264,7 @@ input[type="range"]::-webkit-slider-thumb {
 input[type="range"]::-webkit-slider-thumb:hover,
 input[type="range"]::-webkit-slider-thumb:active {
   transform: scale(1.1);
-  background: var(--accent-hover);
+  background: var(--cta-hover);
 }
 
 /* Firefox */
@@ -257,18 +275,12 @@ input[type="range"]::-moz-range-track {
 }
 
 input[type="range"]::-moz-range-thumb {
-  background: var(--accent);
+  background: var(--cta);
   height: 28px;
   width: 28px;
   border-radius: 50%;
   border: none;
   box-shadow: 0 2px 8px rgba(13, 148, 136, 0.25);
-}
-
-input[type="range"]::-moz-range-thumb:hover,
-input[type="range"]::-moz-range-thumb:active {
-  transform: scale(1.1);
-  background: var(--accent-hover);
 }
 
 /* ============================================
@@ -289,9 +301,9 @@ input[type="range"]::-moz-range-thumb:active {
    UTILITY CLASSES
 ============================================ */
 
-/* Gradient text - for light theme */
+/* Gradient text - warm coral gradient */
 .gradient-text {
-  background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-muted) 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -304,9 +316,48 @@ input[type="range"]::-moz-range-thumb:active {
 
 /* Glass effect for cards - light theme */
 .glass {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+}
+
+/* ============================================
+   VIDEO HERO STYLES
+============================================ */
+.video-hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.video-hero-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+}
+
+.video-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(26, 26, 26, 0.6) 0%,
+    rgba(26, 26, 26, 0.7) 50%,
+    rgba(26, 26, 26, 0.85) 100%
+  );
+  z-index: 1;
+}
+
+.video-hero-content {
+  position: relative;
+  z-index: 2;
 }
 
 /* ============================================
@@ -326,7 +377,6 @@ html, body {
     padding-right: max(0px, env(safe-area-inset-right));
   }
   
-  /* Sticky footers need bottom safe area */
   .sticky.bottom-0 {
     padding-bottom: max(1rem, env(safe-area-inset-bottom));
   }
@@ -335,15 +385,28 @@ html, body {
 /* Touch-friendly tap highlight */
 @media (pointer: coarse) {
   button, a, [role="button"] {
-    -webkit-tap-highlight-color: rgba(13, 148, 136, 0.1);
+    -webkit-tap-highlight-color: rgba(232, 168, 124, 0.15);
   }
 }
 
-/* Minimum touch target size for interactive elements */
+/* Minimum touch target size */
 @media (pointer: coarse) {
   button:not(.icon-only),
   [role="button"]:not(.icon-only),
   input[type="range"] {
     min-height: 44px;
   }
+}
+
+/* ============================================
+   PLACEHOLDER IMAGE STYLES
+============================================ */
+.placeholder-image {
+  background: #e5e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9a9a9a;
+  font-size: 0.875rem;
+  border-radius: 8px;
 }

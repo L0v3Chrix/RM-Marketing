@@ -1,4 +1,4 @@
-export { Hero } from "./Hero";
+export { Hero, HeroMetrics } from "./Hero";
 export { WhyStory } from "./WhyStory";
 export { Situation } from "./Situation";
 export { Opportunity } from "./Opportunity";
