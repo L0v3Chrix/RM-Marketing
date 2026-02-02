@@ -89,12 +89,12 @@ export function WhyNotCommission() {
               </div>
               <div>
                 <p className="text-text-muted text-sm">From appointment shows (22)</p>
-                <p className="text-text-primary font-medium">~$20,500</p>
+                <p className="text-text-primary font-medium">estimated ~$20,500</p>
               </div>
             </div>
             
             <p className="text-text-secondary mb-4 text-sm">
-              Commission would only apply to the appointment-driven revenue — the $20,500 from shows we actually worked.
+              Commission would only apply to the appointment-driven revenue — approximately $20,500 from shows we actually worked.
             </p>
             
             <p className="text-text-muted mb-4 text-sm">

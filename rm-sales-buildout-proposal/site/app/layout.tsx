@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "GHL Mastery Sales Buildout Proposal | Raize The Vibe",
+  title: "GHL Mastery Sales Buildout Proposal | Raise The Vibe",
   description:
     "A custom proposal to build a complete sales department for GHL Mastery. Scale from $35K/month to $100K+/month with a proven team, systems, and processes.",
   robots: {
