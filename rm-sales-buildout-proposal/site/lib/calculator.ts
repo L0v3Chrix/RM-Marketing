@@ -105,10 +105,16 @@ export function calculatePerformance(inputs: CalculatorInputs): CalculatorOutput
   const ltvCac = costPerSale > 0 ? avgRevenuePerSale / costPerSale : 0;
 
   // Path to Target Calculations (working backwards from revenue goal)
-  const salesNeeded = targetRevenue / avgRevenuePerSale;
-  const showsNeeded = salesNeeded / closeRateDecimal;
-  const appointmentsNeeded = showsNeeded / showRateDecimal;
-  const callsNeeded = appointmentsNeeded / (answerRateDecimal * bookingRateDecimal);
+  // Safeguard against division by zero
+  const safeAvgRevenuePerSale = avgRevenuePerSale || 1;
+  const safeCloseRate = closeRateDecimal || 0.01;
+  const safeShowRate = showRateDecimal || 0.01;
+  const safeBookingRate = (answerRateDecimal * bookingRateDecimal) || 0.01;
+
+  const salesNeeded = targetRevenue / safeAvgRevenuePerSale;
+  const showsNeeded = salesNeeded / safeCloseRate;
+  const appointmentsNeeded = showsNeeded / safeShowRate;
+  const callsNeeded = appointmentsNeeded / safeBookingRate;
   const leadsNeeded = callsNeeded; // 100% call attempt rate
   const adSpendRequired = leadsNeeded * costPerLead;
   const callsPerDay = callsNeeded / WORKING_DAYS_PER_MONTH;

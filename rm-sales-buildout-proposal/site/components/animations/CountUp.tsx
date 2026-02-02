@@ -28,13 +28,22 @@ export function CountUp({
   className,
   onComplete,
 }: CountUpProps) {
-  const [count, setCount] = useState(start);
+  // Start with end value for SSR, then animate from start on client
+  const [count, setCount] = useState(end);
+  const [isMounted, setIsMounted] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const hasAnimated = useRef(false);
 
+  // Track client mount
   useEffect(() => {
-    if (!isInView || hasAnimated.current) return;
+    setIsMounted(true);
+    // Reset to start value on mount to prepare for animation
+    setCount(start);
+  }, [start]);
+
+  useEffect(() => {
+    if (!isMounted || !isInView || hasAnimated.current) return;
     hasAnimated.current = true;
 
     const startTime = performance.now();
@@ -57,7 +66,7 @@ export function CountUp({
     };
 
     requestAnimationFrame(animate);
-  }, [isInView, start, end, duration, onComplete]);
+  }, [isMounted, isInView, start, end, duration, onComplete]);
 
   const formattedValue = count.toLocaleString("en-US", {
     minimumFractionDigits: decimals,

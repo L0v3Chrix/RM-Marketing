@@ -7,12 +7,17 @@ export function cn(...inputs: ClassValue[]) {
   return clsx(inputs);
 }
 
-// Format number as currency
+// Format number as currency (with NaN/Infinity protection)
 export function formatCurrency(
   value: number,
   options?: { decimals?: number; compact?: boolean }
 ): string {
   const { decimals = 0, compact = false } = options ?? {};
+
+  // Handle NaN, Infinity, and undefined
+  if (!Number.isFinite(value) || value === null || value === undefined) {
+    return "$0";
+  }
 
   if (compact && value >= 1000) {
     const suffixes = ["", "K", "M", "B"];
@@ -31,16 +36,24 @@ export function formatCurrency(
   }).format(value);
 }
 
-// Format number with commas
+// Format number with commas (with NaN/Infinity protection)
 export function formatNumber(value: number, decimals: number = 0): string {
+  // Handle NaN, Infinity, and undefined
+  if (!Number.isFinite(value) || value === null || value === undefined) {
+    return "0";
+  }
   return new Intl.NumberFormat("en-US", {
     minimumFractionDigits: decimals,
     maximumFractionDigits: decimals,
   }).format(value);
 }
 
-// Format percentage
+// Format percentage (with NaN/Infinity protection)
 export function formatPercent(value: number, decimals: number = 1): string {
+  // Handle NaN, Infinity, and undefined
+  if (!Number.isFinite(value) || value === null || value === undefined) {
+    return "0%";
+  }
   return `${value.toFixed(decimals)}%`;
 }
 
