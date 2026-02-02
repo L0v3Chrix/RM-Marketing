@@ -1,111 +1,95 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+import { clsx } from "clsx";
 
 interface Chapter {
   number: number;
   title: string;
-  shortTitle?: string;
+  shortTitle: string;
 }
 
 interface ChapterProgressProps {
   chapters: Chapter[];
   currentChapter: number;
-  className?: string;
 }
 
-export function ChapterProgress({
-  chapters,
-  currentChapter,
-  className,
-}: ChapterProgressProps) {
-  const progressPercentage = ((currentChapter) / chapters.length) * 100;
-  const currentChapterData = chapters[currentChapter - 1];
+export function ChapterProgress({ chapters, currentChapter }: ChapterProgressProps) {
+  const progressPercent = ((currentChapter) / chapters.length) * 100;
+
+  const scrollToChapter = (chapterNum: number) => {
+    if (chapterNum <= currentChapter) {
+      const el = document.getElementById(`chapter-${chapterNum}`);
+      el?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
-    <motion.div
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50",
-        "bg-base/95 backdrop-blur-md",
-        "border-b border-border-subtle",
-        className
-      )}
-    >
-      {/* Progress bar */}
-      <div className="h-0.5 bg-elevated">
-        <motion.div
-          className="h-full bg-accent"
-          initial={{ width: 0 }}
-          animate={{ width: `${progressPercentage}%` }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        />
-      </div>
-
-      {/* Chapter info */}
-      <div className="max-w-4xl mx-auto px-4 py-3">
-        <div className="flex items-center justify-between">
-          {/* Current chapter label */}
+    <header className="fixed top-0 left-0 right-0 z-50 bg-base/95 backdrop-blur-md border-b border-border-subtle">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="flex items-center justify-between h-14">
+          {/* Logo/Title */}
           <div className="flex items-center gap-3">
-            <span className="text-sm font-semibold text-accent">
-              {currentChapter}/{chapters.length}
-            </span>
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={currentChapter}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.2 }}
-                className="text-sm font-medium text-text-primary hidden sm:inline"
-              >
-                {currentChapterData?.title}
-              </motion.span>
-              <motion.span
-                key={`mobile-${currentChapter}`}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.2 }}
-                className="text-sm font-medium text-text-primary sm:hidden"
-              >
-                {currentChapterData?.shortTitle || currentChapterData?.title}
-              </motion.span>
-            </AnimatePresence>
+            <span className="text-sm font-medium text-text-primary">GHL Mastery</span>
+            <span className="text-text-subtle">·</span>
+            <span className="text-sm text-text-muted hidden sm:inline">Sales Proposal</span>
           </div>
 
-          {/* Chapter dots - desktop only */}
-          <div className="hidden md:flex items-center gap-2">
-            {chapters.map((chapter) => (
-              <div
-                key={chapter.number}
-                className="group relative"
-              >
-                <div
-                  className={cn(
-                    "w-2 h-2 rounded-full transition-all duration-300",
-                    chapter.number < currentChapter && "bg-accent",
-                    chapter.number === currentChapter && "bg-accent ring-2 ring-accent/30 ring-offset-2 ring-offset-base",
-                    chapter.number > currentChapter && "bg-border"
+          {/* Chapter Navigation */}
+          <nav className="flex items-center gap-1 sm:gap-2">
+            {chapters.map((chapter) => {
+              const isActive = chapter.number === currentChapter;
+              const isCompleted = chapter.number < currentChapter;
+              const isLocked = chapter.number > currentChapter;
+
+              return (
+                <button
+                  key={chapter.number}
+                  onClick={() => scrollToChapter(chapter.number)}
+                  disabled={isLocked}
+                  className={clsx(
+                    "relative px-2 sm:px-3 py-1.5 text-xs sm:text-sm font-medium rounded-md transition-all",
+                    isActive && "text-accent",
+                    isCompleted && "text-success cursor-pointer hover:bg-card",
+                    isLocked && "text-text-subtle cursor-not-allowed opacity-50",
+                    !isActive && !isLocked && "hover:bg-card"
                   )}
-                />
-                {/* Tooltip */}
-                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-elevated text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-border-subtle">
-                  {chapter.title}
-                </div>
-              </div>
-            ))}
-          </div>
+                >
+                  {/* Mobile: Show just number */}
+                  <span className="sm:hidden">{chapter.number}</span>
+                  {/* Desktop: Show short title */}
+                  <span className="hidden sm:inline">{chapter.shortTitle}</span>
+                  
+                  {/* Active indicator */}
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeChapter"
+                      className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-accent"
+                    />
+                  )}
+                  
+                  {/* Completed checkmark */}
+                  {isCompleted && (
+                    <span className="ml-1 text-success">✓</span>
+                  )}
+                </button>
+              );
+            })}
+          </nav>
 
-          {/* Prepared for badge */}
-          <div className="hidden lg:block text-xs text-text-muted">
-            <span className="text-text-secondary font-medium">GHL Mastery</span> Proposal
+          {/* Progress bar (small) */}
+          <div className="hidden md:block w-24">
+            <div className="h-1 bg-card rounded-full overflow-hidden">
+              <motion.div
+                className="h-full bg-accent rounded-full"
+                initial={{ width: 0 }}
+                animate={{ width: `${progressPercent}%` }}
+                transition={{ duration: 0.3 }}
+              />
+            </div>
           </div>
         </div>
       </div>
-    </motion.div>
+    </header>
   );
 }

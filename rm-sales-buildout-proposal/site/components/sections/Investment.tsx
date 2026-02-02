@@ -1,228 +1,266 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { DollarSign, CheckCircle, Calendar, Target, Shield, ArrowRight, Zap } from "lucide-react";
+import { FadeInOnScroll } from "@/components/animations";
+import { Shield, Check, X, Percent, ArrowRight } from "lucide-react";
 import { INVESTMENT } from "@/lib/constants";
 
 export function Investment() {
+  const performanceExamples = [
+    { revenue: "$35K (baseline)", base: "$10,000", performance: "$0", youPay: "$10,000", youKeep: "$25,000" },
+    { revenue: "$50K", base: "$10,000", performance: "$2,250", youPay: "$12,250", youKeep: "$37,750" },
+    { revenue: "$70K", base: "$10,000", performance: "$5,250", youPay: "$15,000*", youKeep: "$55,000" },
+    { revenue: "$100K", base: "$10,000", performance: "$9,750", youPay: "$15,000*", youKeep: "$85,000" },
+  ];
+
   return (
-    <section className="py-20 bg-[#0A1628]" id="investment">
-      <div className="max-w-6xl mx-auto px-4">
+    <section id="investment" className="bg-base py-20 md:py-28">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#D4A574]/10 border border-[#D4A574]/20 rounded-full mb-6">
-            <DollarSign className="w-4 h-4 text-[#D4A574]" />
-            <span className="text-[#D4A574] text-sm font-medium">The Investment</span>
+        <FadeInOnScroll>
+          <div className="text-center mb-16">
+            <p className="text-accent text-sm uppercase tracking-widest mb-3">The Investment</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
+              Prove First, Then Build
+            </h2>
+            <p className="text-text-secondary max-w-2xl mx-auto">
+              We&apos;re doing for your sales system what you do for others&apos; GHL systems.
+            </p>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Option B: <span className="text-[#D4A574]">Prove First, Then Build</span>
-          </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            No $50K leap of faith. Milestone-based payments tied to real results.
-          </p>
-        </motion.div>
+        </FadeInOnScroll>
 
-        {/* Two Phases */}
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
-          {/* Phase 1 */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="bg-[#0F172A] border-2 border-[#D4A574]/30 rounded-2xl overflow-hidden"
-          >
-            <div className="bg-[#D4A574]/10 px-6 py-4 border-b border-[#D4A574]/20">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-[#D4A574]/20 rounded-full flex items-center justify-center">
-                  <span className="text-[#D4A574] font-bold">1</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white">Phase 1: The Proof</h3>
-                  <p className="text-[#D4A574] text-sm">60 Days</p>
-                </div>
+        {/* Structure Overview */}
+        <FadeInOnScroll delay={0.1}>
+          <div className="mb-16 p-6 bg-card rounded-xl border border-border-subtle">
+            <h3 className="text-xl font-semibold text-text-primary mb-6 text-center">
+              The Engagement Structure
+            </h3>
+            <div className="grid md:grid-cols-3 gap-6 text-center">
+              <div className="p-4">
+                <p className="text-accent text-sm font-medium uppercase mb-2">Phase 1</p>
+                <p className="text-text-primary font-semibold">The Proof</p>
+                <p className="text-text-muted text-sm">60 Days</p>
+                <p className="text-2xl font-bold text-accent mt-2">$10,000</p>
+                <p className="text-xs text-text-subtle">(fixed)</p>
+              </div>
+              <div className="p-4">
+                <p className="text-success text-sm font-medium uppercase mb-2">Phase 2</p>
+                <p className="text-text-primary font-semibold">The Build</p>
+                <p className="text-text-muted text-sm">90 Days</p>
+                <p className="text-2xl font-bold text-success mt-2">$30-45K</p>
+                <p className="text-xs text-text-subtle">(base + perf)</p>
+              </div>
+              <div className="p-4 opacity-60">
+                <p className="text-text-muted text-sm font-medium uppercase mb-2">Ongoing</p>
+                <p className="text-text-primary font-semibold">Support</p>
+                <p className="text-text-muted text-sm">Negotiate</p>
+                <p className="text-2xl font-bold text-text-muted mt-2">TBD</p>
+                <p className="text-xs text-text-subtle">(retainer)</p>
               </div>
             </div>
+          </div>
+        </FadeInOnScroll>
+
+        {/* Phase 1 Details */}
+        <FadeInOnScroll delay={0.2}>
+          <div className="mb-12 p-8 bg-card rounded-xl border border-accent/30">
+            <h3 className="text-xl font-semibold text-text-primary mb-6">
+              {INVESTMENT.phase1.name} — $10,000
+            </h3>
             
-            <div className="p-6">
+            <div className="grid md:grid-cols-2 gap-8">
               {/* Payment Structure */}
-              <div className="space-y-4 mb-6">
-                <div className="flex items-center justify-between p-4 bg-[#0A1628] rounded-xl border border-gray-800">
-                  <div className="flex items-center gap-3">
-                    <Calendar className="w-5 h-5 text-[#D4A574]" />
-                    <span className="text-gray-400">Deposit (Agreement signed)</span>
+              <div>
+                <h4 className="font-medium text-text-primary mb-4">Payment Structure</h4>
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center p-3 bg-base rounded-lg">
+                    <span className="text-text-secondary">Deposit</span>
+                    <span className="text-accent font-semibold">$5,000</span>
                   </div>
-                  <span className="text-2xl font-bold text-white">$5,000</span>
-                </div>
-                
-                <div className="flex items-center justify-between p-4 bg-[#0A1628] rounded-xl border border-gray-800">
-                  <div className="flex items-center gap-3">
-                    <Target className="w-5 h-5 text-[#D4A574]" />
-                    <span className="text-gray-400">Milestone (20 appointments)</span>
+                  <div className="flex items-center justify-center text-text-muted">
+                    <ArrowRight className="w-4 h-4" />
+                    <span className="text-xs mx-2">20 qualified appointments delivered</span>
+                    <ArrowRight className="w-4 h-4" />
                   </div>
-                  <span className="text-2xl font-bold text-white">$5,000</span>
-                </div>
-                
-                <div className="border-t border-gray-800 pt-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-gray-400">Phase 1 Total</span>
-                    <span className="text-3xl font-bold text-[#D4A574]">$10,000</span>
+                  <div className="flex justify-between items-center p-3 bg-base rounded-lg">
+                    <span className="text-text-secondary">Milestone</span>
+                    <span className="text-accent font-semibold">$5,000</span>
                   </div>
                 </div>
               </div>
 
-              {/* What's Included */}
-              <div className="space-y-3 mb-6">
-                <h4 className="text-sm font-medium text-gray-400 uppercase">What's Included</h4>
-                {[
-                  "Adam off phones DAY ONE",
-                  "Database reactivation begins immediately",
-                  "Speed-to-lead optimization",
-                  "Show rate improvement system",
-                  "Pipeline handed over completely",
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-2 text-gray-300">
-                    <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                    <span className="text-sm">{item}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Guarantee */}
-              <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4">
-                <div className="flex items-start gap-3">
-                  <Shield className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="text-white font-medium mb-1">The Guarantee</h4>
-                    <p className="text-green-400 text-sm">
-                      If by Day 30, we haven't generated at least 20 qualified appointments 
-                      from your existing database, you can walk away with just the $5K deposit invested.
-                    </p>
-                  </div>
+              {/* The Guarantee */}
+              <div className="p-4 bg-success/10 rounded-xl border border-success/30">
+                <div className="flex items-center gap-2 mb-3">
+                  <Shield className="w-5 h-5 text-success" />
+                  <h4 className="font-semibold text-success">The Guarantee</h4>
                 </div>
+                <p className="text-text-secondary text-sm">
+                  {INVESTMENT.phase1.guarantee}
+                </p>
+                <p className="text-text-muted text-xs mt-3 italic">
+                  We guarantee what WE control, not what you do with it.
+                </p>
               </div>
             </div>
-          </motion.div>
-
-          {/* Phase 2 */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="bg-[#0F172A] border border-gray-800 rounded-2xl overflow-hidden"
-          >
-            <div className="bg-gray-800/30 px-6 py-4 border-b border-gray-800">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center">
-                  <span className="text-gray-400 font-bold">2</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white">Phase 2: The Build</h3>
-                  <p className="text-gray-400 text-sm">90 Days (Days 61-150)</p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="p-6">
-              {/* Monthly Payments */}
-              <div className="space-y-4 mb-6">
-                {["Day 61", "Day 91", "Day 121"].map((day, i) => (
-                  <div key={day} className="flex items-center justify-between p-4 bg-[#0A1628] rounded-xl border border-gray-800">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center">
-                        <span className="text-gray-400 text-sm font-medium">{i + 1}</span>
-                      </div>
-                      <span className="text-gray-400">{day}</span>
-                    </div>
-                    <div className="text-right">
-                      <span className="text-xl font-bold text-white">$10,000</span>
-                      <span className="text-gray-500 text-sm ml-1">+ perf</span>
-                    </div>
-                  </div>
-                ))}
-                
-                <div className="border-t border-gray-800 pt-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-gray-400">Base Total</span>
-                    <span className="text-2xl font-bold text-white">$30,000</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-gray-500 text-sm">With performance bonuses</span>
-                    <span className="text-gray-400 text-sm">Up to $45,000</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Performance Bonus */}
-              <div className="bg-[#D4A574]/5 border border-[#D4A574]/20 rounded-xl p-4 mb-6">
-                <div className="flex items-start gap-3">
-                  <Zap className="w-5 h-5 text-[#D4A574] flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="text-white font-medium mb-1">Performance Component</h4>
-                    <p className="text-[#D4A574] text-sm">
-                      15% of revenue over $35K baseline, capped at $15K/month
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* What's Built */}
-              <div className="space-y-3">
-                <h4 className="text-sm font-medium text-gray-400 uppercase">What's Built</h4>
-                {[
-                  "Hire and train sales team (2-4 people)",
-                  "Full systems & automation buildout",
-                  "Dunning system (train Jonah)",
-                  "SOPs & documentation",
-                  "Manager structure installed",
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-2 text-gray-300">
-                    <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                    <span className="text-sm">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Total Investment */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="bg-gradient-to-r from-[#D4A574]/20 to-[#D4A574]/5 border border-[#D4A574]/30 rounded-2xl p-8 text-center mb-12"
-        >
-          <h3 className="text-2xl font-bold text-white mb-2">Total Engagement</h3>
-          <div className="text-5xl md:text-6xl font-bold text-[#D4A574] mb-4">
-            $40,000 - $55,000
           </div>
-          <p className="text-gray-400 max-w-xl mx-auto">
-            5-month engagement. You own everything we build. No equity, no perpetuity.
-          </p>
-        </motion.div>
+        </FadeInOnScroll>
 
-        {/* No Equity Points */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="grid md:grid-cols-4 gap-4"
-        >
-          {INVESTMENT.keyPoints.map((point, i) => (
-            <div 
-              key={i}
-              className="bg-[#0F172A] border border-gray-800 rounded-xl p-4 text-center"
-            >
-              <CheckCircle className="w-6 h-6 text-green-500 mx-auto mb-2" />
-              <p className="text-white text-sm font-medium">{point}</p>
+        {/* Phase 2 Details */}
+        <FadeInOnScroll delay={0.3}>
+          <div className="mb-12 p-8 bg-card rounded-xl border border-success/30">
+            <h3 className="text-xl font-semibold text-text-primary mb-6">
+              {INVESTMENT.phase2.name} — $10,000/month base + performance
+            </h3>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              {/* Structure */}
+              <div>
+                <h4 className="font-medium text-text-primary mb-4">Monthly Structure</h4>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between p-2 bg-base rounded">
+                    <span className="text-text-muted">Base Fee</span>
+                    <span className="text-text-primary">$10,000/month</span>
+                  </div>
+                  <div className="flex justify-between p-2 bg-base rounded">
+                    <span className="text-text-muted">Performance</span>
+                    <span className="text-text-primary">15% of revenue over $35K</span>
+                  </div>
+                  <div className="flex justify-between p-2 bg-base rounded border border-success/20">
+                    <span className="text-text-muted">Cap</span>
+                    <span className="text-success font-medium">$15,000/month max</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Alignment Note */}
+              <div className="flex items-center">
+                <div className="p-4 bg-base rounded-xl">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Percent className="w-5 h-5 text-accent" />
+                    <span className="font-medium text-text-primary">Performance Aligned</span>
+                  </div>
+                  <p className="text-text-muted text-sm">
+                    At scale, you&apos;re paying 15% of total revenue. We leave 85% for you to run ads, 
+                    pay commissions, and keep profit.
+                  </p>
+                </div>
+              </div>
             </div>
-          ))}
-        </motion.div>
+
+            {/* Performance Examples Table */}
+            <h4 className="font-medium text-text-primary mb-4">Performance Examples</h4>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-border-subtle">
+                    <th className="text-left py-2 px-3 text-text-muted font-medium">Your Revenue</th>
+                    <th className="text-right py-2 px-3 text-text-muted font-medium">Base</th>
+                    <th className="text-right py-2 px-3 text-text-muted font-medium">Performance</th>
+                    <th className="text-right py-2 px-3 text-text-muted font-medium">You Pay</th>
+                    <th className="text-right py-2 px-3 text-success font-medium">You Keep</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {performanceExamples.map((row, index) => (
+                    <tr key={index} className="border-b border-border-subtle">
+                      <td className="py-2 px-3 text-text-primary">{row.revenue}</td>
+                      <td className="py-2 px-3 text-right text-text-muted">{row.base}</td>
+                      <td className="py-2 px-3 text-right text-text-muted">{row.performance}</td>
+                      <td className="py-2 px-3 text-right text-accent">{row.youPay}</td>
+                      <td className="py-2 px-3 text-right text-success font-medium">{row.youKeep}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-text-subtle text-xs mt-2">*Capped at $15,000/month</p>
+          </div>
+        </FadeInOnScroll>
+
+        {/* Total Investment Summary */}
+        <FadeInOnScroll delay={0.4}>
+          <div className="mb-12 p-8 bg-elevated rounded-xl border border-accent/30">
+            <h3 className="text-xl font-semibold text-text-primary mb-6 text-center">
+              Total Investment Summary
+            </h3>
+            
+            <div className="grid md:grid-cols-3 gap-6 text-center mb-8">
+              <div>
+                <p className="text-text-muted text-sm">Phase 1 (The Proof)</p>
+                <p className="text-2xl font-bold text-text-primary">$10,000</p>
+              </div>
+              <div>
+                <p className="text-text-muted text-sm">Phase 2 (The Build)</p>
+                <p className="text-2xl font-bold text-text-primary">$30,000 - $45,000</p>
+              </div>
+              <div className="p-4 bg-accent/10 rounded-lg">
+                <p className="text-accent text-sm font-medium">Main Engagement</p>
+                <p className="text-3xl font-bold text-accent">$40,000 - $55,000</p>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <p className="text-text-muted text-sm mb-2">Your Potential Return:</p>
+              <p className="text-success font-bold text-xl">$780,000/year at $100K/month run rate</p>
+              <p className="text-accent font-semibold mt-1">ROI: 14-19x</p>
+            </div>
+          </div>
+        </FadeInOnScroll>
+
+        {/* No Equity / No Perpetuity */}
+        <FadeInOnScroll delay={0.5}>
+          <div className="p-8 bg-card rounded-xl border border-success/30">
+            <h3 className="text-xl font-semibold text-text-primary mb-6 text-center">
+              No Equity. No Perpetuity.
+            </h3>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h4 className="font-medium text-text-primary mb-4 flex items-center gap-2">
+                  <X className="w-5 h-5 text-error" />
+                  We Don&apos;t Ask For
+                </h4>
+                <ul className="space-y-2 text-text-muted text-sm">
+                  {INVESTMENT.keyPoints.map((point, index) => (
+                    <li key={index} className="flex items-center gap-2">
+                      <X className="w-4 h-4 text-error" />
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="font-medium text-text-primary mb-4 flex items-center gap-2">
+                  <Check className="w-5 h-5 text-success" />
+                  You Own Everything
+                </h4>
+                <p className="text-text-secondary text-sm">
+                  When this engagement ends, you own everything. Forever.
+                </p>
+                <p className="text-text-muted text-sm mt-3">
+                  The systems. The processes. The playbooks. The trained team. All yours.
+                </p>
+                <p className="text-success font-medium text-sm mt-3">
+                  No strings. No trailing royalties. No &quot;we get 5% of your revenue in perpetuity.&quot;
+                </p>
+              </div>
+            </div>
+          </div>
+        </FadeInOnScroll>
+
+        {/* Bottom Line */}
+        <FadeInOnScroll delay={0.6}>
+          <div className="mt-16 text-center">
+            <p className="text-4xl font-bold text-accent mb-4">$5,000 to get started.</p>
+            <p className="text-text-secondary text-lg mb-4">
+              20 appointments in 30 days or walk away.
+            </p>
+            <p className="text-text-primary font-medium">
+              Low risk for you. High reward if it works. No-brainer to continue.
+            </p>
+          </div>
+        </FadeInOnScroll>
       </div>
     </section>
   );

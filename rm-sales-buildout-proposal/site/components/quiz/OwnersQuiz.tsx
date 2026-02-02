@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useQuizState } from "./hooks/useQuizState";
-import { QuizProgress } from "./QuizProgress";
 import { CurrentState, FunnelMetrics, OfferEconomics, YourGoal, IntentQualifier } from "./steps";
 import { EducationalQuestion } from "./educational";
 import { QuizResults } from "./results";
@@ -34,7 +33,7 @@ export function OwnersQuiz({ onComplete }: OwnersQuizProps) {
   // Show intro screen first
   if (showIntro) {
     return (
-      <div className="min-h-screen bg-cream flex flex-col">
+      <div className="min-h-screen bg-base flex flex-col">
         {/* Simple Header */}
         <header className="px-6 py-4">
           <p className="text-sm text-text-muted">
@@ -42,26 +41,26 @@ export function OwnersQuiz({ onComplete }: OwnersQuizProps) {
           </p>
         </header>
 
-        {/* Main Content - Unified Frame */}
+        {/* Main Content */}
         <main className="flex-1 flex items-center justify-center px-4 sm:px-6 py-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="w-full max-w-4xl"
           >
-            {/* Unified Content Frame - Image + Text as ONE unit */}
-            <div className="bg-base rounded-2xl shadow-card overflow-hidden">
+            {/* Content Frame */}
+            <div className="bg-elevated rounded-2xl border border-border-subtle overflow-hidden">
               <div className="flex flex-col md:flex-row">
                 {/* Illustration Side */}
-                <div className="md:w-2/5 bg-gradient-to-br from-cta/10 via-cta/5 to-transparent p-8 md:p-10 flex items-center justify-center">
+                <div className="md:w-2/5 bg-gradient-to-br from-accent/10 via-accent/5 to-transparent p-8 md:p-10 flex items-center justify-center">
                   <div className="relative">
                     {/* Abstract chart illustration */}
                     <div className="w-32 h-32 md:w-40 md:h-40 relative">
                       <div className="absolute inset-0 flex items-end justify-center gap-2">
-                        <div className="w-6 bg-cta/30 rounded-t-sm animate-pulse" style={{ height: '40%' }} />
-                        <div className="w-6 bg-cta/50 rounded-t-sm animate-pulse" style={{ height: '60%', animationDelay: '0.1s' }} />
-                        <div className="w-6 bg-cta/70 rounded-t-sm animate-pulse" style={{ height: '80%', animationDelay: '0.2s' }} />
-                        <div className="w-6 bg-cta rounded-t-sm animate-pulse" style={{ height: '100%', animationDelay: '0.3s' }} />
+                        <div className="w-6 bg-accent/30 rounded-t-sm animate-pulse" style={{ height: '40%' }} />
+                        <div className="w-6 bg-accent/50 rounded-t-sm animate-pulse" style={{ height: '60%', animationDelay: '0.1s' }} />
+                        <div className="w-6 bg-accent/70 rounded-t-sm animate-pulse" style={{ height: '80%', animationDelay: '0.2s' }} />
+                        <div className="w-6 bg-accent rounded-t-sm animate-pulse" style={{ height: '100%', animationDelay: '0.3s' }} />
                       </div>
                       {/* Trend line */}
                       <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" fill="none">
@@ -70,19 +69,19 @@ export function OwnersQuiz({ onComplete }: OwnersQuizProps) {
                           stroke="currentColor" 
                           strokeWidth="2" 
                           strokeLinecap="round"
-                          className="text-cta"
+                          className="text-accent"
                           strokeDasharray="4 4"
                         />
-                        <circle cx="90" cy="20" r="4" className="fill-cta" />
+                        <circle cx="90" cy="20" r="4" className="fill-accent" />
                       </svg>
                     </div>
-                    <p className="text-center text-xs text-cta font-medium mt-4 tracking-wide uppercase">Revenue Analysis</p>
+                    <p className="text-center text-xs text-accent font-medium mt-4 tracking-wide uppercase">Revenue Analysis</p>
                   </div>
                 </div>
 
                 {/* Content Side */}
                 <div className="md:w-3/5 p-8 md:p-10 flex flex-col justify-center">
-                  <h1 className="text-cta text-sm font-semibold uppercase tracking-wider mb-3">
+                  <h1 className="text-accent text-sm font-semibold uppercase tracking-wider mb-3">
                     Interactive Calculator
                   </h1>
                   
@@ -96,20 +95,20 @@ export function OwnersQuiz({ onComplete }: OwnersQuizProps) {
 
                   <ul className="space-y-3 mb-8">
                     <li className="flex items-start gap-3 text-sm text-text-secondary">
-                      <span className="w-5 h-5 rounded-full bg-cta/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-cta" />
+                      <span className="w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                       </span>
                       Your current revenue per show and cost per lead
                     </li>
                     <li className="flex items-start gap-3 text-sm text-text-secondary">
-                      <span className="w-5 h-5 rounded-full bg-cta/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-cta" />
+                      <span className="w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                       </span>
                       The exact levers that move the needle
                     </li>
                     <li className="flex items-start gap-3 text-sm text-text-secondary">
-                      <span className="w-5 h-5 rounded-full bg-cta/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-cta" />
+                      <span className="w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                       </span>
                       What it takes to hit your revenue target
                     </li>
@@ -119,7 +118,7 @@ export function OwnersQuiz({ onComplete }: OwnersQuizProps) {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => setShowIntro(false)}
-                    className="inline-flex items-center justify-center gap-2 bg-cta text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-cta-hover transition-colors w-full sm:w-auto"
+                    className="inline-flex items-center justify-center gap-2 bg-accent text-text-dark px-8 py-4 rounded-lg font-semibold text-lg hover:bg-accent-hover transition-colors w-full sm:w-auto"
                   >
                     Let&apos;s See My Numbers
                     <ArrowRight className="w-5 h-5" />
@@ -128,8 +127,8 @@ export function OwnersQuiz({ onComplete }: OwnersQuizProps) {
               </div>
             </div>
 
-            {/* Footer note - outside the frame */}
-            <p className="text-center text-xs text-text-muted mt-6">
+            {/* Footer note */}
+            <p className="text-center text-xs text-text-subtle mt-6">
               Prepared for Adam & Brendan
             </p>
           </motion.div>
@@ -227,7 +226,7 @@ export function OwnersQuiz({ onComplete }: OwnersQuizProps) {
           
           {/* Progress Bar */}
           <div className="relative">
-            <div className="h-1.5 bg-elevated rounded-full overflow-hidden">
+            <div className="h-1.5 bg-card rounded-full overflow-hidden">
               <motion.div
                 className="h-full bg-accent rounded-full"
                 initial={{ width: 0 }}
@@ -272,8 +271,8 @@ export function OwnersQuiz({ onComplete }: OwnersQuizProps) {
               disabled={currentStep === 1}
               className={`flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-3 min-h-[48px] rounded-lg font-medium transition-all ${
                 currentStep === 1
-                  ? 'text-text-muted cursor-not-allowed'
-                  : 'text-text-secondary hover:bg-elevated'
+                  ? 'text-text-subtle cursor-not-allowed'
+                  : 'text-text-secondary hover:bg-card'
               }`}
             >
               <ChevronLeft className="w-5 h-5" />
@@ -290,7 +289,7 @@ export function OwnersQuiz({ onComplete }: OwnersQuizProps) {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={nextStep}
-              className="flex items-center gap-1 sm:gap-2 bg-accent text-base px-4 sm:px-8 py-3 min-h-[48px] rounded-lg font-medium hover:bg-accent-hover transition-colors"
+              className="flex items-center gap-1 sm:gap-2 bg-accent text-text-dark px-4 sm:px-8 py-3 min-h-[48px] rounded-lg font-medium hover:bg-accent-hover transition-colors"
             >
               {currentStep === totalSteps ? (
                 <>

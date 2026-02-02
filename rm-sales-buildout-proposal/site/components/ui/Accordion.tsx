@@ -1,69 +1,61 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
+import { clsx } from "clsx";
 
 interface AccordionItemProps {
   question: string;
   answer: string;
-  category?: string;
   isOpen?: boolean;
   onToggle?: () => void;
+  category?: string;
 }
 
 export function AccordionItem({
   question,
   answer,
-  category,
   isOpen = false,
   onToggle,
+  category,
 }: AccordionItemProps) {
   return (
-    <div
-      className={cn(
-        "rounded-xl border transition-all duration-200",
-        isOpen
-          ? "bg-card border-accent/30"
-          : "bg-elevated border-border-subtle hover:border-border"
-      )}
-    >
+    <div className="accordion-item mb-3">
       <button
         onClick={onToggle}
-        className="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between gap-3 sm:gap-4 text-left"
+        className="accordion-trigger group"
         aria-expanded={isOpen}
       >
-        <div className="flex items-center gap-3">
+        <div className="flex-1 text-left">
           {category && (
-            <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-accent/10 text-accent">
+            <span className="text-xs uppercase tracking-wider text-accent mb-1 block">
               {category}
             </span>
           )}
-          <span className="text-base sm:text-lg font-medium text-text-primary">
+          <span className="text-text-primary font-medium group-hover:text-accent transition-colors">
             {question}
           </span>
         </div>
         <ChevronDown
-          className={cn(
-            "w-5 h-5 text-accent transition-transform duration-200 flex-shrink-0",
+          className={clsx(
+            "w-5 h-5 text-text-muted transition-transform duration-200",
             isOpen && "rotate-180"
           )}
         />
       </button>
-      <AnimatePresence initial={false}>
+      
+      <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2, ease: "easeOut" as const }}
+            transition={{ duration: 0.2 }}
             className="overflow-hidden"
           >
-            <div className="px-5 sm:px-6 pb-5 pt-0">
-              <div className="border-t border-border-subtle pt-4">
-                <p className="text-text-secondary text-sm sm:text-base leading-relaxed">{answer}</p>
-              </div>
+            <div className="accordion-content">
+              <p className="text-text-secondary leading-relaxed">{answer}</p>
             </div>
           </motion.div>
         )}
@@ -73,45 +65,40 @@ export function AccordionItem({
 }
 
 interface AccordionProps {
-  items: readonly {
-    readonly question: string;
-    readonly answer: string;
-    readonly category?: string;
-  }[];
+  items: Array<{
+    question: string;
+    answer: string;
+    category?: string;
+  }>;
   allowMultiple?: boolean;
-  className?: string;
 }
 
-export function Accordion({
-  items,
-  allowMultiple = false,
-  className,
-}: AccordionProps) {
-  const [openIndexes, setOpenIndexes] = useState<number[]>([]);
+export function Accordion({ items, allowMultiple = false }: AccordionProps) {
+  const [openItems, setOpenItems] = useState<number[]>([]);
 
   const toggleItem = (index: number) => {
     if (allowMultiple) {
-      setOpenIndexes((prev) =>
+      setOpenItems((prev) =>
         prev.includes(index)
           ? prev.filter((i) => i !== index)
           : [...prev, index]
       );
     } else {
-      setOpenIndexes((prev) =>
+      setOpenItems((prev) =>
         prev.includes(index) ? [] : [index]
       );
     }
   };
 
   return (
-    <div className={cn("space-y-3", className)}>
+    <div className="space-y-3">
       {items.map((item, index) => (
         <AccordionItem
           key={index}
           question={item.question}
           answer={item.answer}
           category={item.category}
-          isOpen={openIndexes.includes(index)}
+          isOpen={openItems.includes(index)}
           onToggle={() => toggleItem(index)}
         />
       ))}

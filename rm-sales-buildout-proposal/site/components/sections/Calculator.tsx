@@ -81,7 +81,7 @@ export function Calculator() {
                 variant="ghost"
                 size="small"
                 onClick={() => setPreset(preset.values)}
-                className="bg-elevated border-border text-text-primary hover:bg-card-hover text-xs sm:text-sm min-h-[40px]"
+                className="bg-card border-border text-text-primary hover:bg-card-hover text-xs sm:text-sm min-h-[40px]"
               >
                 {preset.name}
               </Button>
@@ -93,7 +93,7 @@ export function Calculator() {
         <div className="grid lg:grid-cols-2 gap-4 sm:gap-8">
           {/* Inputs Panel */}
           <FadeInOnScroll delay={0.1}>
-            <Card variant="glass" padding="large">
+            <Card variant="bordered" padding="large">
               <div className="flex items-center gap-3 mb-4 sm:mb-6">
                 <CalcIcon className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
                 <h3 className="text-base sm:text-lg font-semibold text-text-primary">Inputs</h3>
@@ -177,26 +177,26 @@ export function Calculator() {
           <FadeInOnScroll delay={0.2}>
             <div className="space-y-4 sm:space-y-6">
               {/* Current Performance */}
-              <Card variant="glass" padding="large">
+              <Card variant="bordered" padding="large">
                 <div className="flex items-center gap-3 mb-4 sm:mb-6">
                   <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
                   <h3 className="text-base sm:text-lg font-semibold text-text-primary">Current Performance</h3>
                 </div>
 
                 <div className="grid grid-cols-2 gap-2 sm:gap-4">
-                  <div className="text-center p-2 sm:p-3 bg-elevated rounded-lg">
+                  <div className="text-center p-2 sm:p-3 bg-card rounded-lg">
                     <p className="text-text-muted text-xs sm:text-sm">Leads/Month</p>
                     <p className="text-lg sm:text-xl font-bold text-text-primary">{outputs.leadsPerMonth}</p>
                   </div>
-                  <div className="text-center p-2 sm:p-3 bg-elevated rounded-lg">
+                  <div className="text-center p-2 sm:p-3 bg-card rounded-lg">
                     <p className="text-text-muted text-xs sm:text-sm">Appointments</p>
                     <p className="text-lg sm:text-xl font-bold text-text-primary">{outputs.appointmentsPerMonth}</p>
                   </div>
-                  <div className="text-center p-2 sm:p-3 bg-elevated rounded-lg">
+                  <div className="text-center p-2 sm:p-3 bg-card rounded-lg">
                     <p className="text-text-muted text-xs sm:text-sm">Shows</p>
                     <p className="text-lg sm:text-xl font-bold text-text-primary">{outputs.showsPerMonth}</p>
                   </div>
-                  <div className="text-center p-2 sm:p-3 bg-elevated rounded-lg">
+                  <div className="text-center p-2 sm:p-3 bg-card rounded-lg">
                     <p className="text-text-muted text-xs sm:text-sm">Sales</p>
                     <p className="text-lg sm:text-xl font-bold text-text-primary">{outputs.salesPerMonth}</p>
                   </div>
@@ -222,7 +222,7 @@ export function Calculator() {
               </Card>
 
               {/* Path to Target */}
-              <Card variant="glass" padding="large" className="border-accent/30">
+              <Card variant="highlight" padding="large">
                 <div className="flex items-center gap-3 mb-4 sm:mb-6">
                   <DollarSign className="w-5 h-5 sm:w-6 sm:h-6 text-success" />
                   <h3 className="text-base sm:text-lg font-semibold text-text-primary">
