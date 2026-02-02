@@ -103,7 +103,7 @@ export function Hero() {
             {/* CTA Button */}
             <FadeInOnScroll delay={0.5}>
               <div className="flex justify-center">
-                <Button href="#calculator" size="large" variant="primary">
+                <Button href="#hero-metrics" size="large" variant="primary">
                   See the Full Plan
                   <ArrowRight className="w-5 h-5" />
                 </Button>
@@ -151,7 +151,7 @@ export function Hero() {
 // Metrics Section - Key verified numbers with custom graphics
 export function HeroMetrics() {
   return (
-    <section className="bg-elevated py-16 md:py-20">
+    <section id="hero-metrics" className="bg-elevated py-16 md:py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
         <FadeInOnScroll>
           <div className="text-center mb-12">
@@ -230,26 +230,23 @@ export function HeroMetrics() {
               <p className="relative text-xs text-text-subtle mt-2">Target: 70%+</p>
             </div>
 
-            {/* Failed Payments */}
+            {/* New Sales Revenue (90 days) */}
             <div className="relative p-6 bg-card rounded-xl border border-border-subtle overflow-hidden group hover:border-accent/30 transition-all duration-300">
               <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              {/* Failed Payment Icon */}
+              {/* New Sales Icon */}
               <div className="relative mb-4">
                 <svg viewBox="0 0 48 48" fill="none" className="w-12 h-12">
-                  <rect x="4" y="12" width="40" height="28" rx="4" className="stroke-accent/40" strokeWidth="2" fill="none"/>
-                  <rect x="4" y="18" width="40" height="6" className="fill-accent/30"/>
-                  <rect x="8" y="28" width="12" height="2" rx="1" className="fill-accent/60"/>
-                  <rect x="8" y="32" width="8" height="2" rx="1" className="fill-accent/40"/>
-                  <circle cx="38" cy="36" r="8" className="fill-base" stroke="#D4A574" strokeWidth="2"/>
-                  <path d="M35 33L41 39M41 33L35 39" stroke="#D4A574" strokeWidth="2" strokeLinecap="round"/>
-                  <path d="M28 30l4 4-4 4" className="stroke-accent" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <circle cx="24" cy="24" r="18" className="stroke-accent/40" strokeWidth="2" fill="none"/>
+                  <path d="M24 14v20M18 20l6-6 6 6" className="stroke-accent" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <circle cx="38" cy="10" r="6" className="fill-accent"/>
+                  <path d="M36 10h4M38 8v4" stroke="#0A1628" strokeWidth="1.5" strokeLinecap="round"/>
                 </svg>
               </div>
               <p className="relative text-3xl sm:text-4xl font-bold text-accent tracking-tight">
-                <CountUp end={25870} prefix="$" duration={1.5} />
+                <CountUp end={45999} prefix="$" duration={1.5} />
               </p>
-              <p className="relative text-sm text-text-muted uppercase tracking-wider mt-2">Failed Payments</p>
-              <p className="relative text-xs text-text-subtle mt-2">Recovery opportunity</p>
+              <p className="relative text-sm text-text-muted uppercase tracking-wider mt-2">New Sales Revenue</p>
+              <p className="relative text-xs text-text-subtle mt-2">First-time customer revenue (90 days)</p>
             </div>
           </div>
         </FadeInOnScroll>

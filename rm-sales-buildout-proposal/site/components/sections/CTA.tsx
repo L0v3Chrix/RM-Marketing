@@ -1,13 +1,159 @@
 "use client";
 
+import { useState } from "react";
 import { FadeInOnScroll } from "@/components/animations";
 import { Button } from "@/components/ui";
-import { ArrowRight, Calendar, Mail, Download } from "lucide-react";
+import { ArrowRight, Calendar, Mail, Download, Rocket, X, Sparkles } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+
+// Chrix's phone number for SMS
+const CHRIX_PHONE = "+15126010680";
+const SMS_BODY = encodeURIComponent("OMG Chrix thank you so much. Can't wait to get started. Let's meet ");
+
+function BlastOffModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+  const [countdown, setCountdown] = useState(3);
+  const [showBlastOff, setShowBlastOff] = useState(false);
+
+  const handleOpen = () => {
+    setCountdown(3);
+    setShowBlastOff(false);
+    
+    // Countdown animation
+    const interval = setInterval(() => {
+      setCountdown((prev) => {
+        if (prev <= 1) {
+          clearInterval(interval);
+          setShowBlastOff(true);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 800);
+  };
+
+  // Start countdown when modal opens
+  if (isOpen && countdown === 3 && !showBlastOff) {
+    setTimeout(handleOpen, 100);
+  }
+
+  const handleBlastOff = () => {
+    // Open SMS with pre-filled message
+    window.location.href = `sms:${CHRIX_PHONE}?body=${SMS_BODY}`;
+    onClose();
+  };
+
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          onClick={onClose}
+        >
+          {/* Backdrop */}
+          <div className="absolute inset-0 bg-base/90 backdrop-blur-md" />
+          
+          {/* Modal */}
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.9, opacity: 0, y: 20 }}
+            transition={{ type: "spring", duration: 0.5 }}
+            onClick={(e) => e.stopPropagation()}
+            className="relative bg-elevated rounded-2xl border border-accent/30 p-8 md:p-12 max-w-lg w-full text-center shadow-2xl shadow-accent/20"
+          >
+            {/* Close button */}
+            <button
+              onClick={onClose}
+              className="absolute top-4 right-4 p-2 text-text-muted hover:text-text-primary transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {/* Rocket icon */}
+            <motion.div
+              animate={showBlastOff ? { y: [-10, 10], rotate: [0, -5, 5, 0] } : {}}
+              transition={{ duration: 0.5, repeat: showBlastOff ? Infinity : 0 }}
+              className="w-20 h-20 rounded-full bg-gradient-to-br from-accent/20 to-accent/5 flex items-center justify-center mx-auto mb-8"
+            >
+              <Rocket className={`w-10 h-10 ${showBlastOff ? 'text-accent animate-pulse' : 'text-accent/60'}`} />
+            </motion.div>
+
+            {/* Content */}
+            {!showBlastOff ? (
+              <>
+                <h3 className="text-2xl md:text-3xl font-bold text-text-primary mb-4">
+                  You&apos;re About to Make the Best Decision You&apos;ve Ever Made
+                </h3>
+                <p className="text-text-secondary text-lg mb-8">
+                  The rocket ship is leaving the ground...
+                </p>
+                
+                {/* Countdown */}
+                <motion.div
+                  key={countdown}
+                  initial={{ scale: 1.5, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  className="text-7xl font-bold text-accent mb-4"
+                >
+                  {countdown}
+                </motion.div>
+              </>
+            ) : (
+              <>
+                <motion.div
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ type: "spring", bounce: 0.5 }}
+                >
+                  <div className="flex items-center justify-center gap-2 mb-4">
+                    <Sparkles className="w-6 h-6 text-accent" />
+                    <Sparkles className="w-4 h-4 text-accent/60" />
+                  </div>
+                  
+                  <h3 className="text-2xl md:text-3xl font-bold text-text-primary mb-4">
+                    Ready for Liftoff! 🚀
+                  </h3>
+                  <p className="text-text-secondary mb-8">
+                    Click below to text Chrix directly and lock in your call.
+                  </p>
+                  
+                  {/* BLAST OFF Button */}
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={handleBlastOff}
+                    className="w-full py-5 px-8 bg-gradient-to-r from-accent to-accent-hover text-text-dark font-bold text-xl rounded-xl shadow-lg shadow-accent/30 hover:shadow-xl hover:shadow-accent/40 transition-all flex items-center justify-center gap-3"
+                  >
+                    <Rocket className="w-6 h-6" />
+                    BLAST OFF
+                    <Rocket className="w-6 h-6 transform rotate-45" />
+                  </motion.button>
+                  
+                  <p className="text-text-muted text-xs mt-4">
+                    Opens your text messages with a pre-filled message
+                  </p>
+                </motion.div>
+              </>
+            )}
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
 
 export function CTA() {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <section id="cta" className="bg-base py-20 md:py-28">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
+        {/* Blast Off Modal */}
+        <BlastOffModal isOpen={showModal} onClose={() => setShowModal(false)} />
+
         {/* Main CTA */}
         <FadeInOnScroll>
           <div className="text-center mb-16">
@@ -20,16 +166,18 @@ export function CTA() {
               The question isn&apos;t whether you need this. The question is how long you&apos;re willing to wait.
             </p>
             
-            {/* Primary CTA */}
+            {/* Primary CTA - Opens Modal */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-              <Button 
-                href="https://calendly.com/chrix-rtv/ghl-mastery" 
-                size="large" 
-                variant="primary"
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setShowModal(true)}
+                className="inline-flex items-center gap-3 bg-accent text-text-dark px-8 py-4 rounded-xl font-semibold text-lg hover:bg-accent-hover transition-all shadow-lg shadow-accent/20"
               >
+                <Rocket className="w-5 h-5" />
                 Schedule a Call with Chrix
                 <Calendar className="w-5 h-5" />
-              </Button>
+              </motion.button>
             </div>
             
             <p className="text-text-muted text-sm">

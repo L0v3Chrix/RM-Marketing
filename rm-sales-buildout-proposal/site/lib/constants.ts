@@ -69,7 +69,7 @@ export const CURRENT_STATE = {
 
 // VERIFIED Funnel Metrics (90-day)
 export const FUNNEL_METRICS = {
-  adSpend: 1500, // $1,500 VERIFIED
+  adSpend: 500, // $500/month VERIFIED (corrected from $1,500/90 days)
   leads: 238, // VERIFIED
   appointments: 46, // VERIFIED
   shows: 22, // VERIFIED
@@ -337,8 +337,8 @@ export const DATA_SILOS = {
   advertising: {
     title: "Advertising Data",
     metrics: [
-      { label: "Ad Spend (90 days)", value: "$1,500" },
-      { label: "Leads Generated", value: "238" },
+      { label: "Monthly Ad Spend", value: "$500" },
+      { label: "Leads Generated (90 days)", value: "238" },
       { label: "Cost Per Lead", value: "$6.30" },
     ],
     note: "Extremely efficient CPL - industry avg is $50-85",
@@ -353,13 +353,13 @@ export const DATA_SILOS = {
     note: "Show rate is the biggest lever - target is 70%+",
   },
   financial: {
-    title: "Financial Data",
+    title: "Financial Data (90 Days)",
     metrics: [
       { label: "Total Revenue", value: "$109,927" },
-      { label: "Transactions", value: "214" },
-      { label: "Failed Payments", value: "$25,870" },
+      { label: "New Sales Revenue", value: "$45,999" },
+      { label: "Repeat Revenue", value: "$63,929" },
     ],
-    note: "Premium sales ($1K+) drove 46.5% of revenue",
+    note: "New sales = first-time customers, Repeat = existing MRR",
   },
 } as const;
 

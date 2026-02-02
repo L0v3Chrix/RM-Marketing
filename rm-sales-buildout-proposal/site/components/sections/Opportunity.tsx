@@ -30,8 +30,8 @@ export function Opportunity() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="p-6 bg-card rounded-xl border border-success/20 text-center">
                 <p className="text-4xl font-bold text-success mb-2">75%</p>
-                <p className="text-sm text-text-muted mb-3">Retention (6 months)</p>
-                <p className="text-xs text-text-subtle">VA services retention is exceptional</p>
+                <p className="text-sm text-text-muted mb-3">Retention (4 months)</p>
+                <p className="text-xs text-text-subtle">VIP coaching member retention</p>
               </div>
               <div className="p-6 bg-card rounded-xl border border-success/20 text-center">
                 <p className="text-4xl font-bold text-success mb-2">5.5x</p>
@@ -65,10 +65,10 @@ export function Opportunity() {
               <div className="p-6 bg-card rounded-xl border border-warning/20">
                 <h4 className="font-medium text-warning mb-4">Current State</h4>
                 <div className="font-mono text-sm text-text-muted space-y-1">
-                  <p>$6/lead × 40 leads/week = $240/week ad spend</p>
-                  <p>40 leads → 7 appointments → 2.5 show → 1.5 close</p>
-                  <p>1.5 closes × $500 avg = <span className="text-warning">$750/week revenue</span></p>
-                  <p className="mt-3 text-text-primary">ROAS: 3.1x (good, but throttled)</p>
+                  <p>$500/mo ad spend ÷ $6/lead = ~80 leads/mo</p>
+                  <p>80 leads → 15 appointments → 7 show → 2 close</p>
+                  <p>2 closes × $2,000 avg = <span className="text-warning">$4,000/mo new sales</span></p>
+                  <p className="mt-3 text-text-primary">ROAS: 8x (good, but throttled)</p>
                 </div>
               </div>
 
@@ -76,16 +76,16 @@ export function Opportunity() {
               <div className="p-6 bg-card rounded-xl border border-success/20">
                 <h4 className="font-medium text-success mb-4">With Fixed Funnel</h4>
                 <div className="font-mono text-sm text-text-muted space-y-1">
-                  <p>$6/lead × 40 leads/week = $240/week ad spend</p>
-                  <p>40 leads → 14 appointments → 10 show → 7 close</p>
-                  <p>7 closes × $500 avg = <span className="text-success">$3,500/week revenue</span></p>
-                  <p className="mt-3 text-text-primary">ROAS: 14.6x</p>
+                  <p>$500/mo ad spend ÷ $6/lead = ~80 leads/mo</p>
+                  <p>80 leads → 28 appointments → 20 show → 7 close</p>
+                  <p>7 closes × $2,000 avg = <span className="text-success">$14,000/mo new sales</span></p>
+                  <p className="mt-3 text-text-primary">ROAS: 28x</p>
                 </div>
               </div>
             </div>
 
             <p className="text-center mt-8 text-text-primary font-medium">
-              Same ad spend. Same leads. <span className="text-accent text-xl">4.7x the revenue.</span>
+              Same ad spend. Same leads. <span className="text-accent text-xl">3.5x the new sales revenue.</span>
             </p>
             <p className="text-center text-text-muted text-sm mt-2">
               The difference? A functioning sales system.
@@ -102,41 +102,41 @@ export function Opportunity() {
             </h3>
             <p className="text-5xl font-bold text-accent mb-6">10,000 contacts sitting idle.</p>
             
-            <h4 className="text-sm text-text-muted uppercase tracking-wider mb-4">The Conservative Math</h4>
+            <h4 className="text-sm text-text-muted uppercase tracking-wider mb-4">Conservative Database Reactivation (1-3% conversion)</h4>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-border-subtle">
                     <th className="text-left py-3 px-4 text-text-muted font-medium">Scenario</th>
-                    <th className="text-right py-3 px-4 text-text-muted font-medium">Conversion</th>
+                    <th className="text-right py-3 px-4 text-text-muted font-medium">Rate</th>
                     <th className="text-right py-3 px-4 text-text-muted font-medium">Customers</th>
-                    <th className="text-right py-3 px-4 text-text-muted font-medium">Revenue</th>
+                    <th className="text-right py-3 px-4 text-text-muted font-medium">New Sales Revenue</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="border-b border-border-subtle">
-                    <td className="py-3 px-4 text-text-secondary">0.5% to coaching</td>
-                    <td className="py-3 px-4 text-right text-text-muted">50</td>
-                    <td className="py-3 px-4 text-right text-text-muted">50 × $500</td>
-                    <td className="py-3 px-4 text-right text-success font-medium">$25,000 MRR</td>
+                    <td className="py-3 px-4 text-text-secondary">1% to coaching ($500/mo)</td>
+                    <td className="py-3 px-4 text-right text-text-muted">1%</td>
+                    <td className="py-3 px-4 text-right text-text-muted">100</td>
+                    <td className="py-3 px-4 text-right text-success font-medium">$50,000 MRR</td>
                   </tr>
                   <tr className="border-b border-border-subtle">
-                    <td className="py-3 px-4 text-text-secondary">1% to $197 course</td>
-                    <td className="py-3 px-4 text-right text-text-muted">100</td>
-                    <td className="py-3 px-4 text-right text-text-muted">100 × $197</td>
-                    <td className="py-3 px-4 text-right text-success font-medium">$19,700</td>
+                    <td className="py-3 px-4 text-text-secondary">2% to $197 course</td>
+                    <td className="py-3 px-4 text-right text-text-muted">2%</td>
+                    <td className="py-3 px-4 text-right text-text-muted">200</td>
+                    <td className="py-3 px-4 text-right text-success font-medium">$39,400</td>
                   </tr>
                   <tr>
-                    <td className="py-3 px-4 text-text-secondary">0.2% to $5K build</td>
-                    <td className="py-3 px-4 text-right text-text-muted">20</td>
-                    <td className="py-3 px-4 text-right text-text-muted">20 × $5,000</td>
-                    <td className="py-3 px-4 text-right text-success font-medium">$100,000</td>
+                    <td className="py-3 px-4 text-text-secondary">0.3% to $5K DFY build</td>
+                    <td className="py-3 px-4 text-right text-text-muted">0.3%</td>
+                    <td className="py-3 px-4 text-right text-text-muted">30</td>
+                    <td className="py-3 px-4 text-right text-success font-medium">$150,000</td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <p className="text-text-primary font-semibold mt-6 text-lg">
-              A single reactivation campaign could generate <span className="text-accent">$50,000-$150,000</span>.
+              Even at conservative 1-3% reactivation: <span className="text-accent">$50,000-$150,000</span> in new sales.
             </p>
             <p className="text-text-muted text-sm mt-2">With zero ad spend. From people who already know you.</p>
           </div>
@@ -203,57 +203,110 @@ export function Opportunity() {
           </div>
         </FadeInOnScroll>
 
-        {/* LTV Compounding */}
+        {/* The Compounding Effect - MRR Stacking */}
         <FadeInOnScroll delay={0.5}>
           <div className="mb-16 p-8 bg-elevated rounded-xl border border-success/30">
             <h3 className="text-xl font-semibold text-text-primary mb-6 flex items-center gap-3">
               <DollarSign className="w-6 h-6 text-success" />
-              The Compounding Effect (LTV Projection)
+              The Compounding Effect (True MRR Stacking)
             </h3>
             
             <p className="text-text-secondary mb-6">
-              Why $100K/Month is Actually Bigger Than It Looks
-            </p>
-            
-            <p className="text-text-secondary mb-4">
-              New revenue isn&apos;t one-time. It <span className="text-success font-medium">compounds</span>.
-            </p>
-            
-            <p className="text-text-secondary mb-6">
-              When you close a $500/mo coaching client, that&apos;s not $500. That&apos;s:
+              This is how recurring revenue <span className="text-success font-semibold">actually compounds</span> — 
+              each month&apos;s new sales become next month&apos;s baseline.
             </p>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-              <div className="text-center p-4 bg-base rounded-lg">
-                <p className="text-2xl font-bold text-text-primary">$1,500</p>
-                <p className="text-xs text-text-muted">3 months</p>
+            {/* Compounding Math Example */}
+            <div className="space-y-4 mb-8">
+              {/* Month 0: Starting Point */}
+              <div className="flex items-center gap-4 p-4 bg-base rounded-lg">
+                <div className="w-20 text-center">
+                  <p className="text-xs text-text-muted uppercase">Start</p>
+                  <p className="text-sm font-semibold text-text-secondary">Current</p>
+                </div>
+                <div className="flex-1 h-3 bg-card rounded-full overflow-hidden">
+                  <div className="h-full bg-text-muted/50 rounded-full" style={{ width: '25%' }} />
+                </div>
+                <div className="w-28 text-right">
+                  <p className="text-xl font-bold text-text-primary">$50K</p>
+                  <p className="text-xs text-text-muted">MMR</p>
+                </div>
               </div>
-              <div className="text-center p-4 bg-base rounded-lg">
-                <p className="text-2xl font-bold text-text-primary">$2,000</p>
-                <p className="text-xs text-text-muted">4 months</p>
+
+              {/* Month 1: +$20K new recurring */}
+              <div className="flex items-center gap-4 p-4 bg-base rounded-lg border border-success/20">
+                <div className="w-20 text-center">
+                  <p className="text-xs text-text-muted uppercase">Month 1</p>
+                  <p className="text-sm font-semibold text-success">+$20K</p>
+                </div>
+                <div className="flex-1 h-3 bg-card rounded-full overflow-hidden">
+                  <div className="h-full bg-gradient-to-r from-text-muted/50 to-success/70 rounded-full" style={{ width: '35%' }} />
+                </div>
+                <div className="w-28 text-right">
+                  <p className="text-xl font-bold text-success">$70K</p>
+                  <p className="text-xs text-text-muted">MMR</p>
+                </div>
               </div>
-              <div className="text-center p-4 bg-base rounded-lg">
-                <p className="text-2xl font-bold text-text-primary">$3,000</p>
-                <p className="text-xs text-text-muted">6 months</p>
+
+              {/* Month 2: +$50K new recurring */}
+              <div className="flex items-center gap-4 p-4 bg-base rounded-lg border border-success/30">
+                <div className="w-20 text-center">
+                  <p className="text-xs text-text-muted uppercase">Month 2</p>
+                  <p className="text-sm font-semibold text-success">+$50K</p>
+                </div>
+                <div className="flex-1 h-3 bg-card rounded-full overflow-hidden">
+                  <div className="h-full bg-gradient-to-r from-success/60 to-success rounded-full" style={{ width: '60%' }} />
+                </div>
+                <div className="w-28 text-right">
+                  <p className="text-xl font-bold text-success">$120K</p>
+                  <p className="text-xs text-text-muted">MMR</p>
+                </div>
               </div>
-              <div className="text-center p-4 bg-base rounded-lg border border-success/30">
-                <p className="text-2xl font-bold text-success">$6,000</p>
-                <p className="text-xs text-text-muted">12 months</p>
+
+              {/* Month 3: +$80K new recurring */}
+              <div className="flex items-center gap-4 p-4 bg-base rounded-lg border border-accent/40">
+                <div className="w-20 text-center">
+                  <p className="text-xs text-text-muted uppercase">Month 3</p>
+                  <p className="text-sm font-semibold text-accent">+$80K</p>
+                </div>
+                <div className="flex-1 h-3 bg-card rounded-full overflow-hidden">
+                  <div className="h-full bg-gradient-to-r from-success to-accent rounded-full" style={{ width: '100%' }} />
+                </div>
+                <div className="w-28 text-right">
+                  <p className="text-xl font-bold text-accent">$200K</p>
+                  <p className="text-xs text-text-muted">MMR</p>
+                </div>
               </div>
             </div>
 
-            <p className="text-text-secondary mb-4">
-              With 75% retention at 6 months, your average coaching client is worth 
-              <span className="text-success font-bold"> $3,000+</span> over their lifetime.
-            </p>
+            {/* Key Insight */}
+            <div className="p-6 bg-base rounded-lg border border-accent/20">
+              <p className="text-text-primary font-semibold mb-3">
+                The Math That Matters:
+              </p>
+              <ul className="space-y-2 text-text-secondary text-sm">
+                <li className="flex items-start gap-2">
+                  <span className="text-success">→</span>
+                  New sales become <span className="text-success font-medium">recurring revenue</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-success">→</span>
+                  Recurring compounds <span className="text-success font-medium">on top of recurring</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-success">→</span>
+                  75% retention at 4 months = clients worth <span className="text-success font-medium">$2,000+</span> LTV
+                </li>
+              </ul>
+            </div>
 
-            <div className="p-6 bg-base rounded-lg mt-6">
+            <div className="p-6 bg-success/10 rounded-lg mt-6 border border-success/30">
               <p className="text-accent font-bold text-xl text-center">
-                $100K/month in new sales = $1.2M+ annual revenue once the MRR stacks.
+                $100K/month in new recurring = $1.2M+ annual once it stacks.
               </p>
               <p className="text-text-muted text-sm text-center mt-2">
-                This is why the sales problem matters. Every month you wait, you&apos;re not losing $15K — 
-                you&apos;re losing <span className="text-text-primary font-medium">years</span> of compounding LTV.
+                Every month you wait, you&apos;re not losing $15K — 
+                you&apos;re losing <span className="text-text-primary font-medium">years</span> of compounding MRR.
               </p>
             </div>
           </div>

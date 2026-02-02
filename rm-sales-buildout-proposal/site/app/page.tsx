@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { OwnersQuiz } from "@/components/quiz";
 import { ChapterGate, ChapterProgress } from "@/components/ui";
 import {
@@ -19,6 +20,72 @@ import {
   FAQ,
   CTA,
 } from "@/components/sections";
+import { ChevronDown, CheckCircle2, TrendingUp } from "lucide-react";
+
+// Internal gate component for Chapter 1 to prevent scroll fatigue
+function Chapter1InternalGate() {
+  const [expanded, setExpanded] = useState(false);
+
+  if (expanded) {
+    return null; // Gate disappears after expanding
+  }
+
+  return (
+    <div className="chapter-gate py-12 md:py-16">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        {/* Checkpoint Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-6"
+        >
+          <CheckCircle2 className="w-4 h-4 text-accent" />
+          <span className="text-sm font-medium text-accent">
+            Checkpoint: You&apos;ve seen the data
+          </span>
+        </motion.div>
+
+        {/* Summary */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+        >
+          <h3 className="text-xl md:text-2xl font-bold text-text-primary mb-4">
+            The Current State is Clear
+          </h3>
+          <p className="text-text-muted text-base leading-relaxed mb-6 max-w-xl mx-auto">
+            $500/mo in ads → $45K in new sales revenue over 90 days.
+            <br />
+            <span className="text-text-secondary">Good foundation. But here&apos;s where it gets interesting...</span>
+          </p>
+        </motion.div>
+
+        {/* Continue Button */}
+        <motion.button
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          onClick={() => setExpanded(true)}
+          className="inline-flex items-center gap-2 px-6 py-3 bg-card border border-border-subtle rounded-lg text-text-primary font-medium hover:bg-card-hover hover:border-accent/30 transition-all"
+        >
+          <TrendingUp className="w-4 h-4 text-accent" />
+          See What&apos;s Missing
+          <ChevronDown className="w-4 h-4" />
+        </motion.button>
+
+        <p className="text-xs text-text-subtle mt-4">
+          The gap analysis reveals the real opportunity
+        </p>
+      </div>
+    </div>
+  );
+}
 
 // Chapter definitions matching the PRESENTATION-FRAMEWORK.md section order
 const CHAPTERS = [
@@ -102,6 +169,9 @@ export default function Home() {
             
             {/* The Situation - Three Data Silos */}
             <Situation />
+            
+            {/* INTERNAL GATE - Break up Chapter 1 to prevent scroll fatigue */}
+            <Chapter1InternalGate />
             
             {/* Gap Analysis - What's Missing */}
             <GapAnalysis />
