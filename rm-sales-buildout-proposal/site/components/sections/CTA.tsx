@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import { FadeInOnScroll } from "@/components/animations";
-import { Button } from "@/components/ui";
-import { ArrowRight, Calendar, Mail, Download, Rocket, X, Sparkles } from "lucide-react";
+import { Calendar, Rocket, X, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Chrix's phone number for SMS
@@ -229,39 +228,6 @@ export function CTA() {
             <p className="text-text-muted text-sm mt-3">
               Our reputation is built on honest advice, not closed deals.
             </p>
-          </div>
-        </FadeInOnScroll>
-
-        {/* Alternative CTAs */}
-        <FadeInOnScroll delay={0.3}>
-          <div className="grid md:grid-cols-2 gap-6 mb-16">
-            {/* Email Option */}
-            <div className="p-6 bg-card rounded-xl border border-border-subtle text-center">
-              <Mail className="w-8 h-8 text-accent mx-auto mb-3" />
-              <h4 className="font-semibold text-text-primary mb-2">Prefer Email?</h4>
-              <p className="text-text-muted text-sm mb-4">
-                Have questions before the call? Reach out directly.
-              </p>
-              <a 
-                href="mailto:chrix@raisethevibe.com" 
-                className="text-accent font-medium hover:text-accent-hover transition-colors"
-              >
-                chrix@raisethevibe.com
-              </a>
-            </div>
-
-            {/* PDF Download */}
-            <div className="p-6 bg-card rounded-xl border border-border-subtle text-center">
-              <Download className="w-8 h-8 text-accent mx-auto mb-3" />
-              <h4 className="font-semibold text-text-primary mb-2">Need More Time?</h4>
-              <p className="text-text-muted text-sm mb-4">
-                Download the proposal to review at your own pace.
-              </p>
-              <Button variant="secondary" size="small">
-                Download PDF
-                <Download className="w-4 h-4" />
-              </Button>
-            </div>
           </div>
         </FadeInOnScroll>
 
