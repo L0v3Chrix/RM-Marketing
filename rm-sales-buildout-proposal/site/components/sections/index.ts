@@ -1,10 +1,12 @@
 export { Hero, HeroMetrics } from "./Hero";
 export { WhyStory } from "./WhyStory";
 export { Situation } from "./Situation";
+export { GapAnalysis } from "./GapAnalysis";
 export { Opportunity } from "./Opportunity";
 export { Solution } from "./Solution";
 export { Process } from "./Process";
 export { Team } from "./Team";
+export { WhyNotCommission } from "./WhyNotCommission";
 export { Investment } from "./Investment";
 export { Calculator } from "./Calculator";
 export { FAQ } from "./FAQ";

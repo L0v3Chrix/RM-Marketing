@@ -55,7 +55,7 @@ You're not hiring a consultant who gives advice. You're engaging a team that sel
 
 ---
 
-## Sara
+## Sarah
 ### Sales Support
 
 **Photo:** [Professional headshot]
@@ -64,7 +64,7 @@ You're not hiring a consultant who gives advice. You're engaging a team that sel
 
 ### The Short Version
 
-Keeps the leads moving, the follow-ups happening, and the pipeline organized. While Chrix closes, Sara makes sure nothing falls through the cracks.
+Keeps the leads moving, the follow-ups happening, and the pipeline organized. While Chrix closes, Sarah makes sure nothing falls through the cracks.
 
 ### What She Brings
 
@@ -85,23 +85,51 @@ Keeps the leads moving, the follow-ups happening, and the pipeline organized. Wh
 
 ## Why This Team?
 
-### The Pressure Test Model
+### This Is How A Sales Department Works
 
-For the 30-day pressure test, you get a focused two-person team:
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│  THE TWO-PERSON ADVANTAGE                                           │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│  When Chrix is CLOSING...        Sarah is BOOKING.                   │
+│  When Sarah is BOOKING...         Chrix is CLOSING.                  │
+│                                                                     │
+│  No gaps. No missed leads. No "I was busy."                         │
+│                                                                     │
+│  This is what you've never had.                                     │
+│  This is why leads have been dying.                                 │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### Solo Sales Manager vs. Team
+
+| Solo Sales Manager | Chrix + Sarah Team |
+|--------------------|-------------------|
+| One person doing everything | Division of labor |
+| Closing OR prospecting | Closing AND prospecting |
+| Bottleneck when busy | Coverage when busy |
+| 6+ months to ramp | Producing in 30 days |
+| Learning your systems | Building your systems |
+
+### The Activity Split
 
 | Activity | Who |
 |----------|-----|
 | Sales Strategy | Chrix |
 | Closing Calls | Chrix |
-| Lead Follow-up | Sara |
-| Pipeline Management | Sara |
+| Database Reactivation | Sarah |
+| Lead Follow-up | Sarah |
+| Pipeline Management | Sarah |
 | Documentation | Both |
+| System Building | Both |
 
 ### Why Not a Bigger Team?
 
 **Phase 1 is about proving the model, not scaling it.**
 
-We validate that your funnel converts with dedicated attention. Once proven, Phase 2 brings the full buildout — hiring, training, systems, handoff.
+We validate that your funnel converts with dedicated attention. Once proven, Phase 2 brings the full buildout — hiring your team, training them, building systems, and handing it off.
 
 ### No Junior Staff
 

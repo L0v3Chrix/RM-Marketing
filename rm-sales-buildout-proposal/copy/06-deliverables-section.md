@@ -42,7 +42,7 @@ A comprehensive analysis of your current systems, funnels, and metrics. We docum
 ### 2. Show-Up System
 **Value:** $3,000-5,000
 
-Automated SMS and email sequences to get your appointments to actually show up. Target: 70%+ show rate (vs. your current 35%).
+Automated SMS and email sequences to get your appointments to actually show up. Target: 70%+ show rate (vs. your current 48%).
 
 **You Get:**
 - SMS confirmation sequence
@@ -85,13 +85,15 @@ A full campaign to wake up your 10,000 dormant contacts and convert them into cu
 ### 5. Dunning/Recovery System
 **Value:** $2,000-3,000
 
-Automated sequences to recover failed payments. Stop leaving $8,600/month on the table.
+Complete system and training for your team to recover failed payments. Stop leaving $25K+ on the table.
 
 **You Get:**
-- Failed payment notification sequence
-- Escalating reminder sequence
+- Failed payment notification sequences
+- Escalating reminder templates
 - Manual intervention triggers
-- Recovery tracking
+- Recovery tracking dashboard
+- **Jonah trained on execution**
+- Full SOP documentation
 
 ---
 
@@ -296,7 +298,7 @@ After handoff, we stick around to make sure everything runs smoothly.
 | Optimization & Support | $12,500-20,000 |
 | **TOTAL VALUE** | **$55,500-88,000** |
 
-**Your Investment (Main Engagement):** $44,000 ($8K Phase 1 + $36K Phase 2)
+**Your Investment (Main Engagement):** $40,000 - $55,000 ($10K Phase 1 + $30-45K Phase 2)
 
 ---
 

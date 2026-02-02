@@ -8,27 +8,29 @@ import {
   HeroMetrics,
   WhyStory,
   Situation,
+  GapAnalysis,
   Opportunity,
   Solution,
   Process,
   Team,
+  WhyNotCommission,
   Investment,
   Calculator,
   FAQ,
   CTA,
 } from "@/components/sections";
 
-// Chapter definitions
+// Chapter definitions - updated to match proposal flow
 const CHAPTERS = [
   {
     number: 1,
-    title: "Interactive Calculator",
-    shortTitle: "Calculator",
+    title: "The Numbers",
+    shortTitle: "Numbers",
   },
   {
     number: 2,
-    title: "Your Situation",
-    shortTitle: "Situation",
+    title: "The Opportunity",
+    shortTitle: "Opportunity",
   },
   {
     number: 3,
@@ -42,11 +44,11 @@ const CHAPTERS = [
   },
 ];
 
-// Chapter summaries for gates - reference what was learned
-const CHAPTER_SUMMARIES = {
-  1: "You've seen your funnel metrics and the gap between current and target revenue. Now let's dig into what's causing the drop-off.",
-  2: "Speed-to-lead, show rates, follow-up cadence—these are the levers. Let's see exactly how we'd fix them.",
-  3: "The team, the process, the systems are all mapped out. Now let's talk about the investment and timeline.",
+// Chapter summaries for gates
+const CHAPTER_SUMMARIES: Record<number, string> = {
+  1: "You've seen the verified data — $110K revenue, 47.8% show rate, $25K in failed payments. Now let's look at what's missing.",
+  2: "Speed-to-lead, show rates, database activation — these are the levers. Let's see exactly how we'd fix them.",
+  3: "The team, the process, the systems are mapped out. Now let's talk investment and timeline.",
 };
 
 export default function Home() {
@@ -78,11 +80,13 @@ export default function Home() {
           {/* Spacer for fixed header */}
           <div className="h-14" />
 
-          {/* Chapter 1: Interactive Calculator */}
+          {/* Chapter 1: The Numbers */}
           <div id="chapter-1">
             <Hero />
             <HeroMetrics />
             <WhyStory />
+            <Situation />
+            <GapAnalysis />
             <Calculator />
           </div>
 
@@ -97,10 +101,9 @@ export default function Home() {
             />
           )}
 
-          {/* Chapter 2: Your Situation */}
+          {/* Chapter 2: The Opportunity */}
           {currentChapter >= 2 && (
             <div id="chapter-2">
-              <Situation />
               <Opportunity />
             </div>
           )}
@@ -139,6 +142,7 @@ export default function Home() {
           {/* Chapter 4: The Investment */}
           {currentChapter >= 4 && (
             <div id="chapter-4">
+              <WhyNotCommission />
               <Investment />
               <FAQ />
               <CTA />

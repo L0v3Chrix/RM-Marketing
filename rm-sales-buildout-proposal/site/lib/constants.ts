@@ -1,13 +1,15 @@
 // GHL Mastery Sales Buildout Proposal - Constants & Data
-// All metrics from documentation and data analysis
+// VERIFIED DATA from data/VERIFIED-DATA-SUMMARY.md
+// Last Updated: February 1, 2026
 
 export const COMPANY = {
   name: "GHL Mastery",
   owner: "Adam McInnes",
+  partner: "Brendan Barth",
   website: "joinghlmastery.com",
 } as const;
 
-// Hero Section Metrics (90-day data)
+// Hero Section Metrics (90-day VERIFIED data)
 export const HERO_METRICS = [
   {
     value: 19.3,
@@ -44,55 +46,65 @@ export const HERO_METRICS = [
     label: "Shows in 90 Days",
     comparison: {
       value: "46 booked",
-      label: "59% show rate",
+      label: "47.8% show rate",
     },
     color: "gold" as const,
   },
 ] as const;
 
-// Current State Metrics
+// VERIFIED Current State Metrics (90-day period)
 export const CURRENT_STATE = {
-  monthlyRevenue: 36000,
-  targetRevenue: 100000,
-  revenueGap: 64000,
-  annualOpportunityCost: 780000,
+  totalRevenue: 109927, // $109,927.38 VERIFIED
+  totalTransactions: 214, // VERIFIED
+  uniqueCustomers: 120, // VERIFIED
+  firstTimeRevenue: 45999, // $45,998.88 VERIFIED
+  repeatRevenue: 63929, // $63,928.50 VERIFIED
+  failedPayments: 25870, // $25,870.38 VERIFIED
+  refunds: 5508, // $5,508.00 VERIFIED
+  netRevenue: 104419, // $104,419.38 VERIFIED
+  activeMRR: 3382, // $3,382 VERIFIED from Stripe subscriptions
   dormantContacts: 10000,
-  failedPayments90Days: 25870,
-  showRate: 59,
-  targetShowRate: 70,
+  targetRevenue: 100000,
 } as const;
 
-// Funnel Metrics (90-day)
+// VERIFIED Funnel Metrics (90-day)
 export const FUNNEL_METRICS = {
-  leads: 238,
-  appointments: 46,
-  shows: 22,
-  bookingRate: 19.3,
-  showRate: 59,
-  cancelRate: 19.6,
+  adSpend: 1500, // $1,500 VERIFIED
+  leads: 238, // VERIFIED
+  appointments: 46, // VERIFIED
+  shows: 22, // VERIFIED
+  bookingRate: 19.3, // 46/238 = 19.3%
+  showRate: 47.8, // 22/46 = 47.8% VERIFIED
+  estimatedCloseRate: 30,
+  cpl: 6.30, // $6.30 VERIFIED
+  cac: 227, // $227 VERIFIED
 } as const;
 
-// Revenue Breakdown (90-day)
-export const REVENUE_BREAKDOWN = {
-  vip5k: { label: "VIP ($5K+)", amount: 20500, count: 4 },
-  highTicket: { label: "High-Ticket ($497-$997)", amount: 16484, count: 25 },
-  midTicket: { label: "Mid-Ticket ($297)", amount: 2535, count: 8 },
-  course: { label: "AOF Course ($197)", amount: 3555, count: 17 },
-  total: { label: "Total", amount: 43074, count: 54 },
+// VERIFIED Revenue Breakdown by Tier
+export const REVENUE_BY_TIER = {
+  tripwire: { label: "Tripwire ($7-$50)", transactions: 54, revenue: 777, percent: 0.7 },
+  lowTicket: { label: "Low Ticket ($51-$250)", transactions: 62, revenue: 10727, percent: 9.8 },
+  midTicket: { label: "Mid Ticket ($251-$600)", transactions: 47, revenue: 19721, percent: 17.9 },
+  highTicket: { label: "High Ticket ($601-$1000)", transactions: 39, revenue: 27567, percent: 25.1 },
+  premium: { label: "Premium ($1000+)", transactions: 12, revenue: 51136, percent: 46.5 },
+  total: { label: "Total", transactions: 214, revenue: 109927, percent: 100 },
 } as const;
 
-// Calculator Default Values - Based on GRANULAR-METRICS-SPEC.md
-// Default ad spend: $1,500/mo (current spend)
-// At $1,500/mo ads alone: ~15 appointments/month
-// With database + ads: 88 appointments/month (22/week)
+// VERIFIED Commissionable Revenue
+export const COMMISSIONABLE = {
+  transactions: 92,
+  totalRevenue: 47487, // $47,486.50
+  firstTimeRevenue: 17128, // $17,128.00
+} as const;
+
+// Calculator Default Values - VERIFIED baseline
 export const CALCULATOR_DEFAULTS = {
   adSpend: 1500,
   costPerLead: 6.3,
-  // Granular funnel rates
-  callAnswerRate: 30, // 30% of leads answer
-  callToBookingRate: 40, // 40% of answered calls book
-  bookingRate: 19.5, // Combined for display (30% × 65% ≈ 19.5%)
-  showRate: 59,
+  callAnswerRate: 30,
+  callToBookingRate: 40,
+  bookingRate: 19.3,
+  showRate: 47.8, // VERIFIED (was 59%, corrected)
   closeRate: 30,
   upsellRate: 20,
   avgSaleValue: 2000,
@@ -102,21 +114,21 @@ export const CALCULATOR_DEFAULTS = {
   targetRevenue: 100000,
 } as const;
 
-// Calculator Presets - Including granular metrics
+// Calculator Presets
 export const CALCULATOR_PRESETS = [
   {
-    name: "Ads Only ($1.5K)",
+    name: "Current State",
     values: {
       adSpend: 1500,
       callAnswerRate: 30,
       callToBookingRate: 40,
-      showRate: 59,
+      showRate: 47.8,
       closeRate: 30,
       avgSaleValue: 2000,
     },
   },
   {
-    name: "Pressure Test",
+    name: "Pressure Test (70% Shows)",
     values: {
       adSpend: 1500,
       callAnswerRate: 35,
@@ -137,117 +149,103 @@ export const CALCULATOR_PRESETS = [
       avgSaleValue: 3000,
     },
   },
-  {
-    name: "Full Scale",
-    values: {
-      adSpend: 6000,
-      callAnswerRate: 45,
-      callToBookingRate: 55,
-      showRate: 80,
-      closeRate: 40,
-      avgSaleValue: 3500,
-    },
-  },
 ] as const;
 
-// Investment Structure
+// INVESTMENT STRUCTURE - OPTION B (FINAL)
 export const INVESTMENT = {
   phase1: {
-    name: "The Pressure Test",
-    duration: "60 days",
-    total: 16000,
-    upfront: 4000,
-    day30: 4000,
-    day60: 8000,
-    workHours: 320, // 2 people × 40 hrs × 4 weeks
-    adSpend: 1500,
-    appointmentsPerWeek: 22, // 10-12 database + 5-7 warm + 5-7 ads
+    name: "Phase 1: The Proof",
+    duration: "60 Days",
+    deposit: 5000, // $5,000 deposit
+    milestone: 5000, // $5,000 at 20 qualified appointments
+    total: 10000, // $10,000 Phase 1 total
+    guarantee: "If by Day 30, we haven't generated at least 20 qualified appointments from your existing database, you can walk away with just the $5K deposit invested.",
   },
   phase2: {
-    name: "The Buildout",
-    duration: "90 days",
-    total: 36000,
-    monthly: 12000,
+    name: "Phase 2: The Build",
+    duration: "90 Days",
+    monthlyBase: 10000, // $10,000 base per month
+    performancePercent: 15, // 15% of revenue over baseline
+    performanceBaseline: 35000, // $35K baseline
+    performanceCap: 15000, // $15K/month cap
     months: 3,
-  },
-  ongoing: {
-    name: "Ongoing Support",
-    duration: "As needed",
-    range: "TBD",
+    baseTotal: 30000, // $10K x 3 months
+    maxTotal: 75000, // $10K + $15K x 3 months (theoretical max)
   },
   total: {
-    main: 52000,
-    yearEstimate: "52000-55000",
-    roi: "3-6x",
+    minimum: 40000, // $10K Phase 1 + $30K Phase 2 base
+    maximum: 55000, // With performance bonuses
+    range: "$40,000 - $55,000",
   },
+  keyPoints: [
+    "No equity ask",
+    "No perpetual revenue share", 
+    "No ongoing licensing fees",
+    "Client owns everything at end of engagement",
+  ],
 } as const;
 
-// Timeline Phases
+// TIMELINE - OPTION B
 export const TIMELINE_PHASES = [
   {
     phase: 1,
-    name: "The Pressure Test",
-    duration: "Days 1-60",
-    investment: "$16,000",
-    investmentDetails: "$4K upfront + $4K @ 30 days (320 hrs) + $8K @ 60 days",
-    highlights: [
-      "2 people working 40 hrs/week for 4 weeks",
-      "Database reactivation (10-12 appts/week)",
-      "Warm lead follow-up (5-7 appts/week)",
-      "New ad leads (5-7 appts/week)",
-      "Target: 22 appointments/week",
+    name: "Phase 1: The Proof",
+    duration: "60 Days",
+    investment: "$10,000",
+    structure: [
+      { trigger: "Agreement signed", amount: "$5,000 deposit" },
+      { trigger: "20 qualified appointments delivered", amount: "$5,000 milestone" },
     ],
+    highlights: [
+      "Adam off phones DAY ONE",
+      "Database reactivation begins immediately",
+      "Speed-to-lead optimization",
+      "Show rate improvements",
+      "Pipeline handed over completely",
+    ],
+    guarantee: "20 qualified appointments by Day 30 or walk away",
   },
   {
     phase: 2,
-    name: "Buildout Sprint",
-    duration: "Days 61-150",
-    investment: "$36,000",
-    highlights: [
-      "Hire setters + closers",
-      "Full training program",
-      "Systems + automation",
-      "SOPs + documentation",
+    name: "Phase 2: The Build",
+    duration: "90 Days (Days 61-150)",
+    investment: "$30,000 - $45,000",
+    structure: [
+      { trigger: "Day 61", amount: "$10,000 + performance" },
+      { trigger: "Day 91", amount: "$10,000 + performance" },
+      { trigger: "Day 121", amount: "$10,000 + performance" },
     ],
-  },
-  {
-    phase: 3,
-    name: "Ongoing Support",
-    duration: "As needed",
-    investment: "TBD",
     highlights: [
-      "Monthly strategy calls",
-      "Team coaching",
-      "Optimization",
-      "Adam on content only",
+      "Hire and train sales team",
+      "Full systems buildout",
+      "Dunning system (train Jonah)",
+      "SOPs & documentation",
+      "Manager structure installed",
     ],
+    performance: "15% of revenue over $35K baseline, capped at $15K/month",
   },
 ] as const;
 
-// FAQ Questions - Reduced to 4 essential
+// FAQ Questions
 export const FAQ_ITEMS = [
   {
-    question: "What if the Pressure Test doesn't produce results?",
-    answer:
-      "The 30-day payment is tied to work delivered (320 hours), not revenue promises. After the full 60 days, if momentum isn't building, you're out $8K — not $52K. We have data on what worked and what didn't, and you can pivot or pause.",
+    question: "What if we don't hit 20 appointments by Day 30?",
+    answer: "That's our guarantee. If we haven't generated at least 20 qualified appointments from your existing database by Day 30, you can walk away with just the $5K deposit invested. You keep everything we built.",
     category: "Risk",
   },
   {
     question: "How much of Adam's time does this take?",
-    answer:
-      "2-3 hours per week. One 30-minute call plus occasional Slack questions. The whole point is to free him up.",
+    answer: "2-3 hours per week max. One 30-minute strategy call plus occasional Slack questions. The whole point is to get Adam off the phones DAY ONE and back to content creation.",
     category: "Time",
   },
   {
-    question: "What happens after Day 90?",
-    answer:
-      "You'll have a functioning team, complete systems, and documented processes. Ongoing support is optional — the team should run independently.",
-    category: "After",
+    question: "Who handles the dunning/failed payments?",
+    answer: "We create the SOP and train Jonah (your CS person) on the dunning process. We don't chase payments ourselves - we build the system so your team can.",
+    category: "Process",
   },
   {
     question: "Who owns what you build?",
-    answer:
-      "You do. 100%. Scripts, systems, documentation — all yours. We build independence, not dependency.",
+    answer: "You do. 100%. Scripts, systems, SOPs, documentation — all yours. No equity, no perpetual revenue share, no licensing fees. We build independence, not dependency.",
     category: "Ownership",
   },
 ] as const;
@@ -256,27 +254,38 @@ export const FAQ_ITEMS = [
 export const TEAM_MEMBERS = [
   {
     name: "Chrix",
-    role: "Lead Strategist & Sales",
-    bio: "20 years sales experience. Hands-on operator, not just advisor. Building sales teams and systems that scale.",
+    role: "Lead Strategist & Closer",
+    bio: "20 years sales experience. Hands-on operator who closes deals while building systems. When Chrix is CLOSING, Sarah is BOOKING.",
     highlights: [
+      "High-ticket closing",
       "Team building & training",
       "Funnel optimization",
-      "Metrics-driven management",
       "CRM & automation expert",
     ],
   },
   {
     name: "Sarah",
-    role: "Pipeline & Operations",
-    bio: "Pipeline management expert. Keeps leads moving, appointments scheduled, and nothing falling through the cracks.",
+    role: "Pipeline & Booking Specialist",
+    bio: "Pipeline management expert. Keeps leads moving, appointments scheduled, and nothing falling through the cracks. When Sarah is BOOKING, Chrix is CLOSING.",
     highlights: [
-      "Lead management",
+      "Speed-to-lead response",
       "Appointment scheduling",
+      "Lead nurturing",
       "CRM administration",
-      "Customer communication",
     ],
   },
 ] as const;
+
+// Two-Person Advantage messaging
+export const TWO_PERSON_ADVANTAGE = {
+  headline: "No Gaps. No Missed Leads. No 'I Was Busy.'",
+  points: [
+    "When Chrix is CLOSING... Sarah is BOOKING.",
+    "When Sarah is BOOKING... Chrix is CLOSING.",
+    "Leads get called in minutes, not hours.",
+    "Appointments get confirmed, not forgotten.",
+  ],
+} as const;
 
 // Solution Pillars
 export const SOLUTION_PILLARS = [
@@ -286,8 +295,8 @@ export const SOLUTION_PILLARS = [
     icon: "Target",
     items: [
       "Work existing leads Day 1",
-      "Launch database reactivation",
-      "Handle inbound appointments",
+      "Adam off phones immediately",
+      "Database reactivation ($50K+ potential)",
       "Close deals while building",
     ],
   },
@@ -296,10 +305,10 @@ export const SOLUTION_PILLARS = [
     subtitle: "Systems & Process",
     icon: "Wrench",
     items: [
-      "Hiring system for team",
-      "Sales scripts & training",
+      "Speed-to-lead optimization",
+      "Show rate improvement (48% → 70%)",
+      "Failed payment recovery ($25K opportunity)",
       "CRM workflows & automation",
-      "Show rate optimization",
     ],
   },
   {
@@ -307,10 +316,47 @@ export const SOLUTION_PILLARS = [
     subtitle: "Permanent Team",
     icon: "UsersRound",
     items: [
-      "Trained sales team (2-4)",
+      "Trained sales team (2-4 people)",
       "Manager structure",
-      "Performance dashboards",
       "SOPs & documentation",
+      "Train Jonah on dunning",
     ],
   },
 ] as const;
+
+// Data Silos - Present separately per spec
+export const DATA_SILOS = {
+  advertising: {
+    title: "Advertising Data",
+    metrics: [
+      { label: "Ad Spend (90 days)", value: "$1,500" },
+      { label: "Leads Generated", value: "238" },
+      { label: "Cost Per Lead", value: "$6.30" },
+    ],
+    note: "Extremely efficient CPL - industry avg is $50-85",
+  },
+  appointments: {
+    title: "Appointment Data",
+    metrics: [
+      { label: "Booked", value: "46" },
+      { label: "Showed", value: "22" },
+      { label: "Show Rate", value: "47.8%" },
+    ],
+    note: "Show rate is the biggest lever - target is 70%+",
+  },
+  financial: {
+    title: "Financial Data",
+    metrics: [
+      { label: "Total Revenue", value: "$109,927" },
+      { label: "Transactions", value: "214" },
+      { label: "Failed Payments", value: "$25,870" },
+    ],
+    note: "Premium sales ($1K+) drove 46.5% of revenue",
+  },
+} as const;
+
+// LTV Compounding messaging
+export const LTV_MESSAGING = {
+  example: "$500/mo coaching × 4 months = $2,000 LTV",
+  compounding: "MRR compounds: $100K/month in new sales = $1.2M+ annually",
+} as const;

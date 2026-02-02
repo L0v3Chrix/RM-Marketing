@@ -103,7 +103,7 @@ That said, if you have existing candidates or systems in better shape than expec
 
 ### Who actually does the work?
 
-Chrix and Sara. Directly.
+Chrix and Sarah. Directly.
 
 No junior staff, no offshore teams, no subcontractors. When you hire us, you get us.
 

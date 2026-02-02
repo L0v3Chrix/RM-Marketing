@@ -52,7 +52,7 @@ You teach people how to build systems in GoHighLevel. Your clients pay you becau
 - **Ad Spend (Client Cost):** $2,000 minimum recommended
 
 What we do:
-- Chrix + Sara working leads full-time
+- Chrix + Sarah working leads full-time
 - Database reactivation campaign
 - No-show recovery, failed payment dunning
 - Document everything as we go
@@ -139,7 +139,7 @@ The site should look like a Stripe dashboard meets a consulting pitch deck:
 - Raise the Vibe
 - chrix@raisethevibe.com
 
-### Sara
+### Sarah
 - Sales support and pipeline management
 - Lead follow-up and scheduling
 - Documentation and reporting

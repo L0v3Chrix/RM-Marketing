@@ -68,7 +68,7 @@ ROAS: 3.1x (good, but throttled)
 
 ```
 $6/lead × 40 leads/week = $240/week in ad spend
-40 leads → 14 appointments (35% vs 17%) → 10 show (70% vs 35%) → 7 close (70%)
+40 leads → 14 appointments (35% vs 19%) → 10 show (70% vs 48%) → 7 close (70%)
 7 closes × $500 average = $3,500/week revenue
 
 ROAS: 14.6x
@@ -136,6 +136,59 @@ You don't need new products. You don't need to rebrand.
 
 ---
 
+## Strategic Recommendations
+
+### 1. YouTube Optimization
+
+Adam's content is gold. But it's not optimized for conversion.
+
+**Quick wins:**
+- Add clear CTAs to every video ("Book a strategy call" with link in description)
+- Create a "Start Here" playlist for new viewers
+- Add end screens directing to opt-in pages
+- Pin comments with offers on top-performing videos
+- Reply to comments with links to relevant resources
+
+**Bigger play:**
+- Dedicated YouTube funnel landing pages
+- Retargeting sequences for viewers
+- YouTube → Email → Nurture → Call pipeline
+
+### 2. "Make GHL Not Suck" Campaign
+
+This is rage bait that prints money.
+
+**The angle:**
+> "GoHighLevel promised to change your business. Instead, it's destroying it. Here's how to actually make it work."
+
+**Why it works:**
+- Massive frustrated audience (hundreds of thousands)
+- Pattern interrupt (everyone else says "GHL is amazing!")
+- Instant qualification (only pissed-off people respond)
+- You're the solution they're already searching for
+
+**Campaign elements:**
+- YouTube series: "Why GHL Sucks (And How to Fix It)"
+- Facebook ads with contrarian hooks
+- Email sequence for the frustrated GHL user
+- Podcast guesting on this topic
+
+### 3. Office Hours → Upsell Ladder
+
+Pack office hours with coaching clients. Use it as the ascension point.
+
+**The ladder:**
+- Content → Free resources
+- Free resources → $197 course
+- $197 course → Group coaching ($500/mo)
+- Group coaching → 1:1 coaching
+- 1:1 coaching → VA services ($900/mo)
+- VA services → DFY builds ($3K-$30K)
+
+This already exists. Just needs to be worked systematically.
+
+---
+
 ## The Revenue Projection
 
 ### Where You Are
@@ -155,6 +208,43 @@ You don't need new products. You don't need to rebrand.
 | New Customer Revenue | $40,000+ |
 | MRR | $30,000+ |
 | Team | Setter + Closer + Founders |
+
+---
+
+## The Compounding Effect (LTV Projection)
+
+### Why $100K/Month is Actually Bigger Than It Looks
+
+New revenue isn't one-time. It **compounds**.
+
+When you close a $500/mo coaching client, that's not $500. That's:
+
+| Retention | Total LTV |
+|-----------|-----------|
+| 3 months | $1,500 |
+| 4 months | $2,000 |
+| 6 months | $3,000 |
+| 12 months | $6,000 |
+
+With 75% retention at 6 months, your average coaching client is worth **$3,000+** over their lifetime.
+
+### The Real Math at Scale
+
+If you're adding 30 coaching clients/month at $500:
+
+| Month | New MRR Added | Cumulative MRR | Annual Value |
+|-------|---------------|----------------|--------------|
+| 1 | $15,000 | $15,000 | $180,000 |
+| 2 | $15,000 | $28,500* | $342,000 |
+| 3 | $15,000 | $41,100* | $493,200 |
+| 6 | $15,000 | $73,000* | $876,000 |
+| 12 | $15,000 | $120,000* | $1,440,000 |
+
+*Accounting for 5% monthly churn
+
+**$100K/month in new sales = $1.2M+ annual revenue once the MRR stacks.**
+
+This is why the sales problem matters. Every month you wait, you're not losing $15K — you're losing **years** of compounding LTV.
 
 ### The Path
 

@@ -34,64 +34,106 @@ export function OwnersQuiz({ onComplete }: OwnersQuizProps) {
   // Show intro screen first
   if (showIntro) {
     return (
-      <div className="min-h-screen bg-base flex flex-col items-center justify-center px-4 py-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="max-w-lg mx-auto text-center"
-        >
-          {/* Icon */}
-          <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6">
-            <BarChart3 className="w-8 h-8 text-accent" />
-          </div>
-
-          {/* Headline */}
-          <h1 className="text-2xl sm:text-3xl font-bold text-text-primary mb-4">
-            See Exactly Where Your Revenue Leaks
-          </h1>
-
-          {/* Description */}
-          <p className="text-text-secondary text-lg mb-3 leading-relaxed">
-            This interactive tool analyzes your real numbers to show you the gap between where you are and where you could be.
+      <div className="min-h-screen bg-cream flex flex-col">
+        {/* Simple Header */}
+        <header className="px-6 py-4">
+          <p className="text-sm text-text-muted">
+            <span className="font-medium text-text-primary">GHL Mastery</span> · Sales Proposal
           </p>
-          <p className="text-text-muted text-sm mb-8">
-            Takes about 3 minutes. You&apos;ll learn a few surprising stats along the way.
-          </p>
+        </header>
 
-          {/* What you'll get */}
-          <div className="bg-elevated rounded-xl p-5 mb-8 text-left border border-border-subtle">
-            <p className="text-sm font-medium text-text-primary mb-3">What you&apos;ll discover:</p>
-            <ul className="space-y-2 text-sm text-text-secondary">
-              <li className="flex items-start gap-2">
-                <span className="text-accent">→</span>
-                Your current revenue per show and cost per lead
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-accent">→</span>
-                The exact levers that move the needle
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-accent">→</span>
-                What it takes to hit your revenue target
-              </li>
-            </ul>
-          </div>
-
-          {/* CTA */}
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={() => setShowIntro(false)}
-            className="inline-flex items-center gap-2 bg-accent text-base px-6 sm:px-8 py-4 min-h-[56px] rounded-lg font-semibold text-base sm:text-lg hover:bg-accent-hover transition-colors"
+        {/* Main Content - Unified Frame */}
+        <main className="flex-1 flex items-center justify-center px-4 sm:px-6 py-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="w-full max-w-4xl"
           >
-            Let&apos;s See My Numbers
-            <ArrowRight className="w-5 h-5" />
-          </motion.button>
+            {/* Unified Content Frame - Image + Text as ONE unit */}
+            <div className="bg-base rounded-2xl shadow-card overflow-hidden">
+              <div className="flex flex-col md:flex-row">
+                {/* Illustration Side */}
+                <div className="md:w-2/5 bg-gradient-to-br from-cta/10 via-cta/5 to-transparent p-8 md:p-10 flex items-center justify-center">
+                  <div className="relative">
+                    {/* Abstract chart illustration */}
+                    <div className="w-32 h-32 md:w-40 md:h-40 relative">
+                      <div className="absolute inset-0 flex items-end justify-center gap-2">
+                        <div className="w-6 bg-cta/30 rounded-t-sm animate-pulse" style={{ height: '40%' }} />
+                        <div className="w-6 bg-cta/50 rounded-t-sm animate-pulse" style={{ height: '60%', animationDelay: '0.1s' }} />
+                        <div className="w-6 bg-cta/70 rounded-t-sm animate-pulse" style={{ height: '80%', animationDelay: '0.2s' }} />
+                        <div className="w-6 bg-cta rounded-t-sm animate-pulse" style={{ height: '100%', animationDelay: '0.3s' }} />
+                      </div>
+                      {/* Trend line */}
+                      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" fill="none">
+                        <path 
+                          d="M10 70 Q 30 65, 50 50 T 90 20" 
+                          stroke="currentColor" 
+                          strokeWidth="2" 
+                          strokeLinecap="round"
+                          className="text-cta"
+                          strokeDasharray="4 4"
+                        />
+                        <circle cx="90" cy="20" r="4" className="fill-cta" />
+                      </svg>
+                    </div>
+                    <p className="text-center text-xs text-cta font-medium mt-4 tracking-wide uppercase">Revenue Analysis</p>
+                  </div>
+                </div>
 
-          <p className="text-xs text-text-muted mt-4">
-            Prepared for Adam & Brendan | GHL Mastery
-          </p>
-        </motion.div>
+                {/* Content Side */}
+                <div className="md:w-3/5 p-8 md:p-10 flex flex-col justify-center">
+                  <h1 className="text-cta text-sm font-semibold uppercase tracking-wider mb-3">
+                    Interactive Calculator
+                  </h1>
+                  
+                  <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-4 leading-tight">
+                    See Exactly Where Your Revenue Leaks
+                  </h2>
+
+                  <p className="text-text-secondary leading-relaxed mb-6">
+                    This tool analyzes your real numbers to show the gap between where you are and where you could be. Takes about 3 minutes.
+                  </p>
+
+                  <ul className="space-y-3 mb-8">
+                    <li className="flex items-start gap-3 text-sm text-text-secondary">
+                      <span className="w-5 h-5 rounded-full bg-cta/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-cta" />
+                      </span>
+                      Your current revenue per show and cost per lead
+                    </li>
+                    <li className="flex items-start gap-3 text-sm text-text-secondary">
+                      <span className="w-5 h-5 rounded-full bg-cta/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-cta" />
+                      </span>
+                      The exact levers that move the needle
+                    </li>
+                    <li className="flex items-start gap-3 text-sm text-text-secondary">
+                      <span className="w-5 h-5 rounded-full bg-cta/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-cta" />
+                      </span>
+                      What it takes to hit your revenue target
+                    </li>
+                  </ul>
+
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => setShowIntro(false)}
+                    className="inline-flex items-center justify-center gap-2 bg-cta text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-cta-hover transition-colors w-full sm:w-auto"
+                  >
+                    Let&apos;s See My Numbers
+                    <ArrowRight className="w-5 h-5" />
+                  </motion.button>
+                </div>
+              </div>
+            </div>
+
+            {/* Footer note - outside the frame */}
+            <p className="text-center text-xs text-text-muted mt-6">
+              Prepared for Adam & Brendan
+            </p>
+          </motion.div>
+        </main>
       </div>
     );
   }

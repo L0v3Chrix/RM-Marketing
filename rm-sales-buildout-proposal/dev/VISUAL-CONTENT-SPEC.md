@@ -134,7 +134,7 @@ Days 1-30                  Days 31-90                 Days 91-120
 ─────────●─────────────────●─────────────────────────●─────────
 
 $8K                        $52K                       Complete
-Chrix + Sara selling       Team hired + trained       Independent operation
+Chrix + Sarah selling       Team hired + trained       Independent operation
 Database reactivation      Systems installed          Adam on content only
 Quota: $36K closed         Automation live            $100K/month target
 ```
@@ -150,7 +150,7 @@ Quota: $36K closed         Automation live            $100K/month target
 | Person | Role | Key Point |
 |--------|------|-----------|
 | Chrix | Lead | 20 years sales, hands-on operator |
-| Sara | Sales Support | Working alongside Chrix, pipeline management |
+| Sarah | Sales Support | Working alongside Chrix, pipeline management |
 
 **Photo treatment:** Dark background cutouts, consistent lighting, professional but approachable.
 
@@ -365,7 +365,7 @@ Currently recovering: $0
 ### Need from Client
 
 - [ ] Chrix headshot (professional, dark bg)
-- [ ] Sara headshot
+- [ ] Sarah headshot
 - [ ] Any existing GHL Mastery assets we can reference
 
 ---

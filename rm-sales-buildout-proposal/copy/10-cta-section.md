@@ -28,7 +28,7 @@ The question is how long you're willing to wait.
 ### Supporting Text
 *30 minutes. No pressure. Let's see if this is the right fit.*
 
-**Phase 1 Quota:** $36K in 30 days
+**Phase 1 KPI:** 20 qualified appointments in 30 days
 
 ---
 
@@ -119,7 +119,7 @@ Our reputation is built on honest advice, not closed deals.
 Raise the Vibe
 chrix@raisethevibe.com
 
-**Sara**
+**Sarah**
 Raise the Vibe
 
 ### Prepared For
@@ -129,7 +129,7 @@ GHL Mastery / RM Marketing
 
 ### Date
 
-January 2026
+February 2026
 
 ---
 

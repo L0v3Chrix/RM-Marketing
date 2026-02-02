@@ -84,7 +84,7 @@ Use properly benchmarked comparisons:
 
 ## Trust Indicators
 
-- "Prepared by Chrix & Sara"
+- "Prepared by Chrix & Sarah"
 - "For Adam McInnes & Brendan | GHL Mastery"
 - "February 2026"
 - "This proposal is valued at $500"

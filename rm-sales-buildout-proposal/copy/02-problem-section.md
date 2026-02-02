@@ -78,13 +78,13 @@ When Adam gets busy (which is always), leads go cold. Not because they're bad le
 
 ### Show Rate: Optimization Opportunity
 
-**35%** current show rate (6 of 17 showed).
+**48%** current show rate (22 of 46 showed over 90 days).
 
 Industry benchmark with proper sequences: 60-70%.
 
 This isn't a crisis — it's a known optimization. SMS confirmations, pre-call videos, reminder sequences. Proven playbook. Just needs implementation.
 
-**Fixing this alone could double effective appointments.**
+**Improving to 70% show rate = 45% more effective appointments.**
 
 ---
 

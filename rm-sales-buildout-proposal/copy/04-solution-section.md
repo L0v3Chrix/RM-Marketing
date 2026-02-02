@@ -40,7 +40,7 @@ Everything that happens automatically:
 
 - **Show-up sequences** — SMS and email to get 70%+ attendance
 - **Lead nurture** — Automated follow-up that converts cold leads
-- **Dunning recovery** — Chasing failed payments so you don't have to
+- **Dunning recovery** — SOP and training for your team to recover failed payments
 - **Attribution tracking** — Knowing which leads become customers
 - **KPI dashboards** — Real-time visibility into everything
 
