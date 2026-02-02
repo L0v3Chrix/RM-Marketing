@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui";
 import { FadeInOnScroll, CountUp } from "@/components/animations";
-import { ArrowRight, Volume2, VolumeX, Play } from "lucide-react";
+import { ArrowRight, Volume2, VolumeX } from "lucide-react";
 
 // YouTube Video ID for Adam's video
 const VIDEO_ID = "Nzsu71lZjUU";
@@ -11,41 +11,60 @@ const VIDEO_ID = "Nzsu71lZjUU";
 export function Hero() {
   const [isMuted, setIsMuted] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [showVideo, setShowVideo] = useState(false);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoaded(true), 500);
     return () => clearTimeout(timer);
   }, []);
 
+  const toggleMute = () => {
+    setIsMuted(!isMuted);
+    // Send message to YouTube iframe to toggle mute
+    if (iframeRef.current?.contentWindow) {
+      iframeRef.current.contentWindow.postMessage(
+        JSON.stringify({ 
+          event: 'command', 
+          func: isMuted ? 'unMute' : 'mute'
+        }), 
+        '*'
+      );
+    }
+  };
+
   return (
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden bg-base">
-      {/* Video Background */}
+      {/* Video Background - Always autoplaying */}
       <div className="absolute inset-0 z-0">
-        {showVideo ? (
-          <div className="absolute inset-0 w-full h-full overflow-hidden">
-            <iframe
-              src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&mute=${isMuted ? 1 : 0}&loop=1&playlist=${VIDEO_ID}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1`}
-              title="Background Video"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 min-w-[177.77vh] min-h-[56.25vw] w-auto h-auto pointer-events-none"
-              style={{
-                width: "177.77vh",
-                height: "100vh",
-              }}
-            />
-          </div>
-        ) : (
+        {/* YouTube Video as Background */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden">
+          <iframe
+            ref={iframeRef}
+            src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&mute=1&loop=1&playlist=${VIDEO_ID}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&disablekb=1&iv_load_policy=3`}
+            title="Background Video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+            style={{
+              width: "177.77vh",
+              height: "100vh",
+              minWidth: "100%",
+              minHeight: "56.25vw",
+            }}
+          />
+        </div>
+        
+        {/* Fallback thumbnail while loading */}
+        {!isLoaded && (
           <div 
-            className="absolute inset-0 bg-cover bg-center"
+            className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000"
             style={{ 
               backgroundImage: `url(https://img.youtube.com/vi/${VIDEO_ID}/maxresdefault.jpg)` 
             }}
           />
         )}
         
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-base/70 via-base/80 to-base" />
+        {/* Dark Overlay - Critical for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-base/80 via-base/85 to-base" />
       </div>
 
       {/* Content Overlay */}
@@ -81,23 +100,13 @@ export function Hero() {
               </p>
             </FadeInOnScroll>
 
-            {/* CTA Buttons */}
+            {/* CTA Button */}
             <FadeInOnScroll delay={0.5}>
-              <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <div className="flex justify-center">
                 <Button href="#calculator" size="large" variant="primary">
                   See the Full Plan
                   <ArrowRight className="w-5 h-5" />
                 </Button>
-                {!showVideo && (
-                  <Button 
-                    onClick={() => setShowVideo(true)} 
-                    size="large" 
-                    variant="secondary"
-                  >
-                    <Play className="w-5 h-5" />
-                    Watch Adam&apos;s Video
-                  </Button>
-                )}
               </div>
             </FadeInOnScroll>
 
@@ -115,16 +124,14 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Mute/Unmute Control */}
-      {showVideo && (
-        <button
-          onClick={() => setIsMuted(!isMuted)}
-          className="absolute bottom-8 right-8 z-20 p-3 rounded-full bg-card/80 backdrop-blur-sm border border-border text-text-primary hover:bg-card-hover transition-all duration-200"
-          aria-label={isMuted ? "Unmute video" : "Mute video"}
-        >
-          {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
-        </button>
-      )}
+      {/* Mute/Unmute Control - Always visible */}
+      <button
+        onClick={toggleMute}
+        className="absolute bottom-8 right-8 z-20 p-3 rounded-full bg-card/80 backdrop-blur-sm border border-border text-text-primary hover:bg-card-hover transition-all duration-200"
+        aria-label={isMuted ? "Unmute video" : "Mute video"}
+      >
+        {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+      </button>
 
       {/* Scroll Indicator */}
       <FadeInOnScroll delay={0.8}>
@@ -141,7 +148,7 @@ export function Hero() {
   );
 }
 
-// Metrics Section - Key verified numbers
+// Metrics Section - Key verified numbers with custom graphics
 export function HeroMetrics() {
   return (
     <section className="bg-elevated py-16 md:py-20">
@@ -153,43 +160,96 @@ export function HeroMetrics() {
           </div>
         </FadeInOnScroll>
 
-        {/* Key Metrics Grid */}
+        {/* Key Metrics Grid with Custom SVG Graphics */}
         <FadeInOnScroll delay={0.2}>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Total Revenue */}
-            <div className="text-center p-6 bg-card rounded-xl border border-border-subtle">
-              <p className="text-3xl sm:text-4xl font-bold text-success tracking-tight">
+            <div className="relative p-6 bg-card rounded-xl border border-border-subtle overflow-hidden group hover:border-success/30 transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-br from-success/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              {/* Revenue Icon */}
+              <div className="relative mb-4">
+                <svg viewBox="0 0 48 48" fill="none" className="w-12 h-12">
+                  <rect x="4" y="24" width="8" height="20" rx="2" className="fill-success/30" />
+                  <rect x="16" y="16" width="8" height="28" rx="2" className="fill-success/50" />
+                  <rect x="28" y="8" width="8" height="36" rx="2" className="fill-success/70" />
+                  <rect x="40" y="4" width="4" height="40" rx="2" className="fill-success" />
+                  <circle cx="36" cy="8" r="6" className="fill-accent" stroke="#D4A574" strokeWidth="2"/>
+                  <path d="M34 8h4M36 6v4" stroke="#0A1628" strokeWidth="1.5" strokeLinecap="round"/>
+                </svg>
+              </div>
+              <p className="relative text-3xl sm:text-4xl font-bold text-success tracking-tight">
                 <CountUp end={109927} prefix="$" duration={1.5} />
               </p>
-              <p className="text-xs sm:text-sm text-text-muted uppercase tracking-wider mt-2">Total Revenue</p>
-              <p className="text-xs text-text-subtle mt-2">90-day period</p>
+              <p className="relative text-sm text-text-muted uppercase tracking-wider mt-2">Total Revenue</p>
+              <p className="relative text-xs text-text-subtle mt-2">90-day period</p>
             </div>
 
             {/* Cost Per Lead */}
-            <div className="text-center p-6 bg-card rounded-xl border border-border-subtle">
-              <p className="text-3xl sm:text-4xl font-bold text-success tracking-tight">
+            <div className="relative p-6 bg-card rounded-xl border border-border-subtle overflow-hidden group hover:border-success/30 transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-br from-success/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              {/* Lead Cost Icon */}
+              <div className="relative mb-4">
+                <svg viewBox="0 0 48 48" fill="none" className="w-12 h-12">
+                  <circle cx="24" cy="24" r="18" className="stroke-success/30" strokeWidth="3" fill="none"/>
+                  <circle cx="24" cy="24" r="12" className="stroke-success/60" strokeWidth="3" fill="none"/>
+                  <circle cx="24" cy="24" r="6" className="fill-success"/>
+                  <path d="M24 4L24 8M24 40L24 44M4 24H8M40 24H44" className="stroke-accent" strokeWidth="2" strokeLinecap="round"/>
+                  <circle cx="38" cy="10" r="5" className="fill-accent"/>
+                  <path d="M37 10h2M38 9v2" stroke="#0A1628" strokeWidth="1.5" strokeLinecap="round"/>
+                </svg>
+              </div>
+              <p className="relative text-3xl sm:text-4xl font-bold text-success tracking-tight">
                 <CountUp end={6.30} decimals={2} prefix="$" duration={1.5} />
               </p>
-              <p className="text-xs sm:text-sm text-text-muted uppercase tracking-wider mt-2">Cost/Lead</p>
-              <p className="text-xs text-text-subtle mt-2">Industry: $50-85</p>
+              <p className="relative text-sm text-text-muted uppercase tracking-wider mt-2">Cost/Lead</p>
+              <p className="relative text-xs text-text-subtle mt-2">Industry: $50-85</p>
             </div>
 
             {/* Show Rate */}
-            <div className="text-center p-6 bg-card rounded-xl border border-border-subtle">
-              <p className="text-3xl sm:text-4xl font-bold text-warning tracking-tight">
+            <div className="relative p-6 bg-card rounded-xl border border-border-subtle overflow-hidden group hover:border-warning/30 transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-br from-warning/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              {/* Show Rate Icon */}
+              <div className="relative mb-4">
+                <svg viewBox="0 0 48 48" fill="none" className="w-12 h-12">
+                  <rect x="6" y="8" width="36" height="32" rx="4" className="stroke-warning/40" strokeWidth="2" fill="none"/>
+                  <path d="M6 16H42" className="stroke-warning/60" strokeWidth="2"/>
+                  <circle cx="14" cy="12" r="2" className="fill-error"/>
+                  <circle cx="22" cy="12" r="2" className="fill-warning"/>
+                  <circle cx="30" cy="12" r="2" className="fill-success"/>
+                  <rect x="12" y="22" width="8" height="8" rx="2" className="fill-success/60"/>
+                  <rect x="12" y="32" width="8" height="4" rx="1" className="fill-success"/>
+                  <rect x="24" y="22" width="8" height="14" rx="2" className="stroke-warning" strokeWidth="2" strokeDasharray="3 2" fill="none"/>
+                  <circle cx="40" cy="8" r="6" className="fill-warning"/>
+                  <text x="40" y="11" textAnchor="middle" fill="#0A1628" fontSize="8" fontWeight="bold">!</text>
+                </svg>
+              </div>
+              <p className="relative text-3xl sm:text-4xl font-bold text-warning tracking-tight">
                 <CountUp end={47.8} decimals={1} suffix="%" duration={1.5} />
               </p>
-              <p className="text-xs sm:text-sm text-text-muted uppercase tracking-wider mt-2">Show Rate</p>
-              <p className="text-xs text-text-subtle mt-2">Target: 70%+</p>
+              <p className="relative text-sm text-text-muted uppercase tracking-wider mt-2">Show Rate</p>
+              <p className="relative text-xs text-text-subtle mt-2">Target: 70%+</p>
             </div>
 
             {/* Failed Payments */}
-            <div className="text-center p-6 bg-card rounded-xl border border-border-subtle">
-              <p className="text-3xl sm:text-4xl font-bold text-accent tracking-tight">
+            <div className="relative p-6 bg-card rounded-xl border border-border-subtle overflow-hidden group hover:border-accent/30 transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              {/* Failed Payment Icon */}
+              <div className="relative mb-4">
+                <svg viewBox="0 0 48 48" fill="none" className="w-12 h-12">
+                  <rect x="4" y="12" width="40" height="28" rx="4" className="stroke-accent/40" strokeWidth="2" fill="none"/>
+                  <rect x="4" y="18" width="40" height="6" className="fill-accent/30"/>
+                  <rect x="8" y="28" width="12" height="2" rx="1" className="fill-accent/60"/>
+                  <rect x="8" y="32" width="8" height="2" rx="1" className="fill-accent/40"/>
+                  <circle cx="38" cy="36" r="8" className="fill-base" stroke="#D4A574" strokeWidth="2"/>
+                  <path d="M35 33L41 39M41 33L35 39" stroke="#D4A574" strokeWidth="2" strokeLinecap="round"/>
+                  <path d="M28 30l4 4-4 4" className="stroke-accent" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+              <p className="relative text-3xl sm:text-4xl font-bold text-accent tracking-tight">
                 <CountUp end={25870} prefix="$" duration={1.5} />
               </p>
-              <p className="text-xs sm:text-sm text-text-muted uppercase tracking-wider mt-2">Failed Payments</p>
-              <p className="text-xs text-text-subtle mt-2">Recovery opportunity</p>
+              <p className="relative text-sm text-text-muted uppercase tracking-wider mt-2">Failed Payments</p>
+              <p className="relative text-xs text-text-subtle mt-2">Recovery opportunity</p>
             </div>
           </div>
         </FadeInOnScroll>
@@ -197,7 +257,7 @@ export function HeroMetrics() {
         {/* Key Insight */}
         <FadeInOnScroll delay={0.4}>
           <div className="text-center mt-12 max-w-2xl mx-auto">
-            <p className="text-text-secondary">
+            <p className="text-text-secondary text-lg">
               Your marketing is dialed. Your offer converts. The only thing missing? 
               <span className="text-accent font-medium"> A sales team that can handle the volume.</span>
             </p>

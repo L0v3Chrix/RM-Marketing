@@ -151,19 +151,19 @@ export const CALCULATOR_PRESETS = [
   },
 ] as const;
 
-// INVESTMENT STRUCTURE - OPTION B (FINAL)
+// INVESTMENT STRUCTURE - CORRECT PRICING (Feb 2026)
 export const INVESTMENT = {
   phase1: {
     name: "Phase 1: The Proof",
-    duration: "60 Days",
-    deposit: 5000, // $5,000 deposit
-    milestone: 5000, // $5,000 at 20 qualified appointments
+    duration: "30 Days",
+    deposit: 5000, // $5,000 deposit at agreement signed
+    milestone: 5000, // $5,000 at Day 30 - 20 validated appointments + KPI metrics
     total: 10000, // $10,000 Phase 1 total
-    guarantee: "If by Day 30, we haven't generated at least 20 qualified appointments from your existing database, you can walk away with just the $5K deposit invested.",
+    guarantee: "If by Day 30, we haven't generated at least 20 validated appointments + hit KPI metrics, you can walk away with just the $5K deposit invested.",
   },
   phase2: {
     name: "Phase 2: The Build",
-    duration: "90 Days",
+    duration: "90 Days (Day 60-120)",
     monthlyBase: 10000, // $10,000 base per month
     performancePercent: 15, // 15% of revenue over baseline
     performanceBaseline: 35000, // $35K baseline
@@ -172,6 +172,14 @@ export const INVESTMENT = {
     baseTotal: 30000, // $10K x 3 months
     maxTotal: 75000, // $10K + $15K x 3 months (theoretical max)
   },
+  // CORRECT Payment Schedule
+  paymentSchedule: [
+    { payment: "Deposit", amount: 5000, trigger: "Agreement signed" },
+    { payment: "Milestone 1", amount: 5000, trigger: "Day 30 - 20 validated appointments + KPI metrics" },
+    { payment: "Month 2", amount: 10000, trigger: "Day 60" },
+    { payment: "Month 3", amount: 10000, trigger: "Day 90 (+ performance)" },
+    { payment: "Month 4", amount: 10000, trigger: "Day 120 (+ performance)" },
+  ],
   total: {
     minimum: 40000, // $10K Phase 1 + $30K Phase 2 base
     maximum: 55000, // With performance bonuses
