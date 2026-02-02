@@ -28,24 +28,23 @@ export function CountUp({
   className,
   onComplete,
 }: CountUpProps) {
-  // Start with end value for SSR, then animate from start on client
+  // ALWAYS show end value until animation starts
+  // This prevents the "flash of zeros" on page load
   const [count, setCount] = useState(end);
-  const [isMounted, setIsMounted] = useState(false);
+  const [hasStartedAnimation, setHasStartedAnimation] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
   const hasAnimated = useRef(false);
 
-  // Track client mount
   useEffect(() => {
-    setIsMounted(true);
-    // Reset to start value on mount to prepare for animation
-    setCount(start);
-  }, [start]);
-
-  useEffect(() => {
-    if (!isMounted || !isInView || hasAnimated.current) return;
+    // Only start animation when in view AND hasn't animated yet
+    if (!isInView || hasAnimated.current) return;
     hasAnimated.current = true;
-
+    setHasStartedAnimation(true);
+    
+    // Reset to start and begin animation
+    setCount(start);
+    
     const startTime = performance.now();
     const durationMs = duration * 1000;
 
@@ -66,7 +65,7 @@ export function CountUp({
     };
 
     requestAnimationFrame(animate);
-  }, [isMounted, isInView, start, end, duration, onComplete]);
+  }, [isInView, start, end, duration, onComplete]);
 
   const formattedValue = count.toLocaleString("en-US", {
     minimumFractionDigits: decimals,
