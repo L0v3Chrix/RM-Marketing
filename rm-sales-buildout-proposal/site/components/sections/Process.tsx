@@ -44,13 +44,27 @@ export function Process() {
                 </div>
               </div>
 
+              {/* Evaluation Period */}
+              <div className="flex-1 text-center">
+                <div className="w-16 h-16 mx-auto rounded-full bg-accent/10 border-2 border-accent/50 border-dashed flex items-center justify-center mb-3">
+                  <span className="text-accent/70 font-bold text-sm">→</span>
+                </div>
+                <p className="font-semibold text-text-secondary text-base">Evaluation Period</p>
+                <p className="text-sm text-text-muted">Days 31-59</p>
+                <p className="text-sm text-text-subtle">Review results, plan Phase 2</p>
+              </div>
+
+              <div className="flex flex-col items-center px-4">
+                <ArrowRight className="w-8 h-8 text-text-muted" />
+              </div>
+
               {/* Phase 2 */}
               <div className="flex-1 text-center">
                 <div className="w-16 h-16 mx-auto rounded-full bg-success/10 border-2 border-success flex items-center justify-center mb-3">
                   <span className="text-success font-bold text-lg">2</span>
                 </div>
                 <p className="font-semibold text-text-primary text-lg">Phase 2: The Build</p>
-                <p className="text-base text-text-muted">90 Days (Day 60-120)</p>
+                <p className="text-base text-text-muted">90 Days (Day 60-150)</p>
                 <p className="text-base text-success font-medium">$30K - $45K</p>
               </div>
 
@@ -87,7 +101,8 @@ export function Process() {
             <div className="grid md:grid-cols-2 gap-8">
               {/* Starting Team */}
               <div>
-                <h4 className="font-medium text-text-primary text-lg mb-4">Starting Configuration</h4>
+                <h4 className="font-medium text-text-primary text-lg mb-2">Phase 2 Starting Configuration</h4>
+                <p className="text-text-muted text-sm mb-4">(Phase 1 is Chrix + Sarah only — proving the model first)</p>
                 <div className="space-y-4">
                   <div className="p-4 bg-base rounded-lg border border-border-subtle">
                     <div className="flex items-center gap-3 mb-2">

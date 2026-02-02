@@ -266,8 +266,8 @@ export function CTA() {
             </div>
 
             <div className="mt-8 text-center text-text-subtle text-xs">
-              <p className="mb-2">Prepared by <span className="text-text-muted">Chrix & Sarah</span> | Raize The Vibe</p>
-              <p>For <span className="text-text-muted">Adam McInnes & Brendan</span> | GHL Mastery</p>
+              <p className="mb-2">Prepared by <span className="text-text-muted">Chrix & Sarah</span> | Raise The Vibe</p>
+              <p>For <span className="text-text-muted">Adam McInnes & Brendan Barth</span> | GHL Mastery</p>
               <p className="mt-2">February 2026</p>
             </div>
           </div>

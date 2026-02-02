@@ -258,6 +258,17 @@ export function Calculator() {
                     </span>
                     <span className="font-semibold text-accent text-sm">{outputs.closersNeeded}</span>
                   </div>
+                  
+                  {/* Context note for closers */}
+                  {outputs.closersNeeded > 3 && (
+                    <div className="mt-3 p-3 bg-accent/10 rounded-lg border border-accent/20">
+                      <p className="text-text-muted text-xs leading-relaxed">
+                        <span className="text-accent font-medium">Note:</span> This is raw math based on ad leads alone. 
+                        With database activation + improved show rates, <span className="text-text-primary font-medium">2-3 closers</span> can 
+                        often achieve similar results. See the Database Multiplier below.
+                      </p>
+                    </div>
+                  )}
                 </div>
 
                 <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-success/20 rounded-lg border border-success/30 text-center">

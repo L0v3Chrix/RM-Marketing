@@ -77,7 +77,7 @@ export function Situation() {
 
               {/* Your Unit Economics Work */}
               <div className="p-6 bg-card rounded-xl border border-border-subtle">
-                <p className="text-4xl font-bold text-success mb-2">5.6x</p>
+                <p className="text-4xl font-bold text-success mb-2">5.5x</p>
                 <p className="text-sm text-text-muted uppercase tracking-wider mb-4">LTV:CAC Ratio</p>
                 <p className="text-text-secondary text-sm">
                   You spend ~$360 to acquire a customer worth $2,000+. A healthy business needs 3x. 
@@ -186,7 +186,7 @@ export function Situation() {
                 <thead>
                   <tr className="border-b border-border-subtle">
                     <th className="text-left py-3 px-4 text-text-muted font-medium">Month</th>
-                    <th className="text-right py-3 px-4 text-text-muted font-medium">New Customer Revenue</th>
+                    <th className="text-right py-3 px-4 text-text-muted font-medium">New Sales Revenue</th>
                   </tr>
                 </thead>
                 <tbody>
