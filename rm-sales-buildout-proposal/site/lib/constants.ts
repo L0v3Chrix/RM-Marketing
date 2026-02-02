@@ -99,7 +99,7 @@ export const COMMISSIONABLE = {
 
 // Calculator Default Values - VERIFIED baseline
 export const CALCULATOR_DEFAULTS = {
-  adSpend: 1500,
+  adSpend: 500,
   costPerLead: 6.3,
   callAnswerRate: 30,
   callToBookingRate: 40,
@@ -119,7 +119,7 @@ export const CALCULATOR_PRESETS = [
   {
     name: "Current State",
     values: {
-      adSpend: 1500,
+      adSpend: 500,
       callAnswerRate: 30,
       callToBookingRate: 40,
       showRate: 47.8,

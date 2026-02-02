@@ -30,8 +30,8 @@ export function Opportunity() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="p-6 bg-card rounded-xl border border-success/20 text-center">
                 <p className="text-4xl font-bold text-success mb-2">75%</p>
-                <p className="text-sm text-text-muted mb-3">Retention (4 months)</p>
-                <p className="text-xs text-text-subtle">VIP coaching member retention</p>
+                <p className="text-sm text-text-muted mb-3">Monthly Retention</p>
+                <p className="text-xs text-text-subtle">~4 month avg customer lifetime</p>
               </div>
               <div className="p-6 bg-card rounded-xl border border-success/20 text-center">
                 <p className="text-4xl font-bold text-success mb-2">5.5x</p>
@@ -295,7 +295,7 @@ export function Opportunity() {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-success">→</span>
-                  75% retention at 4 months = clients worth <span className="text-success font-medium">$2,000+</span> LTV
+                  75% monthly retention = ~4 month avg lifetime = <span className="text-success font-medium">$2,000+</span> LTV
                 </li>
               </ul>
             </div>

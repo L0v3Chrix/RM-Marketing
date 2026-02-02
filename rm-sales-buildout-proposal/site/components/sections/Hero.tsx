@@ -100,13 +100,12 @@ export function Hero() {
               </p>
             </FadeInOnScroll>
 
-            {/* CTA Button */}
+            {/* Scroll prompt - subtle indicator */}
             <FadeInOnScroll delay={0.5}>
               <div className="flex justify-center">
-                <Button href="#hero-metrics" size="large" variant="primary">
-                  See the Full Plan
-                  <ArrowRight className="w-5 h-5" />
-                </Button>
+                <p className="text-text-muted text-sm">
+                  ↓ Scroll to see your numbers
+                </p>
               </div>
             </FadeInOnScroll>
 
